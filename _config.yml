@@ -5,7 +5,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "en-US"
 title                    : "Timo Bohnstedt"
 title_separator          : "-"
-subtitle                 : "Passionate about Climbing and Data Science."
+subtitle                 : ""
 name                     : ""
 description              : ""
 url                      : "http://127.0.0.1:4000/"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Timo Bohnstedt"
+  #name             : "**Data Science** and **Climbing**."
   avatar           : "/assets/images/bio-photo.jpeg"
   bio              : "**Data Science** and **Climbing**."
   location         : "Erlangen"
@@ -131,6 +131,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
