@@ -1,8 +1,14 @@
 # main links
 main:
-    - title: "About"
-      url: /about/
-    - title: "Blog"
-      url: /collection-archive/
-    - title: "Photography"
-      url: /sitemap/
+  - title: "About"
+    url: /about/
+  - title: "Resume"
+    url: /resume/
+  - title: "Blog"
+    url: /blog/
+#  - title: "Photography"
+#    url: /photography/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/

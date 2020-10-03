@@ -20,17 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4225308-a8d3-4d7f-a347-0b71619e4806" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_pages/about.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/navigation.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_pages/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/photography.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_pages/year-archive.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_pages/year-archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_posts/2017-11-28-post-exclude-search.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_posts/2017-11-28-post-exclude-search.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/_posts/2017-11-28-post-exclude-search.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/_posts/2017-11-28-post-exclude-search.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,8 +56,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/_pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +69,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/_pages" />
+      <recent name="$PROJECT_DIR$/_pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_pages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,12 +86,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601640959501</updated>
-      <workItem from="1601640961059" duration="7137000" />
+      <workItem from="1601640961059" duration="16122000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -82,6 +108,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="-2186" y="375" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601728030572">
+      <screen x="-2560" y="-143" width="2560" height="1417" />
+    </state>
+    <state x="-2186" y="375" key="#com.intellij.fileTypes.FileTypeChooser/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601728030572" />
+    <state x="-2560" y="-143" key="FileDocumentManager.FileCacheConflict" timestamp="1601727482513">
+      <screen x="-2560" y="-143" width="2560" height="1417" />
+    </state>
+    <state x="-2560" y="-143" key="FileDocumentManager.FileCacheConflict/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601727482513" />
     <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601641332745">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
