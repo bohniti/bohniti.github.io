@@ -9,8 +9,7 @@ header:
     - label: "Blog"
       url: /blog/  
 excerpt: "Self-learning data science and machine learning through research & development. Writing about the entire process on my Website"
-feature_row:
-  
+feature_row:  
   - image_path: /assets/images/good.jpg
     title: "Resume"
     alt: "placeholder image 1"
@@ -27,8 +26,8 @@ feature_row:
     btn_label: "Read More"
     btn_class: "btn--primary"
 ---
-
-<div style="text-align: center;">{% include feature_row %}</div> 
+ 
+{% include feature_row id=feature_row2 %} 
 
 
 

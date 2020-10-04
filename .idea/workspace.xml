@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4225308-a8d3-4d7f-a347-0b71619e4806" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_pages/blog.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/navigation.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_pages/year-archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_pages/year-archive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_posts/2009-05-15-edge-case-nested-and-mixed-lists.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2009-05-15-edge-case-nested-and-mixed-lists.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +59,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -84,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601640959501</updated>
-      <workItem from="1601640961059" duration="19715000" />
+      <workItem from="1601640961059" duration="23604000" />
     </task>
     <servers />
   </component>
@@ -106,6 +102,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="360" y="233" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601753409128">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="360" y="233" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1601753409128" />
     <state x="-2186" y="375" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601728030572">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
@@ -114,6 +114,10 @@
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
     <state x="-2560" y="-143" key="FileDocumentManager.FileCacheConflict/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601727482513" />
+    <state x="397" y="210" key="SettingsEditor" timestamp="1601753233581">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="397" y="210" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1601753233581" />
     <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601738342009">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
