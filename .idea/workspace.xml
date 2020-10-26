@@ -21,6 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d4225308-a8d3-4d7f-a347-0b71619e4806" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_projects/001.jigsaw_puzzeling.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/001.jigsaw_puzzeling.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/creative.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/creative.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,8 @@
       <option name="presentableId" value="Default" />
       <updated>1601640959501</updated>
       <workItem from="1601640961059" duration="24119000" />
-      <workItem from="1603440052155" duration="15647000" />
+      <workItem from="1603440052155" duration="16178000" />
+      <workItem from="1603723416425" duration="5157000" />
     </task>
     <servers />
   </component>
@@ -110,6 +115,10 @@
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
     <state x="-2186" y="375" key="#com.intellij.fileTypes.FileTypeChooser/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601728030572" />
+    <state x="-1542" y="319" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603727018669">
+      <screen x="-2560" y="-143" width="2560" height="1417" />
+    </state>
+    <state x="-1542" y="319" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1603727018669" />
     <state x="-1492" y="327" key="FileChooserDialogImpl" timestamp="1603452808143">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
@@ -126,9 +135,13 @@
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
     <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601738342009" />
-    <state x="-1074" y="221" width="935" height="735" key="find.popup" timestamp="1603462562193">
+    <state x="-1074" y="221" width="935" height="735" key="find.popup" timestamp="1603730867017">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
-    <state x="-1074" y="221" width="935" height="735" key="find.popup/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1603462562193" />
+    <state x="-1074" y="221" width="935" height="735" key="find.popup/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1603730867017" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1603729849958">
+      <screen x="-2560" y="-143" width="2560" height="1417" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1603729849958" />
   </component>
 </project>

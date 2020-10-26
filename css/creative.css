@@ -16,7 +16,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #5b7c9d;
+    border-color: #120D31;
     border-width: 3px;
 }
 
@@ -52,11 +52,11 @@ p {
 }
 
 .bg-primary {
-    background-color: #5b7c9d;
+    background-color: #13293d;
 }
 
 .bg-dark {
-    color: #fff;
+    color: #E8F1F2;
     background-color: #222;
 }
 
@@ -171,7 +171,14 @@ aside {
         color: #5b7c9d;
     }
 }
-
+.responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 header {
     position: relative;
     width: 100%;
@@ -198,6 +205,7 @@ header .header-content .header-content-inner h1 {
     margin-bottom: 0;
     text-transform: uppercase;
     font-weight: 700;
+    color: #E8F1F2;
 }
 
 header .header-content .header-content-inner hr {
@@ -208,7 +216,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: #E8F1F2;
 }
 
 @media screen and (min-width:300px) {
@@ -241,6 +249,10 @@ header .header-content .header-content-inner p {
 
 .section-heading {
     margin-top: 0;
+}
+.section-heading-blue {
+    margin-top: 0;
+    color: #E8F1F2;
 }
 
 .service-box {
@@ -323,7 +335,7 @@ header .header-content .header-content-inner p {
 }
 
 .text-primary {
-    color: #5b7c9d;
+    color: #13293d;
 }
 
 .no-gutter > [class*=col-] {
@@ -332,9 +344,9 @@ header .header-content .header-content-inner p {
 }
 
 .btn-default {
-    border-color: #fff;
+    border-color: #E8F1F2;
     color: #222;
-    background-color: #fff;
+    background-color: #E8F1F2;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -385,9 +397,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #5b7c9d;
-    color: #fff;
-    background-color: #5b7c9d;
+    border-color: #03045E;
+    color: #E8F1F2;
+    background-color: #13293D;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
