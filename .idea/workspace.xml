@@ -20,61 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4225308-a8d3-4d7f-a347-0b71619e4806" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_projects/002.gan.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_projects/003.xai.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_projects/004.climate-challenge.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_projects/001.jigsaw_puzzeling.md" beforeDir="false" afterPath="$PROJECT_DIR$/_projects/001.jigsaw_puzzeling.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/header.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/ACE build.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Progress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Progress.tiff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/ace.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/arm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/astar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/austin_splash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/baxter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/bayes.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/beach.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/confusion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/exo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/galileo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/galileo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/hand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/luxo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/mechatronics.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/pink.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/pinkself.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/quad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/self.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/selfriver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/selfriver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/sign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/sketch.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/sketch.tiff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/stereo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/stereo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/synapse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/tags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/tracker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/warehouse.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,14 +62,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_posts" />
-      <recent name="$PROJECT_DIR$/_pages" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_projects" />
       <recent name="$PROJECT_DIR$/_pages" />
       <recent name="$PROJECT_DIR$/docs/_pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/_pages" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -138,7 +85,8 @@
       <workItem from="1603723416425" duration="5835000" />
       <workItem from="1603732522911" duration="2496000" />
       <workItem from="1603794815054" duration="1690000" />
-      <workItem from="1604066970833" duration="2167000" />
+      <workItem from="1604066970833" duration="3029000" />
+      <workItem from="1604225294415" duration="515000" />
     </task>
     <servers />
   </component>
