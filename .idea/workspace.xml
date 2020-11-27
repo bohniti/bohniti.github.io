@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4225308-a8d3-4d7f-a347-0b71619e4806" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_projects/004.climate-challenge.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/project.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_projects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,14 +63,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_projects" />
-      <recent name="$PROJECT_DIR$/_pages" />
-      <recent name="$PROJECT_DIR$/docs/_pages" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_posts" />
       <recent name="$PROJECT_DIR$/_pages" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/_projects" />
+      <recent name="$PROJECT_DIR$/_pages" />
+      <recent name="$PROJECT_DIR$/docs/_pages" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -86,7 +88,8 @@
       <workItem from="1603732522911" duration="2496000" />
       <workItem from="1603794815054" duration="1690000" />
       <workItem from="1604066970833" duration="3029000" />
-      <workItem from="1604225294415" duration="515000" />
+      <workItem from="1604225294415" duration="1093000" />
+      <workItem from="1604246831367" duration="1858000" />
     </task>
     <servers />
   </component>
@@ -133,10 +136,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="397" y="210" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1601753233581" />
-    <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601738342009">
+    <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604225827496">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
-    <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1601738342009" />
+    <state x="-1475" y="486" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-2560.-143.2560.1417/0.23.1792.1097@-2560.-143.2560.1417" timestamp="1604225827496" />
     <state x="-1074" y="221" width="935" height="735" key="find.popup" timestamp="1603730867017">
       <screen x="-2560" y="-143" width="2560" height="1417" />
     </state>
