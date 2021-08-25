@@ -1,0 +1,108 @@
+I"x<p>##</p>
+
+<h3 id="intro">Intro</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Robert_Langdon">Langdon</a>, the most excellent puzzle solver of all time, is a jigsaw
+puzzle solver written in python. Langdon uses <a href="https://pytorch.org">pytorch</a>-<a href="https://www.pytorchlightning.ai">lightning</a> and <a href="https://arxiv.org/pdf/1811.11718.pdf">partial convolution</a>. I developed langdon
+while studying computer science at <a href="https://www.fau.eu">University of Erlangen Nuermberg</a>.</p>
+
+<blockquote>
+  <p>The <strong>main contribution</strong> is the proposal of a <a href="https://arxiv.org/pdf/1707.02131.pdf">deep siamese</a> <a href="https://arxiv.org/pdf/1512.03385.pdf">residual network architecture</a> , called Langdong , designed for <a href="https://lme.tf.fau.de/competitions/hisfragir20-icfhr-2020-competition-on-image-retrieval-for-historical-handwritten-fragments/">historical fragment</a> matching. It is inspiered by
+the <a href="https://hal.archives-ouvertes.fr/hal-02367779/document">work</a> of <a href="mailto:antoine.pirrone@labri.fr">Pirrone</a> et al.</p>
+</blockquote>
+
+<h3 id="get-the-data">Get the data</h3>
+<p>Raw</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$wget</span> https://zenodo.org/record/3893807/files/hisfrag20_train.zip?download<span class="o">=</span>1 <span class="o">&amp;&amp;</span>
+<span class="nv">$wget</span> https://zenodo.org/record/3893807/files/hisfrag20_test.zip?download<span class="o">=</span>1<span class="sb">`</span>
+</code></pre></div></div>
+<h4 id="prepared">Prepared</h4>
+<p>You will find them in the data directory as <a href="https://github.com/bohniti/jigsaw-puzzle-solver/tree/master/data/hisfrag20/prepared/paris_as_csv">csv-files</a> which points to the original files.<br /></p>
+
+<p><em>Note: Preproceccing is will be performed <strong>online</strong>. The files just split the data and provides pairs for the siamiese approach.</em></p>
+
+<h3 id="get-the-code">Get the code</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/bohniti/jigsaw-puzzle-solver
+</code></pre></div></div>
+
+<h3 id="get-the-results">Get the results</h3>
+
+<p><a href="https:linktoreport">Project-Report</a><br />
+<a href="https:linktoreport">Results-Notebook</a></p>
+
+<h3 id="get-requirenments">Get requirenments</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">env </span>create <span class="nt">-f</span> environment.yml <span class="nt">-p</span> /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env <span class="o">&amp;&amp;</span>
+conda activate /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env
+</code></pre></div></div>
+
+<p><em>Note: If you want to use another package manger, you have to mangage it py your own. Sorry.</em></p>
+
+<h3 id="run-it-on-you-own">Run it on you own</h3>
+
+<p>EDA and Preproceccing</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$jupyter</span> notebook ./notebooks/eda_preproceccing.ipynb
+</code></pre></div></div>
+
+<p>Main</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$python3</span> main.py
+</code></pre></div></div>
+
+<p>Training configuration</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$vim</span> ./config/config_local.toml
+...
+...
+<span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$vim</span>./config/config_local.toml
+</code></pre></div></div>
+
+<p>Results</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$tensorboard</span> <span class="nt">--logdir</span> ./results/default/version_X
+</code></pre></div></div>
+
+<p><em>Note: You can change directory in config files. So, you must change it in the tensorboard command as well.</em></p>
+
+<p>Custom steps</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">langdon.core</span> <span class="kn">import</span> <span class="n">some_steps</span>
+
+
+<span class="k">def</span> <span class="nf">custom_init_step</span><span class="p">():</span>
+    <span class="p">...</span>
+    <span class="k">return</span> <span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">model</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">custom_init_step</span><span class="p">()</span>
+    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">val_dataloader</span> <span class="o">=</span> <span class="n">load_step</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+    <span class="n">tb_logger</span> <span class="o">=</span> <span class="n">log_step</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">train_step</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">val_dataloader</span><span class="p">,</span> <span class="n">tb_logger</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><em>Note: step-functions must return the same as the original step-function. Not tested yet, sorry.</em></p>
+
+<h3 id="license">License</h3>
+
+<p>Pretty much the <a href="https://github.com/bohniti/jigsaw-puzzle-solver/blob/master/LICENSE">BSD 3-Clause License</a>, just don’t repackage it and call it your own please!<br />
+Also if you do make some changes, feel free to make a pull request and help make things more awesome!</p>
+
+<h3 id="get-in-touch">Get in touch</h3>
+
+<p>If you have any support requests please feel free to <a href="mailto:timo.bohnstedt@icloud.com">email</a> me.<br />
+Otherwise, feel free to follow me on <a href="https://twitter.com/bohniti">Twitter</a>!</p>
+
+<h3 id="special-thanks">Special Thanks</h3>
+
+<p>Many thanks to all supervisors for their excellent supervising, patience, and collecting the data:</p>
+
+<p><a href="https://lme.tf.fau.de/person/seuret/">Dr.-Ing. Vincent Christlein</a> <br />
+<a href="https://lme.tf.fau.de/person/christlein">Mathias Seuret, M. Sc.</a></p>
+:ET
