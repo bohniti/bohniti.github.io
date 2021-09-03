@@ -1,0 +1,9 @@
+I"<h3 id="intro">Intro</h3>
+
+<p>The scope of the project is association of historical fragments using deep metric learning. More precisely, I’m
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and 
+it is also hard for humans to notice the minor differences which distigunish two fragments.</p>
+
+<p>A ResNet50 such as the following was used</p>
+:ET

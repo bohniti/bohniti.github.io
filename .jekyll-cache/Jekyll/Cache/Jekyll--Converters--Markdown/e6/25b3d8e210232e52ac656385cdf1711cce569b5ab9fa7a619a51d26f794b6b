@@ -1,0 +1,65 @@
+I"<h2 id="intro">Intro</h2>
+
+<p>The scope of the project is association of historical fragments using deep metric learning. More precisely, I’m
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and
+it is also hard for humans to notice the minor differences which distigunish two fragments.</p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>The dataset contains a set of pages from different writers split into fragments. 
+As can be seen most of the pages are split into 1 to 4 fragments. Some are split into many more fragments:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/fragments_per_page.png" align="center" width="500" />
+</div>
+</center>
+<p>The fragments are shaped quite differently:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/random_sample.png" align="center" width="500" />
+</div>
+</center>
+<p>As said in the introduction, its not easy to distiung different pages even if they are from a different page:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/writer_sample.png" align="center" width="500" />
+</div>
+</center>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="siamese-networks">Siamese Networks</h3>
+
+<p>A Siamese neural network (sometimes called twin neural network) is an artificial neural network
+containing two or more identical subnetwork components that share their weights (hence the name
+“siamese”). This kind of neural network, first introduced by Bromley et al. in 1994 to tackle
+the task of automatic signature verification, is specifically designed for tasks involving (dis)similarity. 
+It is a good match for the task of puzzle solving since the approach is to determine if an image is a
+neighbor from another fragment or not.</p>
+
+<h3 id="resnet50">ResNet50</h3>
+
+<p>The ResNets (Residual Networks) were introduced by Kaiming He et al. as a novel type of
+very deep architecture that can be efficiently trained using residual learning blocks implementing
+shortcut connections to mitigate the issue of vanishing gradients arising with deep networks. I used an architecture simular to this:</p>
+
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/restnet50.png" align="center" width="500" />
+</div>
+</center>
+
+<p>But instead of feeding just one input to the network both images (example and counter example) are given as an input with shared weights (see above).</p>
+
+<h3 id="results">Results</h3>
+
+<p>The main problem was the size of the dataset and the size of the fragments itself. This lead to high computional cost what made training difficult and slow.
+Nethertheless, it could be shown that the Network is learning and with more fine-tuning the results could go towards 60 per-cent.</p>
+
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/results.png" align="center" width="500" />
+</div>
+</center>
+:ET

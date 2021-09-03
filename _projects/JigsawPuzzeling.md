@@ -1,121 +1,74 @@
 ---
 layout: project
-title: Jigsaw Puzzleing
+title: Solving a Jigsaw Puzzle
 subtitle: Use deep learning to automatically solve a puzzle.
 subsubtitle: February 2019
 image: jigsaw.png
 
 ---
 
+## Intro
 
-### Intro
+The scope of the project is association of historical fragments using deep metric learning. More precisely, I'm
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and
+it is also hard for humans to notice the minor differences which distigunish two fragments.
 
-[Langdon](https://en.wikipedia.org/wiki/Robert_Langdon), the most excellent puzzle solver of all time, is a jigsaw
-puzzle solver written in python. Langdon uses [pytorch](https://pytorch.org)-[lightning](https://www.pytorchlightning.ai) and [partial convolution](https://arxiv.org/pdf/1811.11718.pdf). I developed langdon
-while studying computer science at [University of Erlangen Nuermberg](https://www.fau.eu).
+## Dataset
 
->The **main contribution** is the proposal of a [deep siamese](https://arxiv.org/pdf/1707.02131.pdf) [residual network architecture](https://arxiv.org/pdf/1512.03385.pdf) , called Langdong , designed for [historical fragment](https://lme.tf.fau.de/competitions/hisfragir20-icfhr-2020-competition-on-image-retrieval-for-historical-handwritten-fragments/) matching. It is inspiered by
-the [work](https://hal.archives-ouvertes.fr/hal-02367779/document) of [Pirrone](mailto:antoine.pirrone@labri.fr) et al.
+The dataset contains a set of pages from different writers split into fragments. 
+As can be seen most of the pages are split into 1 to 4 fragments. Some are split into many more fragments:
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/fragments_per_page.png" align=center width=1000>
+</div>
+</center>
+The fragments are shaped quite differently:
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/random_sample.png" align=center width=1000>
+</div>
+</center>
+As said in the introduction, its not easy to distiung different pages even if they are from a different page:
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/writer_sample.png" align=center width=1000>
+</div>
+</center>
 
-### Get the data
-Raw
-```bash
-$wget https://zenodo.org/record/3893807/files/hisfrag20_train.zip?download=1 &&
-$wget https://zenodo.org/record/3893807/files/hisfrag20_test.zip?download=1`
-```
-#### Prepared
-You will find them in the data directory as [csv-files](https://github.com/bohniti/jigsaw-puzzle-solver/tree/master/data/hisfrag20/prepared/paris_as_csv) which points to the original files.<br>
+## Methods
 
-*Note: Preproceccing is will be performed **online**. The files just split the data and provides pairs for the siamiese approach.*
+### Siamese Networks
 
-### Get the code
+A Siamese neural network (sometimes called twin neural network) is an artificial neural network
+containing two or more identical subnetwork components that share their weights (hence the name
+"siamese"). This kind of neural network, first introduced by Bromley et al. in 1994 to tackle
+the task of automatic signature verification, is specifically designed for tasks involving (dis)similarity. 
+It is a good match for the task of puzzle solving since the approach is to determine if an image is a
+neighbor from another fragment or not. 
 
-```bash
-git clone https://github.com/bohniti/jigsaw-puzzle-solver
-```
+### ResNet50
 
-### Get the results
+The ResNets (Residual Networks) were introduced by Kaiming He et al. as a novel type of
+very deep architecture that can be efficiently trained using residual learning blocks implementing
+shortcut connections to mitigate the issue of vanishing gradients arising with deep networks. I used an architecture simular to this:
 
-[Project-Report](https:linktoreport)<br>
-[Results-Notebook](https:linktoreport)
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/restnet50.png" align=center width=1000>
+</div>
+</center>
 
-### Get requirenments
+But instead of feeding just one input to the network both images (example and counter example) are given as an input with shared weights (see above).
 
-```bash
-conda env create -f environment.yml -p /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env &&
-conda activate /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env
-```
+### Results
 
-*Note: If you want to use another package manger, you have to mangage it py your own. Sorry.*
-
-### Run it on you own
-
-EDA and Preproceccing
-
-```bash
-(/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env): $jupyter notebook ./notebooks/eda_preproceccing.ipynb
-```
-
-Main
-
-```bash
-(/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env): $python3 main.py
-```
-
-Training configuration
-
-```bash
-(/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env): $vim ./config/config_local.toml
-...
-...
-(/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env): $vim./config/config_local.toml
-```
-
-Results
-
-```bash
-(/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env): $tensorboard --logdir ./results/default/version_X
-```
-
-*Note: You can change directory in config files. So, you must change it in the tensorboard command as well.*
-
-Custom steps
-
-```python
-from langdon.core import some_steps
+The main problem was the size of the dataset and the size of the fragments itself. This lead to high computional cost what made training difficult and slow.
+Nethertheless, it could be shown that the Network is learning and with more fine-tuning the results could go towards 60 per-cent.
 
 
-def custom_init_step():
-    ...
-    return config, transform, model
-
-
-def main():
-    config, transform, model = custom_init_step()
-    train_dataloader, val_dataloader = load_step(config, transform)
-    tb_logger = log_step(config)
-    train_step(config, model, train_dataloader, val_dataloader, tb_logger)
-
-
-if __name__ == "__main__":
-    main()
-```
-
-*Note: step-functions must return the same as the original step-function. Not tested yet, sorry.*
-
-### License
-
-Pretty much the [BSD 3-Clause License](https://github.com/bohniti/jigsaw-puzzle-solver/blob/master/LICENSE), just don't repackage it and call it your own please!<br>
-Also if you do make some changes, feel free to make a pull request and help make things more awesome!
-
-### Get in touch
-
-If you have any support requests please feel free to [email](mailto:timo.bohnstedt@icloud.com) me.<br>
-Otherwise, feel free to follow me on [Twitter](https://twitter.com/bohniti)!
-
-### Special Thanks
-
-Many thanks to all supervisors for their excellent supervising, patience, and collecting the data:
-
-[Dr.-Ing. Vincent Christlein](https://lme.tf.fau.de/person/seuret/) <br>
-[Mathias Seuret, M. Sc.](https://lme.tf.fau.de/person/christlein)
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/results.png" align=center width=1000>
+</div>
+</center>
