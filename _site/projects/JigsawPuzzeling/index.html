@@ -102,7 +102,7 @@
       <main class="project">
 	<header>
 		<div class="header-content text-center">
-			<h1 id="project-title">Jigsaw Puzzleing</h1>
+			<h1 id="project-title">Solving a Jigsaw Puzzle</h1>
 			<hr class="primary">
 			<h3>Use deep learning to automatically solve a puzzle.</h3>
 			<p class="text-muted">February 2019</p>
@@ -110,111 +110,70 @@
 	</header>
 
 	<section id="project-content">
-		<h3 id="intro">Intro</h3>
+		<h2 id="intro">Intro</h2>
 
-<p><a href="https://en.wikipedia.org/wiki/Robert_Langdon">Langdon</a>, the most excellent puzzle solver of all time, is a jigsaw
-puzzle solver written in python. Langdon uses <a href="https://pytorch.org">pytorch</a>-<a href="https://www.pytorchlightning.ai">lightning</a> and <a href="https://arxiv.org/pdf/1811.11718.pdf">partial convolution</a>. I developed langdon
-while studying computer science at <a href="https://www.fau.eu">University of Erlangen Nuermberg</a>.</p>
+<p>The scope of the project is association of historical fragments using deep metric learning. More precisely, I’m
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and
+it is also hard for humans to notice the minor differences which distigunish two fragments.</p>
 
-<blockquote>
-  <p>The <strong>main contribution</strong> is the proposal of a <a href="https://arxiv.org/pdf/1707.02131.pdf">deep siamese</a> <a href="https://arxiv.org/pdf/1512.03385.pdf">residual network architecture</a> , called Langdong , designed for <a href="https://lme.tf.fau.de/competitions/hisfragir20-icfhr-2020-competition-on-image-retrieval-for-historical-handwritten-fragments/">historical fragment</a> matching. It is inspiered by
-the <a href="https://hal.archives-ouvertes.fr/hal-02367779/document">work</a> of <a href="mailto:antoine.pirrone@labri.fr">Pirrone</a> et al.</p>
-</blockquote>
+<h2 id="dataset">Dataset</h2>
 
-<h3 id="get-the-data">Get the data</h3>
-<p>Raw</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$wget</span> https://zenodo.org/record/3893807/files/hisfrag20_train.zip?download<span class="o">=</span>1 <span class="o">&amp;&amp;</span>
-<span class="nv">$wget</span> https://zenodo.org/record/3893807/files/hisfrag20_test.zip?download<span class="o">=</span>1<span class="sb">`</span>
-</code></pre></div></div>
-<h4 id="prepared">Prepared</h4>
-<p>You will find them in the data directory as <a href="https://github.com/bohniti/jigsaw-puzzle-solver/tree/master/data/hisfrag20/prepared/paris_as_csv">csv-files</a> which points to the original files.<br /></p>
+<p>The dataset contains a set of pages from different writers split into fragments. 
+As can be seen most of the pages are split into 1 to 4 fragments. Some are split into many more fragments:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/fragments_per_page.png" align="center" width="1000" />
+</div>
+</center>
+<p>The fragments are shaped quite differently:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/random_sample.png" align="center" width="1000" />
+</div>
+</center>
+<p>As said in the introduction, its not easy to distiung different pages even if they are from a different page:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/writer_sample.png" align="center" width="1000" />
+</div>
+</center>
 
-<p><em>Note: Preproceccing is will be performed <strong>online</strong>. The files just split the data and provides pairs for the siamiese approach.</em></p>
+<h2 id="methods">Methods</h2>
 
-<h3 id="get-the-code">Get the code</h3>
+<h3 id="siamese-networks">Siamese Networks</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/bohniti/jigsaw-puzzle-solver
-</code></pre></div></div>
+<p>A Siamese neural network (sometimes called twin neural network) is an artificial neural network
+containing two or more identical subnetwork components that share their weights (hence the name
+“siamese”). This kind of neural network, first introduced by Bromley et al. in 1994 to tackle
+the task of automatic signature verification, is specifically designed for tasks involving (dis)similarity. 
+It is a good match for the task of puzzle solving since the approach is to determine if an image is a
+neighbor from another fragment or not.</p>
 
-<h3 id="get-the-results">Get the results</h3>
+<h3 id="resnet50">ResNet50</h3>
 
-<p><a href="https:linktoreport">Project-Report</a><br />
-<a href="https:linktoreport">Results-Notebook</a></p>
+<p>The ResNets (Residual Networks) were introduced by Kaiming He et al. as a novel type of
+very deep architecture that can be efficiently trained using residual learning blocks implementing
+shortcut connections to mitigate the issue of vanishing gradients arising with deep networks. I used an architecture simular to this:</p>
 
-<h3 id="get-requirenments">Get requirenments</h3>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/restnet50.png" align="center" width="1000" />
+</div>
+</center>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">env </span>create <span class="nt">-f</span> environment.yml <span class="nt">-p</span> /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env <span class="o">&amp;&amp;</span>
-conda activate /Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env
-</code></pre></div></div>
+<p>But instead of feeding just one input to the network both images (example and counter example) are given as an input with shared weights (see above).</p>
 
-<p><em>Note: If you want to use another package manger, you have to mangage it py your own. Sorry.</em></p>
+<h3 id="results">Results</h3>
 
-<h3 id="run-it-on-you-own">Run it on you own</h3>
+<p>The main problem was the size of the dataset and the size of the fragments itself. This lead to high computional cost what made training difficult and slow.
+Nethertheless, it could be shown that the Network is learning and with more fine-tuning the results could go towards 60 per-cent.</p>
 
-<p>EDA and Preproceccing</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$jupyter</span> notebook ./notebooks/eda_preproceccing.ipynb
-</code></pre></div></div>
-
-<p>Main</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$python3</span> main.py
-</code></pre></div></div>
-
-<p>Training configuration</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$vim</span> ./config/config_local.toml
-...
-...
-<span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$vim</span>./config/config_local.toml
-</code></pre></div></div>
-
-<p>Results</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>/Users/beantown/PycharmProjects/jigsaw-puzzle-solver/conda-env<span class="o">)</span>: <span class="nv">$tensorboard</span> <span class="nt">--logdir</span> ./results/default/version_X
-</code></pre></div></div>
-
-<p><em>Note: You can change directory in config files. So, you must change it in the tensorboard command as well.</em></p>
-
-<p>Custom steps</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">langdon.core</span> <span class="kn">import</span> <span class="n">some_steps</span>
-
-
-<span class="k">def</span> <span class="nf">custom_init_step</span><span class="p">():</span>
-    <span class="p">...</span>
-    <span class="k">return</span> <span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">model</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">custom_init_step</span><span class="p">()</span>
-    <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">val_dataloader</span> <span class="o">=</span> <span class="n">load_step</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
-    <span class="n">tb_logger</span> <span class="o">=</span> <span class="n">log_step</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-    <span class="n">train_step</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">val_dataloader</span><span class="p">,</span> <span class="n">tb_logger</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p><em>Note: step-functions must return the same as the original step-function. Not tested yet, sorry.</em></p>
-
-<h3 id="license">License</h3>
-
-<p>Pretty much the <a href="https://github.com/bohniti/jigsaw-puzzle-solver/blob/master/LICENSE">BSD 3-Clause License</a>, just don’t repackage it and call it your own please!<br />
-Also if you do make some changes, feel free to make a pull request and help make things more awesome!</p>
-
-<h3 id="get-in-touch">Get in touch</h3>
-
-<p>If you have any support requests please feel free to <a href="mailto:timo.bohnstedt@icloud.com">email</a> me.<br />
-Otherwise, feel free to follow me on <a href="https://twitter.com/bohniti">Twitter</a>!</p>
-
-<h3 id="special-thanks">Special Thanks</h3>
-
-<p>Many thanks to all supervisors for their excellent supervising, patience, and collecting the data:</p>
-
-<p><a href="https://lme.tf.fau.de/person/seuret/">Dr.-Ing. Vincent Christlein</a> <br />
-<a href="https://lme.tf.fau.de/person/christlein">Mathias Seuret, M. Sc.</a></p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/results.png" align="center" width="1000" />
+</div>
+</center>
 
 	</section>
 
