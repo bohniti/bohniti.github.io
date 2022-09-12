@@ -1,0 +1,23 @@
+I"#<h3 id="intro">Intro</h3>
+
+<p>The scope of the project is association of historical fragments using deep metric learning. More precisely, I’m
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and 
+it is also hard for humans to notice the minor differences which distigunish two fragments.</p>
+
+<h3 id="dataset">Dataset</h3>
+
+<p>The dataset contains a set of pages from different writers split into a huge number of fragments such as this:</p>
+
+<div style="margin:0 60px 0px 0">
+        <img src="./../../readme-head.png" align="center" width="500" />
+</div>
+
+<p>So the work of an auther can look like as in the following sample:</p>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="siamese-networks">Siamese Networks</h3>
+
+<p>Siamese neural networks (metric learning, twin networks) are an artifical neural network containing two or more identical subnetworks components that share</p>
+:ET

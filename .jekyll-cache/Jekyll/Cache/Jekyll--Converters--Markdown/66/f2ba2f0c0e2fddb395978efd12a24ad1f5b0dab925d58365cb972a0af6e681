@@ -1,0 +1,25 @@
+I"[<h2 id="intro">Intro</h2>
+
+<p>The scope of the project is association of historical fragments using deep metric learning. More precisely, I’m
+interested in the fragments from the HisFrac20 Dataset, and the objective is to reconstruct them prior to their analysis
+by archeology experts. The task is challenging since image size is large, the images are from a broad domain and
+it is also hard for humans to notice the minor differences which distigunish two fragments.</p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>The dataset contains a set of pages from different writers split into fragments. 
+As can be seen most of the pages are split into 1 to 4 fragments. Some are split into many more fragments:</p>
+<center>
+<div style="margin:0 60px 0px 0">
+<img src="../../public/images/Puzzeling/fragments_per_page.png" align="center" width="500" />
+</div>
+
+So the work of an auther can look like as in the following sample:
+
+## Methods
+
+### Siamese Networks
+
+Siamese neural networks (metric learning, twin networks) are an artifical neural network containing two or more identical subnetworks components that share
+</center>
+:ET
