@@ -1,0 +1,76 @@
+---
+layout: main
+title: Portfolio
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body id="page-top">
+
+
+
+    <header>
+        <div class="header-content text-center">
+            <h1>Hello.</h1>
+            <h3>I'm Timo a computer science student, data scientist and mostly philospher.</h3>
+            
+                    </br> </br> 
+                    <a class="btn btn-primary btn-xl page-scroll" href="./about">About</a>
+                </div>
+         </div> 
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading"></h2>
+        </div>
+        <div class="container-fluid">
+            <div class="row no-gutter">
+            	{% for project in site.projects %}
+                <div class="col-lg-4 col-sm-6 text-center">
+                     <a href="{{ site.baseurl }}{{ project.url }}" class="portfolio-box"> 
+                        <img src="{{ site.image_path }}/{{ project.image }}" class="resize" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    {{ project.type }}
+                                </div>
+                                <div class="project-name">
+                                    {{ project.title }}
+                                </div>
+                            </div>
+                        </div>
+                   </a> 
+
+                </div>
+                
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's get in touch</h2>
+                    <hr class="primary">
+                    <p>For the moment, I'm looking for opportunities to deepen my experiences. Are you interested in exciting projects, or would you like to participate in a hackathon with me? Then get in touch!</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                <p><a href="mailto:timo.bohnstedt@icloud.com">timo.bohnstedt@icloud.com</a></p>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
