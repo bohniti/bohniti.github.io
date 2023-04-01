@@ -1,71 +1,174 @@
----
-layout: main
-title: Protfoio
----
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <style>
-        .wrapper {width:58.536585%; /*960/1640 = .58536585*/ margin:0 auto;}
-        .resize {
-            width: auto;
-            height : auto;
-            max-height: 100%;
-            max-width: 100%;
-        }
-    </style>
-
-</head>
-
-<body id="page-top">
-
-
-
-<section id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 aboutpic text-center">
-
-            </div>
-            <div class="col-lg-6 abouttext">
-                <h3>Nice to meet you</h3>
-                <hr class="primary">
-                <p>
-                    After three years as a business trainee, I decided to learn more about business and technology while attending a bachelor's program.
-                    After I learned the basics, I have been developed a great interest in data science and medicine.
-                    Exploring data and adequately visualizing them is a great pleasure to me, and I hope to work on many more exciting projects.</br></br>
-
-
-                    Furthermore, I am really into cooking and sports, especially bouldering, climbing, and hiking. I also like to see the world from different angles while I do handstands. If you ask my girlfriend, she states that I should do something creative. </br></br>I would say that I apply Bellman Equation in optimizing my life (a Markov decision process), but the future discount factor γ in the equation might be small, and I would often be trapped in a local optimum.
-
-                    </br></br> I started climbing around six years ago at a bouldering gym. Since then, I got much stronger, and I have learned a lot. I enjoy being outdoors and high up the most, but a good session at an artificial wall also offers plenty of fun, mainly because it's easy to have a friendly chat with another climber.            </p>
-
-                <a href="mailto:timo.bohnstedt@icloud.com"> <i class="fa fa-envelope fa-3x wow bounceIn" data-wow-delay=".1s"></i></a>
-                <a href="https://www.instagram.com/beantown1992/"><i class="fa fa-instagram fa-3x wow bounceIn" data-wow-delay=".1s"></i> </a>
-                <a href="https://www.linkedin.com/in/bohniti/"><i class="fa fa-linkedin-square fa-3x wow bounceIn" data-wow-delay=".1s"></i> </a>
-
-            </div>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Personal Portfolio Website Design</title>
+    
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    
+    <!-- header Design -->
+    <header class="header">
+      <a href="#" class="logo">Portfolio</a>
+      
+      <i class='bx bx-menu' id="menu-icon"></i>
+      
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    
+    <!-- home section design -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hello, it's Me</h3>
+        <h1>Timo Bohnstedt</h1>
+        <h3>And I'm a <span class="multiple-text"></span></h3>
+        <p>
+          I am a consultant working in the field of artificial intelligence.
+        </br>
+          I study computer science at the Friedrich-Alexander University Erlangen-Nürnberg.
+        </p>
+        <div class="social-media">
+          <a href="https://github.com/bohniti"><i class='bx bxl-github'></i></a>
+          <a href="https://www.instagram.com/beantown1992/"><i class='bx bxl-instagram'></i></a>
+          <a href="https://www.linkedin.com/in/bohniti/"><i class='bx bxl-linkedin'></i></a>
+             </div>
+             <a href="#" class="btn">Download CV</a>
         </div>
-    </div>
-</section>
+        <div class="cool-portfolio">
+             <img src="cool/home.jpeg" alt="">
+      </div>
+    </section>
+    
+    <!-- about section design -->
+    <section class="about" id="about">
+      <div class="cool-portfolio">
+        <img src="cool/about.png" alt="">
+      </div>
+      
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <p>
+          Hello, I'm Timo.
+      </br>
+          In my spare time I like to do outdoor activities. Climbing, running, and hiking belong to my interests but I'm always excited to try out new things. I also like to cook, read I'm interested in woodwork.
+        </p>
+        <a href="#" class="btn" >Read More</a>
+      </div>
+    </section>
+    
+    <!-- interests section design -->
+    <section class="nterests" id="interests">
+      <h2 class="heading">My <span>interests</span></h2>
+      
+      <div class="interests-container">
+        <div class="interests-box">
+          <i class='bx bx-code-alt'></i>
+          <h3>Software Engineering</h3>
+          <p>As a software engineer, I'm committed to build high-quality data pipelines and applying modern methods such test-driven-development using PySpark, Databricks and hyper scalers such are Azure.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        
+        <div class="interests-box">
+          <i class='bx bx-brain'></i>
+          <h3>Data Science</h3>
+          <p>I try to create reliable, save and explainable models using Python, PyTorch, Scikit Learn and Ray for hyperparameter optimization Ray. I'm also interested in data story telling using PowerBI, TIPCO Spotfire and Tabelau.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        
+        <div class="interests-box">
+          <i class='bx bx-run'></i>
+          <h3>Adventures</h3>
+          <p>As I climber, boulderer and adventurer, I enjoy being outside with friends and challenging myself mentally and physically while working on difficult problems. For me, this is more than just a sport, it is a metaphor for live.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- portfolio section design -->
+    <section class="portfolio" id="portfolio">
+      <h2 class="heading">Latest <span>Projects</span></h2>
+      
+      <div class="portfolio-container">
+        <div class="portfolio-box">
+          <img src="cool/portfolio3.png" alt="">
+          <div class="portfolio-layer">
+            <h4>XAI - Explainable Decisions for SHAP-Values</h4>
+            <p>For my Bachelor Thesis I compared different methods and in particular variants of SHAP-Values to determine what are suitable XAI-Methods if once wan't to use those techniques in an upload-filter application.</p>
+            <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+        </div>
+        
+        <div class="portfolio-box">
+          <img src="cool/portfolio1.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Self-Driving Car</h4>
+            <p>For my IT-Projekt I decided to build a self-driving car with help of a CNN, implemented in Python using TensorFlow.</p>
+            <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+        </div>
+        
+        <div class="portfolio-box">
+          <img src="cool/portfolio2.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Jiggsaw Puzzeling</h4>
+            <p>For my master thesis I builded a application which could help researches by pre-selected puzzle peaces from historical fragments (papyrus). I used metric learning along with different pre-processing techniques to determine a fast and reliable pipeline. For the application itself I used </p>
+            <a href="#"><i class='bx bx-link-external' ></i></a>
+          </div>
+        </div>
+  
+    </section>
+    
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact<span>Me</span></h2>
+      
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
+        </div>
+        <div class="input-box">
+          <input type="email" placeholder="Email Address">
+          <input type="text" placeholder="Email Subject">
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Massage "></textarea>
+        <input type="submit" value="Send Messaage" class="btn">
+      </form>
+    </section>
 
-<!-- jQuery -->
-<script src="../js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="../js/jquery.easing.min.js"></script>
-<script src="../js/jquery.fittext.js"></script>
-<script src="../js/wow.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="../js/creative.js"></script>
-
-</body>
-
+    <!-- footer design -->
+    <footer class="footer">
+      <div class="footer-text">
+      </div>
+      
+      <div class="footer-iconTop">
+        <a href="#home"><i class='bx bx-chevrons-up'></i></a>
+      </div>
+    </footer>
+    
+    
+    <!-- scrool reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- typed jss -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- custom js -->
+    <script src="script.js"></script>
+  </body>
+  
 </html>
