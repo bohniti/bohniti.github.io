@@ -71,6 +71,23 @@ function gradeToNumber(grade) {
     return frenchGradeMap[cleanGrade] || 0;
 }
 
+// Function to convert numerical grade back to French grade name
+function numberToFrenchGrade(num) {
+    // Find the closest French grade
+    let closestGrade = '4a';
+    let closestDiff = Math.abs(frenchGradeMap['4a'] - num);
+    
+    for (const [grade, value] of Object.entries(frenchGradeMap)) {
+        const diff = Math.abs(value - num);
+        if (diff < closestDiff) {
+            closestDiff = diff;
+            closestGrade = grade;
+        }
+    }
+    
+    return closestGrade;
+}
+
 function getGradeColor(avgGrade) {
     if (avgGrade < 4) return '#E8F5E8';      // Very light green (beginner)
     if (avgGrade < 5) return '#90EE90';      // Light green (easy)
@@ -320,8 +337,10 @@ loadClimbingData().then(routes => {
         const gradeRange = routes
             .map(r => gradeToNumber(r.grade))
             .filter(g => g > 0);
-        const minGrade = gradeRange.length > 0 ? Math.min(...gradeRange) : 0;
-        const maxGrade = gradeRange.length > 0 ? Math.max(...gradeRange) : 0;
+        const minGradeNum = gradeRange.length > 0 ? Math.min(...gradeRange) : 0;
+        const maxGradeNum = gradeRange.length > 0 ? Math.max(...gradeRange) : 0;
+        const minGradeFrench = numberToFrenchGrade(minGradeNum);
+        const maxGradeFrench = numberToFrenchGrade(maxGradeNum);
         const sources = [...new Set(routes.map(r => r.source).filter(s => s))];
         const routesWithCoords = routes.filter(r => r.latitude && r.longitude).length;
         
@@ -336,7 +355,7 @@ loadClimbingData().then(routes => {
             <p><strong>Data Sources:</strong> ${sources.join(', ')}</p>
             <p><strong>Unique Locations:</strong> ${uniqueLocations}</p>
             <p><strong>Routes with GPS:</strong> ${routesWithCoords}/${totalRoutes}</p>
-            <p><strong>Grade Range:</strong> ${minGrade > 0 ? minGrade.toFixed(1) + ' - ' + maxGrade.toFixed(1) : 'N/A'}</p>
+            <p><strong>Grade Range:</strong> ${minGradeFrench} - ${maxGradeFrench}</p>
             <p><strong>Years Covered:</strong> ${routes.length > 0 ? Math.min(...routes.map(r => new Date(r.date).getFullYear())) + ' - ' + Math.max(...routes.map(r => new Date(r.date).getFullYear())) : 'N/A'}</p>
         `;
         
