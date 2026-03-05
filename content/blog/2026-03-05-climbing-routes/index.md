@@ -21,7 +21,6 @@ A visual journey through my climbing adventures, mapping out the routes I've con
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="/files/climbing-locations.js"></script>
 
 <script>
 // Initialize the map with a view that shows both European climbing areas
@@ -30,10 +29,35 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
+// Grade conversion utilities
+const gradeMap = {
+    '4': 4, '4+': 4.5, '5-': 4.7, '5': 5, '5+': 5.5,
+    '6-': 5.7, '6': 6, '6+': 6.5, '7-': 6.7, '7': 7, '7+': 7.5,
+    '8-': 7.7, '8': 8, '8+': 8.5, '9-': 8.7, '9': 9, '9+': 9.5,
+    '10-': 9.7, '10': 10, '10+': 10.5,
+    // Combined grades
+    '7+/8-': 7.6, '8+/9-': 8.6, '9+/10-': 9.6,
+    '6/6+': 6.3, '7/7+': 7.3, '7/A': 7.0
+};
+
+function gradeToNumber(grade) {
+    if (!grade) return 0;
+    const cleanGrade = grade.replace(/"/g, '').trim();
+    return gradeMap[cleanGrade] || 0;
+}
+
+function getGradeColor(avgGrade) {
+    if (avgGrade < 6) return '#90EE90';      // Light green (easy)
+    if (avgGrade < 7) return '#FFD700';      // Gold (moderate)
+    if (avgGrade < 8) return '#FFA500';      // Orange (hard)
+    if (avgGrade < 9) return '#FF6B6B';      // Red (very hard)
+    return '#8B0000';                        // Dark red (extreme)
+}
+
 // CSV parsing function
 function parseCSV(text) {
     const lines = text.split('\n');
-    const headers = lines[0].split(',').map(h => h.replace(/"/g, ''));
+    const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
     
     const routes = [];
     for (let i = 1; i < lines.length; i++) {
@@ -58,10 +82,11 @@ function parseCSV(text) {
             
             const route = {};
             headers.forEach((header, index) => {
-                route[header] = values[index] ? values[index].replace(/"/g, '') : '';
+                route[header] = values[index] ? values[index].replace(/"/g, '').trim() : '';
             });
             
-            if (route.location_name && route.difficulty && route.location_name !== 'location_name') {
+            // Use new field names and check for valid data
+            if (route.location && route.grade && route.location !== 'location') {
                 routes.push(route);
             }
         }
@@ -74,8 +99,18 @@ function parseCSV(text) {
 async function loadClimbingData() {
     try {
         const response = await fetch('/files/dataset.csv');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const csvText = await response.text();
-        return parseCSV(csvText);
+        console.log('CSV loaded, first 200 chars:', csvText.substring(0, 200));
+        
+        const routes = parseCSV(csvText);
+        console.log('Parsed routes:', routes.length);
+        console.log('First route:', routes[0]);
+        console.log('Routes with coordinates:', routes.filter(r => r.latitude && r.longitude).length);
+        
+        return routes;
     } catch (error) {
         console.error('Error loading climbing data:', error);
         return [];
@@ -245,19 +280,24 @@ function createProgressionChart(routes) {
 
 // Initialize everything
 loadClimbingData().then(routes => {
+    console.log('Routes loaded, length:', routes.length);
+    
     if (routes.length > 0) {
-        console.log(`Loaded ${routes.length} climbing routes`);
+        console.log(`Successfully loaded ${routes.length} climbing routes`);
+        console.log('Sample route:', routes[0]);
         
         // Add summary statistics to the page
         const totalRoutes = routes.length;
-        const uniqueLocations = [...new Set(routes.map(r => r.location))].length;
+        const uniqueLocations = [...new Set(routes.map(r => r.location).filter(l => l))].length;
         const gradeRange = routes
             .map(r => gradeToNumber(r.grade))
             .filter(g => g > 0);
-        const minGrade = Math.min(...gradeRange);
-        const maxGrade = Math.max(...gradeRange);
-        const sources = [...new Set(routes.map(r => r.source))];
+        const minGrade = gradeRange.length > 0 ? Math.min(...gradeRange) : 0;
+        const maxGrade = gradeRange.length > 0 ? Math.max(...gradeRange) : 0;
+        const sources = [...new Set(routes.map(r => r.source).filter(s => s))];
         const routesWithCoords = routes.filter(r => r.latitude && r.longitude).length;
+        
+        console.log('Statistics:', { totalRoutes, uniqueLocations, routesWithCoords, sources });
         
         // Add stats to the page
         const statsDiv = document.createElement('div');
@@ -268,32 +308,60 @@ loadClimbingData().then(routes => {
             <p><strong>Data Sources:</strong> ${sources.join(', ')}</p>
             <p><strong>Unique Locations:</strong> ${uniqueLocations}</p>
             <p><strong>Routes with GPS:</strong> ${routesWithCoords}/${totalRoutes}</p>
-            <p><strong>Grade Range:</strong> ${minGrade.toFixed(1)} - ${maxGrade.toFixed(1)}</p>
-            <p><strong>Years Covered:</strong> ${Math.min(...routes.map(r => new Date(r.date).getFullYear()))} - ${Math.max(...routes.map(r => new Date(r.date).getFullYear()))}</p>
+            <p><strong>Grade Range:</strong> ${minGrade > 0 ? minGrade.toFixed(1) + ' - ' + maxGrade.toFixed(1) : 'N/A'}</p>
+            <p><strong>Years Covered:</strong> ${routes.length > 0 ? Math.min(...routes.map(r => new Date(r.date).getFullYear())) + ' - ' + Math.max(...routes.map(r => new Date(r.date).getFullYear())) : 'N/A'}</p>
         `;
         
-        // Insert stats after the intro paragraph
-        const firstChart = document.getElementById('climbing-map').parentElement;
-        firstChart.insertBefore(statsDiv, firstChart.firstChild);
+        // Insert stats after the intro paragraph  
+        const mapContainer = document.getElementById('climbing-map');
+        if (mapContainer && mapContainer.parentElement) {
+            mapContainer.parentElement.insertBefore(statsDiv, mapContainer);
+        }
         
         // Initialize visualizations
+        console.log('Adding route markers...');
         addRouteMarkers(routes);
+        
+        console.log('Creating charts...');
         createDifficultyChart(routes);
         createProgressionChart(routes);
         
         // Fit map to show all markers
         const bounds = L.latLngBounds();
+        let coordCount = 0;
         routes.forEach(route => {
-            if (route.latitude && route.longitude) {
+            if (route.latitude && route.longitude && !isNaN(parseFloat(route.latitude)) && !isNaN(parseFloat(route.longitude))) {
                 bounds.extend([parseFloat(route.latitude), parseFloat(route.longitude)]);
+                coordCount++;
             }
         });
-        if (bounds.isValid()) {
+        
+        console.log(`Valid coordinates found: ${coordCount}`);
+        
+        if (bounds.isValid() && coordCount > 0) {
+            console.log('Fitting map bounds');
             map.fitBounds(bounds, { padding: [20, 20] });
+        } else {
+            console.warn('No valid bounds to fit map to');
         }
     } else {
-        console.error('No climbing data loaded');
+        console.error('No climbing data loaded - routes array is empty');
+        
+        // Show error message to user
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = 'background: #ffe6e6; padding: 20px; margin: 20px 0; border-radius: 8px; border: 1px solid #ff9999;';
+        errorDiv.innerHTML = `
+            <h3>Error Loading Data</h3>
+            <p>Unable to load climbing route data. Please check the console for details.</p>
+        `;
+        
+        const mapContainer = document.getElementById('climbing-map');
+        if (mapContainer && mapContainer.parentElement) {
+            mapContainer.parentElement.insertBefore(errorDiv, mapContainer);
+        }
     }
+}).catch(error => {
+    console.error('Failed to load climbing data:', error);
 });
 </script>
 
