@@ -29,24 +29,30 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// UIAA Grade conversion utilities
-const uiaaGradeMap = {
-    // Roman numeral UIAA grades
-    'I': 1, 'I+': 1.5, 'II-': 1.7, 'II': 2, 'II+': 2.5, 'III-': 2.7, 'III': 3, 'III+': 3.5,
-    'IV-': 3.7, 'IV': 4, 'IV+': 4.5, 'V-': 4.7, 'V': 5, 'V+': 5.5,
-    'VI-': 5.7, 'VI': 6, 'VI+': 6.5, 'VII-': 6.7, 'VII': 7, 'VII+': 7.5,
-    'VIII-': 7.7, 'VIII': 8, 'VIII+': 8.5, 'IX-': 8.7, 'IX': 9, 'IX+': 9.5,
-    'X-': 9.7, 'X': 10, 'X+': 10.5, 'XI-': 10.7, 'XI': 11, 'XI+': 11.5,
-    'XII-': 11.7, 'XII': 12, 'XII+': 12.5, 'XIII-': 12.7, 'XIII': 13,
+// French Grade conversion utilities
+const frenchGradeMap = {
+    // French sport climbing grades
+    '1a': 1.0, '1b': 1.3, '1c': 1.7, '2a': 2.0, '2b': 2.3, '2c': 2.7, 
+    '3a': 3.0, '3b': 3.3, '3c': 3.7, '4a': 4.0, '4b': 4.3, '4c': 4.7,
+    '5a': 5.0, '5b': 5.3, '5c': 5.7, '6a': 6.0, '6a+': 6.2, '6b': 6.3, '6b+': 6.5, '6c': 6.7, '6c+': 7.0,
+    '7a': 7.3, '7a+': 7.5, '7b': 7.7, '7b+': 8.0, '7c': 8.3, '7c+': 8.5,
+    '8a': 8.7, '8a+': 9.0, '8b': 9.3, '8b+': 9.5, '8c': 9.7, '8c+': 10.0,
+    '9a': 10.3, '9a+': 10.5, '9b': 10.7, '9b+': 11.0, '9c': 11.3, '9c+': 11.5,
+    '10a': 12.0, '10b': 12.3, '10c': 12.7,
     
-    // Combined grades
-    'VI+/VII-': 6.6, 'VII/VII+': 7.25, 'VII+/VIII-': 7.6, 'VIII/VIII+': 8.25,
-    'VIII+/IX-': 8.6, 'IX/IX+': 9.25, 'IX+/X-': 9.6,
+    // Some variations
+    '5a+': 5.2, '5b+': 5.5, '5c+': 5.8,
     
-    // Some edge cases and aid grades
-    'VI/A1': 6.0, 'VII/A1': 7.0, 'VIII/A1': 8.0,
+    // Combined grades (from converted data)
+    '7a+': 7.5, // This handles the bulk conversion result
     
-    // Handle any remaining non-UIAA grades that might slip through
+    // Aid grades
+    '6b+/A1': 6.5, '7a/A1': 7.3, '7b/A1': 7.7,
+    
+    // Handle some edge cases that might remain
+    'Grade me <3': 6.0, // Handle quirky grade entries
+    
+    // Fallback for any unconverted grades
     '4': 4, '4+': 4.5, '5-': 4.7, '5': 5, '5+': 5.5,
     '6-': 5.7, '6': 6, '6+': 6.5, '7-': 6.7, '7': 7, '7+': 7.5,
     '8-': 7.7, '8': 8, '8+': 8.5, '9-': 8.7, '9': 9, '9+': 9.5
@@ -59,10 +65,10 @@ function gradeToNumber(grade) {
     // Handle aid climbing notation
     if (cleanGrade.includes('/A')) {
         const baseGrade = cleanGrade.split('/')[0];
-        return uiaaGradeMap[baseGrade] || 0;
+        return frenchGradeMap[baseGrade] || 0;
     }
     
-    return uiaaGradeMap[cleanGrade] || 0;
+    return frenchGradeMap[cleanGrade] || 0;
 }
 
 function getGradeColor(avgGrade) {
@@ -406,10 +412,10 @@ This climbing log represents my personal climbing journey, merging data from mul
 
 - **Route Types**: Sport climbing, traditional climbing, bouldering, and gym routes
 - **Locations**: 93 unique climbing areas across multiple countries
-- **Grading System**: **Unified UIAA scale** (Roman numerals I-XIII with +/- modifiers)
-  - European numerical grades → UIAA (e.g., 7+ → VII)
-  - YDS grades → UIAA (e.g., 5.10d → VI+) 
-  - French grades → UIAA (e.g., 6c → VII)
+- **Grading System**: **Unified French scale** (3a-10c with + modifiers)
+  - European numerical → French (e.g., 7+ → 7a+, 6 → 6b+)
+  - YDS → French (e.g., 5.10d → 6c+, 5.7 → 5c)
+  - UIAA → French (e.g., VII → 7a, VI+ → 6c)
 - **Climbing Styles**: Various ascent styles including onsight, redpoint, flash, and fell/hung
 
 ### Map Legend
