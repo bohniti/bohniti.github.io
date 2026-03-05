@@ -29,29 +29,51 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Grade conversion utilities
-const gradeMap = {
+// UIAA Grade conversion utilities
+const uiaaGradeMap = {
+    // Roman numeral UIAA grades
+    'I': 1, 'I+': 1.5, 'II-': 1.7, 'II': 2, 'II+': 2.5, 'III-': 2.7, 'III': 3, 'III+': 3.5,
+    'IV-': 3.7, 'IV': 4, 'IV+': 4.5, 'V-': 4.7, 'V': 5, 'V+': 5.5,
+    'VI-': 5.7, 'VI': 6, 'VI+': 6.5, 'VII-': 6.7, 'VII': 7, 'VII+': 7.5,
+    'VIII-': 7.7, 'VIII': 8, 'VIII+': 8.5, 'IX-': 8.7, 'IX': 9, 'IX+': 9.5,
+    'X-': 9.7, 'X': 10, 'X+': 10.5, 'XI-': 10.7, 'XI': 11, 'XI+': 11.5,
+    'XII-': 11.7, 'XII': 12, 'XII+': 12.5, 'XIII-': 12.7, 'XIII': 13,
+    
+    // Combined grades
+    'VI+/VII-': 6.6, 'VII/VII+': 7.25, 'VII+/VIII-': 7.6, 'VIII/VIII+': 8.25,
+    'VIII+/IX-': 8.6, 'IX/IX+': 9.25, 'IX+/X-': 9.6,
+    
+    // Some edge cases and aid grades
+    'VI/A1': 6.0, 'VII/A1': 7.0, 'VIII/A1': 8.0,
+    
+    // Handle any remaining non-UIAA grades that might slip through
     '4': 4, '4+': 4.5, '5-': 4.7, '5': 5, '5+': 5.5,
     '6-': 5.7, '6': 6, '6+': 6.5, '7-': 6.7, '7': 7, '7+': 7.5,
-    '8-': 7.7, '8': 8, '8+': 8.5, '9-': 8.7, '9': 9, '9+': 9.5,
-    '10-': 9.7, '10': 10, '10+': 10.5,
-    // Combined grades
-    '7+/8-': 7.6, '8+/9-': 8.6, '9+/10-': 9.6,
-    '6/6+': 6.3, '7/7+': 7.3, '7/A': 7.0
+    '8-': 7.7, '8': 8, '8+': 8.5, '9-': 8.7, '9': 9, '9+': 9.5
 };
 
 function gradeToNumber(grade) {
     if (!grade) return 0;
     const cleanGrade = grade.replace(/"/g, '').trim();
-    return gradeMap[cleanGrade] || 0;
+    
+    // Handle aid climbing notation
+    if (cleanGrade.includes('/A')) {
+        const baseGrade = cleanGrade.split('/')[0];
+        return uiaaGradeMap[baseGrade] || 0;
+    }
+    
+    return uiaaGradeMap[cleanGrade] || 0;
 }
 
 function getGradeColor(avgGrade) {
-    if (avgGrade < 6) return '#90EE90';      // Light green (easy)
-    if (avgGrade < 7) return '#FFD700';      // Gold (moderate)
+    if (avgGrade < 4) return '#E8F5E8';      // Very light green (beginner)
+    if (avgGrade < 5) return '#90EE90';      // Light green (easy)
+    if (avgGrade < 6) return '#98FB98';      // Pale green (moderate)
+    if (avgGrade < 7) return '#FFD700';      // Gold (intermediate)
     if (avgGrade < 8) return '#FFA500';      // Orange (hard)
     if (avgGrade < 9) return '#FF6B6B';      // Red (very hard)
-    return '#8B0000';                        // Dark red (extreme)
+    if (avgGrade < 10) return '#DC143C';     // Crimson (extreme)
+    return '#8B0000';                        // Dark red (elite)
 }
 
 // CSV parsing function
@@ -384,7 +406,10 @@ This climbing log represents my personal climbing journey, merging data from mul
 
 - **Route Types**: Sport climbing, traditional climbing, bouldering, and gym routes
 - **Locations**: 93 unique climbing areas across multiple countries
-- **Grading Systems**: Unified to European-style grades (converted from YDS where applicable)
+- **Grading System**: **Unified UIAA scale** (Roman numerals I-XIII with +/- modifiers)
+  - European numerical grades → UIAA (e.g., 7+ → VII)
+  - YDS grades → UIAA (e.g., 5.10d → VI+) 
+  - French grades → UIAA (e.g., 6c → VII)
 - **Climbing Styles**: Various ascent styles including onsight, redpoint, flash, and fell/hung
 
 ### Map Legend
