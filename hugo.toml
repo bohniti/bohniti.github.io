@@ -1,12 +1,12 @@
 baseURL = 'https://bohniti.github.io/'
 languageCode = 'en'
-title = 'Timo Böhm'
+title = 'Timo Bohnstedt'
 theme = 'minimal'
 paginate = 20
 enableRobotsTXT = true
 
 [params]
-  author = "Timo Böhm"
+  author = "Timo Bohnstedt"
   description = "Data Scientist based in Vienna. Running, cycling, climbing, and everything in between."
 
 [markup]
