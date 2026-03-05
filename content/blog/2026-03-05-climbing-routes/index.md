@@ -73,7 +73,7 @@ function parseCSV(text) {
 // Load and process climbing data
 async function loadClimbingData() {
     try {
-        const response = await fetch('/files/climbing-data.csv');
+        const response = await fetch('/files/dataset.csv');
         const csvText = await response.text();
         return parseCSV(csvText);
     } catch (error) {
@@ -87,27 +87,42 @@ function addRouteMarkers(routes) {
     const locationCounts = {};
     
     routes.forEach(route => {
-        const location = route.location_name;
-        if (!locationCounts[location]) {
-            locationCounts[location] = [];
+        const location = route.location;
+        if (location && route.latitude && route.longitude) {
+            if (!locationCounts[location]) {
+                locationCounts[location] = [];
+            }
+            locationCounts[location].push(route);
         }
-        locationCounts[location].push(route);
     });
     
     Object.keys(locationCounts).forEach(location => {
-        const coords = getLocationCoordinates(location);
-        const routeCount = locationCounts[location].length;
-        const grades = locationCounts[location].map(r => r.difficulty).filter(g => g).join(', ');
-        const avgGrade = locationCounts[location]
-            .map(r => gradeToNumber(r.difficulty))
+        const routeList = locationCounts[location];
+        const firstRoute = routeList[0];
+        const coords = [parseFloat(firstRoute.latitude), parseFloat(firstRoute.longitude)];
+        const routeCount = routeList.length;
+        const grades = routeList.map(r => r.grade).filter(g => g).join(', ');
+        const avgGrade = routeList
+            .map(r => gradeToNumber(r.grade))
             .filter(g => g > 0)
             .reduce((sum, grade, _, arr) => sum + grade / arr.length, 0);
+        
+        // Color based on data source
+        const sources = [...new Set(routeList.map(r => r.source))];
+        let borderColor = '#000';
+        if (sources.includes('mountain_project') && sources.includes('vertical_life')) {
+            borderColor = '#8B4513'; // Brown for mixed
+        } else if (sources.includes('mountain_project')) {
+            borderColor = '#FF0000'; // Red for Mountain Project
+        } else {
+            borderColor = '#0000FF'; // Blue for Vertical Life
+        }
         
         const marker = L.circleMarker(coords, {
             radius: Math.max(8, Math.sqrt(routeCount) * 4),
             fillColor: getGradeColor(avgGrade),
-            color: '#000',
-            weight: 2,
+            color: borderColor,
+            weight: 3,
             opacity: 1,
             fillOpacity: 0.7
         }).addTo(map);
@@ -115,7 +130,8 @@ function addRouteMarkers(routes) {
         marker.bindPopup(`
             <b>${location}</b><br>
             Routes: ${routeCount}<br>
-            Average Grade: ${avgGrade.toFixed(1)}<br>
+            Sources: ${sources.join(', ')}<br>
+            Average Grade: ${avgGrade > 0 ? avgGrade.toFixed(1) : 'N/A'}<br>
             Grades: ${grades.length > 50 ? grades.substring(0, 50) + '...' : grades}
         `);
     });
@@ -125,7 +141,7 @@ function addRouteMarkers(routes) {
 function createDifficultyChart(routes) {
     const gradeCounts = {};
     routes.forEach(route => {
-        const grade = route.difficulty;
+        const grade = route.grade;
         if (grade && grade.trim()) {
             gradeCounts[grade] = (gradeCounts[grade] || 0) + 1;
         }
@@ -162,9 +178,9 @@ function createDifficultyChart(routes) {
 function createProgressionChart(routes) {
     const routesByYear = {};
     routes.forEach(route => {
-        if (route.date && route.difficulty) {
+        if (route.date && route.grade) {
             const year = new Date(route.date).getFullYear();
-            const grade = gradeToNumber(route.difficulty);
+            const grade = gradeToNumber(route.grade);
             if (year && grade > 0) {
                 if (!routesByYear[year]) routesByYear[year] = [];
                 routesByYear[year].push(grade);
@@ -234,12 +250,14 @@ loadClimbingData().then(routes => {
         
         // Add summary statistics to the page
         const totalRoutes = routes.length;
-        const uniqueLocations = [...new Set(routes.map(r => r.location_name))].length;
+        const uniqueLocations = [...new Set(routes.map(r => r.location))].length;
         const gradeRange = routes
-            .map(r => gradeToNumber(r.difficulty))
+            .map(r => gradeToNumber(r.grade))
             .filter(g => g > 0);
         const minGrade = Math.min(...gradeRange);
         const maxGrade = Math.max(...gradeRange);
+        const sources = [...new Set(routes.map(r => r.source))];
+        const routesWithCoords = routes.filter(r => r.latitude && r.longitude).length;
         
         // Add stats to the page
         const statsDiv = document.createElement('div');
@@ -247,7 +265,9 @@ loadClimbingData().then(routes => {
         statsDiv.innerHTML = `
             <h3>Climbing Statistics</h3>
             <p><strong>Total Routes:</strong> ${totalRoutes}</p>
+            <p><strong>Data Sources:</strong> ${sources.join(', ')}</p>
             <p><strong>Unique Locations:</strong> ${uniqueLocations}</p>
+            <p><strong>Routes with GPS:</strong> ${routesWithCoords}/${totalRoutes}</p>
             <p><strong>Grade Range:</strong> ${minGrade.toFixed(1)} - ${maxGrade.toFixed(1)}</p>
             <p><strong>Years Covered:</strong> ${Math.min(...routes.map(r => new Date(r.date).getFullYear()))} - ${Math.max(...routes.map(r => new Date(r.date).getFullYear()))}</p>
         `;
@@ -264,8 +284,9 @@ loadClimbingData().then(routes => {
         // Fit map to show all markers
         const bounds = L.latLngBounds();
         routes.forEach(route => {
-            const coords = getLocationCoordinates(route.location_name);
-            bounds.extend(coords);
+            if (route.latitude && route.longitude) {
+                bounds.extend([parseFloat(route.latitude), parseFloat(route.longitude)]);
+            }
         });
         if (bounds.isValid()) {
             map.fitBounds(bounds, { padding: [20, 20] });
@@ -278,18 +299,39 @@ loadClimbingData().then(routes => {
 
 ## About the Data
 
-This climbing log represents my personal climbing journey, tracking routes from 2017 onwards. The data includes:
+This climbing log represents my personal climbing journey, merging data from multiple sources to create a comprehensive view of my climbing activities from 2017 onwards.
 
-- **Route Types**: Sport climbing, traditional climbing, and bouldering
-- **Locations**: Primarily in the Fränkische Schweiz (Franconian Switzerland) region of Germany, with some international destinations
-- **Difficulty Grades**: Using the UIAA scale common in European climbing
-- **Climbing Styles**: Various ascent styles including onsight (OS), redpoint (RP), and flash attempts
+### Data Sources
 
-### Geolocation Notes
+**Vertical Life**: European climbing data (404 routes)
+- Primarily from Fränkische Schweiz (Franconian Switzerland), Germany
+- Some international European destinations (Italy, Croatia, Austria)
+- UIAA/European grading system
 
-For the geolocations, since Vertical Life doesn't provide a public API, I've used:
-- Manual coordinate mapping for known climbing areas
-- OpenStreetMap data for major climbing locations
-- Approximate positioning for visualization purposes
+**Mountain Project**: North American climbing data (12 routes)
+- Routes from Squamish, British Columbia, Canada
+- YDS (Yosemite Decimal System) grading converted to European equivalent
 
-*Some climbing areas may not be precisely positioned, but locations are accurate to the general region.*
+### Route Information
+
+- **Route Types**: Sport climbing, traditional climbing, bouldering, and gym routes
+- **Locations**: 93 unique climbing areas across multiple countries
+- **Grading Systems**: Unified to European-style grades (converted from YDS where applicable)
+- **Climbing Styles**: Various ascent styles including onsight, redpoint, flash, and fell/hung
+
+### Map Legend
+
+- **Blue markers**: Vertical Life data only
+- **Red markers**: Mountain Project data only  
+- **Brown markers**: Mixed data from both sources
+- **Marker size**: Proportional to number of routes climbed
+- **Marker color**: Based on average difficulty of routes at that location
+
+### Geolocation Data
+
+Coordinates were obtained through:
+- Manual mapping for well-known climbing areas
+- OpenStreetMap Nominatim geocoding API for other locations
+- GPS coordinates are included for 386 out of 416 routes (93% coverage)
+
+*Location positioning is accurate to the general climbing area, though some specific crags may not be precisely positioned.*
