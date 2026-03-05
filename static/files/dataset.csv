@@ -1,424 +1,424 @@
-source,date,route_name,location,sector,area,country,grade,grade_original,style,route_type,height,comment,tries,url,stars,latitude,longitude
-vertical_life,2017-07-22T12:00:00Z,Prost Mahlzeit,Schwarzbrennerei,Schwarzbrennerei,,DE,7-,7-,rp,ROUTE,12,,2,,3,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,Adolf Nolder Ged.-Boulder,Spieser Wand,Spieser Wand,,DE,7-,7-,os,ROUTE,20,,1,,4,49.4321,11.1234
-vertical_life,2017-07-22T12:00:00Z,Lots Weib,Zimmerbergwände,Sektor 1,,DE,7-,7-,rp,ROUTE,15,,3,,3,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Grande Finale,Piccolino,Piccolino,,DE,6,6,rp,ROUTE,10,,2,,2,49.4521,11.0867
-vertical_life,2017-07-22T12:00:00Z,Denkste,Röthenbacher Wand,Röthenbacher Wand,,DE,6,6,os,ROUTE,15,,1,,3,49.4621,11.1067
-vertical_life,2017-07-22T12:00:00Z,Hersbrucker Weg,Zimmerbergwände,Sektor 2,,DE,7,7,tr,ROUTE,25,,2,,5,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Rumrosine,Schwarzbrennerei,Schwarzbrennerei,,DE,6,6,rp,ROUTE,12,,2,,0,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,Petite Fleur,Algersdorfer Wand,Algersdorfer Wand,,DE,7+,7+,tr,ROUTE,22,,2,,4,49.4721,11.1267
-vertical_life,2017-07-22T12:00:00Z,Starfighter Kandidatenweg,Zimmerbergwände,Sektor 1,,DE,7,7,rp,ROUTE,15,,2,,4,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Räuber Hotzenplotz,Hexenküche,Sektor 2,,DE,6,6,os,ROUTE,15,,1,,3,49.4821,11.1467
-vertical_life,2017-07-22T12:00:00Z,Al Capone,Schwarzbrennerei,Schwarzbrennerei,,DE,7-,7-,go,ROUTE,12,,2,,3,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,Trivialitätenkabinett,Zimmerbergwände,Sektor 1,,DE,7-,7-,os,ROUTE,15,,1,,3,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Piccolina,Piccolino,Piccolino,,DE,8-,8-,rp,ROUTE,10,,2,,3,49.4521,11.0867
-vertical_life,2017-07-22T12:00:00Z,Wissen macht ah,Piccolino,Piccolino,,DE,6-,6-,rp,ROUTE,10,,2,,2,49.4521,11.0867
-vertical_life,2017-07-22T12:00:00Z,Devilwall,Hexenküche,Sektor 2,,DE,7+/8-,7+/8-,go,ROUTE,15,,3,,4,49.4821,11.1467
-vertical_life,2017-07-22T12:00:00Z,Lochgeheimnis (Herz Ass),Zimmerbergwände,Sektor 1,,DE,6-,6-,rp,ROUTE,15,,2,,2,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Georg Meier Ged.-Weg,Röthenbacher Wand,Röthenbacher Wand,,DE,6+,6+,rp,ROUTE,15,,1,,5,49.4621,11.1067
-vertical_life,2017-07-22T12:00:00Z,Paul Preuß Ged.-Weg,Algersdorfer Wand,Algersdorfer Wand,,DE,6+,6+,rp,ROUTE,22,,2,,4,49.4721,11.1267
-vertical_life,2017-07-22T12:00:00Z,Absinth,Schwarzbrennerei,Schwarzbrennerei,,DE,6-,6-,rp,ROUTE,21,,2,,0,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,Rolling Stone,Zimmerbergwände,Sektor 1,,DE,7+/8-,7+/8-,go,ROUTE,15,,2,,3,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Nicht vergessen,Hühnersteinwand,Hühnersteinwand,,DE,7+,7+,rp,ROUTE,25,Crux nach Gemüse ,1,,4,49.4921,11.1667
-vertical_life,2017-07-22T12:00:00Z,Die wilden Kerle,Piccolino,Piccolino,,DE,8-,8-,rp,ROUTE,10,,2,,4,49.4521,11.0867
-vertical_life,2017-07-22T12:00:00Z,Butterfinger,Hühnersteinwand,Hühnersteinwand,,DE,6+,6+,rp,ROUTE,25,,1,,5,49.4921,11.1667
-vertical_life,2017-07-22T12:00:00Z,Röthenbacher Weg,Kirchthalwände,Kirchthalwände,,DE,8+,8+,go,ROUTE,18,,2,,4,49.5021,11.1867
-vertical_life,2017-07-22T12:00:00Z,Sonntagsverschneidung,Hühnersteinwand,Hühnersteinwand,,DE,5+,5+,os,ROUTE,25,,1,,5,49.4921,11.1667
-vertical_life,2017-07-22T12:00:00Z,Kurz und schmerzlos,Hexenküche,Sektor 2,,DE,6+,6+,os,ROUTE,15,,1,,1,49.4821,11.1467
-vertical_life,2017-07-22T12:00:00Z,Alkoholfrei,Schwarzbrennerei,Schwarzbrennerei,,DE,5,5,rp,ROUTE,21,,2,,0,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,Grappatoni,Schwarzbrennerei,Schwarzbrennerei,,DE,6-,6-,rp,ROUTE,12,,2,,0,49.4521,11.0767
-vertical_life,2017-07-22T12:00:00Z,N.N.,Zimmerbergwände,Sektor 1,,DE,6,6,rp,ROUTE,15,,2,,1,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Konrad Oed Ged.-Weg,Zimmerbergwände,Sektor 1,,DE,5,5,os,ROUTE,15,,1,,2,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Father and Son,Spieser Wand,Spieser Wand,,DE,7+/8-,7+/8-,go,ROUTE,20,,2,,4,49.4321,11.1234
-vertical_life,2017-07-22T12:00:00Z,Irrweg,Bolzenstein,Bolzenstein,,DE,7+/8-,7+/8-,go,ROUTE,15,,2,,5,49.5121,11.2067
-vertical_life,2017-07-22T12:00:00Z,Direkte Nordwand,Spieser Wand,Spieser Wand,,DE,7+,7+,rp,ROUTE,20,Geil Dynamisch. An Leisten Kreuzen dann weit Raus ,2,,4,49.4321,11.1234
-vertical_life,2017-07-22T12:00:00Z,Genitale Entkrampfung,Kirchthalwände,Kirchthalwände,,DE,7+/8-,7+/8-,go,ROUTE,18,,2,,2,49.5021,11.1867
-vertical_life,2017-07-22T12:00:00Z,Mururoa,Algersdorfer Wand,Algersdorfer Wand,,DE,8+/9-,8+/9-,go,ROUTE,21,Zwei irre weite Zug am Ende der Tour ,2,,0,49.4721,11.1267
-vertical_life,2017-07-22T12:00:00Z,Fingerhakler,Bolzenstein,Bolzenstein,,DE,7+/8-,7+/8-,go,ROUTE,15,,2,,4,49.5121,11.2067
-vertical_life,2017-07-22T12:00:00Z,Trabant,Zimmerbergwände,Sektor 1,,DE,5+,5+,os,ROUTE,15,,1,,3,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Gemeinsam,Zimmerbergwände,Sektor 1,,DE,6+,6+,os,ROUTE,15,,1,,3,49.4421,11.0934
-vertical_life,2017-07-22T12:00:00Z,Klein und gemein,Hexenküche,Sektor 2,,DE,6,6,os,ROUTE,15,,1,,0,49.4821,11.1467
-vertical_life,2017-07-22T12:00:00Z,Südostkante,Kirchthalwände,Kirchthalwände,,DE,6-,6-,os,ROUTE,21,,1,,0,49.5021,11.1867
-vertical_life,2017-07-22T12:00:00Z,Rechte Nordwand,Spieser Wand,Spieser Wand,,DE,7,7,rp,ROUTE,20,,2,,3,49.4321,11.1234
-vertical_life,2017-07-22T12:00:00Z,Streiflicht,Algersdorfer Wand,Algersdorfer Wand,,DE,7-,7-,rp,ROUTE,22,,2,,3,49.4721,11.1267
-vertical_life,2017-07-22T12:00:00Z,Nebenbei,Spieser Wand,Spieser Wand,,DE,7+,7+,rp,ROUTE,21,,2,,0,49.4321,11.1234
-vertical_life,2017-07-22T12:00:00Z,Höhenkoller,Algersdorfer Wand,Algersdorfer Wand,,DE,7+,7+,rp,ROUTE,21,,2,,0,49.4721,11.1267
-vertical_life,2017-07-22T12:00:00Z,Hufeisen,Hühnersteinwand,Hühnersteinwand,,DE,4,4,os,ROUTE,25,,1,,0,49.4921,11.1667
-vertical_life,2017-07-22T12:00:00Z,Faule Kalorie,Zimmerbergwände,Sektor 1,,DE,6+,6+,os,ROUTE,15,,1,,2,49.4421,11.0934
-vertical_life,2017-07-30T12:00:00Z,Seelendoping,Große Wacht,Große Wacht,,DE,6,6,os,ROUTE,18,,1,,0,49.5221,11.2267
-vertical_life,2017-07-30T12:00:00Z,Hometrainer,Hauseck,Hauseck,,DE,7+,7+,rp,ROUTE,10,,2,,0,49.5321,11.2467
-vertical_life,2017-07-30T12:00:00Z,Bauhaus,Hauseck,Hauseck,,DE,7+/8-,7+/8-,go,ROUTE,10,Crux nach dem letzten Hacken vor dem Umlenker. Macht Spaß!,2,,4,49.5321,11.2467
-vertical_life,2017-07-30T12:00:00Z,Moser Ged.-Weg,Große Wacht,Große Wacht,,DE,6,6,rp,ROUTE,21,Aufpassen das man nicht in die 8- reinkommt.,2,,0,49.5221,11.2267
-vertical_life,2017-07-30T12:00:00Z,Sportflieger,Große Wacht,Große Wacht,,DE,7,7,rp,ROUTE,18,,2,,5,49.5221,11.2267
-vertical_life,2017-07-30T12:00:00Z,Grün ist die Hoffnung,Hauseck,Hauseck,,DE,7+,7+,tr,ROUTE,10,Nach dem ersten Hacken Sack schwer für den Grad!,2,,4,49.5321,11.2467
-vertical_life,2017-08-01T12:00:00Z,Diesel mit Schuss,Schwarzbrennerei,Schwarzbrennerei,,DE,7+/8-,7+/8-,go,ROUTE,12,Nicht schön speckig ,2,,4,49.4521,11.0767
-vertical_life,2017-08-01T12:00:00Z,Kleiner Feigling,Schwarzbrennerei,Schwarzbrennerei,,DE,7+,7+,go,ROUTE,12,Ende ist crrap ,2,,1,49.4521,11.0767
-vertical_life,2017-08-01T12:00:00Z,Direkte Weiße Wand,Weiße Wand (Hirschbachtal),Südseite,,DE,7-,7-,os,ROUTE,15,,1,,3,,
-vertical_life,2017-08-01T12:00:00Z,Arrabiata,Weiße Wand (Hirschbachtal),Südseite,,DE,7+,7+,tr,ROUTE,15,,2,,3,,
-vertical_life,2017-08-01T12:00:00Z,Boulder,Weiße Wand (Hirschbachtal),Südseite,,DE,7-,7-,tr,ROUTE,15,,2,,3,,
-vertical_life,2017-08-01T12:00:00Z,Kiefernverschneidung,Weiße Wand (Hirschbachtal),Südseite,,DE,6-,6-,os,ROUTE,15,,1,,4,,
-vertical_life,2017-08-01T12:00:00Z,Erogene Zone,Kirchthalwände,Kirchthalwände,,DE,8+/9-,8+/9-,go,ROUTE,18,,2,,4,49.5021,11.1867
-vertical_life,2017-08-05T12:00:00Z,Referendarsteig,Steingarten / Langer Berg Wände,Sektor 1,,DE,7+,7+,go,ROUTE,25,,2,,5,,
-vertical_life,2017-08-05T12:00:00Z,Methusalemkante,Steingarten / Langer Berg Wände,Sektor 1,,DE,6+,6+,os,ROUTE,25,,1,,3,,
-vertical_life,2017-08-05T12:00:00Z,Westkante (Alter Weg),Steingarten / Langer Berg Wände,Sektor 1,,DE,4+,4+,os,ROUTE,25,,1,,4,,
-vertical_life,2017-08-09T12:00:00Z,Hummelstaner Weg,Hartensteiner Wand,Hartensteiner Wand,,DE,5+,5+,os,ROUTE,20,,1,,4,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Mikado,Engelswand,Engelswand,,AT,6b+,6b+,go,ROUTE,20,,2,,0,49.4921,11.1267
-vertical_life,2017-08-20T12:00:00Z,Hummelstaner Weg,Hartensteiner Wand,Hartensteiner Wand,,DE,5+,5+,rp,ROUTE,20,,2,,4,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Linke Wand,Oetz,Oetz,,AT,6a,6a,rp,ROUTE,20,,2,,4,47.2033325,10.8966104
-vertical_life,2017-08-20T12:00:00Z,Der Wolf und die Zwerge,Engelswand,Engelswand,,AT,5c+,5c+,os,ROUTE,25,,1,,4,49.4921,11.1267
-vertical_life,2017-08-20T12:00:00Z,Windwalker,Engelswand,Engelswand,,AT,6b+,6b+,go,ROUTE,30,,2,,0,49.4921,11.1267
-vertical_life,2017-08-20T12:00:00Z,Kilomanie,Roter Fels,Sektor 3,,DE,7+/8-,7+/8-,go,ROUTE,30,,2,,4,49.6024479,11.4961998
-vertical_life,2017-08-20T12:00:00Z,Die 101jährige,Hartensteiner Wand,Hartensteiner Wand,,DE,6-,6-,os,ROUTE,20,,1,,4,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Kilomanie,Roter Fels,Sektor 3,,DE,8-,8-,rp,ROUTE,30,,2,,4,49.6024479,11.4961998
-vertical_life,2017-08-20T12:00:00Z,Die 101jährige,Hartensteiner Wand,Hartensteiner Wand,,DE,6,6,rp,ROUTE,20,,2,,4,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Computerspiele,Ankatalturm & Ankatalwand,Ankatalwand,,DE,7+/8-,7+/8-,go,ROUTE,30,,2,,5,49.4521,11.1067
-vertical_life,2017-08-20T12:00:00Z,Its your time,Engelswand,Engelswand,,AT,6a,6a,os,ROUTE,25,,1,,4,49.4921,11.1267
-vertical_life,2017-08-20T12:00:00Z,Schmidtchen-Schleicher,Oetz,Oetz,,AT,6b,6b,f,ROUTE,30,,1,,5,47.2033325,10.8966104
-vertical_life,2017-08-20T12:00:00Z,Kurzer Riss,Hartensteiner Wand,Hartensteiner Wand,,DE,4,4,os,ROUTE,20,,1,,3,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Harakiri,Oetz,Oetz,,AT,6a,6a,os,ROUTE,30,,1,,5,47.2033325,10.8966104
-vertical_life,2017-08-20T12:00:00Z,Touch and go,Oetz,Oetz,,AT,6c,6c,go,ROUTE,20,,2,,4,47.2033325,10.8966104
-vertical_life,2017-08-20T12:00:00Z,Santa Zofia,Hartensteiner Wand,Hartensteiner Wand,,DE,5+,5+,os,ROUTE,20,,1,,4,49.5916597,11.5247792
-vertical_life,2017-08-20T12:00:00Z,Harter Hund,Roter Fels,Sektor 2,,DE,7-,7-,go,ROUTE,35,,2,,4,49.6024479,11.4961998
-vertical_life,2017-08-20T12:00:00Z,Softmover,Roter Fels,Sektor 2,,DE,5-,5-,os,ROUTE,35,,1,,3,49.6024479,11.4961998
-vertical_life,2017-08-20T12:00:00Z,Abkürzer,Hartensteiner Wand,Hartensteiner Wand,,DE,6-,6-,os,ROUTE,20,,1,,4,49.5916597,11.5247792
-vertical_life,2017-08-26T12:00:00Z,Admiral,Gotthardskirche,Gotthardskirche,,DE,7+/8-,7+/8-,go,ROUTE,15,,2,,2,49.4621,11.1167
-vertical_life,2017-08-26T12:00:00Z,Siebenschläfer,Gotthardskirche,Gotthardskirche,,DE,6+,6+,os,ROUTE,15,,1,,4,49.4621,11.1167
-vertical_life,2017-08-26T12:00:00Z,N.N.,Gotthardskirche,Gotthardskirche,,DE,7-,7-,os,ROUTE,15,,1,,3,49.4621,11.1167
-vertical_life,2017-09-02T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,7+/8-,7+/8-,go,ROUTE,20,,2,,3,49.5612024,11.5515247
-vertical_life,2017-09-02T12:00:00Z,EM Finale,Klausener Wand,Klausener Wand,,DE,6+,6+,go,ROUTE,20,,1,,0,49.5612024,11.5515247
-vertical_life,2017-09-02T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,7+/8-,7+/8-,go,ROUTE,20,,2,,4,49.5612024,11.5515247
-vertical_life,2017-09-02T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,7-,7-,os,ROUTE,20,,1,,5,49.5612024,11.5515247
-vertical_life,2017-09-02T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,8+,8+,go,ROUTE,20,,2,,4,49.5612024,11.5515247
-vertical_life,2017-09-02T12:00:00Z,EM Finale,Klausener Wand,Klausener Wand,,DE,6+,6+,rp,ROUTE,20,,2,,0,49.5612024,11.5515247
-vertical_life,2017-09-03T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,8+,8+,go,ROUTE,20,,2,,4,49.5612024,11.5515247
-vertical_life,2017-09-03T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,7+/8-,7+/8-,rp,ROUTE,20,,3,,3,49.5612024,11.5515247
-vertical_life,2017-09-03T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,7,7,rp,ROUTE,20,,2,,4,49.5612024,11.5515247
-vertical_life,2017-09-12T12:00:00Z,Goude Haud,Happurger Wand,Happurger Wand,,DE,6+,6+,os,ROUTE,18,,1,,3,49.4848677,11.4917402
-vertical_life,2017-09-12T12:00:00Z,Frauen über 30,Hohler Fels,Hohler Fels,,DE,7-,7-,go,ROUTE,25,,2,,0,49.4846616,11.4922012
-vertical_life,2017-09-12T12:00:00Z,Barrakuda,Hohler Fels,Hohler Fels,,DE,7+/8-,7+/8-,go,ROUTE,25,,2,,4,49.4846616,11.4922012
-vertical_life,2017-10-22T12:00:00Z,Frauenpower,Cube Kletterzentrum,,,,6-,6-,rp,GYM_ROUTE,13,,2,,5,49.4521,11.0767
-vertical_life,2018-04-02T12:00:00Z,Hersbrucker Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,6-,6-,go,ROUTE,15,,0,,5,49.4682356,11.505691
-vertical_life,2018-04-02T12:00:00Z,Hersbrucker Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,6-,6-,rp,ROUTE,15,,3,,5,49.4682356,11.505691
-vertical_life,2018-04-02T12:00:00Z,Größenwahn,Kanzelfels (Förrenbach),Kanzelfels,,DE,7+/8-,7+/8-,go,ROUTE,15,,0,,5,49.4682356,11.505691
-vertical_life,2018-04-04T12:00:00Z,Arrabiata,Weiße Wand (Hirschbachtal),Südseite,,DE,7,7,rp,ROUTE,15,,3,,5,,
-vertical_life,2018-04-04T12:00:00Z,Lady Domina,Weiße Wand (Hirschbachtal),Südseite,,DE,7-,7-,go,ROUTE,15,,0,,5,,
-vertical_life,2018-04-04T12:00:00Z,Boulder,Weiße Wand (Hirschbachtal),Südseite,,DE,7-,7-,go,ROUTE,15,,3,,5,,
-vertical_life,2018-04-04T12:00:00Z,Verfassungsbeschwerde,Weiße Wand (Hirschbachtal),Südseite,,DE,7-,7-,rp,ROUTE,15,,3,,5,,
-vertical_life,2018-04-04T12:00:00Z,Kiefernverschneidung,Weiße Wand (Hirschbachtal),Südseite,,DE,6-,6-,go,ROUTE,15,,3,,5,,
-vertical_life,2018-04-08T12:00:00Z,Für Elsa und Dani,Lug ins Land,Lug ins Land,,DE,6-,6-,os,ROUTE,12,,1,,5,49.3837394,10.2304353
-vertical_life,2018-04-08T12:00:00Z,Wilde Amelie,Lug ins Land,Lug ins Land,,DE,6-,6-,go,ROUTE,12,,0,,5,49.3837394,10.2304353
-vertical_life,2018-04-08T12:00:00Z,Höhenglückwand,Himmelsfels,Himmelsfels,,DE,7-,7-,rp,ROUTE,15,,2,,5,49.5475185,11.5457204
-vertical_life,2018-04-08T12:00:00Z,Nürnberger Weg,Prellstein,Prellstein,,DE,6+,6+,go,ROUTE,18,,0,,5,49.5486791,11.5433907
-vertical_life,2018-04-08T12:00:00Z,Theresa,Lug ins Land,Lug ins Land,,DE,6+,6+,go,ROUTE,12,,0,,5,49.3837394,10.2304353
-vertical_life,2018-04-08T12:00:00Z,Himmelstor,Himmelsfels,Himmelsfels,,DE,7+/8-,7+/8-,rp,ROUTE,21,,2,,5,49.5475185,11.5457204
-vertical_life,2018-04-30T12:00:00Z,Manche mögen‘s heiß,Klausener Wand,Klausener Wand,,DE,8,8,go,ROUTE,20,,0,,5,49.5612024,11.5515247
-vertical_life,2018-04-30T12:00:00Z,Manche mögen‘s heiß,Klausener Wand,Klausener Wand,,DE,7+/8-,7+/8-,go,ROUTE,20,,0,,5,49.5612024,11.5515247
-vertical_life,2018-04-30T12:00:00Z,Obermühlriss,Klausener Wand,Klausener Wand,,DE,6+,6+,go,ROUTE,20,,0,,5,49.5612024,11.5515247
-vertical_life,2018-05-06T12:00:00Z,Zufall,Zimmerbergwände,Sektor 1,,DE,7-,7-,rp,ROUTE,15,,2,,5,49.4421,11.0934
-vertical_life,2018-05-06T12:00:00Z,Murmeltier,Zimmerbergwände,Sektor 1,,DE,7+,7+,go,ROUTE,15,,0,,4,49.4421,11.0934
-vertical_life,2018-05-06T12:00:00Z,Zufall,Zimmerbergwände,Sektor 1,,DE,7-,7-,go,ROUTE,15,,0,,5,49.4421,11.0934
-vertical_life,2018-05-06T12:00:00Z,Freundschaft,Zimmerbergwände,Sektor 1,,DE,7-,7-,go,ROUTE,15,,0,,5,49.4421,11.0934
-vertical_life,2018-05-06T12:00:00Z,Armin Weich Ged.-Weg,Zimmerbergwände,Sektor 1,,DE,5-,5-,os,ROUTE,15,,1,,4,49.4421,11.0934
-vertical_life,2018-05-06T12:00:00Z,Murmeltier,Zimmerbergwände,Sektor 1,,DE,7+,7+,go,ROUTE,15,,0,,5,49.4421,11.0934
-vertical_life,2018-05-22T12:00:00Z,Die Kunst des Pirschens,Steinberg,Sektor 2 & 3,,DE,7-,7-,go,ROUTE,15,,1,,2,54.757706,9.7839896
-vertical_life,2018-05-22T12:00:00Z,Sonnenkraft,Steinberg,Sektor 2 & 3,,DE,8-,8-,rp,ROUTE,15,,3,,5,54.757706,9.7839896
-vertical_life,2018-05-22T12:00:00Z,Dr. Klemminger,Steinberg,Sektor 2 & 3,,DE,7-,7-,rp,ROUTE,15,,3,,5,54.757706,9.7839896
-vertical_life,2018-05-22T12:00:00Z,Dr. Klemminger,Steinberg,Sektor 2 & 3,,DE,7-,7-,go,ROUTE,15,,1,,5,54.757706,9.7839896
-vertical_life,2018-05-22T12:00:00Z,Im Regen,Steinberg,Sektor 4,,DE,7+,7+,os,ROUTE,20,,1,,4,54.757706,9.7839896
-vertical_life,2018-05-22T12:00:00Z,Sonnenkraft,Steinberg,Sektor 2 & 3,,DE,7+/8-,7+/8-,go,ROUTE,15,,1,,5,54.757706,9.7839896
-vertical_life,2018-05-27T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,8+,8+,go,ROUTE,20,,1,,5,49.5612024,11.5515247
-vertical_life,2018-05-27T12:00:00Z,Luft unter den Sohlen,Klausener Wand,Klausener Wand,,DE,7+/8-,7+/8-,go,ROUTE,20,,1,,5,49.5612024,11.5515247
-vertical_life,2018-05-27T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,7,7,rp,ROUTE,20,,1,,5,49.5612024,11.5515247
-vertical_life,2018-05-27T12:00:00Z,Luft unter den Sohlen,Klausener Wand,Klausener Wand,,DE,8-,8-,go,ROUTE,20,,1,,5,49.5612024,11.5515247
-vertical_life,2018-05-31T12:00:00Z,Direkte Talseite,Zankelstein,Zankelstein,,DE,7+/8-,7+/8-,go,ROUTE,18,,1,,5,49.5039234,11.5236437
-vertical_life,2018-05-31T12:00:00Z,Tabaluga,Zankelstein,Zankelstein,,DE,7+/8-,7+/8-,go,ROUTE,18,,1,,5,49.5039234,11.5236437
-vertical_life,2018-05-31T12:00:00Z,Sprochkante,Zankelstein,Zankelstein,,DE,6+,6+,go,ROUTE,18,,1,,5,49.5039234,11.5236437
-vertical_life,2018-06-04T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,7-,7-,go,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-06-04T12:00:00Z,Knödala,Henastoa,Henastoa,,DE,6+,6+,go,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-06-04T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,7,7,rp,ROUTE,18,,3,,5,49.5242429,11.6670233
-vertical_life,2018-06-04T12:00:00Z,Knödala,Henastoa,Henastoa,,DE,6+,6+,rp,ROUTE,18,,3,,5,49.5242429,11.6670233
-vertical_life,2018-06-04T12:00:00Z,Minor Threat,Henastoa,Henastoa,,DE,7-,7-,go,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-06-04T12:00:00Z,Minor Threat,Henastoa,Henastoa,,DE,7-,7-,tr,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-07-30T12:00:00Z,MaPaKaLi,Henastoa,Henastoa,,DE,5-,5-,os,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-07-30T12:00:00Z,ClaMaU.C,Henastoa,Henastoa,,DE,5-,5-,os,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-07-30T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,7,7,go,ROUTE,18,,1,,5,49.5242429,11.6670233
-vertical_life,2018-08-02T12:00:00Z,Seifertriss,Zehnerstein,Zehnerstein,,DE,6+,6+,go,ROUTE,30,,1,,5,47.756966,12.7999589
-vertical_life,2018-08-02T12:00:00Z,Zwei Jahre später,Zehnerstein,Zehnerstein,,DE,7-,7-,os,ROUTE,30,,1,,5,47.756966,12.7999589
-vertical_life,2018-08-05T12:00:00Z,Nürnberger Weg,Bärnhofer Wand,Bärnhofer Wand,,DE,6+,6+,os,ROUTE,22,,1,,4,49.4821,11.1167
-vertical_life,2018-08-05T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,7,7,rp,ROUTE,22,,3,,5,49.4821,11.1167
-vertical_life,2018-08-05T12:00:00Z,Moralapostel,Bärnhofer Wand,Bärnhofer Wand,,DE,7-,7-,go,ROUTE,22,,1,,5,49.4821,11.1167
-vertical_life,2018-08-05T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,7-,7-,go,ROUTE,22,,1,,5,49.4821,11.1167
-vertical_life,2018-08-05T12:00:00Z,Gummitwist mit dem Antichrist,Bärnhofer Wand,Bärnhofer Wand,,DE,7-,7-,f,ROUTE,22,,1,,5,49.4821,11.1167
-vertical_life,2018-08-06T12:00:00Z,Röthelfieber,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,7-,7-,os,ROUTE,40,,1,,5,49.7473701,11.2458415
-vertical_life,2018-08-06T12:00:00Z,Kleiner Dicker,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,7-,7-,os,ROUTE,40,,1,,5,49.7473701,11.2458415
-vertical_life,2018-08-06T12:00:00Z,Ratte,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,6+,6+,os,ROUTE,40,,1,,5,49.7473701,11.2458415
-vertical_life,2018-09-09T12:00:00Z,Fight Club,Strahlenfels,Strahlenfels,,DE,8+/9-,8+/9-,go,ROUTE,25,,1,,5,49.653034,11.3760431
-vertical_life,2018-09-09T12:00:00Z,Symphonie,Strahlenfels,Strahlenfels,,DE,7+/8-,7+/8-,go,ROUTE,25,,1,,5,49.653034,11.3760431
-vertical_life,2018-09-09T12:00:00Z,Nightwish,Strahlenfels,Strahlenfels,,DE,7+/8-,7+/8-,rp,ROUTE,25,,2,,5,49.653034,11.3760431
-vertical_life,2018-09-16T12:00:00Z,Schmidtstadter Weg,Schmidtstadter Wand,Schmidtstadter Wand,,DE,7-,7-,rp,ROUTE,15,,2,,3,49.5445546,11.5694833
-vertical_life,2018-09-16T12:00:00Z,Weißglut,Schmidtstadter Wand,Schmidtstadter Wand,,DE,7+,7+,go,ROUTE,15,,1,,3,49.5445546,11.5694833
-vertical_life,2018-09-16T12:00:00Z,Red Sonja,Schmidtstadter Wand,Schmidtstadter Wand,,DE,7+/8-,7+/8-,go,ROUTE,15,,1,,3,49.5445546,11.5694833
-vertical_life,2018-09-16T12:00:00Z,Kanaan,Schmidtstadter Wand,Schmidtstadter Wand,,DE,6+,6+,rp,ROUTE,15,,2,,3,49.5445546,11.5694833
-vertical_life,2018-09-16T12:00:00Z,Plastic Fantastic,Schmidtstadter Wand,Schmidtstadter Wand,,DE,7+/8-,7+/8-,go,ROUTE,15,,1,,5,49.5445546,11.5694833
-vertical_life,2018-09-28T12:00:00Z,Franz Diewald Ged.-Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,8+,8+,go,ROUTE,15,,1,,3,49.4682356,11.505691
-vertical_life,2018-09-28T12:00:00Z,Herbstkind,Kanzelfels (Förrenbach),Kanzelfels,,DE,6+,6+,os,ROUTE,15,,1,,1,49.4682356,11.505691
-vertical_life,2018-10-07T12:00:00Z,Hannig Mayer Ged.-Weg,Roter Fels,Sektor 2,,DE,8-,8-,go,ROUTE,40,,1,,3,49.6024479,11.4961998
-vertical_life,2018-10-07T12:00:00Z,Dolomitweg,Roter Fels,Sektor 2,,DE,6,6,os,ROUTE,40,,1,,5,49.6024479,11.4961998
-vertical_life,2018-10-08T12:00:00Z,Luftikus,Roter Fels,Sektor 2,,DE,8,8,go,ROUTE,40,,1,,3,49.6024479,11.4961998
-vertical_life,2020-04-11T12:00:00Z,Zentrale Südwand,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,6,6,rp,ROUTE,21,,3,,0,,
-vertical_life,2020-04-11T12:00:00Z,Kletterkursweg,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,5,5,rp,ROUTE,21,,3,,0,,
-vertical_life,2020-04-11T12:00:00Z,Alte und Jungnasen,Graischenstein,Sektor 2,,DE,7+,7+,rp,ROUTE,15,,3,,0,49.5021,11.1767
-vertical_life,2020-04-11T12:00:00Z,En Mobilette,Graischenstein,Sektor 2,,DE,7,7,go,ROUTE,15,,1,,0,49.5021,11.1767
-vertical_life,2020-04-11T12:00:00Z,Direkter Alter Weg,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,6,6,rp,ROUTE,21,,3,,0,,
-vertical_life,2020-04-11T12:00:00Z,Sissi,Graischenstein,Sektor 2,,DE,7+,7+,rp,ROUTE,15,,3,,0,49.5021,11.1767
-vertical_life,2020-04-19T12:00:00Z,B(l)aumann spezial,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,8-,8-,go,ROUTE,22,,1,,0,49.9591963,11.2086058
-vertical_life,2020-04-19T12:00:00Z,Räuchermännchen (R 12c),Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,5-,5-,os,ROUTE,22,,1,,0,49.9591963,11.2086058
-vertical_life,2020-04-19T12:00:00Z,Nimm‘s leicht,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,8,8,go,ROUTE,22,,1,,0,49.9591963,11.2086058
-vertical_life,2020-04-19T12:00:00Z,Schlappohralarm,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,6+,6+,os,ROUTE,22,,1,,4,49.9591963,11.2086058
-vertical_life,2020-04-23T12:00:00Z,B(l)aumann spezial,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,8-,8-,go,ROUTE,22,,1,,0,49.9591963,11.2086058
-vertical_life,2020-04-23T12:00:00Z,Rockys Kauknochen,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,7+,7+,rp,ROUTE,22,,1,,0,49.9591963,11.2086058
-vertical_life,2020-04-23T12:00:00Z,Schlappohralarm,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,6+,6+,rp,ROUTE,22,,3,,0,49.9591963,11.2086058
-vertical_life,2020-04-23T12:00:00Z,Rockys Kauknochen,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,7+,7+,rp,ROUTE,22,,3,,0,49.9591963,11.2086058
-vertical_life,2020-04-26T12:00:00Z,Radanator,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,8,8,go,ROUTE,21,"Schöner Fels, schöne Tour. Weiter Haken von 4 auf 5 aber sehr sicher. Aufstieg lohnt  ",1,,4,,
-vertical_life,2020-04-26T12:00:00Z,Czeská Láska,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,5+,5+,os,ROUTE,21,,1,,4,,
-vertical_life,2020-04-26T12:00:00Z,Das Leichte und das Schwere,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,5,5,os,ROUTE,21,,1,,4,,
-vertical_life,2020-04-26T12:00:00Z,Das Leichte und das Schwere,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,5,5,rp,ROUTE,21,,3,,0,,
-vertical_life,2020-04-26T12:00:00Z,Czeská Láska,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,5+,5+,rp,ROUTE,21,,3,,0,,
-vertical_life,2020-05-12T12:00:00Z,Bremse auch für Schwaben,Katzenlöcher,Katzenlöcher,,DE,7-,7-,os,ROUTE,15,,1,,0,49.6051901,11.5530062
-vertical_life,2020-05-12T12:00:00Z,Fer-May-Weg,Katzenlöcher,Katzenlöcher,,DE,5,5,os,ROUTE,15,,1,,4,49.6051901,11.5530062
-vertical_life,2020-05-12T12:00:00Z,Pickel im Nacken,Katzenlöcher,Katzenlöcher,,DE,8-,8-,go,ROUTE,15,,1,,0,49.6051901,11.5530062
-vertical_life,2020-05-12T12:00:00Z,Direkte Talseite,Katzenlöcher,Katzenlöcher,,DE,6,6,os,ROUTE,25,,1,,4,49.6051901,11.5530062
-vertical_life,2020-05-12T12:00:00Z,Tempo Kacker,Katzenlöcher,Katzenlöcher,,DE,6+,6+,os,ROUTE,15,,1,,3,49.6051901,11.5530062
-vertical_life,2020-05-12T12:00:00Z,Sad Lisa,Katzenlöcher,Katzenlöcher,,DE,6,6,os,ROUTE,15,,1,,0,49.6051901,11.5530062
-vertical_life,2020-06-14T12:00:00Z,Rizzi bizzi,Ruine Riegelstein,Sektor 1,,DE,6,6,f,ROUTE,10,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,Nix auf der hohen Kante,Ruine Riegelstein,Sektor 1,,DE,6+,6+,os,ROUTE,10,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,Luginsland,Ruine Riegelstein,Sektor 1,,DE,5-,5-,os,ROUTE,10,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,Tempolimit,Ruine Riegelstein,Sektor 2,,DE,8-,8-,go,ROUTE,15,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,A 7,Ruine Riegelstein,Sektor 2,,DE,8-,8-,rp,ROUTE,15,,2,,0,,
-vertical_life,2020-06-14T12:00:00Z,Höllenfahrt,Ruine Riegelstein,Sektor 1,,DE,7,7,f,ROUTE,10,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,Fliegendes Frettchen,Großenoher Wand,Großenoher Wand,,DE,6,6,os,ROUTE,21,hoher erster Hacken ,1,,5,49.5121,11.1467
-vertical_life,2020-06-14T12:00:00Z,Verjüngende Kluft,Ruine Riegelstein,Sektor 1,,DE,5,5,os,ROUTE,10,,1,,0,,
-vertical_life,2020-06-14T12:00:00Z,Prost Paul,Großenoher Wand,Großenoher Wand,,DE,8-,8-,go,ROUTE,21,hart für den grad. Am Fels steht 8+,1,,5,49.5121,11.1467
-vertical_life,2020-06-30T12:00:00Z,Range Rover,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,7,7,os,ROUTE,18,,1,,5,49.4921,11.1567
-vertical_life,2020-06-30T12:00:00Z,Pezi,Grüne Hölle,"Sektor 1 (GW, Pezi, GT)",,DE,6,6,rp,ROUTE,8,,3,,0,49.4921,11.1567
-vertical_life,2020-06-30T12:00:00Z,Das Weiß der Geier,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,5,5,os,ROUTE,12,,1,,2,49.4921,11.1567
-vertical_life,2020-06-30T12:00:00Z,Pezi,Grüne Hölle,"Sektor 1 (GW, Pezi, GT)",,DE,6,6,os,ROUTE,8,,1,,0,49.4921,11.1567
-vertical_life,2020-06-30T12:00:00Z,Ebbelwoi Express,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,7,7,os,ROUTE,12,,1,,0,49.4921,11.1567
-vertical_life,2020-06-30T12:00:00Z,Isolation,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,8-,8-,go,ROUTE,18,,1,,0,49.4921,11.1567
-vertical_life,2020-07-12T12:00:00Z,Vom Feinsten,Schlaraffenland,Hirschbacher Wand,,DE,8-,8-,go,ROUTE,21,,1,,0,49.551973,11.5300715
-vertical_life,2020-07-12T12:00:00Z,Alter Weg,Schlaraffenland,Hirschbacher Wand,,DE,6-,6-,go,ROUTE,21,,1,,0,49.551973,11.5300715
-vertical_life,2020-07-12T12:00:00Z,Muckefuck,Schlaraffenland,Hirschbacher Wand,,DE,6+,6+,os,ROUTE,21,,1,,3,49.551973,11.5300715
-vertical_life,2020-07-12T12:00:00Z,Vom Feinsten,Schlaraffenland,Hirschbacher Wand,,DE,8-,8-,rp,ROUTE,21,,2,,0,49.551973,11.5300715
-vertical_life,2020-07-20T12:00:00Z,Der singende Draht,Lucky Luke,Lucky Luke,,DE,5,5,os,ROUTE,18,,1,,0,48.8303647,11.0842123
-vertical_life,2020-07-20T12:00:00Z,Direkteinstieg (Asterix),Asterix und Obelix,Asterix und Obelix,,DE,7-,7-,os,ROUTE,17,,1,,0,49.4421,11.1067
-vertical_life,2020-07-20T12:00:00Z,Rechter Weg,Felsengarten,Felsengarten,,DE,5+,5+,rp,ROUTE,12,,3,,0,49.4621,11.1267
-vertical_life,2020-07-20T12:00:00Z,Wildwechsel *,Wildwechsel,Wildwechsel,,DE,7+,7+,rp,ROUTE,17,,2,,0,52.5234545,10.0150397
-vertical_life,2020-07-20T12:00:00Z,Skorpion,Bergspinnenturm,Bergspinnenturm,,DE,6,6,os,ROUTE,23,,1,,5,49.5021,11.1967
-vertical_life,2020-07-20T12:00:00Z,Skorpion,Bergspinnenturm,Bergspinnenturm,,DE,6,6,rp,ROUTE,23,,1,,0,49.5021,11.1967
-vertical_life,2020-07-20T12:00:00Z,Der Pony-Express,Lucky Luke,Lucky Luke,,DE,5+,5+,os,ROUTE,18,,1,,0,48.8303647,11.0842123
-vertical_life,2020-07-20T12:00:00Z,Wilde Wölfe *,Wildwechsel,Wildwechsel,,DE,5+,5+,os,ROUTE,17,,1,,4,52.5234545,10.0150397
-vertical_life,2020-07-24T12:00:00Z,Frost-Fertinger-Weg,Bärnhofer Wand,Bärnhofer Wand,,DE,6,6,f,ROUTE,22,,1,,0,49.4821,11.1167
-vertical_life,2020-07-24T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,7,7,rp,ROUTE,22,,3,,0,49.4821,11.1167
-vertical_life,2020-07-24T12:00:00Z,Gruppenzwang,Bärnhofer Wand,Bärnhofer Wand,,DE,8+,8+,go,ROUTE,22,,1,,0,49.4821,11.1167
-vertical_life,2020-07-28T12:00:00Z,Nürnberger Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,6+,6+,os,ROUTE,12,,1,,3,49.6928336,11.2192085
-vertical_life,2020-07-28T12:00:00Z,Wepsenweg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,7-,7-,os,ROUTE,12,,1,,2,49.6928336,11.2192085
-vertical_life,2020-07-28T12:00:00Z,Direkter Haidhofer Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,5+,5+,os,ROUTE,12,,1,,3,49.6928336,11.2192085
-vertical_life,2020-07-28T12:00:00Z,Hummelsteiner Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,4+,4+,os,ROUTE,12,,1,,0,49.6928336,11.2192085
-vertical_life,2020-09-16T12:00:00Z,Goldköpfl,Ewige Jagdgründe,Wig Wam,,AT,5b,5b,os,ROUTE,10,,1,,0,49.4721,11.1367
-vertical_life,2020-09-16T12:00:00Z,Fireline,Ewige Jagdgründe,Wig Wam,,AT,6c+,6c+,go,ROUTE,30,,1,,0,49.4721,11.1367
-vertical_life,2020-09-16T12:00:00Z,Via Lisa,Ewige Jagdgründe,Wig Wam,,AT,5c,5c,os,ROUTE,30,,1,,0,49.4721,11.1367
-vertical_life,2020-09-16T12:00:00Z,El Schuppo,Ewige Jagdgründe,Wig Wam,,AT,6a+,6a+,rp,ROUTE,15,,2,,0,49.4721,11.1367
-vertical_life,2020-09-16T12:00:00Z,Jean Schampoo,Ewige Jagdgründe,Wig Wam,,AT,5c,5c,os,ROUTE,30,,1,,0,49.4721,11.1367
-vertical_life,2020-09-19T12:00:00Z,N.N.,Zemmschlucht,Traumschiff,,AT,5c,5c,f,BOULDER,4,,1,,0,,
-vertical_life,2020-09-19T12:00:00Z,Mein Gott Walter lang,Ewige Jagdgründe,Wig Wam,,AT,7b+,7b+,go,ROUTE,25,As nice as the shorter version. For me it was very hard to clib the last anker last anker ,1,,4,49.4721,11.1367
-vertical_life,2020-09-19T12:00:00Z,Mein Gott Walter kurz,Ewige Jagdgründe,Wig Wam,,AT,6a,6a,os,ROUTE,15,,1,,0,49.4721,11.1367
-vertical_life,2020-09-19T12:00:00Z,Trumpf,Zemmschlucht,Almrausch,,AT,5b,5b,f,BOULDER,4,,1,,0,,
-vertical_life,2020-09-19T12:00:00Z,N.N.,Zemmschlucht,Traumschiff,,AT,6c+,6c+,rp,BOULDER,4,,3,,0,,
-vertical_life,2021-07-10T12:00:00Z,Die Schönheitskönigin von Schneizlreuth,Rabensteinhorn,Westwand,,DE,6a,6a,os,ROUTE,null,,1,,0,47.6962351,12.8228377
-vertical_life,2024-05-19T12:00:00Z,Schoko intensiv,Thalhofergrat,Ostwand,,AT,6a,6a,rp,ROUTE,null,,0,,4,48.0067581,16.0361074
-vertical_life,2024-05-19T12:00:00Z,Schokoladenpudding,Thalhofergrat,Unknown Sector,,AT,5a,5a,f,ROUTE,null,,1,,5,48.0067581,16.0361074
-vertical_life,2024-05-19T12:00:00Z,Betthupferl,Thalhofergrat,Ostwand,,AT,6c,6c,rp,ROUTE,null,"In my opinion, the most tricky 6b I have tried so far. Still, a nearly perfect climb including a hard slap, an overhang and some massive whippers. ",10,,5,48.0067581,16.0361074
-vertical_life,2024-05-23T12:00:00Z,Palmwedel,Thalhofergrat,Obere Ostwand,,AT,6c,6c,go,ROUTE,null,"Nice and occasionally harder than Staubwedel with a hard single crux. Too hard after Betthupferl. According to the local guidebook 6c, which, I think, is fair. ",1,,4,48.0067581,16.0361074
-vertical_life,2024-05-31T12:00:00Z,Augenblick des Glücks,Thalhofergrat,Ostwand,,AT,6c,6c,rp,ROUTE,null,,0,,0,48.0067581,16.0361074
-vertical_life,2024-06-05T12:00:00Z,Royal Arches,Royal Arches,Unknown Sector,,US,5b+,5b+,os,ROUTE,null,Stunning and Beautiful Climb. Got for a long day and to practice for bigger projects.,1,,5,37.7486288,-119.570043
-vertical_life,2024-06-25T12:00:00Z,Black,Kletteranlage Flakturm,,,,7a,7a,go,GYM_ROUTE,16,,1,,5,48.1975608,16.352773
-vertical_life,2024-06-25T12:00:00Z,White,Kletteranlage Flakturm,,,,5b,5b,f,GYM_ROUTE,16,,1,,null,48.1975608,16.352773
-vertical_life,2024-06-25T12:00:00Z,Green,Kletteranlage Flakturm,,,,7b,7b,go,GYM_ROUTE,16,,1,,5,48.1975608,16.352773
-vertical_life,2024-06-30T12:00:00Z,N.N.,Johannesbachklamm,Mitte,,AT,6c+,6c+,rp,ROUTE,null,,2,,4,47.7807559,16.0379789
-vertical_life,2024-06-30T12:00:00Z,Klamauk,Johannesbachklamm,Mitte,,AT,5c+,5c+,f,ROUTE,null,,1,,0,47.7807559,16.0379789
-vertical_life,2024-06-30T12:00:00Z,Klammprojekt,Johannesbachklamm,Links,,AT,7a,7a,rp,ROUTE,null,,3,,5,47.7807559,16.0379789
-vertical_life,2024-06-30T12:00:00Z,Na,Johannesbachklamm,Mitte,,AT,5c,5c,f,ROUTE,null,,1,,0,47.7807559,16.0379789
-vertical_life,2024-10-13T12:00:00Z,Mäusehochzeit,Thalhofergrat,Untere Thalhoferwand,,AT,5c,5c,os,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2024-10-13T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,7a,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2024-10-13T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,7a,7a,go,ROUTE,null,,1,,5,48.0067581,16.0361074
-vertical_life,2024-12-29T12:00:00Z,Samba,Giggerl,Giggerl,,GR,5a,5a,os,ROUTE,20,,1,,3,49.4721,11.1167
-vertical_life,2024-12-29T12:00:00Z,Giger,Giggerl,Giggerl,,GR,6b+,6b+,go,ROUTE,35,Loose rock at the upper part and a bit exposed. ,1,,3,49.4721,11.1167
-vertical_life,2024-12-29T12:00:00Z,Gecko Alive,Giggerl,Giggerl,,GR,6a,6a,os,ROUTE,25,,1,,3,49.4721,11.1167
-vertical_life,2024-12-30T12:00:00Z,Metal,Hospital,Hospital,,GR,6b+,6b+,os,ROUTE,37,,1,,4,37.1722663,22.8612073
-vertical_life,2024-12-30T12:00:00Z,Mega Pipe,Hospital,Red Rock,,GR,6a+,6a+,rp,ROUTE,40,,2,,4,37.1722663,22.8612073
-vertical_life,2024-12-30T12:00:00Z,Disco,Hospital,Hospital,,GR,6a,6a,os,ROUTE,40,Was ein Ausblick und was für eine Tour 😊,1,,5,37.1722663,22.8612073
-vertical_life,2024-12-30T12:00:00Z,Giota,Hospital,Hospital,,GR,6a,6a,os,ROUTE,28,,1,,4,37.1722663,22.8612073
-vertical_life,2024-12-31T12:00:00Z,Dr. Motte Extension,Theós,Pillar,,GR,7a,7a,go,ROUTE,null,,2,,5,37.1703475,22.8908471
-vertical_life,2024-12-31T12:00:00Z,Mr. Oizo ext.,Theós,Pillar,,GR,6b,6b,os,ROUTE,null,,1,,4,37.1703475,22.8908471
-vertical_life,2025-01-01T12:00:00Z,Dr. Motte,Theós,Pillar,,GR,4b,4b,go,ROUTE,null,,0,,0,37.1703475,22.8908471
-vertical_life,2025-01-02T12:00:00Z,Omihli,Sabaton,Sabaton lower,,GR,7a,7a,rp,ROUTE,20,,3,,4,37.1711849,22.896815
-vertical_life,2025-01-02T12:00:00Z,Tokotoukan,Sabaton,Sabaton lower,,GR,6a,6a,os,ROUTE,16,,1,,3,37.1711849,22.896815
-vertical_life,2025-01-02T12:00:00Z,Best & Worst,Sabaton,Mini Canyon,,GR,6b,6b,os,ROUTE,20,,1,,4,37.1711849,22.896815
-vertical_life,2025-01-02T12:00:00Z,Manowar,Sabaton,Mini Canyon,,GR,6a+,6a+,os,ROUTE,15,,1,,4,37.1711849,22.896815
-vertical_life,2025-01-03T12:00:00Z,God Save Leonidio,Sabaton,Mini Canyon,,GR,6c,6c,go,ROUTE,15,,1,,4,37.1711849,22.896815
-vertical_life,2025-01-03T12:00:00Z,And Cakes by Tonnes,Sabaton,Mini Canyon,,GR,7a,7a,rp,ROUTE,20,"Probably one of the best routes I climbed so far. Crimps, Jugs and Tufas … it has it all.",2,,5,37.1711849,22.896815
-vertical_life,2025-01-03T12:00:00Z,Ta Matia Sou,Sabaton,Mini Canyon,,GR,6b+,6b+,f,ROUTE,15,,1,,4,37.1711849,22.896815
-vertical_life,2025-01-04T12:00:00Z,Mignonette,Kokkinovrachos,Multi-Pitches,,GR,5c+,5c+,os,ROUTE,185,,1,,5,38.1793839,23.84206
-vertical_life,2025-04-24T12:00:00Z,Andate ad Arrampicare!,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,5b,5b,os,ROUTE,30,,1,,5,40.2833,9.6333
-vertical_life,2025-04-24T12:00:00Z,Aberrante,Cala Gonone - Biddiriscottai,Biddiriscottai,,IT,6b+,6b+,go,ROUTE,25,Wie alle Touren hier super schmierig und 6b+ sehe ich nicht aber an sich coole Tour.,1,,3,40.2833,9.6333
-vertical_life,2025-04-24T12:00:00Z,Ho Bisognio di Sole,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,6a,6a,os,ROUTE,25,,1,,null,40.2833,9.6333
-vertical_life,2025-04-24T12:00:00Z,N.N.,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,5c,5c,os,ROUTE,30,,1,,5,40.2833,9.6333
-vertical_life,2025-04-24T12:00:00Z,Piccante ma non troppo,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,6b+,6b+,os,ROUTE,25,,1,,null,40.2833,9.6333
-vertical_life,2025-04-24T12:00:00Z,Piccantissima,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,6c,6c,rp,ROUTE,20,,2,,null,40.2833,9.6333
-vertical_life,2025-04-27T12:00:00Z,Schiavi Bianchi,Cala Gonone - Biddiriscottai,Biddiriscottai,,IT,6c+,6c+,go,ROUTE,15,,1,,null,40.2833,9.6333
-vertical_life,2025-04-27T12:00:00Z,Automatix,Baunei,Villaggio Gallico,,IT,6c,6c,os,ROUTE,null,,1,,4,40.0167,9.6333
-vertical_life,2025-04-27T12:00:00Z,Beltorax,Baunei,Villaggio Gallico,,IT,6b,6b,os,ROUTE,null,,1,,5,40.0167,9.6333
-vertical_life,2025-04-27T12:00:00Z,Marinaio di Foresta,Pedra Longa,Unknown Sector,,IT,6a+,6a+,os,ROUTE,null,,1,,5,40.4481738,9.584257
-vertical_life,2025-04-27T12:00:00Z,Primafix,Baunei,Villaggio Gallico,,IT,6c+,6c+,go,ROUTE,null,,1,,0,40.0167,9.6333
-vertical_life,2025-04-27T12:00:00Z,Primafix,Baunei,Villaggio Gallico,,IT,6c+,6c+,rp,ROUTE,null,,2,,0,40.0167,9.6333
-vertical_life,2025-04-28T12:00:00Z,Jackpress,Baunei,Ichnusa,,IT,7a,7a,go,ROUTE,null,,1,,0,40.0167,9.6333
-vertical_life,2025-04-28T12:00:00Z,Twich,Baunei,Campo dei Miracoli,,IT,6a+,6a+,os,ROUTE,null,,1,,4,40.0167,9.6333
-vertical_life,2025-04-30T12:00:00Z,Ogliastroman,Su Casteddu,Su Casteddu,,IT,6c,6c,os,ROUTE,21,,1,,5,39.7961468,9.4963662
-vertical_life,2025-04-30T12:00:00Z,Papo papo,Baunei,Ichnusa,,IT,6a,6a,os,ROUTE,null,,1,,5,40.0167,9.6333
-vertical_life,2025-04-30T12:00:00Z,Henergy,Su Casteddu,Su Casteddu,,IT,7a,7a,os,ROUTE,21,"First 7a onsight!
+source,date,route_name,location,sector,area,country,grade,grade_uiaa,grade_original,style,route_type,height,comment,tries,url,stars,latitude,longitude
+vertical_life,2017-07-22T12:00:00Z,Prost Mahlzeit,Schwarzbrennerei,Schwarzbrennerei,,DE,VI+,VI+,7-,rp,ROUTE,12,,2,,3,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,Adolf Nolder Ged.-Boulder,Spieser Wand,Spieser Wand,,DE,VI+,VI+,7-,os,ROUTE,20,,1,,4,49.4321,11.1234
+vertical_life,2017-07-22T12:00:00Z,Lots Weib,Zimmerbergwände,Sektor 1,,DE,VI+,VI+,7-,rp,ROUTE,15,,3,,3,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Grande Finale,Piccolino,Piccolino,,DE,VI-,VI-,6,rp,ROUTE,10,,2,,2,49.4521,11.0867
+vertical_life,2017-07-22T12:00:00Z,Denkste,Röthenbacher Wand,Röthenbacher Wand,,DE,VI-,VI-,6,os,ROUTE,15,,1,,3,49.4621,11.1067
+vertical_life,2017-07-22T12:00:00Z,Hersbrucker Weg,Zimmerbergwände,Sektor 2,,DE,VII-,VII-,7,tr,ROUTE,25,,2,,5,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Rumrosine,Schwarzbrennerei,Schwarzbrennerei,,DE,VI-,VI-,6,rp,ROUTE,12,,2,,0,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,Petite Fleur,Algersdorfer Wand,Algersdorfer Wand,,DE,VII,VII,7+,tr,ROUTE,22,,2,,4,49.4721,11.1267
+vertical_life,2017-07-22T12:00:00Z,Starfighter Kandidatenweg,Zimmerbergwände,Sektor 1,,DE,VII-,VII-,7,rp,ROUTE,15,,2,,4,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Räuber Hotzenplotz,Hexenküche,Sektor 2,,DE,VI-,VI-,6,os,ROUTE,15,,1,,3,49.4821,11.1467
+vertical_life,2017-07-22T12:00:00Z,Al Capone,Schwarzbrennerei,Schwarzbrennerei,,DE,VI+,VI+,7-,go,ROUTE,12,,2,,3,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,Trivialitätenkabinett,Zimmerbergwände,Sektor 1,,DE,VI+,VI+,7-,os,ROUTE,15,,1,,3,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Piccolina,Piccolino,Piccolino,,DE,VII+,VII+,8-,rp,ROUTE,10,,2,,3,49.4521,11.0867
+vertical_life,2017-07-22T12:00:00Z,Wissen macht ah,Piccolino,Piccolino,,DE,V+,V+,6-,rp,ROUTE,10,,2,,2,49.4521,11.0867
+vertical_life,2017-07-22T12:00:00Z,Devilwall,Hexenküche,Sektor 2,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,3,,4,49.4821,11.1467
+vertical_life,2017-07-22T12:00:00Z,Lochgeheimnis (Herz Ass),Zimmerbergwände,Sektor 1,,DE,V+,V+,6-,rp,ROUTE,15,,2,,2,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Georg Meier Ged.-Weg,Röthenbacher Wand,Röthenbacher Wand,,DE,VI,VI,6+,rp,ROUTE,15,,1,,5,49.4621,11.1067
+vertical_life,2017-07-22T12:00:00Z,Paul Preuß Ged.-Weg,Algersdorfer Wand,Algersdorfer Wand,,DE,VI,VI,6+,rp,ROUTE,22,,2,,4,49.4721,11.1267
+vertical_life,2017-07-22T12:00:00Z,Absinth,Schwarzbrennerei,Schwarzbrennerei,,DE,V+,V+,6-,rp,ROUTE,21,,2,,0,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,Rolling Stone,Zimmerbergwände,Sektor 1,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,2,,3,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Nicht vergessen,Hühnersteinwand,Hühnersteinwand,,DE,VII,VII,7+,rp,ROUTE,25,Crux nach Gemüse ,1,,4,49.4921,11.1667
+vertical_life,2017-07-22T12:00:00Z,Die wilden Kerle,Piccolino,Piccolino,,DE,VII+,VII+,8-,rp,ROUTE,10,,2,,4,49.4521,11.0867
+vertical_life,2017-07-22T12:00:00Z,Butterfinger,Hühnersteinwand,Hühnersteinwand,,DE,VI,VI,6+,rp,ROUTE,25,,1,,5,49.4921,11.1667
+vertical_life,2017-07-22T12:00:00Z,Röthenbacher Weg,Kirchthalwände,Kirchthalwände,,DE,VIII,VIII,8+,go,ROUTE,18,,2,,4,49.5021,11.1867
+vertical_life,2017-07-22T12:00:00Z,Sonntagsverschneidung,Hühnersteinwand,Hühnersteinwand,,DE,V,V,5+,os,ROUTE,25,,1,,5,49.4921,11.1667
+vertical_life,2017-07-22T12:00:00Z,Kurz und schmerzlos,Hexenküche,Sektor 2,,DE,VI,VI,6+,os,ROUTE,15,,1,,1,49.4821,11.1467
+vertical_life,2017-07-22T12:00:00Z,Alkoholfrei,Schwarzbrennerei,Schwarzbrennerei,,DE,V-,V-,5,rp,ROUTE,21,,2,,0,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,Grappatoni,Schwarzbrennerei,Schwarzbrennerei,,DE,V+,V+,6-,rp,ROUTE,12,,2,,0,49.4521,11.0767
+vertical_life,2017-07-22T12:00:00Z,N.N.,Zimmerbergwände,Sektor 1,,DE,VI-,VI-,6,rp,ROUTE,15,,2,,1,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Konrad Oed Ged.-Weg,Zimmerbergwände,Sektor 1,,DE,V-,V-,5,os,ROUTE,15,,1,,2,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Father and Son,Spieser Wand,Spieser Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,20,,2,,4,49.4321,11.1234
+vertical_life,2017-07-22T12:00:00Z,Irrweg,Bolzenstein,Bolzenstein,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,2,,5,49.5121,11.2067
+vertical_life,2017-07-22T12:00:00Z,Direkte Nordwand,Spieser Wand,Spieser Wand,,DE,VII,VII,7+,rp,ROUTE,20,Geil Dynamisch. An Leisten Kreuzen dann weit Raus ,2,,4,49.4321,11.1234
+vertical_life,2017-07-22T12:00:00Z,Genitale Entkrampfung,Kirchthalwände,Kirchthalwände,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,18,,2,,2,49.5021,11.1867
+vertical_life,2017-07-22T12:00:00Z,Mururoa,Algersdorfer Wand,Algersdorfer Wand,,DE,VIII/VIII+,VIII/VIII+,8+/9-,go,ROUTE,21,Zwei irre weite Zug am Ende der Tour ,2,,0,49.4721,11.1267
+vertical_life,2017-07-22T12:00:00Z,Fingerhakler,Bolzenstein,Bolzenstein,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,2,,4,49.5121,11.2067
+vertical_life,2017-07-22T12:00:00Z,Trabant,Zimmerbergwände,Sektor 1,,DE,V,V,5+,os,ROUTE,15,,1,,3,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Gemeinsam,Zimmerbergwände,Sektor 1,,DE,VI,VI,6+,os,ROUTE,15,,1,,3,49.4421,11.0934
+vertical_life,2017-07-22T12:00:00Z,Klein und gemein,Hexenküche,Sektor 2,,DE,VI-,VI-,6,os,ROUTE,15,,1,,0,49.4821,11.1467
+vertical_life,2017-07-22T12:00:00Z,Südostkante,Kirchthalwände,Kirchthalwände,,DE,V+,V+,6-,os,ROUTE,21,,1,,0,49.5021,11.1867
+vertical_life,2017-07-22T12:00:00Z,Rechte Nordwand,Spieser Wand,Spieser Wand,,DE,VII-,VII-,7,rp,ROUTE,20,,2,,3,49.4321,11.1234
+vertical_life,2017-07-22T12:00:00Z,Streiflicht,Algersdorfer Wand,Algersdorfer Wand,,DE,VI+,VI+,7-,rp,ROUTE,22,,2,,3,49.4721,11.1267
+vertical_life,2017-07-22T12:00:00Z,Nebenbei,Spieser Wand,Spieser Wand,,DE,VII,VII,7+,rp,ROUTE,21,,2,,0,49.4321,11.1234
+vertical_life,2017-07-22T12:00:00Z,Höhenkoller,Algersdorfer Wand,Algersdorfer Wand,,DE,VII,VII,7+,rp,ROUTE,21,,2,,0,49.4721,11.1267
+vertical_life,2017-07-22T12:00:00Z,Hufeisen,Hühnersteinwand,Hühnersteinwand,,DE,III,III,4,os,ROUTE,25,,1,,0,49.4921,11.1667
+vertical_life,2017-07-22T12:00:00Z,Faule Kalorie,Zimmerbergwände,Sektor 1,,DE,VI,VI,6+,os,ROUTE,15,,1,,2,49.4421,11.0934
+vertical_life,2017-07-30T12:00:00Z,Seelendoping,Große Wacht,Große Wacht,,DE,VI-,VI-,6,os,ROUTE,18,,1,,0,49.5221,11.2267
+vertical_life,2017-07-30T12:00:00Z,Hometrainer,Hauseck,Hauseck,,DE,VII,VII,7+,rp,ROUTE,10,,2,,0,49.5321,11.2467
+vertical_life,2017-07-30T12:00:00Z,Bauhaus,Hauseck,Hauseck,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,10,Crux nach dem letzten Hacken vor dem Umlenker. Macht Spaß!,2,,4,49.5321,11.2467
+vertical_life,2017-07-30T12:00:00Z,Moser Ged.-Weg,Große Wacht,Große Wacht,,DE,VI-,VI-,6,rp,ROUTE,21,Aufpassen das man nicht in die 8- reinkommt.,2,,0,49.5221,11.2267
+vertical_life,2017-07-30T12:00:00Z,Sportflieger,Große Wacht,Große Wacht,,DE,VII-,VII-,7,rp,ROUTE,18,,2,,5,49.5221,11.2267
+vertical_life,2017-07-30T12:00:00Z,Grün ist die Hoffnung,Hauseck,Hauseck,,DE,VII,VII,7+,tr,ROUTE,10,Nach dem ersten Hacken Sack schwer für den Grad!,2,,4,49.5321,11.2467
+vertical_life,2017-08-01T12:00:00Z,Diesel mit Schuss,Schwarzbrennerei,Schwarzbrennerei,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,12,Nicht schön speckig ,2,,4,49.4521,11.0767
+vertical_life,2017-08-01T12:00:00Z,Kleiner Feigling,Schwarzbrennerei,Schwarzbrennerei,,DE,VII,VII,7+,go,ROUTE,12,Ende ist crrap ,2,,1,49.4521,11.0767
+vertical_life,2017-08-01T12:00:00Z,Direkte Weiße Wand,Weiße Wand (Hirschbachtal),Südseite,,DE,VI+,VI+,7-,os,ROUTE,15,,1,,3,,
+vertical_life,2017-08-01T12:00:00Z,Arrabiata,Weiße Wand (Hirschbachtal),Südseite,,DE,VII,VII,7+,tr,ROUTE,15,,2,,3,,
+vertical_life,2017-08-01T12:00:00Z,Boulder,Weiße Wand (Hirschbachtal),Südseite,,DE,VI+,VI+,7-,tr,ROUTE,15,,2,,3,,
+vertical_life,2017-08-01T12:00:00Z,Kiefernverschneidung,Weiße Wand (Hirschbachtal),Südseite,,DE,V+,V+,6-,os,ROUTE,15,,1,,4,,
+vertical_life,2017-08-01T12:00:00Z,Erogene Zone,Kirchthalwände,Kirchthalwände,,DE,VIII/VIII+,VIII/VIII+,8+/9-,go,ROUTE,18,,2,,4,49.5021,11.1867
+vertical_life,2017-08-05T12:00:00Z,Referendarsteig,Steingarten / Langer Berg Wände,Sektor 1,,DE,VII,VII,7+,go,ROUTE,25,,2,,5,,
+vertical_life,2017-08-05T12:00:00Z,Methusalemkante,Steingarten / Langer Berg Wände,Sektor 1,,DE,VI,VI,6+,os,ROUTE,25,,1,,3,,
+vertical_life,2017-08-05T12:00:00Z,Westkante (Alter Weg),Steingarten / Langer Berg Wände,Sektor 1,,DE,IV-,IV-,4+,os,ROUTE,25,,1,,4,,
+vertical_life,2017-08-09T12:00:00Z,Hummelstaner Weg,Hartensteiner Wand,Hartensteiner Wand,,DE,V,V,5+,os,ROUTE,20,,1,,4,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Mikado,Engelswand,Engelswand,,AT,VII-,VII-,6b+,go,ROUTE,20,,2,,0,49.4921,11.1267
+vertical_life,2017-08-20T12:00:00Z,Hummelstaner Weg,Hartensteiner Wand,Hartensteiner Wand,,DE,V,V,5+,rp,ROUTE,20,,2,,4,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Linke Wand,Oetz,Oetz,,AT,VI-,VI-,6a,rp,ROUTE,20,,2,,4,47.2033325,10.8966104
+vertical_life,2017-08-20T12:00:00Z,Der Wolf und die Zwerge,Engelswand,Engelswand,,AT,5c+,5c+,5c+,os,ROUTE,25,,1,,4,49.4921,11.1267
+vertical_life,2017-08-20T12:00:00Z,Windwalker,Engelswand,Engelswand,,AT,VII-,VII-,6b+,go,ROUTE,30,,2,,0,49.4921,11.1267
+vertical_life,2017-08-20T12:00:00Z,Kilomanie,Roter Fels,Sektor 3,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,30,,2,,4,49.6024479,11.4961998
+vertical_life,2017-08-20T12:00:00Z,Die 101jährige,Hartensteiner Wand,Hartensteiner Wand,,DE,V+,V+,6-,os,ROUTE,20,,1,,4,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Kilomanie,Roter Fels,Sektor 3,,DE,VII+,VII+,8-,rp,ROUTE,30,,2,,4,49.6024479,11.4961998
+vertical_life,2017-08-20T12:00:00Z,Die 101jährige,Hartensteiner Wand,Hartensteiner Wand,,DE,VI-,VI-,6,rp,ROUTE,20,,2,,4,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Computerspiele,Ankatalturm & Ankatalwand,Ankatalwand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,30,,2,,5,49.4521,11.1067
+vertical_life,2017-08-20T12:00:00Z,Its your time,Engelswand,Engelswand,,AT,VI-,VI-,6a,os,ROUTE,25,,1,,4,49.4921,11.1267
+vertical_life,2017-08-20T12:00:00Z,Schmidtchen-Schleicher,Oetz,Oetz,,AT,VI+,VI+,6b,f,ROUTE,30,,1,,5,47.2033325,10.8966104
+vertical_life,2017-08-20T12:00:00Z,Kurzer Riss,Hartensteiner Wand,Hartensteiner Wand,,DE,III,III,4,os,ROUTE,20,,1,,3,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Harakiri,Oetz,Oetz,,AT,VI-,VI-,6a,os,ROUTE,30,,1,,5,47.2033325,10.8966104
+vertical_life,2017-08-20T12:00:00Z,Touch and go,Oetz,Oetz,,AT,VII,VII,6c,go,ROUTE,20,,2,,4,47.2033325,10.8966104
+vertical_life,2017-08-20T12:00:00Z,Santa Zofia,Hartensteiner Wand,Hartensteiner Wand,,DE,V,V,5+,os,ROUTE,20,,1,,4,49.5916597,11.5247792
+vertical_life,2017-08-20T12:00:00Z,Harter Hund,Roter Fels,Sektor 2,,DE,VI+,VI+,7-,go,ROUTE,35,,2,,4,49.6024479,11.4961998
+vertical_life,2017-08-20T12:00:00Z,Softmover,Roter Fels,Sektor 2,,DE,IV,IV,5-,os,ROUTE,35,,1,,3,49.6024479,11.4961998
+vertical_life,2017-08-20T12:00:00Z,Abkürzer,Hartensteiner Wand,Hartensteiner Wand,,DE,V+,V+,6-,os,ROUTE,20,,1,,4,49.5916597,11.5247792
+vertical_life,2017-08-26T12:00:00Z,Admiral,Gotthardskirche,Gotthardskirche,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,2,,2,49.4621,11.1167
+vertical_life,2017-08-26T12:00:00Z,Siebenschläfer,Gotthardskirche,Gotthardskirche,,DE,VI,VI,6+,os,ROUTE,15,,1,,4,49.4621,11.1167
+vertical_life,2017-08-26T12:00:00Z,N.N.,Gotthardskirche,Gotthardskirche,,DE,VI+,VI+,7-,os,ROUTE,15,,1,,3,49.4621,11.1167
+vertical_life,2017-09-02T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,20,,2,,3,49.5612024,11.5515247
+vertical_life,2017-09-02T12:00:00Z,EM Finale,Klausener Wand,Klausener Wand,,DE,VI,VI,6+,go,ROUTE,20,,1,,0,49.5612024,11.5515247
+vertical_life,2017-09-02T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,20,,2,,4,49.5612024,11.5515247
+vertical_life,2017-09-02T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,VI+,VI+,7-,os,ROUTE,20,,1,,5,49.5612024,11.5515247
+vertical_life,2017-09-02T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,VIII,VIII,8+,go,ROUTE,20,,2,,4,49.5612024,11.5515247
+vertical_life,2017-09-02T12:00:00Z,EM Finale,Klausener Wand,Klausener Wand,,DE,VI,VI,6+,rp,ROUTE,20,,2,,0,49.5612024,11.5515247
+vertical_life,2017-09-03T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,VIII,VIII,8+,go,ROUTE,20,,2,,4,49.5612024,11.5515247
+vertical_life,2017-09-03T12:00:00Z,Liebe auf den zweiten Blick,Klausener Wand,Klausener Wand,,DE,VII/VII+,VII/VII+,7+/8-,rp,ROUTE,20,,3,,3,49.5612024,11.5515247
+vertical_life,2017-09-03T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,VII-,VII-,7,rp,ROUTE,20,,2,,4,49.5612024,11.5515247
+vertical_life,2017-09-12T12:00:00Z,Goude Haud,Happurger Wand,Happurger Wand,,DE,VI,VI,6+,os,ROUTE,18,,1,,3,49.4848677,11.4917402
+vertical_life,2017-09-12T12:00:00Z,Frauen über 30,Hohler Fels,Hohler Fels,,DE,VI+,VI+,7-,go,ROUTE,25,,2,,0,49.4846616,11.4922012
+vertical_life,2017-09-12T12:00:00Z,Barrakuda,Hohler Fels,Hohler Fels,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,25,,2,,4,49.4846616,11.4922012
+vertical_life,2017-10-22T12:00:00Z,Frauenpower,Cube Kletterzentrum,,,,V+,V+,6-,rp,GYM_ROUTE,13,,2,,5,49.4521,11.0767
+vertical_life,2018-04-02T12:00:00Z,Hersbrucker Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,V+,V+,6-,go,ROUTE,15,,0,,5,49.4682356,11.505691
+vertical_life,2018-04-02T12:00:00Z,Hersbrucker Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,V+,V+,6-,rp,ROUTE,15,,3,,5,49.4682356,11.505691
+vertical_life,2018-04-02T12:00:00Z,Größenwahn,Kanzelfels (Förrenbach),Kanzelfels,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,0,,5,49.4682356,11.505691
+vertical_life,2018-04-04T12:00:00Z,Arrabiata,Weiße Wand (Hirschbachtal),Südseite,,DE,VII-,VII-,7,rp,ROUTE,15,,3,,5,,
+vertical_life,2018-04-04T12:00:00Z,Lady Domina,Weiße Wand (Hirschbachtal),Südseite,,DE,VI+,VI+,7-,go,ROUTE,15,,0,,5,,
+vertical_life,2018-04-04T12:00:00Z,Boulder,Weiße Wand (Hirschbachtal),Südseite,,DE,VI+,VI+,7-,go,ROUTE,15,,3,,5,,
+vertical_life,2018-04-04T12:00:00Z,Verfassungsbeschwerde,Weiße Wand (Hirschbachtal),Südseite,,DE,VI+,VI+,7-,rp,ROUTE,15,,3,,5,,
+vertical_life,2018-04-04T12:00:00Z,Kiefernverschneidung,Weiße Wand (Hirschbachtal),Südseite,,DE,V+,V+,6-,go,ROUTE,15,,3,,5,,
+vertical_life,2018-04-08T12:00:00Z,Für Elsa und Dani,Lug ins Land,Lug ins Land,,DE,V+,V+,6-,os,ROUTE,12,,1,,5,49.3837394,10.2304353
+vertical_life,2018-04-08T12:00:00Z,Wilde Amelie,Lug ins Land,Lug ins Land,,DE,V+,V+,6-,go,ROUTE,12,,0,,5,49.3837394,10.2304353
+vertical_life,2018-04-08T12:00:00Z,Höhenglückwand,Himmelsfels,Himmelsfels,,DE,VI+,VI+,7-,rp,ROUTE,15,,2,,5,49.5475185,11.5457204
+vertical_life,2018-04-08T12:00:00Z,Nürnberger Weg,Prellstein,Prellstein,,DE,VI,VI,6+,go,ROUTE,18,,0,,5,49.5486791,11.5433907
+vertical_life,2018-04-08T12:00:00Z,Theresa,Lug ins Land,Lug ins Land,,DE,VI,VI,6+,go,ROUTE,12,,0,,5,49.3837394,10.2304353
+vertical_life,2018-04-08T12:00:00Z,Himmelstor,Himmelsfels,Himmelsfels,,DE,VII/VII+,VII/VII+,7+/8-,rp,ROUTE,21,,2,,5,49.5475185,11.5457204
+vertical_life,2018-04-30T12:00:00Z,Manche mögen‘s heiß,Klausener Wand,Klausener Wand,,DE,VIII-,VIII-,8,go,ROUTE,20,,0,,5,49.5612024,11.5515247
+vertical_life,2018-04-30T12:00:00Z,Manche mögen‘s heiß,Klausener Wand,Klausener Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,20,,0,,5,49.5612024,11.5515247
+vertical_life,2018-04-30T12:00:00Z,Obermühlriss,Klausener Wand,Klausener Wand,,DE,VI,VI,6+,go,ROUTE,20,,0,,5,49.5612024,11.5515247
+vertical_life,2018-05-06T12:00:00Z,Zufall,Zimmerbergwände,Sektor 1,,DE,VI+,VI+,7-,rp,ROUTE,15,,2,,5,49.4421,11.0934
+vertical_life,2018-05-06T12:00:00Z,Murmeltier,Zimmerbergwände,Sektor 1,,DE,VII,VII,7+,go,ROUTE,15,,0,,4,49.4421,11.0934
+vertical_life,2018-05-06T12:00:00Z,Zufall,Zimmerbergwände,Sektor 1,,DE,VI+,VI+,7-,go,ROUTE,15,,0,,5,49.4421,11.0934
+vertical_life,2018-05-06T12:00:00Z,Freundschaft,Zimmerbergwände,Sektor 1,,DE,VI+,VI+,7-,go,ROUTE,15,,0,,5,49.4421,11.0934
+vertical_life,2018-05-06T12:00:00Z,Armin Weich Ged.-Weg,Zimmerbergwände,Sektor 1,,DE,IV,IV,5-,os,ROUTE,15,,1,,4,49.4421,11.0934
+vertical_life,2018-05-06T12:00:00Z,Murmeltier,Zimmerbergwände,Sektor 1,,DE,VII,VII,7+,go,ROUTE,15,,0,,5,49.4421,11.0934
+vertical_life,2018-05-22T12:00:00Z,Die Kunst des Pirschens,Steinberg,Sektor 2 & 3,,DE,VI+,VI+,7-,go,ROUTE,15,,1,,2,54.757706,9.7839896
+vertical_life,2018-05-22T12:00:00Z,Sonnenkraft,Steinberg,Sektor 2 & 3,,DE,VII+,VII+,8-,rp,ROUTE,15,,3,,5,54.757706,9.7839896
+vertical_life,2018-05-22T12:00:00Z,Dr. Klemminger,Steinberg,Sektor 2 & 3,,DE,VI+,VI+,7-,rp,ROUTE,15,,3,,5,54.757706,9.7839896
+vertical_life,2018-05-22T12:00:00Z,Dr. Klemminger,Steinberg,Sektor 2 & 3,,DE,VI+,VI+,7-,go,ROUTE,15,,1,,5,54.757706,9.7839896
+vertical_life,2018-05-22T12:00:00Z,Im Regen,Steinberg,Sektor 4,,DE,VII,VII,7+,os,ROUTE,20,,1,,4,54.757706,9.7839896
+vertical_life,2018-05-22T12:00:00Z,Sonnenkraft,Steinberg,Sektor 2 & 3,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,1,,5,54.757706,9.7839896
+vertical_life,2018-05-27T12:00:00Z,Nur Fliegen ist schöner,Klausener Wand,Klausener Wand,,DE,VIII,VIII,8+,go,ROUTE,20,,1,,5,49.5612024,11.5515247
+vertical_life,2018-05-27T12:00:00Z,Luft unter den Sohlen,Klausener Wand,Klausener Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,20,,1,,5,49.5612024,11.5515247
+vertical_life,2018-05-27T12:00:00Z,Zum Warmmachen,Klausener Wand,Klausener Wand,,DE,VII-,VII-,7,rp,ROUTE,20,,1,,5,49.5612024,11.5515247
+vertical_life,2018-05-27T12:00:00Z,Luft unter den Sohlen,Klausener Wand,Klausener Wand,,DE,VII+,VII+,8-,go,ROUTE,20,,1,,5,49.5612024,11.5515247
+vertical_life,2018-05-31T12:00:00Z,Direkte Talseite,Zankelstein,Zankelstein,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,18,,1,,5,49.5039234,11.5236437
+vertical_life,2018-05-31T12:00:00Z,Tabaluga,Zankelstein,Zankelstein,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,18,,1,,5,49.5039234,11.5236437
+vertical_life,2018-05-31T12:00:00Z,Sprochkante,Zankelstein,Zankelstein,,DE,VI,VI,6+,go,ROUTE,18,,1,,5,49.5039234,11.5236437
+vertical_life,2018-06-04T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,VI+,VI+,7-,go,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-06-04T12:00:00Z,Knödala,Henastoa,Henastoa,,DE,VI,VI,6+,go,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-06-04T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,VII-,VII-,7,rp,ROUTE,18,,3,,5,49.5242429,11.6670233
+vertical_life,2018-06-04T12:00:00Z,Knödala,Henastoa,Henastoa,,DE,VI,VI,6+,rp,ROUTE,18,,3,,5,49.5242429,11.6670233
+vertical_life,2018-06-04T12:00:00Z,Minor Threat,Henastoa,Henastoa,,DE,VI+,VI+,7-,go,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-06-04T12:00:00Z,Minor Threat,Henastoa,Henastoa,,DE,VI+,VI+,7-,tr,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-07-30T12:00:00Z,MaPaKaLi,Henastoa,Henastoa,,DE,IV,IV,5-,os,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-07-30T12:00:00Z,ClaMaU.C,Henastoa,Henastoa,,DE,IV,IV,5-,os,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-07-30T12:00:00Z,Kurzum,Henastoa,Henastoa,,DE,VII-,VII-,7,go,ROUTE,18,,1,,5,49.5242429,11.6670233
+vertical_life,2018-08-02T12:00:00Z,Seifertriss,Zehnerstein,Zehnerstein,,DE,VI,VI,6+,go,ROUTE,30,,1,,5,47.756966,12.7999589
+vertical_life,2018-08-02T12:00:00Z,Zwei Jahre später,Zehnerstein,Zehnerstein,,DE,VI+,VI+,7-,os,ROUTE,30,,1,,5,47.756966,12.7999589
+vertical_life,2018-08-05T12:00:00Z,Nürnberger Weg,Bärnhofer Wand,Bärnhofer Wand,,DE,VI,VI,6+,os,ROUTE,22,,1,,4,49.4821,11.1167
+vertical_life,2018-08-05T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,VII-,VII-,7,rp,ROUTE,22,,3,,5,49.4821,11.1167
+vertical_life,2018-08-05T12:00:00Z,Moralapostel,Bärnhofer Wand,Bärnhofer Wand,,DE,VI+,VI+,7-,go,ROUTE,22,,1,,5,49.4821,11.1167
+vertical_life,2018-08-05T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,VI+,VI+,7-,go,ROUTE,22,,1,,5,49.4821,11.1167
+vertical_life,2018-08-05T12:00:00Z,Gummitwist mit dem Antichrist,Bärnhofer Wand,Bärnhofer Wand,,DE,VI+,VI+,7-,f,ROUTE,22,,1,,5,49.4821,11.1167
+vertical_life,2018-08-06T12:00:00Z,Röthelfieber,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,VI+,VI+,7-,os,ROUTE,40,,1,,5,49.7473701,11.2458415
+vertical_life,2018-08-06T12:00:00Z,Kleiner Dicker,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,VI+,VI+,7-,os,ROUTE,40,,1,,5,49.7473701,11.2458415
+vertical_life,2018-08-06T12:00:00Z,Ratte,Röthelfels,Sektor 6 - Depotweg & Zinnenwand,,DE,VI,VI,6+,os,ROUTE,40,,1,,5,49.7473701,11.2458415
+vertical_life,2018-09-09T12:00:00Z,Fight Club,Strahlenfels,Strahlenfels,,DE,VIII/VIII+,VIII/VIII+,8+/9-,go,ROUTE,25,,1,,5,49.653034,11.3760431
+vertical_life,2018-09-09T12:00:00Z,Symphonie,Strahlenfels,Strahlenfels,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,25,,1,,5,49.653034,11.3760431
+vertical_life,2018-09-09T12:00:00Z,Nightwish,Strahlenfels,Strahlenfels,,DE,VII/VII+,VII/VII+,7+/8-,rp,ROUTE,25,,2,,5,49.653034,11.3760431
+vertical_life,2018-09-16T12:00:00Z,Schmidtstadter Weg,Schmidtstadter Wand,Schmidtstadter Wand,,DE,VI+,VI+,7-,rp,ROUTE,15,,2,,3,49.5445546,11.5694833
+vertical_life,2018-09-16T12:00:00Z,Weißglut,Schmidtstadter Wand,Schmidtstadter Wand,,DE,VII,VII,7+,go,ROUTE,15,,1,,3,49.5445546,11.5694833
+vertical_life,2018-09-16T12:00:00Z,Red Sonja,Schmidtstadter Wand,Schmidtstadter Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,1,,3,49.5445546,11.5694833
+vertical_life,2018-09-16T12:00:00Z,Kanaan,Schmidtstadter Wand,Schmidtstadter Wand,,DE,VI,VI,6+,rp,ROUTE,15,,2,,3,49.5445546,11.5694833
+vertical_life,2018-09-16T12:00:00Z,Plastic Fantastic,Schmidtstadter Wand,Schmidtstadter Wand,,DE,VII/VII+,VII/VII+,7+/8-,go,ROUTE,15,,1,,5,49.5445546,11.5694833
+vertical_life,2018-09-28T12:00:00Z,Franz Diewald Ged.-Weg,Kanzelfels (Förrenbach),Kanzelfels,,DE,VIII,VIII,8+,go,ROUTE,15,,1,,3,49.4682356,11.505691
+vertical_life,2018-09-28T12:00:00Z,Herbstkind,Kanzelfels (Förrenbach),Kanzelfels,,DE,VI,VI,6+,os,ROUTE,15,,1,,1,49.4682356,11.505691
+vertical_life,2018-10-07T12:00:00Z,Hannig Mayer Ged.-Weg,Roter Fels,Sektor 2,,DE,VII+,VII+,8-,go,ROUTE,40,,1,,3,49.6024479,11.4961998
+vertical_life,2018-10-07T12:00:00Z,Dolomitweg,Roter Fels,Sektor 2,,DE,VI-,VI-,6,os,ROUTE,40,,1,,5,49.6024479,11.4961998
+vertical_life,2018-10-08T12:00:00Z,Luftikus,Roter Fels,Sektor 2,,DE,VIII-,VIII-,8,go,ROUTE,40,,1,,3,49.6024479,11.4961998
+vertical_life,2020-04-11T12:00:00Z,Zentrale Südwand,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,VI-,VI-,6,rp,ROUTE,21,,3,,0,,
+vertical_life,2020-04-11T12:00:00Z,Kletterkursweg,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,V-,V-,5,rp,ROUTE,21,,3,,0,,
+vertical_life,2020-04-11T12:00:00Z,Alte und Jungnasen,Graischenstein,Sektor 2,,DE,VII,VII,7+,rp,ROUTE,15,,3,,0,49.5021,11.1767
+vertical_life,2020-04-11T12:00:00Z,En Mobilette,Graischenstein,Sektor 2,,DE,VII-,VII-,7,go,ROUTE,15,,1,,0,49.5021,11.1767
+vertical_life,2020-04-11T12:00:00Z,Direkter Alter Weg,Kugelspielturm & Brüchige Wand,Brüchige Wand,,DE,VI-,VI-,6,rp,ROUTE,21,,3,,0,,
+vertical_life,2020-04-11T12:00:00Z,Sissi,Graischenstein,Sektor 2,,DE,VII,VII,7+,rp,ROUTE,15,,3,,0,49.5021,11.1767
+vertical_life,2020-04-19T12:00:00Z,B(l)aumann spezial,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VII+,VII+,8-,go,ROUTE,22,,1,,0,49.9591963,11.2086058
+vertical_life,2020-04-19T12:00:00Z,Räuchermännchen (R 12c),Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,IV,IV,5-,os,ROUTE,22,,1,,0,49.9591963,11.2086058
+vertical_life,2020-04-19T12:00:00Z,Nimm‘s leicht,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VIII-,VIII-,8,go,ROUTE,22,,1,,0,49.9591963,11.2086058
+vertical_life,2020-04-19T12:00:00Z,Schlappohralarm,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VI,VI,6+,os,ROUTE,22,,1,,4,49.9591963,11.2086058
+vertical_life,2020-04-23T12:00:00Z,B(l)aumann spezial,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VII+,VII+,8-,go,ROUTE,22,,1,,0,49.9591963,11.2086058
+vertical_life,2020-04-23T12:00:00Z,Rockys Kauknochen,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VII,VII,7+,rp,ROUTE,22,,1,,0,49.9591963,11.2086058
+vertical_life,2020-04-23T12:00:00Z,Schlappohralarm,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VI,VI,6+,rp,ROUTE,22,,3,,0,49.9591963,11.2086058
+vertical_life,2020-04-23T12:00:00Z,Rockys Kauknochen,Treunitzer Klettergarten,Treunitzer Klettergarten,,DE,VII,VII,7+,rp,ROUTE,22,,3,,0,49.9591963,11.2086058
+vertical_life,2020-04-26T12:00:00Z,Radanator,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,VIII-,VIII-,8,go,ROUTE,21,"Schöner Fels, schöne Tour. Weiter Haken von 4 auf 5 aber sehr sicher. Aufstieg lohnt  ",1,,4,,
+vertical_life,2020-04-26T12:00:00Z,Czeská Láska,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,V,V,5+,os,ROUTE,21,,1,,4,,
+vertical_life,2020-04-26T12:00:00Z,Das Leichte und das Schwere,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,V-,V-,5,os,ROUTE,21,,1,,4,,
+vertical_life,2020-04-26T12:00:00Z,Das Leichte und das Schwere,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,V-,V-,5,rp,ROUTE,21,,3,,0,,
+vertical_life,2020-04-26T12:00:00Z,Czeská Láska,Radan Svec Ged.-Wand,Radan Svec Ged.-Wand,,DE,V,V,5+,rp,ROUTE,21,,3,,0,,
+vertical_life,2020-05-12T12:00:00Z,Bremse auch für Schwaben,Katzenlöcher,Katzenlöcher,,DE,VI+,VI+,7-,os,ROUTE,15,,1,,0,49.6051901,11.5530062
+vertical_life,2020-05-12T12:00:00Z,Fer-May-Weg,Katzenlöcher,Katzenlöcher,,DE,V-,V-,5,os,ROUTE,15,,1,,4,49.6051901,11.5530062
+vertical_life,2020-05-12T12:00:00Z,Pickel im Nacken,Katzenlöcher,Katzenlöcher,,DE,VII+,VII+,8-,go,ROUTE,15,,1,,0,49.6051901,11.5530062
+vertical_life,2020-05-12T12:00:00Z,Direkte Talseite,Katzenlöcher,Katzenlöcher,,DE,VI-,VI-,6,os,ROUTE,25,,1,,4,49.6051901,11.5530062
+vertical_life,2020-05-12T12:00:00Z,Tempo Kacker,Katzenlöcher,Katzenlöcher,,DE,VI,VI,6+,os,ROUTE,15,,1,,3,49.6051901,11.5530062
+vertical_life,2020-05-12T12:00:00Z,Sad Lisa,Katzenlöcher,Katzenlöcher,,DE,VI-,VI-,6,os,ROUTE,15,,1,,0,49.6051901,11.5530062
+vertical_life,2020-06-14T12:00:00Z,Rizzi bizzi,Ruine Riegelstein,Sektor 1,,DE,VI-,VI-,6,f,ROUTE,10,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,Nix auf der hohen Kante,Ruine Riegelstein,Sektor 1,,DE,VI,VI,6+,os,ROUTE,10,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,Luginsland,Ruine Riegelstein,Sektor 1,,DE,IV,IV,5-,os,ROUTE,10,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,Tempolimit,Ruine Riegelstein,Sektor 2,,DE,VII+,VII+,8-,go,ROUTE,15,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,A 7,Ruine Riegelstein,Sektor 2,,DE,VII+,VII+,8-,rp,ROUTE,15,,2,,0,,
+vertical_life,2020-06-14T12:00:00Z,Höllenfahrt,Ruine Riegelstein,Sektor 1,,DE,VII-,VII-,7,f,ROUTE,10,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,Fliegendes Frettchen,Großenoher Wand,Großenoher Wand,,DE,VI-,VI-,6,os,ROUTE,21,hoher erster Hacken ,1,,5,49.5121,11.1467
+vertical_life,2020-06-14T12:00:00Z,Verjüngende Kluft,Ruine Riegelstein,Sektor 1,,DE,V-,V-,5,os,ROUTE,10,,1,,0,,
+vertical_life,2020-06-14T12:00:00Z,Prost Paul,Großenoher Wand,Großenoher Wand,,DE,VII+,VII+,8-,go,ROUTE,21,hart für den grad. Am Fels steht 8+,1,,5,49.5121,11.1467
+vertical_life,2020-06-30T12:00:00Z,Range Rover,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,VII-,VII-,7,os,ROUTE,18,,1,,5,49.4921,11.1567
+vertical_life,2020-06-30T12:00:00Z,Pezi,Grüne Hölle,"Sektor 1 (GW, Pezi, GT)",,DE,VI-,VI-,6,rp,ROUTE,8,,3,,0,49.4921,11.1567
+vertical_life,2020-06-30T12:00:00Z,Das Weiß der Geier,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,V-,V-,5,os,ROUTE,12,,1,,2,49.4921,11.1567
+vertical_life,2020-06-30T12:00:00Z,Pezi,Grüne Hölle,"Sektor 1 (GW, Pezi, GT)",,DE,VI-,VI-,6,os,ROUTE,8,,1,,0,49.4921,11.1567
+vertical_life,2020-06-30T12:00:00Z,Ebbelwoi Express,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,VII-,VII-,7,os,ROUTE,12,,1,,0,49.4921,11.1567
+vertical_life,2020-06-30T12:00:00Z,Isolation,Grüne Hölle,"Sektor 2 (UW, OT)",,DE,VII+,VII+,8-,go,ROUTE,18,,1,,0,49.4921,11.1567
+vertical_life,2020-07-12T12:00:00Z,Vom Feinsten,Schlaraffenland,Hirschbacher Wand,,DE,VII+,VII+,8-,go,ROUTE,21,,1,,0,49.551973,11.5300715
+vertical_life,2020-07-12T12:00:00Z,Alter Weg,Schlaraffenland,Hirschbacher Wand,,DE,V+,V+,6-,go,ROUTE,21,,1,,0,49.551973,11.5300715
+vertical_life,2020-07-12T12:00:00Z,Muckefuck,Schlaraffenland,Hirschbacher Wand,,DE,VI,VI,6+,os,ROUTE,21,,1,,3,49.551973,11.5300715
+vertical_life,2020-07-12T12:00:00Z,Vom Feinsten,Schlaraffenland,Hirschbacher Wand,,DE,VII+,VII+,8-,rp,ROUTE,21,,2,,0,49.551973,11.5300715
+vertical_life,2020-07-20T12:00:00Z,Der singende Draht,Lucky Luke,Lucky Luke,,DE,V-,V-,5,os,ROUTE,18,,1,,0,48.8303647,11.0842123
+vertical_life,2020-07-20T12:00:00Z,Direkteinstieg (Asterix),Asterix und Obelix,Asterix und Obelix,,DE,VI+,VI+,7-,os,ROUTE,17,,1,,0,49.4421,11.1067
+vertical_life,2020-07-20T12:00:00Z,Rechter Weg,Felsengarten,Felsengarten,,DE,V,V,5+,rp,ROUTE,12,,3,,0,49.4621,11.1267
+vertical_life,2020-07-20T12:00:00Z,Wildwechsel *,Wildwechsel,Wildwechsel,,DE,VII,VII,7+,rp,ROUTE,17,,2,,0,52.5234545,10.0150397
+vertical_life,2020-07-20T12:00:00Z,Skorpion,Bergspinnenturm,Bergspinnenturm,,DE,VI-,VI-,6,os,ROUTE,23,,1,,5,49.5021,11.1967
+vertical_life,2020-07-20T12:00:00Z,Skorpion,Bergspinnenturm,Bergspinnenturm,,DE,VI-,VI-,6,rp,ROUTE,23,,1,,0,49.5021,11.1967
+vertical_life,2020-07-20T12:00:00Z,Der Pony-Express,Lucky Luke,Lucky Luke,,DE,V,V,5+,os,ROUTE,18,,1,,0,48.8303647,11.0842123
+vertical_life,2020-07-20T12:00:00Z,Wilde Wölfe *,Wildwechsel,Wildwechsel,,DE,V,V,5+,os,ROUTE,17,,1,,4,52.5234545,10.0150397
+vertical_life,2020-07-24T12:00:00Z,Frost-Fertinger-Weg,Bärnhofer Wand,Bärnhofer Wand,,DE,VI-,VI-,6,f,ROUTE,22,,1,,0,49.4821,11.1167
+vertical_life,2020-07-24T12:00:00Z,Waldrausch,Bärnhofer Wand,Bärnhofer Wand,,DE,VII-,VII-,7,rp,ROUTE,22,,3,,0,49.4821,11.1167
+vertical_life,2020-07-24T12:00:00Z,Gruppenzwang,Bärnhofer Wand,Bärnhofer Wand,,DE,VIII,VIII,8+,go,ROUTE,22,,1,,0,49.4821,11.1167
+vertical_life,2020-07-28T12:00:00Z,Nürnberger Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,VI,VI,6+,os,ROUTE,12,,1,,3,49.6928336,11.2192085
+vertical_life,2020-07-28T12:00:00Z,Wepsenweg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,VI+,VI+,7-,os,ROUTE,12,,1,,2,49.6928336,11.2192085
+vertical_life,2020-07-28T12:00:00Z,Direkter Haidhofer Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,V,V,5+,os,ROUTE,12,,1,,3,49.6928336,11.2192085
+vertical_life,2020-07-28T12:00:00Z,Hummelsteiner Weg,Haidhofer Schlossbergwand,Haidhofer Schlossbergwand,,DE,IV-,IV-,4+,os,ROUTE,12,,1,,0,49.6928336,11.2192085
+vertical_life,2020-09-16T12:00:00Z,Goldköpfl,Ewige Jagdgründe,Wig Wam,,AT,V,V,5b,os,ROUTE,10,,1,,0,49.4721,11.1367
+vertical_life,2020-09-16T12:00:00Z,Fireline,Ewige Jagdgründe,Wig Wam,,AT,VII+,VII+,6c+,go,ROUTE,30,,1,,0,49.4721,11.1367
+vertical_life,2020-09-16T12:00:00Z,Via Lisa,Ewige Jagdgründe,Wig Wam,,AT,V+,V+,5c,os,ROUTE,30,,1,,0,49.4721,11.1367
+vertical_life,2020-09-16T12:00:00Z,El Schuppo,Ewige Jagdgründe,Wig Wam,,AT,VI,VI,6a+,rp,ROUTE,15,,2,,0,49.4721,11.1367
+vertical_life,2020-09-16T12:00:00Z,Jean Schampoo,Ewige Jagdgründe,Wig Wam,,AT,V+,V+,5c,os,ROUTE,30,,1,,0,49.4721,11.1367
+vertical_life,2020-09-19T12:00:00Z,N.N.,Zemmschlucht,Traumschiff,,AT,V+,V+,5c,f,BOULDER,4,,1,,0,,
+vertical_life,2020-09-19T12:00:00Z,Mein Gott Walter lang,Ewige Jagdgründe,Wig Wam,,AT,IX-,IX-,7b+,go,ROUTE,25,As nice as the shorter version. For me it was very hard to clib the last anker last anker ,1,,4,49.4721,11.1367
+vertical_life,2020-09-19T12:00:00Z,Mein Gott Walter kurz,Ewige Jagdgründe,Wig Wam,,AT,VI-,VI-,6a,os,ROUTE,15,,1,,0,49.4721,11.1367
+vertical_life,2020-09-19T12:00:00Z,Trumpf,Zemmschlucht,Almrausch,,AT,V,V,5b,f,BOULDER,4,,1,,0,,
+vertical_life,2020-09-19T12:00:00Z,N.N.,Zemmschlucht,Traumschiff,,AT,VII+,VII+,6c+,rp,BOULDER,4,,3,,0,,
+vertical_life,2021-07-10T12:00:00Z,Die Schönheitskönigin von Schneizlreuth,Rabensteinhorn,Westwand,,DE,VI-,VI-,6a,os,ROUTE,null,,1,,0,47.6962351,12.8228377
+vertical_life,2024-05-19T12:00:00Z,Schoko intensiv,Thalhofergrat,Ostwand,,AT,VI-,VI-,6a,rp,ROUTE,null,,0,,4,48.0067581,16.0361074
+vertical_life,2024-05-19T12:00:00Z,Schokoladenpudding,Thalhofergrat,Unknown Sector,,AT,V-,V-,5a,f,ROUTE,null,,1,,5,48.0067581,16.0361074
+vertical_life,2024-05-19T12:00:00Z,Betthupferl,Thalhofergrat,Ostwand,,AT,VII,VII,6c,rp,ROUTE,null,"In my opinion, the most tricky 6b I have tried so far. Still, a nearly perfect climb including a hard slap, an overhang and some massive whippers. ",10,,5,48.0067581,16.0361074
+vertical_life,2024-05-23T12:00:00Z,Palmwedel,Thalhofergrat,Obere Ostwand,,AT,VII,VII,6c,go,ROUTE,null,"Nice and occasionally harder than Staubwedel with a hard single crux. Too hard after Betthupferl. According to the local guidebook 6c, which, I think, is fair. ",1,,4,48.0067581,16.0361074
+vertical_life,2024-05-31T12:00:00Z,Augenblick des Glücks,Thalhofergrat,Ostwand,,AT,VII,VII,6c,rp,ROUTE,null,,0,,0,48.0067581,16.0361074
+vertical_life,2024-06-05T12:00:00Z,Royal Arches,Royal Arches,Unknown Sector,,US,5b+,5b+,5b+,os,ROUTE,null,Stunning and Beautiful Climb. Got for a long day and to practice for bigger projects.,1,,5,37.7486288,-119.570043
+vertical_life,2024-06-25T12:00:00Z,Black,Kletteranlage Flakturm,,,,VIII-,VIII-,7a,go,GYM_ROUTE,16,,1,,5,48.1975608,16.352773
+vertical_life,2024-06-25T12:00:00Z,White,Kletteranlage Flakturm,,,,V,V,5b,f,GYM_ROUTE,16,,1,,null,48.1975608,16.352773
+vertical_life,2024-06-25T12:00:00Z,Green,Kletteranlage Flakturm,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,5,48.1975608,16.352773
+vertical_life,2024-06-30T12:00:00Z,N.N.,Johannesbachklamm,Mitte,,AT,VII+,VII+,6c+,rp,ROUTE,null,,2,,4,47.7807559,16.0379789
+vertical_life,2024-06-30T12:00:00Z,Klamauk,Johannesbachklamm,Mitte,,AT,5c+,5c+,5c+,f,ROUTE,null,,1,,0,47.7807559,16.0379789
+vertical_life,2024-06-30T12:00:00Z,Klammprojekt,Johannesbachklamm,Links,,AT,VIII-,VIII-,7a,rp,ROUTE,null,,3,,5,47.7807559,16.0379789
+vertical_life,2024-06-30T12:00:00Z,Na,Johannesbachklamm,Mitte,,AT,V+,V+,5c,f,ROUTE,null,,1,,0,47.7807559,16.0379789
+vertical_life,2024-10-13T12:00:00Z,Mäusehochzeit,Thalhofergrat,Untere Thalhoferwand,,AT,V+,V+,5c,os,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2024-10-13T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2024-10-13T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,5,48.0067581,16.0361074
+vertical_life,2024-12-29T12:00:00Z,Samba,Giggerl,Giggerl,,GR,V-,V-,5a,os,ROUTE,20,,1,,3,49.4721,11.1167
+vertical_life,2024-12-29T12:00:00Z,Giger,Giggerl,Giggerl,,GR,VII-,VII-,6b+,go,ROUTE,35,Loose rock at the upper part and a bit exposed. ,1,,3,49.4721,11.1167
+vertical_life,2024-12-29T12:00:00Z,Gecko Alive,Giggerl,Giggerl,,GR,VI-,VI-,6a,os,ROUTE,25,,1,,3,49.4721,11.1167
+vertical_life,2024-12-30T12:00:00Z,Metal,Hospital,Hospital,,GR,VII-,VII-,6b+,os,ROUTE,37,,1,,4,37.1722663,22.8612073
+vertical_life,2024-12-30T12:00:00Z,Mega Pipe,Hospital,Red Rock,,GR,VI,VI,6a+,rp,ROUTE,40,,2,,4,37.1722663,22.8612073
+vertical_life,2024-12-30T12:00:00Z,Disco,Hospital,Hospital,,GR,VI-,VI-,6a,os,ROUTE,40,Was ein Ausblick und was für eine Tour 😊,1,,5,37.1722663,22.8612073
+vertical_life,2024-12-30T12:00:00Z,Giota,Hospital,Hospital,,GR,VI-,VI-,6a,os,ROUTE,28,,1,,4,37.1722663,22.8612073
+vertical_life,2024-12-31T12:00:00Z,Dr. Motte Extension,Theós,Pillar,,GR,VIII-,VIII-,7a,go,ROUTE,null,,2,,5,37.1703475,22.8908471
+vertical_life,2024-12-31T12:00:00Z,Mr. Oizo ext.,Theós,Pillar,,GR,VI+,VI+,6b,os,ROUTE,null,,1,,4,37.1703475,22.8908471
+vertical_life,2025-01-01T12:00:00Z,Dr. Motte,Theós,Pillar,,GR,IV,IV,4b,go,ROUTE,null,,0,,0,37.1703475,22.8908471
+vertical_life,2025-01-02T12:00:00Z,Omihli,Sabaton,Sabaton lower,,GR,VIII-,VIII-,7a,rp,ROUTE,20,,3,,4,37.1711849,22.896815
+vertical_life,2025-01-02T12:00:00Z,Tokotoukan,Sabaton,Sabaton lower,,GR,VI-,VI-,6a,os,ROUTE,16,,1,,3,37.1711849,22.896815
+vertical_life,2025-01-02T12:00:00Z,Best & Worst,Sabaton,Mini Canyon,,GR,VI+,VI+,6b,os,ROUTE,20,,1,,4,37.1711849,22.896815
+vertical_life,2025-01-02T12:00:00Z,Manowar,Sabaton,Mini Canyon,,GR,VI,VI,6a+,os,ROUTE,15,,1,,4,37.1711849,22.896815
+vertical_life,2025-01-03T12:00:00Z,God Save Leonidio,Sabaton,Mini Canyon,,GR,VII,VII,6c,go,ROUTE,15,,1,,4,37.1711849,22.896815
+vertical_life,2025-01-03T12:00:00Z,And Cakes by Tonnes,Sabaton,Mini Canyon,,GR,VIII-,VIII-,7a,rp,ROUTE,20,"Probably one of the best routes I climbed so far. Crimps, Jugs and Tufas … it has it all.",2,,5,37.1711849,22.896815
+vertical_life,2025-01-03T12:00:00Z,Ta Matia Sou,Sabaton,Mini Canyon,,GR,VII-,VII-,6b+,f,ROUTE,15,,1,,4,37.1711849,22.896815
+vertical_life,2025-01-04T12:00:00Z,Mignonette,Kokkinovrachos,Multi-Pitches,,GR,5c+,5c+,5c+,os,ROUTE,185,,1,,5,38.1793839,23.84206
+vertical_life,2025-04-24T12:00:00Z,Andate ad Arrampicare!,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,V,V,5b,os,ROUTE,30,,1,,5,40.2833,9.6333
+vertical_life,2025-04-24T12:00:00Z,Aberrante,Cala Gonone - Biddiriscottai,Biddiriscottai,,IT,VII-,VII-,6b+,go,ROUTE,25,Wie alle Touren hier super schmierig und 6b+ sehe ich nicht aber an sich coole Tour.,1,,3,40.2833,9.6333
+vertical_life,2025-04-24T12:00:00Z,Ho Bisognio di Sole,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,VI-,VI-,6a,os,ROUTE,25,,1,,null,40.2833,9.6333
+vertical_life,2025-04-24T12:00:00Z,N.N.,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,V+,V+,5c,os,ROUTE,30,,1,,5,40.2833,9.6333
+vertical_life,2025-04-24T12:00:00Z,Piccante ma non troppo,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,VII-,VII-,6b+,os,ROUTE,25,,1,,null,40.2833,9.6333
+vertical_life,2025-04-24T12:00:00Z,Piccantissima,Cala Gonone -  Chorro,Sardi nel Cuore,,IT,VII,VII,6c,rp,ROUTE,20,,2,,null,40.2833,9.6333
+vertical_life,2025-04-27T12:00:00Z,Schiavi Bianchi,Cala Gonone - Biddiriscottai,Biddiriscottai,,IT,VII+,VII+,6c+,go,ROUTE,15,,1,,null,40.2833,9.6333
+vertical_life,2025-04-27T12:00:00Z,Automatix,Baunei,Villaggio Gallico,,IT,VII,VII,6c,os,ROUTE,null,,1,,4,40.0167,9.6333
+vertical_life,2025-04-27T12:00:00Z,Beltorax,Baunei,Villaggio Gallico,,IT,VI+,VI+,6b,os,ROUTE,null,,1,,5,40.0167,9.6333
+vertical_life,2025-04-27T12:00:00Z,Marinaio di Foresta,Pedra Longa,Unknown Sector,,IT,VI,VI,6a+,os,ROUTE,null,,1,,5,40.4481738,9.584257
+vertical_life,2025-04-27T12:00:00Z,Primafix,Baunei,Villaggio Gallico,,IT,VII+,VII+,6c+,go,ROUTE,null,,1,,0,40.0167,9.6333
+vertical_life,2025-04-27T12:00:00Z,Primafix,Baunei,Villaggio Gallico,,IT,VII+,VII+,6c+,rp,ROUTE,null,,2,,0,40.0167,9.6333
+vertical_life,2025-04-28T12:00:00Z,Jackpress,Baunei,Ichnusa,,IT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,40.0167,9.6333
+vertical_life,2025-04-28T12:00:00Z,Twich,Baunei,Campo dei Miracoli,,IT,VI,VI,6a+,os,ROUTE,null,,1,,4,40.0167,9.6333
+vertical_life,2025-04-30T12:00:00Z,Ogliastroman,Su Casteddu,Su Casteddu,,IT,VII,VII,6c,os,ROUTE,21,,1,,5,39.7961468,9.4963662
+vertical_life,2025-04-30T12:00:00Z,Papo papo,Baunei,Ichnusa,,IT,VI-,VI-,6a,os,ROUTE,null,,1,,5,40.0167,9.6333
+vertical_life,2025-04-30T12:00:00Z,Henergy,Su Casteddu,Su Casteddu,,IT,VIII-,VIII-,7a,os,ROUTE,21,"First 7a onsight!
 On the final moves, I couldn’t spot any footholds anymore—but I definitely preferred that over baking in the sun. A few jams here and there, plus a kneebar, were definitely helpful for shaking out the pump.
 
 Big thanks to whoever placed the quickdraws—hope it was okay to use them! If not, please don’t leave them in next time.",1,,null,39.7961468,9.4963662
-vertical_life,2025-04-30T12:00:00Z,Alma,Su Casteddu,Su Casteddu,,IT,6c,6c,go,ROUTE,36,,1,,3,39.7961468,9.4963662
-vertical_life,2025-04-30T12:00:00Z,Baby,Baunei,Campo dei Miracoli,,IT,6a+,6a+,os,ROUTE,null,,1,,5,40.0167,9.6333
-vertical_life,2025-04-30T12:00:00Z,Women rock,Su Casteddu,Su Casteddu,,IT,6a+,6a+,os,ROUTE,21,,1,,5,39.7961468,9.4963662
-vertical_life,2025-04-30T12:00:00Z,Jackpress,Baunei,Ichnusa,,IT,7a,7a,go,ROUTE,null,,1,,0,40.0167,9.6333
-vertical_life,2025-05-11T12:00:00Z,Palmwedel,Thalhofergrat,Obere Ostwand,,AT,6b+,6b+,rp,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-05-11T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,7a,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-05-14T12:00:00Z,Cholera,Thalhofergrat,Südwestwand,,AT,6c+,6c+,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-06-01T12:00:00Z,Turbodiesel,Hohe Wand,Almfrieden,,AT,6c+,6c+,rp,ROUTE,null,,3,,4,47.8257794,16.0514855
-vertical_life,2025-06-01T12:00:00Z,Zwerg Nase,Hohe Wand,Almfrieden,,AT,6a,6a,os,ROUTE,null,,1,,3,47.8257794,16.0514855
-vertical_life,2025-07-06T12:00:00Z,Widerspenstig,Schrattenbach,Hexenwand,,AT,7a,7a,go,ROUTE,null,,1,,0,47.7769026,15.9843394
-vertical_life,2025-07-09T12:00:00Z,Grüße aus dem Westen,Kletterhalle Wien,,,,7a+,7a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-07-20T12:00:00Z,Glasperlenspiel,Höllental,Niemandsland,,AT,7a,7a,go,ROUTE,null,,1,,5,47.7472092,15.7687616
-vertical_life,2025-07-20T12:00:00Z,Rosettenkavalier,Höllental,Niemandsland,,AT,7c+,7c+,go,ROUTE,null,Not my grade and was in the wrong route. Left a carabiner. :/,1,,3,47.7472092,15.7687616
-vertical_life,2025-07-20T12:00:00Z,Hut ab Muttertag,Höllental,Niemandsland,,AT,6b,6b,rp,ROUTE,null,A bit tricky to find the easy way up. ,2,,4,47.7472092,15.7687616
-vertical_life,2025-07-25T12:00:00Z,Der Kanal des Beschätigtseins,Kletterhalle Wien,,,,5a+,5a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-07-25T12:00:00Z,Fidelio,Kletterhalle Wien,,,,6b,6b,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-07-25T12:00:00Z,Der Kanal des Charismas,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-07-25T12:00:00Z,Green,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,18,Drop Knee,1,,null,48.2082,16.3738
-vertical_life,2025-07-27T12:00:00Z,Die Neue halt,Edelweiss Südstadt,,,,8,8,os,GYM_ROUTE,16,,1,,4,49.4521,11.0767
-vertical_life,2025-07-27T12:00:00Z,der Schweiß ist heiß,Edelweiss Südstadt,,,,8+/9-,8+/9-,go,GYM_ROUTE,16,,1,,4,49.4521,11.0767
-vertical_life,2025-07-27T12:00:00Z,Plattenspieler,Edelweiss Südstadt,,,,8-,8-,os,GYM_ROUTE,16,,1,,5,49.4521,11.0767
-vertical_life,2025-07-27T12:00:00Z,Die Länge macht´s,Edelweiss Südstadt,,,,6+,6+,os,GYM_ROUTE,16,,1,,4,49.4521,11.0767
-vertical_life,2025-07-30T12:00:00Z,Blocksession 07,Blockfabrik,,,,Grade me <3,Grade me <3,go,GYM_BOULDER,4,7a,1,,null,49.4521,11.0767
-vertical_life,2025-07-30T12:00:00Z,Blocksession 03,Blockfabrik,,,,Grade me <3,Grade me <3,f,GYM_BOULDER,4,,1,,null,49.4521,11.0767
-vertical_life,2025-08-03T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,7a,7a,rp,ROUTE,null,Endlich 🙌,2,,5,48.0067581,16.0361074
-vertical_life,2025-08-05T12:00:00Z,Fidelio,Kletterhalle Wien,,,,6b,6b,f,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,18,,1,,3,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,"less friction, more fun",Kletterhalle Wien,,,,7a+,7a+,rp,GYM_ROUTE,18,,2,,null,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,Green,Kletterhalle Wien,,,,7a+,7a+,rp,GYM_ROUTE,18,,2,,null,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,Iris Pupille,Kletterhalle Wien,,,,7a+,7a+,os,GYM_ROUTE,18,Funky,1,,4,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,da seh ich rot,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-05T12:00:00Z,Wiki und die starken Mädchen,Kletterhalle Wien,,,,5c,5c,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-15T12:00:00Z,Schismogenesis Solaris I,Kletterhalle Wien,,,,6a+,6a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-16T12:00:00Z,Triple Split Definition,Kletterhalle Wien,,,,6c,6c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-16T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-16T12:00:00Z,Hin und Wieder,Kletterhalle Wien,,,,6c,6c,os,GYM_ROUTE,18,,1,,4,48.2082,16.3738
-vertical_life,2025-08-17T12:00:00Z,Manu Negra,Kletterhalle Wien,,,,5c+,5c+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-17T12:00:00Z,Manu Negra Ext.,Kletterhalle Wien,,,,6b+,6b+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-20T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,7a+,7a+,rp,GYM_ROUTE,18,,4,,3,48.2082,16.3738
-vertical_life,2025-08-20T12:00:00Z,Juliapril,Kletterhalle Wien,,,,6b,6b,os,GYM_ROUTE,18,,1,,3,48.2082,16.3738
-vertical_life,2025-08-20T12:00:00Z,psychoathletischer Bauchaufschwung,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-20T12:00:00Z,"viel gerade, viel Kante, viel Ines",Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-21T12:00:00Z,Urlaub is Coming,Kletterhalle Wien,,,,7b+,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-21T12:00:00Z,Rissquetschwunder,Kletterhalle Wien,,,,7a,7a,os,GYM_ROUTE,18,,1,,5,48.2082,16.3738
-vertical_life,2025-08-27T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-27T12:00:00Z,search for the good,Kletterhalle Wien,,,,5c,5c,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-27T12:00:00Z,Antiflow,Kletterhalle Wien,,,,6b,6b,rp,GYM_ROUTE,18,,0,,4,48.2082,16.3738
-vertical_life,2025-08-27T12:00:00Z,Black Sabbath,Kletterhalle Wien,,,,6c+,6c+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-08-28T12:00:00Z,Urlaub is Coming,Kletterhalle Wien,,,,7b+,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-20T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-20T12:00:00Z,Minimal Techno,Kletterhalle Wien,,,,7b+,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-20T12:00:00Z,Big Thing Corner,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-23T12:00:00Z,Doch z'dick da Nick?,Kletterhalle Wien,,,,6c+,6c+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-23T12:00:00Z,Z´leicht fürs Projekt,Kletterhalle Wien,,,,5c+,5c+,os,GYM_ROUTE,18,,1,,4,48.2082,16.3738
-vertical_life,2025-09-23T12:00:00Z,Cruella de stil,Kletterhalle Wien,,,,6a+,6a+,f,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-23T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-23T12:00:00Z,für Jonathan,Kletterhalle Wien,,,,6c+,6c+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
-vertical_life,2025-09-28T12:00:00Z,Ostwandschocker,Thalhofergrat,Ost,,AT,7a,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-09-28T12:00:00Z,Gruselkabinett,Thalhofergrat,Obere Ostwand,,AT,6a+,6a+,os,ROUTE,null,,1,,5,48.0067581,16.0361074
-vertical_life,2025-10-04T12:00:00Z,Staubwedel,Thalhofergrat,Obere Ostwand,,AT,6b+,6b+,rp,ROUTE,null,,0,,0,48.0067581,16.0361074
-vertical_life,2025-10-04T12:00:00Z,Thaliffizil,Thalhofergrat,Unknown Sector,,AT,7b,7b,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-10-04T12:00:00Z,Ostwandschocker,Thalhofergrat,Ost,,AT,7a,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
-vertical_life,2025-10-15T12:00:00Z,good looking from far away....,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,Intervall Hangeln,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,Stelle dich dem blauen Monster.,Kletterhalle Wien,,,,6c,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,Die Vergessene,Kletterhalle Wien,,,,7b,7b,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,Eignungsprüfung Instruktor #2,Kletterhalle Wien,,,,6c+,6c+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,Eignungsprüfung Instruktor #1,Kletterhalle Wien,,,,6c+,6c+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-15T12:00:00Z,not my strong suit,Kletterhalle Wien,,,,6c,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-10-24T12:00:00Z,On the road again,Čiritež,SUNSET,,HR,6b+,6b+,go,ROUTE,12,Almost unfair for 6b,1,,null,45.3998908,14.022539
-vertical_life,2025-10-24T12:00:00Z,Digging for gold,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,5c,5c,os,ROUTE,22,,1,,null,45.3997819,13.9386831
-vertical_life,2025-10-24T12:00:00Z,Cirkus,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,6b,6b,rp,ROUTE,30,"Ist der Onsight erst ruiniert, klettert es sich unscheniert. Nice, Route a little bit of everything.",2,,4,45.3997819,13.9386831
-vertical_life,2025-10-24T12:00:00Z,Looser,Kompanj,KRANK,,HR,6a,6a,os,ROUTE,20,,1,,4,45.3927013,14.0717128
-vertical_life,2025-10-24T12:00:00Z,Šparoga blues,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,7a+,7a+,rp,ROUTE,15,,2,,null,45.3997819,13.9386831
-vertical_life,2025-10-24T12:00:00Z,Šparoga blues,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,7a+,7a+,go,ROUTE,15,,1,,4,45.3997819,13.9386831
-vertical_life,2025-10-25T12:00:00Z,Avanti popolo,Buzetski kanjon,PENGARI,,HR,6a+,6a+,os,ROUTE,35,,1,,null,45.4167,13.9667
-vertical_life,2025-10-25T12:00:00Z,"Elio Pisak, ruke stisak",Buzetski kanjon,PENGARI,,HR,6b+,6b+,go,ROUTE,20,Could get the ready move or just didn’t find the beta and did quite a wipper. Hard for the grade.,1,,3,45.4167,13.9667
-vertical_life,2025-10-25T12:00:00Z,Silence is golden,Buzetski kanjon,PENGARI,,HR,6a,6a,f,ROUTE,32,,1,,null,45.4167,13.9667
-vertical_life,2025-10-28T12:00:00Z,Tricky fingers,Kompanj,KATZ,,HR,6b+,6b+,go,ROUTE,15,,1,,null,45.3927013,14.0717128
-vertical_life,2025-10-28T12:00:00Z,Krankenhaus,Kompanj,KRANK,,HR,6c+,6c+,rp,ROUTE,27,,2,,null,45.3927013,14.0717128
-vertical_life,2025-10-28T12:00:00Z,Therapie,Kompanj,KRANK,,HR,5c,5c,os,ROUTE,20,,1,,0,45.3927013,14.0717128
-vertical_life,2025-10-28T12:00:00Z,Mon Cheri,Kompanj,KATZ,,HR,5c,5c,os,ROUTE,25,,1,,3,45.3927013,14.0717128
-vertical_life,2025-10-31T12:00:00Z,Tohuwabohu,Adlitzgräben,Lari Fari,,AT,7a,7a,go,ROUTE,null,,1,,4,49.4821,11.1367
-vertical_life,2025-11-04T12:00:00Z,Olivers Alptraum,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-08T12:00:00Z,Schwesterlein Mein,Höllental,Vordere Stadelwand,,AT,5c,5c,os,ROUTE,null,"The crux feels closer to 6a. It is reachy and consists of a single but demanding move that feels noticeably harder than other 5c multi-pitch routes in the area. Protection is generally solid, though some sections contain loose rock, so care is advised.
+vertical_life,2025-04-30T12:00:00Z,Alma,Su Casteddu,Su Casteddu,,IT,VII,VII,6c,go,ROUTE,36,,1,,3,39.7961468,9.4963662
+vertical_life,2025-04-30T12:00:00Z,Baby,Baunei,Campo dei Miracoli,,IT,VI,VI,6a+,os,ROUTE,null,,1,,5,40.0167,9.6333
+vertical_life,2025-04-30T12:00:00Z,Women rock,Su Casteddu,Su Casteddu,,IT,VI,VI,6a+,os,ROUTE,21,,1,,5,39.7961468,9.4963662
+vertical_life,2025-04-30T12:00:00Z,Jackpress,Baunei,Ichnusa,,IT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,40.0167,9.6333
+vertical_life,2025-05-11T12:00:00Z,Palmwedel,Thalhofergrat,Obere Ostwand,,AT,VII-,VII-,6b+,rp,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-05-11T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-05-14T12:00:00Z,Cholera,Thalhofergrat,Südwestwand,,AT,VII+,VII+,6c+,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-06-01T12:00:00Z,Turbodiesel,Hohe Wand,Almfrieden,,AT,VII+,VII+,6c+,rp,ROUTE,null,,3,,4,47.8257794,16.0514855
+vertical_life,2025-06-01T12:00:00Z,Zwerg Nase,Hohe Wand,Almfrieden,,AT,VI-,VI-,6a,os,ROUTE,null,,1,,3,47.8257794,16.0514855
+vertical_life,2025-07-06T12:00:00Z,Widerspenstig,Schrattenbach,Hexenwand,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,47.7769026,15.9843394
+vertical_life,2025-07-09T12:00:00Z,Grüße aus dem Westen,Kletterhalle Wien,,,,VIII,VIII,7a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-07-20T12:00:00Z,Glasperlenspiel,Höllental,Niemandsland,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,5,47.7472092,15.7687616
+vertical_life,2025-07-20T12:00:00Z,Rosettenkavalier,Höllental,Niemandsland,,AT,IX+,IX+,7c+,go,ROUTE,null,Not my grade and was in the wrong route. Left a carabiner. :/,1,,3,47.7472092,15.7687616
+vertical_life,2025-07-20T12:00:00Z,Hut ab Muttertag,Höllental,Niemandsland,,AT,VI+,VI+,6b,rp,ROUTE,null,A bit tricky to find the easy way up. ,2,,4,47.7472092,15.7687616
+vertical_life,2025-07-25T12:00:00Z,Der Kanal des Beschätigtseins,Kletterhalle Wien,,,,5a+,5a+,5a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-07-25T12:00:00Z,Fidelio,Kletterhalle Wien,,,,VI+,VI+,6b,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-07-25T12:00:00Z,Der Kanal des Charismas,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-07-25T12:00:00Z,Green,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,18,Drop Knee,1,,null,48.2082,16.3738
+vertical_life,2025-07-27T12:00:00Z,Die Neue halt,Edelweiss Südstadt,,,,VIII-,VIII-,8,os,GYM_ROUTE,16,,1,,4,49.4521,11.0767
+vertical_life,2025-07-27T12:00:00Z,der Schweiß ist heiß,Edelweiss Südstadt,,,,VIII/VIII+,VIII/VIII+,8+/9-,go,GYM_ROUTE,16,,1,,4,49.4521,11.0767
+vertical_life,2025-07-27T12:00:00Z,Plattenspieler,Edelweiss Südstadt,,,,VII+,VII+,8-,os,GYM_ROUTE,16,,1,,5,49.4521,11.0767
+vertical_life,2025-07-27T12:00:00Z,Die Länge macht´s,Edelweiss Südstadt,,,,VI,VI,6+,os,GYM_ROUTE,16,,1,,4,49.4521,11.0767
+vertical_life,2025-07-30T12:00:00Z,Blocksession 07,Blockfabrik,,,,Grade me <3,Grade me <3,Grade me <3,go,GYM_BOULDER,4,7a,1,,null,49.4521,11.0767
+vertical_life,2025-07-30T12:00:00Z,Blocksession 03,Blockfabrik,,,,Grade me <3,Grade me <3,Grade me <3,f,GYM_BOULDER,4,,1,,null,49.4521,11.0767
+vertical_life,2025-08-03T12:00:00Z,Malaria,Thalhofergrat,Obere Westwand,,AT,VIII-,VIII-,7a,rp,ROUTE,null,Endlich 🙌,2,,5,48.0067581,16.0361074
+vertical_life,2025-08-05T12:00:00Z,Fidelio,Kletterhalle Wien,,,,VI+,VI+,6b,f,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,18,,1,,3,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,"less friction, more fun",Kletterhalle Wien,,,,VIII,VIII,7a+,rp,GYM_ROUTE,18,,2,,null,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,Green,Kletterhalle Wien,,,,VIII,VIII,7a+,rp,GYM_ROUTE,18,,2,,null,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,Iris Pupille,Kletterhalle Wien,,,,VIII,VIII,7a+,os,GYM_ROUTE,18,Funky,1,,4,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,da seh ich rot,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-05T12:00:00Z,Wiki und die starken Mädchen,Kletterhalle Wien,,,,V+,V+,5c,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-15T12:00:00Z,Schismogenesis Solaris I,Kletterhalle Wien,,,,VI,VI,6a+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-16T12:00:00Z,Triple Split Definition,Kletterhalle Wien,,,,VII,VII,6c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-16T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-16T12:00:00Z,Hin und Wieder,Kletterhalle Wien,,,,VII,VII,6c,os,GYM_ROUTE,18,,1,,4,48.2082,16.3738
+vertical_life,2025-08-17T12:00:00Z,Manu Negra,Kletterhalle Wien,,,,5c+,5c+,5c+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-17T12:00:00Z,Manu Negra Ext.,Kletterhalle Wien,,,,VII-,VII-,6b+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-20T12:00:00Z,the prince is coming home,Kletterhalle Wien,,,,VIII,VIII,7a+,rp,GYM_ROUTE,18,,4,,3,48.2082,16.3738
+vertical_life,2025-08-20T12:00:00Z,Juliapril,Kletterhalle Wien,,,,VI+,VI+,6b,os,GYM_ROUTE,18,,1,,3,48.2082,16.3738
+vertical_life,2025-08-20T12:00:00Z,psychoathletischer Bauchaufschwung,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-20T12:00:00Z,"viel gerade, viel Kante, viel Ines",Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-21T12:00:00Z,Urlaub is Coming,Kletterhalle Wien,,,,IX-,IX-,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-21T12:00:00Z,Rissquetschwunder,Kletterhalle Wien,,,,VIII-,VIII-,7a,os,GYM_ROUTE,18,,1,,5,48.2082,16.3738
+vertical_life,2025-08-27T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-27T12:00:00Z,search for the good,Kletterhalle Wien,,,,V+,V+,5c,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-27T12:00:00Z,Antiflow,Kletterhalle Wien,,,,VI+,VI+,6b,rp,GYM_ROUTE,18,,0,,4,48.2082,16.3738
+vertical_life,2025-08-27T12:00:00Z,Black Sabbath,Kletterhalle Wien,,,,VII+,VII+,6c+,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-08-28T12:00:00Z,Urlaub is Coming,Kletterhalle Wien,,,,IX-,IX-,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-20T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-20T12:00:00Z,Minimal Techno,Kletterhalle Wien,,,,IX-,IX-,7b+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-20T12:00:00Z,Big Thing Corner,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-23T12:00:00Z,Doch z'dick da Nick?,Kletterhalle Wien,,,,VII+,VII+,6c+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-23T12:00:00Z,Z´leicht fürs Projekt,Kletterhalle Wien,,,,5c+,5c+,5c+,os,GYM_ROUTE,18,,1,,4,48.2082,16.3738
+vertical_life,2025-09-23T12:00:00Z,Cruella de stil,Kletterhalle Wien,,,,VI,VI,6a+,f,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-23T12:00:00Z,as old as school can get,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-23T12:00:00Z,für Jonathan,Kletterhalle Wien,,,,VII+,VII+,6c+,go,GYM_ROUTE,18,,1,,null,48.2082,16.3738
+vertical_life,2025-09-28T12:00:00Z,Ostwandschocker,Thalhofergrat,Ost,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-09-28T12:00:00Z,Gruselkabinett,Thalhofergrat,Obere Ostwand,,AT,VI,VI,6a+,os,ROUTE,null,,1,,5,48.0067581,16.0361074
+vertical_life,2025-10-04T12:00:00Z,Staubwedel,Thalhofergrat,Obere Ostwand,,AT,VII-,VII-,6b+,rp,ROUTE,null,,0,,0,48.0067581,16.0361074
+vertical_life,2025-10-04T12:00:00Z,Thaliffizil,Thalhofergrat,Unknown Sector,,AT,VIII+,VIII+,7b,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-10-04T12:00:00Z,Ostwandschocker,Thalhofergrat,Ost,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,0,48.0067581,16.0361074
+vertical_life,2025-10-15T12:00:00Z,good looking from far away....,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,Intervall Hangeln,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,Stelle dich dem blauen Monster.,Kletterhalle Wien,,,,VII,VII,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,Die Vergessene,Kletterhalle Wien,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,Eignungsprüfung Instruktor #2,Kletterhalle Wien,,,,VII+,VII+,6c+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,Eignungsprüfung Instruktor #1,Kletterhalle Wien,,,,VII+,VII+,6c+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-15T12:00:00Z,not my strong suit,Kletterhalle Wien,,,,VII,VII,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-10-24T12:00:00Z,On the road again,Čiritež,SUNSET,,HR,VII-,VII-,6b+,go,ROUTE,12,Almost unfair for 6b,1,,null,45.3998908,14.022539
+vertical_life,2025-10-24T12:00:00Z,Digging for gold,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,V+,V+,5c,os,ROUTE,22,,1,,null,45.3997819,13.9386831
+vertical_life,2025-10-24T12:00:00Z,Cirkus,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,VI+,VI+,6b,rp,ROUTE,30,"Ist der Onsight erst ruiniert, klettert es sich unscheniert. Nice, Route a little bit of everything.",2,,4,45.3997819,13.9386831
+vertical_life,2025-10-24T12:00:00Z,Looser,Kompanj,KRANK,,HR,VI-,VI-,6a,os,ROUTE,20,,1,,4,45.3927013,14.0717128
+vertical_life,2025-10-24T12:00:00Z,Šparoga blues,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,VIII,VIII,7a+,rp,ROUTE,15,,2,,null,45.3997819,13.9386831
+vertical_life,2025-10-24T12:00:00Z,Šparoga blues,Kamena vrata,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,,HR,VIII,VIII,7a+,go,ROUTE,15,,1,,4,45.3997819,13.9386831
+vertical_life,2025-10-25T12:00:00Z,Avanti popolo,Buzetski kanjon,PENGARI,,HR,VI,VI,6a+,os,ROUTE,35,,1,,null,45.4167,13.9667
+vertical_life,2025-10-25T12:00:00Z,"Elio Pisak, ruke stisak",Buzetski kanjon,PENGARI,,HR,VII-,VII-,6b+,go,ROUTE,20,Could get the ready move or just didn’t find the beta and did quite a wipper. Hard for the grade.,1,,3,45.4167,13.9667
+vertical_life,2025-10-25T12:00:00Z,Silence is golden,Buzetski kanjon,PENGARI,,HR,VI-,VI-,6a,f,ROUTE,32,,1,,null,45.4167,13.9667
+vertical_life,2025-10-28T12:00:00Z,Tricky fingers,Kompanj,KATZ,,HR,VII-,VII-,6b+,go,ROUTE,15,,1,,null,45.3927013,14.0717128
+vertical_life,2025-10-28T12:00:00Z,Krankenhaus,Kompanj,KRANK,,HR,VII+,VII+,6c+,rp,ROUTE,27,,2,,null,45.3927013,14.0717128
+vertical_life,2025-10-28T12:00:00Z,Therapie,Kompanj,KRANK,,HR,V+,V+,5c,os,ROUTE,20,,1,,0,45.3927013,14.0717128
+vertical_life,2025-10-28T12:00:00Z,Mon Cheri,Kompanj,KATZ,,HR,V+,V+,5c,os,ROUTE,25,,1,,3,45.3927013,14.0717128
+vertical_life,2025-10-31T12:00:00Z,Tohuwabohu,Adlitzgräben,Lari Fari,,AT,VIII-,VIII-,7a,go,ROUTE,null,,1,,4,49.4821,11.1367
+vertical_life,2025-11-04T12:00:00Z,Olivers Alptraum,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-08T12:00:00Z,Schwesterlein Mein,Höllental,Vordere Stadelwand,,AT,V+,V+,5c,os,ROUTE,null,"The crux feels closer to 6a. It is reachy and consists of a single but demanding move that feels noticeably harder than other 5c multi-pitch routes in the area. Protection is generally solid, though some sections contain loose rock, so care is advised.
 
 The highlight is definitely the final pitch, featuring a few delicate moves on small crimps, precise footwork, and a short micro layback. very enjoyable climbing.
 
 If you have double ropes and no parties below, abseiling is recommended. The descent via the Gasserl is feasible but somewhat tedious and time-consuming.",1,,3,47.7472092,15.7687616
-vertical_life,2025-11-13T12:00:00Z,Queer und um die Ecke,Kletterhalle Wien,,,,6a+,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-13T12:00:00Z,Peter Jackson,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,16,,1,,3,48.2082,16.3738
-vertical_life,2025-11-13T12:00:00Z,Tanz am See mit Martin VT,Kletterhalle Wien,,,,6c,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-13T12:00:00Z,name it yourself,Kletterhalle Wien,,,,6b+,6b+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-14T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,7b,7b,go,GYM_ROUTE,16,,1,,0,48.2082,16.3738
-vertical_life,2025-11-14T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,7b,7b,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
-vertical_life,2025-11-16T12:00:00Z,ein Mädchen Namens Leila,Edelweiss Südstadt,,,,7-,7-,os,GYM_ROUTE,16,,1,,null,49.4521,11.0767
-vertical_life,2025-11-16T12:00:00Z,der Schweiß ist heiß,Edelweiss Südstadt,,,,8+/9-,8+/9-,go,GYM_ROUTE,16,,1,,3,49.4521,11.0767
-vertical_life,2025-11-16T12:00:00Z,Kids Kletterkombi 1,Edelweiss Südstadt,,,,7-,7-,os,GYM_ROUTE,16,,1,,null,49.4521,11.0767
-vertical_life,2025-11-18T12:00:00Z,Die weise Pia,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-18T12:00:00Z,Olivers Alptraum,Kletterhalle Wien,,,,7c,7c,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-18T12:00:00Z,all them witches,Kletterhalle Wien,,,,6a+,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-18T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,7b,7b,rp,GYM_ROUTE,16,,0,,4,48.2082,16.3738
-vertical_life,2025-11-19T12:00:00Z,La noche pura,Kletterhalle Wien,,,,6c+,6c+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-19T12:00:00Z,Für Georg,Kletterhalle Wien,,,,6b+,6b+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-11-19T12:00:00Z,name it yourself,Kletterhalle Wien,,,,6b+,6b+,rp,GYM_ROUTE,16,,0,,null,48.2082,16.3738
-vertical_life,2025-11-19T12:00:00Z,Spekulatiusverschwörung,Kletterhalle Wien,,,,7a,7a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-12-05T12:00:00Z,Emerald City,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,16,,1,,5,48.2082,16.3738
-vertical_life,2025-12-05T12:00:00Z,Prima Ballerina,Kletterhalle Wien,,,,6a+,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-12-05T12:00:00Z,Beli,Kletterhalle Wien,,,,7a,7a,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
-vertical_life,2025-12-05T12:00:00Z,Hans-Stadt Stadlau,Kletterhalle Wien,,,,7b+,7b+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2025-12-05T12:00:00Z,Hans-Stadt Stadlau,Kletterhalle Wien,,,,7b+,7b+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,Der Kanal der Hingabe,Kletterhalle Wien,,,,6a+,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,पावित्र means holy!,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,16,,1,,3,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,पावित्र means holy!,Kletterhalle Wien,,,,7a+,7a+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,Purer Elch grüßt Planke Jasmin!,Kletterhalle Wien,,,,6b,6b,go,GYM_ROUTE,16,Food slipped at the top 😬🙉,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,subkutane Keksiverbrennungsanlage,Kletterhalle Wien,,,,7b,7b,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,16.2,Kletterhalle Wien,,,,6a,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
-vertical_life,2026-01-03T12:00:00Z,underpromising and overdelivering,Kletterhalle Wien,,,,7b,7b,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
-vertical_life,2026-02-28T12:00:00Z,Obere Naglkante,Hohe Wand,Naglplatten,,AT,6a,6a,os,ROUTE,null,,1,,4,47.8257794,16.0514855
-vertical_life,2026-02-28T12:00:00Z,Anwandler,Hohe Wand,Naglplatten,,AT,6a,6a,os,ROUTE,null,,1,,0,47.8257794,16.0514855
-mountain_project,2025-06-23,The Great Game,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,7-,5.10d,Redpoint,Trad,400,Second try and pumped as hell after pitch 1. Amazing line and one of the best I did so far in Squamish!,,https://www.mountainproject.com/route/106228408/the-great-game,3.8,49.7016,-123.1558
-mountain_project,2025-06-22,Skyline Arête,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,7/A,5.11a A0,Fell/Hung,"Sport, Aid",130,,,https://www.mountainproject.com/route/117256380/skyline-arete,3.0,49.7016,-123.1558
-mountain_project,2025-06-20,The Great Game,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,7-,5.10d,Fell/Hung,Trad,400,,,https://www.mountainproject.com/route/106228408/the-great-game,3.8,49.7016,-123.1558
-mountain_project,2025-06-19,Apron Strings,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > Grand Wall Base Area,CA,6,5.10b,Fell/Hung,Trad,300,,,https://www.mountainproject.com/route/105886110/apron-strings,3.6,49.7016,-123.1558
-mountain_project,2025-06-19,Rock On,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > The Apron > North Apron,CA,6-,5.10a,Fell/Hung,Trad,400,Once as I was not leading I slipped at the corner ,,https://www.mountainproject.com/route/105910904/rock-on,3.7,49.7016,-123.1558
-mountain_project,2025-06-18,The Squamish Buttress,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > Squamish Buttress,CA,6+,5.10c,Fell/Hung,Trad,600,Fell at the Crux Pitch twice. Once I got stuck with the rope and I could make it over the edge.,,https://www.mountainproject.com/route/106072248/the-squamish-buttress,3.1,49.7016,-123.1558
-mountain_project,2025-06-16,The Spirit of Squamish,Squamish,,International > North America > Canada > British Columbia > Squamish > Shannon Falls > Shannon Falls Wall,CA,5,5.8,Onsight,Trad,700,Nice one. Slaps are tricky but we’ll bolted! ,,https://www.mountainproject.com/route/120765388/the-spirit-of-squamish,3.5,49.7016,-123.1558
-mountain_project,2025-06-16,More Than Just A Pretty Face,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Lakeside in the Woods,CA,6+,5.10c,Flash,Sport,40,,,https://www.mountainproject.com/route/108259507/more-than-just-a-pretty-face,3.2,49.7016,-123.1558
-mountain_project,2025-06-16,"Hungry, Hungry Hippos",Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,6-,5.10a,Flash,Trad,65,,,https://www.mountainproject.com/route/108228177/hungry-hungry-hippos,2.5,49.7016,-123.1558
-mountain_project,2025-06-16,Ancient Squamish Secret,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,5+,5.9,Onsight,Trad,80,,,https://www.mountainproject.com/route/108239896/ancient-squamish-secret,2.6,49.7016,-123.1558
-mountain_project,2025-06-16,The Total StinkEye,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,5-,5.7,Onsight,Trad,80,,,https://www.mountainproject.com/route/112049870/the-total-stinkeye,2.3,49.7016,-123.1558
-mountain_project,2025-06-16,"""Otto Mattock""",Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,4+,5.6,Onsight,Trad,76,,,https://www.mountainproject.com/route/109912598/otto-mattock,2.5,49.7016,-123.1558
+vertical_life,2025-11-13T12:00:00Z,Queer und um die Ecke,Kletterhalle Wien,,,,VI,VI,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-13T12:00:00Z,Peter Jackson,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,16,,1,,3,48.2082,16.3738
+vertical_life,2025-11-13T12:00:00Z,Tanz am See mit Martin VT,Kletterhalle Wien,,,,VII,VII,6c,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-13T12:00:00Z,name it yourself,Kletterhalle Wien,,,,VII-,VII-,6b+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-14T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,0,48.2082,16.3738
+vertical_life,2025-11-14T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
+vertical_life,2025-11-16T12:00:00Z,ein Mädchen Namens Leila,Edelweiss Südstadt,,,,VI+,VI+,7-,os,GYM_ROUTE,16,,1,,null,49.4521,11.0767
+vertical_life,2025-11-16T12:00:00Z,der Schweiß ist heiß,Edelweiss Südstadt,,,,VIII/VIII+,VIII/VIII+,8+/9-,go,GYM_ROUTE,16,,1,,3,49.4521,11.0767
+vertical_life,2025-11-16T12:00:00Z,Kids Kletterkombi 1,Edelweiss Südstadt,,,,VI+,VI+,7-,os,GYM_ROUTE,16,,1,,null,49.4521,11.0767
+vertical_life,2025-11-18T12:00:00Z,Die weise Pia,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-18T12:00:00Z,Olivers Alptraum,Kletterhalle Wien,,,,IX,IX,7c,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-18T12:00:00Z,all them witches,Kletterhalle Wien,,,,VI,VI,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-18T12:00:00Z,des Teufels Küchenchef,Kletterhalle Wien,,,,VIII+,VIII+,7b,rp,GYM_ROUTE,16,,0,,4,48.2082,16.3738
+vertical_life,2025-11-19T12:00:00Z,La noche pura,Kletterhalle Wien,,,,VII+,VII+,6c+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-19T12:00:00Z,Für Georg,Kletterhalle Wien,,,,VII-,VII-,6b+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-11-19T12:00:00Z,name it yourself,Kletterhalle Wien,,,,VII-,VII-,6b+,rp,GYM_ROUTE,16,,0,,null,48.2082,16.3738
+vertical_life,2025-11-19T12:00:00Z,Spekulatiusverschwörung,Kletterhalle Wien,,,,VIII-,VIII-,7a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-12-05T12:00:00Z,Emerald City,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,16,,1,,5,48.2082,16.3738
+vertical_life,2025-12-05T12:00:00Z,Prima Ballerina,Kletterhalle Wien,,,,VI,VI,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-12-05T12:00:00Z,Beli,Kletterhalle Wien,,,,VIII-,VIII-,7a,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
+vertical_life,2025-12-05T12:00:00Z,Hans-Stadt Stadlau,Kletterhalle Wien,,,,IX-,IX-,7b+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2025-12-05T12:00:00Z,Hans-Stadt Stadlau,Kletterhalle Wien,,,,IX-,IX-,7b+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,Der Kanal der Hingabe,Kletterhalle Wien,,,,VI,VI,6a+,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,पावित्र means holy!,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,16,,1,,3,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,पावित्र means holy!,Kletterhalle Wien,,,,VIII,VIII,7a+,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,Purer Elch grüßt Planke Jasmin!,Kletterhalle Wien,,,,VI+,VI+,6b,go,GYM_ROUTE,16,Food slipped at the top 😬🙉,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,subkutane Keksiverbrennungsanlage,Kletterhalle Wien,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,16.2,Kletterhalle Wien,,,,VI-,VI-,6a,os,GYM_ROUTE,16,,1,,null,48.2082,16.3738
+vertical_life,2026-01-03T12:00:00Z,underpromising and overdelivering,Kletterhalle Wien,,,,VIII+,VIII+,7b,go,GYM_ROUTE,16,,1,,4,48.2082,16.3738
+vertical_life,2026-02-28T12:00:00Z,Obere Naglkante,Hohe Wand,Naglplatten,,AT,VI-,VI-,6a,os,ROUTE,null,,1,,4,47.8257794,16.0514855
+vertical_life,2026-02-28T12:00:00Z,Anwandler,Hohe Wand,Naglplatten,,AT,VI-,VI-,6a,os,ROUTE,null,,1,,0,47.8257794,16.0514855
+mountain_project,2025-06-23,The Great Game,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,VI+,VI+,7-,Redpoint,Trad,400,Second try and pumped as hell after pitch 1. Amazing line and one of the best I did so far in Squamish!,,https://www.mountainproject.com/route/106228408/the-great-game,3.8,49.7016,-123.1558
+mountain_project,2025-06-22,Skyline Arête,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,7/A,7/A,7/A,Fell/Hung,"Sport, Aid",130,,,https://www.mountainproject.com/route/117256380/skyline-arete,3.0,49.7016,-123.1558
+mountain_project,2025-06-20,The Great Game,Squamish,,International > North America > Canada > British Columbia > Squamish > Mamquam FSR > Slhanay,CA,VI+,VI+,7-,Fell/Hung,Trad,400,,,https://www.mountainproject.com/route/106228408/the-great-game,3.8,49.7016,-123.1558
+mountain_project,2025-06-19,Apron Strings,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > Grand Wall Base Area,CA,VI-,VI-,6,Fell/Hung,Trad,300,,,https://www.mountainproject.com/route/105886110/apron-strings,3.6,49.7016,-123.1558
+mountain_project,2025-06-19,Rock On,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > The Apron > North Apron,CA,V+,V+,6-,Fell/Hung,Trad,400,Once as I was not leading I slipped at the corner ,,https://www.mountainproject.com/route/105910904/rock-on,3.7,49.7016,-123.1558
+mountain_project,2025-06-18,The Squamish Buttress,Squamish,,International > North America > Canada > British Columbia > Squamish > Stawamus Chief > Squamish Buttress,CA,VI,VI,6+,Fell/Hung,Trad,600,Fell at the Crux Pitch twice. Once I got stuck with the rope and I could make it over the edge.,,https://www.mountainproject.com/route/106072248/the-squamish-buttress,3.1,49.7016,-123.1558
+mountain_project,2025-06-16,The Spirit of Squamish,Squamish,,International > North America > Canada > British Columbia > Squamish > Shannon Falls > Shannon Falls Wall,CA,V-,V-,5,Onsight,Trad,700,Nice one. Slaps are tricky but we’ll bolted! ,,https://www.mountainproject.com/route/120765388/the-spirit-of-squamish,3.5,49.7016,-123.1558
+mountain_project,2025-06-16,More Than Just A Pretty Face,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Lakeside in the Woods,CA,VI,VI,6+,Flash,Sport,40,,,https://www.mountainproject.com/route/108259507/more-than-just-a-pretty-face,3.2,49.7016,-123.1558
+mountain_project,2025-06-16,"Hungry, Hungry Hippos",Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,V+,V+,6-,Flash,Trad,65,,,https://www.mountainproject.com/route/108228177/hungry-hungry-hippos,2.5,49.7016,-123.1558
+mountain_project,2025-06-16,Ancient Squamish Secret,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,V,V,5+,Onsight,Trad,80,,,https://www.mountainproject.com/route/108239896/ancient-squamish-secret,2.6,49.7016,-123.1558
+mountain_project,2025-06-16,The Total StinkEye,Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,IV,IV,5-,Onsight,Trad,80,,,https://www.mountainproject.com/route/112049870/the-total-stinkeye,2.3,49.7016,-123.1558
+mountain_project,2025-06-16,"""Otto Mattock""",Squamish,,International > North America > Canada > British Columbia > Squamish > Murrin Park > Commonwealth,CA,IV-,IV-,4+,Onsight,Trad,76,,,https://www.mountainproject.com/route/109912598/otto-mattock,2.5,49.7016,-123.1558
