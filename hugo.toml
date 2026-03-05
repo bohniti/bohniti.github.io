@@ -1,0 +1,38 @@
+baseURL = 'https://bohniti.github.io/'
+languageCode = 'en'
+title = 'Timo Böhm'
+theme = 'minimal'
+paginate = 20
+enableRobotsTXT = true
+
+[params]
+  author = "Timo Böhm"
+  description = "Data Scientist based in Vienna. Running, cycling, climbing, and everything in between."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youtube]
+    privacyEnhanced = true
