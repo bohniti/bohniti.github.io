@@ -143,11 +143,36 @@ function parseCSV(text) {
 // Load and process climbing data
 async function loadClimbingData() {
     try {
-        const response = await fetch('/files/dataset.csv');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Try multiple possible paths for the CSV file
+        const possiblePaths = [
+            '/files/dataset.csv',
+            './files/dataset.csv',
+            '../../../static/files/dataset.csv'
+        ];
+        
+        let response;
+        let csvText;
+        let successPath;
+        
+        for (const path of possiblePaths) {
+            try {
+                console.log(`Trying to fetch: ${path}`);
+                response = await fetch(path);
+                if (response.ok) {
+                    csvText = await response.text();
+                    successPath = path;
+                    console.log(`Successfully loaded CSV from: ${path}`);
+                    break;
+                }
+            } catch (err) {
+                console.log(`Failed to fetch from ${path}: ${err.message}`);
+            }
         }
-        const csvText = await response.text();
+        
+        if (!csvText) {
+            throw new Error('Could not load CSV from any path');
+        }
+        
         console.log('CSV loaded, first 200 chars:', csvText.substring(0, 200));
         
         const routes = parseCSV(csvText);
@@ -324,8 +349,11 @@ function createProgressionChart(routes) {
 }
 
 // Initialize everything
+console.log('Starting to load climbing data...');
 loadClimbingData().then(routes => {
     console.log('Routes loaded, length:', routes.length);
+    console.log('Routes type:', typeof routes);
+    console.log('Routes is array?', Array.isArray(routes));
     
     if (routes.length > 0) {
         console.log(`Successfully loaded ${routes.length} climbing routes`);
@@ -409,6 +437,20 @@ loadClimbingData().then(routes => {
     }
 }).catch(error => {
     console.error('Failed to load climbing data:', error);
+    
+    // Show error message to user
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = 'background: #ffe6e6; padding: 20px; margin: 20px 0; border-radius: 8px; border: 1px solid #ff9999;';
+    errorDiv.innerHTML = `
+        <h3>Error Loading Data</h3>
+        <p>Failed to load climbing route data: ${error.message}</p>
+        <p>Please check the console for more details.</p>
+    `;
+    
+    const mapContainer = document.getElementById('climbing-map');
+    if (mapContainer && mapContainer.parentElement) {
+        mapContainer.parentElement.insertBefore(errorDiv, mapContainer);
+    }
 });
 </script>
 
