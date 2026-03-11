@@ -1,4 +1,4 @@
-baseURL = 'https://bohniti.github.io/'
+baseURL = 'https://tbohnstedt.cloud/'
 languageCode = 'en'
 title = 'Timo Bohnstedt'
 theme = 'minimal'
