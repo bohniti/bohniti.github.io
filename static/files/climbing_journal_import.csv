@@ -1,0 +1,423 @@
+date,tick_type,crag_name,route_name,grade,area_name,tries,rating,notes,partner,style
+2017-07-22,redpoint,Schwarzbrennerei,Prost Mahlzeit,7-,Schwarzbrennerei,2,3,,,sport
+2017-07-22,onsight,Spieser Wand,Adolf Nolder Ged.-Boulder,7-,Spieser Wand,1,4,,,sport
+2017-07-22,redpoint,Zimmerbergwände,Lots Weib,7-,Sektor 1,3,3,,,sport
+2017-07-22,redpoint,Piccolino,Grande Finale,6,Piccolino,2,2,,,sport
+2017-07-22,onsight,Röthenbacher Wand,Denkste,6,Röthenbacher Wand,1,3,,,sport
+2017-07-22,attempt,Zimmerbergwände,Hersbrucker Weg,7,Sektor 2,2,5,,,sport
+2017-07-22,redpoint,Schwarzbrennerei,Rumrosine,6,Schwarzbrennerei,2,,,,sport
+2017-07-22,attempt,Algersdorfer Wand,Petite Fleur,7+,Algersdorfer Wand,2,4,,,sport
+2017-07-22,redpoint,Zimmerbergwände,Starfighter Kandidatenweg,7,Sektor 1,2,4,,,sport
+2017-07-22,onsight,Hexenküche,Räuber Hotzenplotz,6,Sektor 2,1,3,,,sport
+2017-07-22,attempt,Schwarzbrennerei,Al Capone,7-,Schwarzbrennerei,2,3,,,sport
+2017-07-22,onsight,Zimmerbergwände,Trivialitätenkabinett,7-,Sektor 1,1,3,,,sport
+2017-07-22,redpoint,Piccolino,Piccolina,8-,Piccolino,2,3,,,sport
+2017-07-22,redpoint,Piccolino,Wissen macht ah,6-,Piccolino,2,2,,,sport
+2017-07-22,attempt,Hexenküche,Devilwall,7+/8-,Sektor 2,3,4,,,sport
+2017-07-22,redpoint,Zimmerbergwände,Lochgeheimnis (Herz Ass),6-,Sektor 1,2,2,,,sport
+2017-07-22,redpoint,Röthenbacher Wand,Georg Meier Ged.-Weg,6+,Röthenbacher Wand,1,5,,,sport
+2017-07-22,redpoint,Algersdorfer Wand,Paul Preuß Ged.-Weg,6+,Algersdorfer Wand,2,4,,,sport
+2017-07-22,redpoint,Schwarzbrennerei,Absinth,6-,Schwarzbrennerei,2,,,,sport
+2017-07-22,attempt,Zimmerbergwände,Rolling Stone,7+/8-,Sektor 1,2,3,,,sport
+2017-07-22,redpoint,Hühnersteinwand,Nicht vergessen,7+,Hühnersteinwand,1,4,Crux nach Gemüse ,,sport
+2017-07-22,redpoint,Piccolino,Die wilden Kerle,8-,Piccolino,2,4,,,sport
+2017-07-22,redpoint,Hühnersteinwand,Butterfinger,6+,Hühnersteinwand,1,5,,,sport
+2017-07-22,attempt,Kirchthalwände,Röthenbacher Weg,8+,Kirchthalwände,2,4,,,sport
+2017-07-22,onsight,Hühnersteinwand,Sonntagsverschneidung,5+,Hühnersteinwand,1,5,,,sport
+2017-07-22,onsight,Hexenküche,Kurz und schmerzlos,6+,Sektor 2,1,1,,,sport
+2017-07-22,redpoint,Schwarzbrennerei,Alkoholfrei,5,Schwarzbrennerei,2,,,,sport
+2017-07-22,redpoint,Schwarzbrennerei,Grappatoni,6-,Schwarzbrennerei,2,,,,sport
+2017-07-22,redpoint,Zimmerbergwände,N.N.,6,Sektor 1,2,1,,,sport
+2017-07-22,onsight,Zimmerbergwände,Konrad Oed Ged.-Weg,5,Sektor 1,1,2,,,sport
+2017-07-22,attempt,Spieser Wand,Father and Son,7+/8-,Spieser Wand,2,4,,,sport
+2017-07-22,attempt,Bolzenstein,Irrweg,7+/8-,Bolzenstein,2,5,,,sport
+2017-07-22,redpoint,Spieser Wand,Direkte Nordwand,7+,Spieser Wand,2,4,Geil Dynamisch. An Leisten Kreuzen dann weit Raus ,,sport
+2017-07-22,attempt,Kirchthalwände,Genitale Entkrampfung,7+/8-,Kirchthalwände,2,2,,,sport
+2017-07-22,attempt,Algersdorfer Wand,Mururoa,8+/9-,Algersdorfer Wand,2,,Zwei irre weite Zug am Ende der Tour ,,sport
+2017-07-22,attempt,Bolzenstein,Fingerhakler,7+/8-,Bolzenstein,2,4,,,sport
+2017-07-22,onsight,Zimmerbergwände,Trabant,5+,Sektor 1,1,3,,,sport
+2017-07-22,onsight,Zimmerbergwände,Gemeinsam,6+,Sektor 1,1,3,,,sport
+2017-07-22,onsight,Hexenküche,Klein und gemein,6,Sektor 2,1,,,,sport
+2017-07-22,onsight,Kirchthalwände,Südostkante,6-,Kirchthalwände,1,,,,sport
+2017-07-22,redpoint,Spieser Wand,Rechte Nordwand,7,Spieser Wand,2,3,,,sport
+2017-07-22,redpoint,Algersdorfer Wand,Streiflicht,7-,Algersdorfer Wand,2,3,,,sport
+2017-07-22,redpoint,Spieser Wand,Nebenbei,7+,Spieser Wand,2,,,,sport
+2017-07-22,redpoint,Algersdorfer Wand,Höhenkoller,7+,Algersdorfer Wand,2,,,,sport
+2017-07-22,onsight,Hühnersteinwand,Hufeisen,4,Hühnersteinwand,1,,,,sport
+2017-07-22,onsight,Zimmerbergwände,Faule Kalorie,6+,Sektor 1,1,2,,,sport
+2017-07-30,onsight,Große Wacht,Seelendoping,6,Große Wacht,1,,,,sport
+2017-07-30,redpoint,Hauseck,Hometrainer,7+,Hauseck,2,,,,sport
+2017-07-30,attempt,Hauseck,Bauhaus,7+/8-,Hauseck,2,4,Crux nach dem letzten Hacken vor dem Umlenker. Macht Spaß!,,sport
+2017-07-30,redpoint,Große Wacht,Moser Ged.-Weg,6,Große Wacht,2,,Aufpassen das man nicht in die 8- reinkommt.,,sport
+2017-07-30,redpoint,Große Wacht,Sportflieger,7,Große Wacht,2,5,,,sport
+2017-07-30,attempt,Hauseck,Grün ist die Hoffnung,7+,Hauseck,2,4,Nach dem ersten Hacken Sack schwer für den Grad!,,sport
+2017-08-01,attempt,Schwarzbrennerei,Diesel mit Schuss,7+/8-,Schwarzbrennerei,2,4,Nicht schön speckig ,,sport
+2017-08-01,attempt,Schwarzbrennerei,Kleiner Feigling,7+,Schwarzbrennerei,2,1,Ende ist crrap ,,sport
+2017-08-01,onsight,Weiße Wand (Hirschbachtal),Direkte Weiße Wand,7-,Südseite,1,3,,,sport
+2017-08-01,attempt,Weiße Wand (Hirschbachtal),Arrabiata,7+,Südseite,2,3,,,sport
+2017-08-01,attempt,Weiße Wand (Hirschbachtal),Boulder,7-,Südseite,2,3,,,sport
+2017-08-01,onsight,Weiße Wand (Hirschbachtal),Kiefernverschneidung,6-,Südseite,1,4,,,sport
+2017-08-01,attempt,Kirchthalwände,Erogene Zone,8+/9-,Kirchthalwände,2,4,,,sport
+2017-08-05,attempt,Steingarten / Langer Berg Wände,Referendarsteig,7+,Sektor 1,2,5,,,sport
+2017-08-05,onsight,Steingarten / Langer Berg Wände,Methusalemkante,6+,Sektor 1,1,3,,,sport
+2017-08-05,onsight,Steingarten / Langer Berg Wände,Westkante (Alter Weg),4+,Sektor 1,1,4,,,sport
+2017-08-09,onsight,Hartensteiner Wand,Hummelstaner Weg,5+,Hartensteiner Wand,1,4,,,sport
+2017-08-20,attempt,Engelswand,Mikado,6b+,Engelswand,2,,,,sport
+2017-08-20,redpoint,Hartensteiner Wand,Hummelstaner Weg,5+,Hartensteiner Wand,2,4,,,sport
+2017-08-20,redpoint,Oetz,Linke Wand,6a,Oetz,2,4,,,sport
+2017-08-20,onsight,Engelswand,Der Wolf und die Zwerge,5c+,Engelswand,1,4,,,sport
+2017-08-20,attempt,Engelswand,Windwalker,6b+,Engelswand,2,,,,sport
+2017-08-20,attempt,Roter Fels,Kilomanie,7+/8-,Sektor 3,2,4,,,sport
+2017-08-20,onsight,Hartensteiner Wand,Die 101jährige,6-,Hartensteiner Wand,1,4,,,sport
+2017-08-20,redpoint,Roter Fels,Kilomanie,8-,Sektor 3,2,4,,,sport
+2017-08-20,redpoint,Hartensteiner Wand,Die 101jährige,6,Hartensteiner Wand,2,4,,,sport
+2017-08-20,attempt,Ankatalturm & Ankatalwand,Computerspiele,7+/8-,Ankatalwand,2,5,,,sport
+2017-08-20,onsight,Engelswand,Its your time,6a,Engelswand,1,4,,,sport
+2017-08-20,flash,Oetz,Schmidtchen-Schleicher,6b,Oetz,1,5,,,sport
+2017-08-20,onsight,Hartensteiner Wand,Kurzer Riss,4,Hartensteiner Wand,1,3,,,sport
+2017-08-20,onsight,Oetz,Harakiri,6a,Oetz,1,5,,,sport
+2017-08-20,attempt,Oetz,Touch and go,6c,Oetz,2,4,,,sport
+2017-08-20,onsight,Hartensteiner Wand,Santa Zofia,5+,Hartensteiner Wand,1,4,,,sport
+2017-08-20,attempt,Roter Fels,Harter Hund,7-,Sektor 2,2,4,,,sport
+2017-08-20,onsight,Roter Fels,Softmover,5-,Sektor 2,1,3,,,sport
+2017-08-20,onsight,Hartensteiner Wand,Abkürzer,6-,Hartensteiner Wand,1,4,,,sport
+2017-08-26,attempt,Gotthardskirche,Admiral,7+/8-,Gotthardskirche,2,2,,,sport
+2017-08-26,onsight,Gotthardskirche,Siebenschläfer,6+,Gotthardskirche,1,4,,,sport
+2017-08-26,onsight,Gotthardskirche,N.N.,7-,Gotthardskirche,1,3,,,sport
+2017-09-02,attempt,Klausener Wand,Liebe auf den zweiten Blick,7+/8-,Klausener Wand,2,3,,,sport
+2017-09-02,attempt,Klausener Wand,EM Finale,6+,Klausener Wand,1,,,,sport
+2017-09-02,attempt,Klausener Wand,Liebe auf den zweiten Blick,7+/8-,Klausener Wand,2,4,,,sport
+2017-09-02,onsight,Klausener Wand,Zum Warmmachen,7-,Klausener Wand,1,5,,,sport
+2017-09-02,attempt,Klausener Wand,Nur Fliegen ist schöner,8+,Klausener Wand,2,4,,,sport
+2017-09-02,redpoint,Klausener Wand,EM Finale,6+,Klausener Wand,2,,,,sport
+2017-09-03,attempt,Klausener Wand,Nur Fliegen ist schöner,8+,Klausener Wand,2,4,,,sport
+2017-09-03,redpoint,Klausener Wand,Liebe auf den zweiten Blick,7+/8-,Klausener Wand,3,3,,,sport
+2017-09-03,redpoint,Klausener Wand,Zum Warmmachen,7,Klausener Wand,2,4,,,sport
+2017-09-12,onsight,Happurger Wand,Goude Haud,6+,Happurger Wand,1,3,,,sport
+2017-09-12,attempt,Hohler Fels,Frauen über 30,7-,Hohler Fels,2,,,,sport
+2017-09-12,attempt,Hohler Fels,Barrakuda,7+/8-,Hohler Fels,2,4,,,sport
+2017-10-22,redpoint,Cube Kletterzentrum,Frauenpower,6-,,2,5,,,sport
+2018-04-02,attempt,Kanzelfels (Förrenbach),Hersbrucker Weg,6-,Kanzelfels,0,5,,,sport
+2018-04-02,redpoint,Kanzelfels (Förrenbach),Hersbrucker Weg,6-,Kanzelfels,3,5,,,sport
+2018-04-02,attempt,Kanzelfels (Förrenbach),Größenwahn,7+/8-,Kanzelfels,0,5,,,sport
+2018-04-04,redpoint,Weiße Wand (Hirschbachtal),Arrabiata,7,Südseite,3,5,,,sport
+2018-04-04,attempt,Weiße Wand (Hirschbachtal),Lady Domina,7-,Südseite,0,5,,,sport
+2018-04-04,attempt,Weiße Wand (Hirschbachtal),Boulder,7-,Südseite,3,5,,,sport
+2018-04-04,redpoint,Weiße Wand (Hirschbachtal),Verfassungsbeschwerde,7-,Südseite,3,5,,,sport
+2018-04-04,attempt,Weiße Wand (Hirschbachtal),Kiefernverschneidung,6-,Südseite,3,5,,,sport
+2018-04-08,onsight,Lug ins Land,Für Elsa und Dani,6-,Lug ins Land,1,5,,,sport
+2018-04-08,attempt,Lug ins Land,Wilde Amelie,6-,Lug ins Land,0,5,,,sport
+2018-04-08,redpoint,Himmelsfels,Höhenglückwand,7-,Himmelsfels,2,5,,,sport
+2018-04-08,attempt,Prellstein,Nürnberger Weg,6+,Prellstein,0,5,,,sport
+2018-04-08,attempt,Lug ins Land,Theresa,6+,Lug ins Land,0,5,,,sport
+2018-04-08,redpoint,Himmelsfels,Himmelstor,7+/8-,Himmelsfels,2,5,,,sport
+2018-04-30,attempt,Klausener Wand,Manche mögen‘s heiß,8,Klausener Wand,0,5,,,sport
+2018-04-30,attempt,Klausener Wand,Manche mögen‘s heiß,7+/8-,Klausener Wand,0,5,,,sport
+2018-04-30,attempt,Klausener Wand,Obermühlriss,6+,Klausener Wand,0,5,,,sport
+2018-05-06,redpoint,Zimmerbergwände,Zufall,7-,Sektor 1,2,5,,,sport
+2018-05-06,attempt,Zimmerbergwände,Murmeltier,7+,Sektor 1,0,4,,,sport
+2018-05-06,attempt,Zimmerbergwände,Zufall,7-,Sektor 1,0,5,,,sport
+2018-05-06,attempt,Zimmerbergwände,Freundschaft,7-,Sektor 1,0,5,,,sport
+2018-05-06,onsight,Zimmerbergwände,Armin Weich Ged.-Weg,5-,Sektor 1,1,4,,,sport
+2018-05-06,attempt,Zimmerbergwände,Murmeltier,7+,Sektor 1,0,5,,,sport
+2018-05-22,attempt,Steinberg,Die Kunst des Pirschens,7-,Sektor 2 & 3,1,2,,,sport
+2018-05-22,redpoint,Steinberg,Sonnenkraft,8-,Sektor 2 & 3,3,5,,,sport
+2018-05-22,redpoint,Steinberg,Dr. Klemminger,7-,Sektor 2 & 3,3,5,,,sport
+2018-05-22,attempt,Steinberg,Dr. Klemminger,7-,Sektor 2 & 3,1,5,,,sport
+2018-05-22,onsight,Steinberg,Im Regen,7+,Sektor 4,1,4,,,sport
+2018-05-22,attempt,Steinberg,Sonnenkraft,7+/8-,Sektor 2 & 3,1,5,,,sport
+2018-05-27,attempt,Klausener Wand,Nur Fliegen ist schöner,8+,Klausener Wand,1,5,,,sport
+2018-05-27,attempt,Klausener Wand,Luft unter den Sohlen,7+/8-,Klausener Wand,1,5,,,sport
+2018-05-27,redpoint,Klausener Wand,Zum Warmmachen,7,Klausener Wand,1,5,,,sport
+2018-05-27,attempt,Klausener Wand,Luft unter den Sohlen,8-,Klausener Wand,1,5,,,sport
+2018-05-31,attempt,Zankelstein,Direkte Talseite,7+/8-,Zankelstein,1,5,,,sport
+2018-05-31,attempt,Zankelstein,Tabaluga,7+/8-,Zankelstein,1,5,,,sport
+2018-05-31,attempt,Zankelstein,Sprochkante,6+,Zankelstein,1,5,,,sport
+2018-06-04,attempt,Henastoa,Kurzum,7-,Henastoa,1,5,,,sport
+2018-06-04,attempt,Henastoa,Knödala,6+,Henastoa,1,5,,,sport
+2018-06-04,redpoint,Henastoa,Kurzum,7,Henastoa,3,5,,,sport
+2018-06-04,redpoint,Henastoa,Knödala,6+,Henastoa,3,5,,,sport
+2018-06-04,attempt,Henastoa,Minor Threat,7-,Henastoa,1,5,,,sport
+2018-06-04,attempt,Henastoa,Minor Threat,7-,Henastoa,1,5,,,sport
+2018-07-30,onsight,Henastoa,MaPaKaLi,5-,Henastoa,1,5,,,sport
+2018-07-30,onsight,Henastoa,ClaMaU.C,5-,Henastoa,1,5,,,sport
+2018-07-30,attempt,Henastoa,Kurzum,7,Henastoa,1,5,,,sport
+2018-08-02,attempt,Zehnerstein,Seifertriss,6+,Zehnerstein,1,5,,,sport
+2018-08-02,onsight,Zehnerstein,Zwei Jahre später,7-,Zehnerstein,1,5,,,sport
+2018-08-05,onsight,Bärnhofer Wand,Nürnberger Weg,6+,Bärnhofer Wand,1,4,,,sport
+2018-08-05,redpoint,Bärnhofer Wand,Waldrausch,7,Bärnhofer Wand,3,5,,,sport
+2018-08-05,attempt,Bärnhofer Wand,Moralapostel,7-,Bärnhofer Wand,1,5,,,sport
+2018-08-05,attempt,Bärnhofer Wand,Waldrausch,7-,Bärnhofer Wand,1,5,,,sport
+2018-08-05,flash,Bärnhofer Wand,Gummitwist mit dem Antichrist,7-,Bärnhofer Wand,1,5,,,sport
+2018-08-06,onsight,Röthelfels,Röthelfieber,7-,Sektor 6 - Depotweg & Zinnenwand,1,5,,,sport
+2018-08-06,onsight,Röthelfels,Kleiner Dicker,7-,Sektor 6 - Depotweg & Zinnenwand,1,5,,,sport
+2018-08-06,onsight,Röthelfels,Ratte,6+,Sektor 6 - Depotweg & Zinnenwand,1,5,,,sport
+2018-09-09,attempt,Strahlenfels,Fight Club,8+/9-,Strahlenfels,1,5,,,sport
+2018-09-09,attempt,Strahlenfels,Symphonie,7+/8-,Strahlenfels,1,5,,,sport
+2018-09-09,redpoint,Strahlenfels,Nightwish,7+/8-,Strahlenfels,2,5,,,sport
+2018-09-16,redpoint,Schmidtstadter Wand,Schmidtstadter Weg,7-,Schmidtstadter Wand,2,3,,,sport
+2018-09-16,attempt,Schmidtstadter Wand,Weißglut,7+,Schmidtstadter Wand,1,3,,,sport
+2018-09-16,attempt,Schmidtstadter Wand,Red Sonja,7+/8-,Schmidtstadter Wand,1,3,,,sport
+2018-09-16,redpoint,Schmidtstadter Wand,Kanaan,6+,Schmidtstadter Wand,2,3,,,sport
+2018-09-16,attempt,Schmidtstadter Wand,Plastic Fantastic,7+/8-,Schmidtstadter Wand,1,5,,,sport
+2018-09-28,attempt,Kanzelfels (Förrenbach),Franz Diewald Ged.-Weg,8+,Kanzelfels,1,3,,,sport
+2018-09-28,onsight,Kanzelfels (Förrenbach),Herbstkind,6+,Kanzelfels,1,1,,,sport
+2018-10-07,attempt,Roter Fels,Hannig Mayer Ged.-Weg,8-,Sektor 2,1,3,,,sport
+2018-10-07,onsight,Roter Fels,Dolomitweg,6,Sektor 2,1,5,,,sport
+2018-10-08,attempt,Roter Fels,Luftikus,8,Sektor 2,1,3,,,sport
+2020-04-11,redpoint,Kugelspielturm & Brüchige Wand,Zentrale Südwand,6,Brüchige Wand,3,,,,sport
+2020-04-11,redpoint,Kugelspielturm & Brüchige Wand,Kletterkursweg,5,Brüchige Wand,3,,,,sport
+2020-04-11,redpoint,Graischenstein,Alte und Jungnasen,7+,Sektor 2,3,,,,sport
+2020-04-11,attempt,Graischenstein,En Mobilette,7,Sektor 2,1,,,,sport
+2020-04-11,redpoint,Kugelspielturm & Brüchige Wand,Direkter Alter Weg,6,Brüchige Wand,3,,,,sport
+2020-04-11,redpoint,Graischenstein,Sissi,7+,Sektor 2,3,,,,sport
+2020-04-19,attempt,Treunitzer Klettergarten,B(l)aumann spezial,8-,Treunitzer Klettergarten,1,,,,sport
+2020-04-19,onsight,Treunitzer Klettergarten,Räuchermännchen (R 12c),5-,Treunitzer Klettergarten,1,,,,sport
+2020-04-19,attempt,Treunitzer Klettergarten,Nimm‘s leicht,8,Treunitzer Klettergarten,1,,,,sport
+2020-04-19,onsight,Treunitzer Klettergarten,Schlappohralarm,6+,Treunitzer Klettergarten,1,4,,,sport
+2020-04-23,attempt,Treunitzer Klettergarten,B(l)aumann spezial,8-,Treunitzer Klettergarten,1,,,,sport
+2020-04-23,redpoint,Treunitzer Klettergarten,Rockys Kauknochen,7+,Treunitzer Klettergarten,1,,,,sport
+2020-04-23,redpoint,Treunitzer Klettergarten,Schlappohralarm,6+,Treunitzer Klettergarten,3,,,,sport
+2020-04-23,redpoint,Treunitzer Klettergarten,Rockys Kauknochen,7+,Treunitzer Klettergarten,3,,,,sport
+2020-04-26,attempt,Radan Svec Ged.-Wand,Radanator,8,Radan Svec Ged.-Wand,1,4,"Schöner Fels, schöne Tour. Weiter Haken von 4 auf 5 aber sehr sicher. Aufstieg lohnt  ",,sport
+2020-04-26,onsight,Radan Svec Ged.-Wand,Czeská Láska,5+,Radan Svec Ged.-Wand,1,4,,,sport
+2020-04-26,onsight,Radan Svec Ged.-Wand,Das Leichte und das Schwere,5,Radan Svec Ged.-Wand,1,4,,,sport
+2020-04-26,redpoint,Radan Svec Ged.-Wand,Das Leichte und das Schwere,5,Radan Svec Ged.-Wand,3,,,,sport
+2020-04-26,redpoint,Radan Svec Ged.-Wand,Czeská Láska,5+,Radan Svec Ged.-Wand,3,,,,sport
+2020-05-12,onsight,Katzenlöcher,Bremse auch für Schwaben,7-,Katzenlöcher,1,,,,sport
+2020-05-12,onsight,Katzenlöcher,Fer-May-Weg,5,Katzenlöcher,1,4,,,sport
+2020-05-12,attempt,Katzenlöcher,Pickel im Nacken,8-,Katzenlöcher,1,,,,sport
+2020-05-12,onsight,Katzenlöcher,Direkte Talseite,6,Katzenlöcher,1,4,,,sport
+2020-05-12,onsight,Katzenlöcher,Tempo Kacker,6+,Katzenlöcher,1,3,,,sport
+2020-05-12,onsight,Katzenlöcher,Sad Lisa,6,Katzenlöcher,1,,,,sport
+2020-06-14,flash,Ruine Riegelstein,Rizzi bizzi,6,Sektor 1,1,,,,sport
+2020-06-14,onsight,Ruine Riegelstein,Nix auf der hohen Kante,6+,Sektor 1,1,,,,sport
+2020-06-14,onsight,Ruine Riegelstein,Luginsland,5-,Sektor 1,1,,,,sport
+2020-06-14,attempt,Ruine Riegelstein,Tempolimit,8-,Sektor 2,1,,,,sport
+2020-06-14,redpoint,Ruine Riegelstein,A 7,8-,Sektor 2,2,,,,sport
+2020-06-14,flash,Ruine Riegelstein,Höllenfahrt,7,Sektor 1,1,,,,sport
+2020-06-14,onsight,Großenoher Wand,Fliegendes Frettchen,6,Großenoher Wand,1,5,hoher erster Hacken ,,sport
+2020-06-14,onsight,Ruine Riegelstein,Verjüngende Kluft,5,Sektor 1,1,,,,sport
+2020-06-14,attempt,Großenoher Wand,Prost Paul,8-,Großenoher Wand,1,5,hart für den grad. Am Fels steht 8+,,sport
+2020-06-30,onsight,Grüne Hölle,Range Rover,7,"Sektor 2 (UW, OT)",1,5,,,sport
+2020-06-30,redpoint,Grüne Hölle,Pezi,6,"Sektor 1 (GW, Pezi, GT)",3,,,,sport
+2020-06-30,onsight,Grüne Hölle,Das Weiß der Geier,5,"Sektor 2 (UW, OT)",1,2,,,sport
+2020-06-30,onsight,Grüne Hölle,Pezi,6,"Sektor 1 (GW, Pezi, GT)",1,,,,sport
+2020-06-30,onsight,Grüne Hölle,Ebbelwoi Express,7,"Sektor 2 (UW, OT)",1,,,,sport
+2020-06-30,attempt,Grüne Hölle,Isolation,8-,"Sektor 2 (UW, OT)",1,,,,sport
+2020-07-12,attempt,Schlaraffenland,Vom Feinsten,8-,Hirschbacher Wand,1,,,,sport
+2020-07-12,attempt,Schlaraffenland,Alter Weg,6-,Hirschbacher Wand,1,,,,sport
+2020-07-12,onsight,Schlaraffenland,Muckefuck,6+,Hirschbacher Wand,1,3,,,sport
+2020-07-12,redpoint,Schlaraffenland,Vom Feinsten,8-,Hirschbacher Wand,2,,,,sport
+2020-07-20,onsight,Lucky Luke,Der singende Draht,5,Lucky Luke,1,,,,sport
+2020-07-20,onsight,Asterix und Obelix,Direkteinstieg (Asterix),7-,Asterix und Obelix,1,,,,sport
+2020-07-20,redpoint,Felsengarten,Rechter Weg,5+,Felsengarten,3,,,,sport
+2020-07-20,redpoint,Wildwechsel,Wildwechsel *,7+,Wildwechsel,2,,,,sport
+2020-07-20,onsight,Bergspinnenturm,Skorpion,6,Bergspinnenturm,1,5,,,sport
+2020-07-20,redpoint,Bergspinnenturm,Skorpion,6,Bergspinnenturm,1,,,,sport
+2020-07-20,onsight,Lucky Luke,Der Pony-Express,5+,Lucky Luke,1,,,,sport
+2020-07-20,onsight,Wildwechsel,Wilde Wölfe *,5+,Wildwechsel,1,4,,,sport
+2020-07-24,flash,Bärnhofer Wand,Frost-Fertinger-Weg,6,Bärnhofer Wand,1,,,,sport
+2020-07-24,redpoint,Bärnhofer Wand,Waldrausch,7,Bärnhofer Wand,3,,,,sport
+2020-07-24,attempt,Bärnhofer Wand,Gruppenzwang,8+,Bärnhofer Wand,1,,,,sport
+2020-07-28,onsight,Haidhofer Schlossbergwand,Nürnberger Weg,6+,Haidhofer Schlossbergwand,1,3,,,sport
+2020-07-28,onsight,Haidhofer Schlossbergwand,Wepsenweg,7-,Haidhofer Schlossbergwand,1,2,,,sport
+2020-07-28,onsight,Haidhofer Schlossbergwand,Direkter Haidhofer Weg,5+,Haidhofer Schlossbergwand,1,3,,,sport
+2020-07-28,onsight,Haidhofer Schlossbergwand,Hummelsteiner Weg,4+,Haidhofer Schlossbergwand,1,,,,sport
+2020-09-16,onsight,Ewige Jagdgründe,Goldköpfl,5b,Wig Wam,1,,,,sport
+2020-09-16,attempt,Ewige Jagdgründe,Fireline,6c+,Wig Wam,1,,,,sport
+2020-09-16,onsight,Ewige Jagdgründe,Via Lisa,5c,Wig Wam,1,,,,sport
+2020-09-16,redpoint,Ewige Jagdgründe,El Schuppo,6a+,Wig Wam,2,,,,sport
+2020-09-16,onsight,Ewige Jagdgründe,Jean Schampoo,5c,Wig Wam,1,,,,sport
+2020-09-19,flash,Zemmschlucht,N.N.,5c,Traumschiff,1,,,,sport
+2020-09-19,attempt,Ewige Jagdgründe,Mein Gott Walter lang,7b+,Wig Wam,1,4,As nice as the shorter version. For me it was very hard to clib the last anker last anker ,,sport
+2020-09-19,onsight,Ewige Jagdgründe,Mein Gott Walter kurz,6a,Wig Wam,1,,,,sport
+2020-09-19,flash,Zemmschlucht,Trumpf,5b,Almrausch,1,,,,sport
+2020-09-19,redpoint,Zemmschlucht,N.N.,6c+,Traumschiff,3,,,,sport
+2021-07-10,onsight,Rabensteinhorn,Die Schönheitskönigin von Schneizlreuth,6a,Westwand,1,,,,sport
+2024-05-19,redpoint,Thalhofergrat,Schoko intensiv,6a,Ostwand,0,4,,,sport
+2024-05-19,flash,Thalhofergrat,Schokoladenpudding,5a,Unknown Sector,1,5,,,sport
+2024-05-19,redpoint,Thalhofergrat,Betthupferl,6c,Ostwand,10,5,"In my opinion, the most tricky 6b I have tried so far. Still, a nearly perfect climb including a hard slap, an overhang and some massive whippers. ",,sport
+2024-05-23,attempt,Thalhofergrat,Palmwedel,6c,Obere Ostwand,1,4,"Nice and occasionally harder than Staubwedel with a hard single crux. Too hard after Betthupferl. According to the local guidebook 6c, which, I think, is fair. ",,sport
+2024-05-31,redpoint,Thalhofergrat,Augenblick des Glücks,6c,Ostwand,0,,,,sport
+2024-06-05,onsight,Royal Arches,Royal Arches,5b+,Unknown Sector,1,5,Stunning and Beautiful Climb. Got for a long day and to practice for bigger projects.,,sport
+2024-06-25,attempt,Kletteranlage Flakturm,Black,7a,,1,5,,,sport
+2024-06-25,flash,Kletteranlage Flakturm,White,5b,,1,null,,,sport
+2024-06-25,attempt,Kletteranlage Flakturm,Green,7b,,1,5,,,sport
+2024-06-30,redpoint,Johannesbachklamm,N.N.,6c+,Mitte,2,4,,,sport
+2024-06-30,flash,Johannesbachklamm,Klamauk,5c+,Mitte,1,,,,sport
+2024-06-30,redpoint,Johannesbachklamm,Klammprojekt,7a,Links,3,5,,,sport
+2024-06-30,flash,Johannesbachklamm,Na,5c,Mitte,1,,,,sport
+2024-10-13,onsight,Thalhofergrat,Mäusehochzeit,5c,Untere Thalhoferwand,1,,,,sport
+2024-10-13,attempt,Thalhofergrat,Malaria,7a,Obere Westwand,1,,,,sport
+2024-10-13,attempt,Thalhofergrat,Malaria,7a,Obere Westwand,1,5,,,sport
+2024-12-29,onsight,Giggerl,Samba,5a,Giggerl,1,3,,,sport
+2024-12-29,attempt,Giggerl,Giger,6b+,Giggerl,1,3,Loose rock at the upper part and a bit exposed. ,,sport
+2024-12-29,onsight,Giggerl,Gecko Alive,6a,Giggerl,1,3,,,sport
+2024-12-30,onsight,Hospital,Metal,6b+,Hospital,1,4,,,sport
+2024-12-30,redpoint,Hospital,Mega Pipe,6a+,Red Rock,2,4,,,sport
+2024-12-30,onsight,Hospital,Disco,6a,Hospital,1,5,Was ein Ausblick und was für eine Tour 😊,,sport
+2024-12-30,onsight,Hospital,Giota,6a,Hospital,1,4,,,sport
+2024-12-31,attempt,Theós,Dr. Motte Extension,7a,Pillar,2,5,,,sport
+2024-12-31,onsight,Theós,Mr. Oizo ext.,6b,Pillar,1,4,,,sport
+2025-01-01,attempt,Theós,Dr. Motte,4b,Pillar,0,,,,sport
+2025-01-02,redpoint,Sabaton,Omihli,7a,Sabaton lower,3,4,,,sport
+2025-01-02,onsight,Sabaton,Tokotoukan,6a,Sabaton lower,1,3,,,sport
+2025-01-02,onsight,Sabaton,Best & Worst,6b,Mini Canyon,1,4,,,sport
+2025-01-02,onsight,Sabaton,Manowar,6a+,Mini Canyon,1,4,,,sport
+2025-01-03,attempt,Sabaton,God Save Leonidio,6c,Mini Canyon,1,4,,,sport
+2025-01-03,redpoint,Sabaton,And Cakes by Tonnes,7a,Mini Canyon,2,5,"Probably one of the best routes I climbed so far. Crimps, Jugs and Tufas … it has it all.",,sport
+2025-01-03,flash,Sabaton,Ta Matia Sou,6b+,Mini Canyon,1,4,,,sport
+2025-01-04,onsight,Kokkinovrachos,Mignonette,5c+,Multi-Pitches,1,5,,,sport
+2025-04-24,onsight,Cala Gonone -  Chorro,Andate ad Arrampicare!,5b,Sardi nel Cuore,1,5,,,sport
+2025-04-24,attempt,Cala Gonone - Biddiriscottai,Aberrante,6b+,Biddiriscottai,1,3,Wie alle Touren hier super schmierig und 6b+ sehe ich nicht aber an sich coole Tour.,,sport
+2025-04-24,onsight,Cala Gonone -  Chorro,Ho Bisognio di Sole,6a,Sardi nel Cuore,1,null,,,sport
+2025-04-24,onsight,Cala Gonone -  Chorro,N.N.,5c,Sardi nel Cuore,1,5,,,sport
+2025-04-24,onsight,Cala Gonone -  Chorro,Piccante ma non troppo,6b+,Sardi nel Cuore,1,null,,,sport
+2025-04-24,redpoint,Cala Gonone -  Chorro,Piccantissima,6c,Sardi nel Cuore,2,null,,,sport
+2025-04-27,attempt,Cala Gonone - Biddiriscottai,Schiavi Bianchi,6c+,Biddiriscottai,1,null,,,sport
+2025-04-27,onsight,Baunei,Automatix,6c,Villaggio Gallico,1,4,,,sport
+2025-04-27,onsight,Baunei,Beltorax,6b,Villaggio Gallico,1,5,,,sport
+2025-04-27,onsight,Pedra Longa,Marinaio di Foresta,6a+,Unknown Sector,1,5,,,sport
+2025-04-27,attempt,Baunei,Primafix,6c+,Villaggio Gallico,1,,,,sport
+2025-04-27,redpoint,Baunei,Primafix,6c+,Villaggio Gallico,2,,,,sport
+2025-04-28,attempt,Baunei,Jackpress,7a,Ichnusa,1,,,,sport
+2025-04-28,onsight,Baunei,Twich,6a+,Campo dei Miracoli,1,4,,,sport
+2025-04-30,onsight,Su Casteddu,Ogliastroman,6c,Su Casteddu,1,5,,,sport
+2025-04-30,onsight,Baunei,Papo papo,6a,Ichnusa,1,5,,,sport
+2025-04-30,onsight,Su Casteddu,Henergy,7a,Su Casteddu,1,null,"First 7a onsight!
+On the final moves, I couldn’t spot any footholds anymore—but I definitely preferred that over baking in the sun. A few jams here and there, plus a kneebar, were definitely helpful for shaking out the pump.
+
+Big thanks to whoever placed the quickdraws—hope it was okay to use them! If not, please don’t leave them in next time.",,sport
+2025-04-30,attempt,Su Casteddu,Alma,6c,Su Casteddu,1,3,,,sport
+2025-04-30,onsight,Baunei,Baby,6a+,Campo dei Miracoli,1,5,,,sport
+2025-04-30,onsight,Su Casteddu,Women rock,6a+,Su Casteddu,1,5,,,sport
+2025-04-30,attempt,Baunei,Jackpress,7a,Ichnusa,1,,,,sport
+2025-05-11,redpoint,Thalhofergrat,Palmwedel,6b+,Obere Ostwand,1,,,,sport
+2025-05-11,attempt,Thalhofergrat,Malaria,7a,Obere Westwand,1,,,,sport
+2025-05-14,attempt,Thalhofergrat,Cholera,6c+,Südwestwand,1,,,,sport
+2025-06-01,redpoint,Hohe Wand,Turbodiesel,6c+,Almfrieden,3,4,,,sport
+2025-06-01,onsight,Hohe Wand,Zwerg Nase,6a,Almfrieden,1,3,,,sport
+2025-07-06,attempt,Schrattenbach,Widerspenstig,7a,Hexenwand,1,,,,sport
+2025-07-09,onsight,Kletterhalle Wien,Grüße aus dem Westen,7a+,,1,null,,,sport
+2025-07-20,attempt,Höllental,Glasperlenspiel,7a,Niemandsland,1,5,,,sport
+2025-07-20,redpoint,Höllental,Hut ab Muttertag,6b,Niemandsland,2,4,A bit tricky to find the easy way up. ,,sport
+2025-07-25,onsight,Kletterhalle Wien,Der Kanal des Beschätigtseins,5a+,,1,null,,,sport
+2025-07-25,onsight,Kletterhalle Wien,Fidelio,6b,,1,null,,,sport
+2025-07-25,onsight,Kletterhalle Wien,Der Kanal des Charismas,6a,,1,null,,,sport
+2025-07-25,attempt,Kletterhalle Wien,Green,7a+,,1,null,Drop Knee,,sport
+2025-07-27,onsight,Edelweiss Südstadt,Die Neue halt,8,,1,4,,,sport
+2025-07-27,attempt,Edelweiss Südstadt,der Schweiß ist heiß,8+/9-,,1,4,,,sport
+2025-07-27,onsight,Edelweiss Südstadt,Plattenspieler,8-,,1,5,,,sport
+2025-07-27,onsight,Edelweiss Südstadt,Die Länge macht´s,6+,,1,4,,,sport
+2025-07-30,attempt,Blockfabrik,Blocksession 07,6a,,1,null,7a,,sport
+2025-07-30,flash,Blockfabrik,Blocksession 03,6a,,1,null,,,sport
+2025-08-03,redpoint,Thalhofergrat,Malaria,7a,Obere Westwand,2,5,Endlich 🙌,,sport
+2025-08-05,flash,Kletterhalle Wien,Fidelio,6b,,1,null,,,sport
+2025-08-05,attempt,Kletterhalle Wien,the prince is coming home,7a+,,1,3,,,sport
+2025-08-05,attempt,Kletterhalle Wien,the prince is coming home,7a+,,1,null,,,sport
+2025-08-05,redpoint,Kletterhalle Wien,"less friction, more fun",7a+,,2,null,,,sport
+2025-08-05,redpoint,Kletterhalle Wien,Green,7a+,,2,null,,,sport
+2025-08-05,onsight,Kletterhalle Wien,Iris Pupille,7a+,,1,4,Funky,,sport
+2025-08-05,attempt,Kletterhalle Wien,da seh ich rot,7a+,,1,null,,,sport
+2025-08-05,onsight,Kletterhalle Wien,Wiki und die starken Mädchen,5c,,1,null,,,sport
+2025-08-15,onsight,Kletterhalle Wien,Schismogenesis Solaris I,6a+,,1,null,,,sport
+2025-08-16,attempt,Kletterhalle Wien,Triple Split Definition,6c,,1,null,,,sport
+2025-08-16,attempt,Kletterhalle Wien,the prince is coming home,7a+,,1,null,,,sport
+2025-08-16,onsight,Kletterhalle Wien,Hin und Wieder,6c,,1,4,,,sport
+2025-08-17,onsight,Kletterhalle Wien,Manu Negra,5c+,,1,null,,,sport
+2025-08-17,onsight,Kletterhalle Wien,Manu Negra Ext.,6b+,,1,null,,,sport
+2025-08-20,redpoint,Kletterhalle Wien,the prince is coming home,7a+,,4,3,,,sport
+2025-08-20,onsight,Kletterhalle Wien,Juliapril,6b,,1,3,,,sport
+2025-08-20,attempt,Kletterhalle Wien,psychoathletischer Bauchaufschwung,7c,,1,null,,,sport
+2025-08-20,attempt,Kletterhalle Wien,"viel gerade, viel Kante, viel Ines",7c,,1,null,,,sport
+2025-08-21,attempt,Kletterhalle Wien,Urlaub is Coming,7b+,,1,null,,,sport
+2025-08-21,onsight,Kletterhalle Wien,Rissquetschwunder,7a,,1,5,,,sport
+2025-08-27,attempt,Kletterhalle Wien,as old as school can get,7c,,1,null,,,sport
+2025-08-27,onsight,Kletterhalle Wien,search for the good,5c,,1,null,,,sport
+2025-08-27,redpoint,Kletterhalle Wien,Antiflow,6b,,0,4,,,sport
+2025-08-27,onsight,Kletterhalle Wien,Black Sabbath,6c+,,1,null,,,sport
+2025-08-28,attempt,Kletterhalle Wien,Urlaub is Coming,7b+,,1,null,,,sport
+2025-09-20,attempt,Kletterhalle Wien,as old as school can get,7c,,1,null,,,sport
+2025-09-20,attempt,Kletterhalle Wien,Minimal Techno,7b+,,1,null,,,sport
+2025-09-20,onsight,Kletterhalle Wien,Big Thing Corner,6a,,1,null,,,sport
+2025-09-23,attempt,Kletterhalle Wien,Doch z'dick da Nick?,6c+,,1,null,,,sport
+2025-09-23,onsight,Kletterhalle Wien,Z´leicht fürs Projekt,5c+,,1,4,,,sport
+2025-09-23,flash,Kletterhalle Wien,Cruella de stil,6a+,,1,null,,,sport
+2025-09-23,attempt,Kletterhalle Wien,as old as school can get,7c,,1,null,,,sport
+2025-09-23,attempt,Kletterhalle Wien,für Jonathan,6c+,,1,null,,,sport
+2025-09-28,attempt,Thalhofergrat,Ostwandschocker,7a,Ost,1,,,,sport
+2025-09-28,onsight,Thalhofergrat,Gruselkabinett,6a+,Obere Ostwand,1,5,,,sport
+2025-10-04,redpoint,Thalhofergrat,Staubwedel,6b+,Obere Ostwand,0,,,,sport
+2025-10-04,attempt,Thalhofergrat,Thaliffizil,7b,Unknown Sector,1,,,,sport
+2025-10-04,attempt,Thalhofergrat,Ostwandschocker,7a,Ost,1,,,,sport
+2025-10-15,onsight,Kletterhalle Wien,good looking from far away....,6a,,1,null,,,sport
+2025-10-15,attempt,Kletterhalle Wien,Intervall Hangeln,7a+,,1,null,,,sport
+2025-10-15,onsight,Kletterhalle Wien,Stelle dich dem blauen Monster.,6c,,1,null,,,sport
+2025-10-15,attempt,Kletterhalle Wien,Die Vergessene,7b,,1,null,,,sport
+2025-10-15,onsight,Kletterhalle Wien,Eignungsprüfung Instruktor #2,6c+,,1,null,,,sport
+2025-10-15,attempt,Kletterhalle Wien,Eignungsprüfung Instruktor #1,6c+,,1,null,,,sport
+2025-10-15,onsight,Kletterhalle Wien,not my strong suit,6c,,1,null,,,sport
+2025-10-24,attempt,Čiritež,On the road again,6b+,SUNSET,1,null,Almost unfair for 6b,,sport
+2025-10-24,onsight,Kamena vrata,Digging for gold,5c,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,1,null,,,sport
+2025-10-24,redpoint,Kamena vrata,Cirkus,6b,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,2,4,"Ist der Onsight erst ruiniert, klettert es sich unscheniert. Nice, Route a little bit of everything.",,sport
+2025-10-24,onsight,Kompanj,Looser,6a,KRANK,1,4,,,sport
+2025-10-24,redpoint,Kamena vrata,Šparoga blues,7a+,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,2,null,,,sport
+2025-10-24,attempt,Kamena vrata,Šparoga blues,7a+,DJEČJE RADOSTI & BOTANICUS & SNJEKULJČICA,1,4,,,sport
+2025-10-25,onsight,Buzetski kanjon,Avanti popolo,6a+,PENGARI,1,null,,,sport
+2025-10-25,attempt,Buzetski kanjon,"Elio Pisak, ruke stisak",6b+,PENGARI,1,3,Could get the ready move or just didn’t find the beta and did quite a wipper. Hard for the grade.,,sport
+2025-10-25,flash,Buzetski kanjon,Silence is golden,6a,PENGARI,1,null,,,sport
+2025-10-28,attempt,Kompanj,Tricky fingers,6b+,KATZ,1,null,,,sport
+2025-10-28,redpoint,Kompanj,Krankenhaus,6c+,KRANK,2,null,,,sport
+2025-10-28,onsight,Kompanj,Therapie,5c,KRANK,1,,,,sport
+2025-10-28,onsight,Kompanj,Mon Cheri,5c,KATZ,1,3,,,sport
+2025-10-31,attempt,Adlitzgräben,Tohuwabohu,7a,Lari Fari,1,4,,,sport
+2025-11-04,attempt,Kletterhalle Wien,Olivers Alptraum,7c,,1,null,,,sport
+2025-11-08,onsight,Höllental,Schwesterlein Mein,5c,Vordere Stadelwand,1,3,"The crux feels closer to 6a. It is reachy and consists of a single but demanding move that feels noticeably harder than other 5c multi-pitch routes in the area. Protection is generally solid, though some sections contain loose rock, so care is advised.
+
+The highlight is definitely the final pitch, featuring a few delicate moves on small crimps, precise footwork, and a short micro layback. very enjoyable climbing.
+
+If you have double ropes and no parties below, abseiling is recommended. The descent via the Gasserl is feasible but somewhat tedious and time-consuming.",,sport
+2025-11-13,onsight,Kletterhalle Wien,Queer und um die Ecke,6a+,,1,null,,,sport
+2025-11-13,onsight,Kletterhalle Wien,Peter Jackson,6a,,1,3,,,sport
+2025-11-13,onsight,Kletterhalle Wien,Tanz am See mit Martin VT,6c,,1,null,,,sport
+2025-11-13,onsight,Kletterhalle Wien,name it yourself,6b+,,1,null,,,sport
+2025-11-14,attempt,Kletterhalle Wien,des Teufels Küchenchef,7b,,1,,,,sport
+2025-11-14,attempt,Kletterhalle Wien,des Teufels Küchenchef,7b,,1,4,,,sport
+2025-11-16,onsight,Edelweiss Südstadt,ein Mädchen Namens Leila,7-,,1,null,,,sport
+2025-11-16,attempt,Edelweiss Südstadt,der Schweiß ist heiß,8+/9-,,1,3,,,sport
+2025-11-16,onsight,Edelweiss Südstadt,Kids Kletterkombi 1,7-,,1,null,,,sport
+2025-11-18,onsight,Kletterhalle Wien,Die weise Pia,6a,,1,null,,,sport
+2025-11-18,attempt,Kletterhalle Wien,Olivers Alptraum,7c,,1,null,,,sport
+2025-11-18,onsight,Kletterhalle Wien,all them witches,6a+,,1,null,,,sport
+2025-11-18,redpoint,Kletterhalle Wien,des Teufels Küchenchef,7b,,0,4,,,sport
+2025-11-19,onsight,Kletterhalle Wien,La noche pura,6c+,,1,null,,,sport
+2025-11-19,onsight,Kletterhalle Wien,Für Georg,6b+,,1,null,,,sport
+2025-11-19,redpoint,Kletterhalle Wien,name it yourself,6b+,,0,null,,,sport
+2025-11-19,onsight,Kletterhalle Wien,Spekulatiusverschwörung,7a,,1,null,,,sport
+2025-12-05,onsight,Kletterhalle Wien,Emerald City,6a,,1,5,,,sport
+2025-12-05,onsight,Kletterhalle Wien,Prima Ballerina,6a+,,1,null,,,sport
+2025-12-05,attempt,Kletterhalle Wien,Beli,7a,,1,4,,,sport
+2025-12-05,attempt,Kletterhalle Wien,Hans-Stadt Stadlau,7b+,,1,null,,,sport
+2025-12-05,attempt,Kletterhalle Wien,Hans-Stadt Stadlau,7b+,,1,null,,,sport
+2026-01-03,onsight,Kletterhalle Wien,Der Kanal der Hingabe,6a+,,1,null,,,sport
+2026-01-03,attempt,Kletterhalle Wien,पावित्र means holy!,7a+,,1,3,,,sport
+2026-01-03,attempt,Kletterhalle Wien,पावित्र means holy!,7a+,,1,null,,,sport
+2026-01-03,attempt,Kletterhalle Wien,Purer Elch grüßt Planke Jasmin!,6b,,1,null,Food slipped at the top 😬🙉,,sport
+2026-01-03,attempt,Kletterhalle Wien,subkutane Keksiverbrennungsanlage,7b,,1,null,,,sport
+2026-01-03,onsight,Kletterhalle Wien,16.2,6a,,1,null,,,sport
+2026-01-03,attempt,Kletterhalle Wien,underpromising and overdelivering,7b,,1,4,,,sport
+2026-02-28,onsight,Hohe Wand,Obere Naglkante,6a,Naglplatten,1,4,,,sport
+2026-02-28,onsight,Hohe Wand,Anwandler,6a,Naglplatten,1,,,,sport
+2025-06-23,redpoint,Squamish,The Great Game,5.10d,,,3.8,Second try and pumped as hell after pitch 1. Amazing line and one of the best I did so far in Squamish!,,sport
+2025-06-22,attempt,Squamish,Skyline Arête,5.11a A0,,,3.0,,,sport
+2025-06-20,attempt,Squamish,The Great Game,5.10d,,,3.8,,,sport
+2025-06-19,attempt,Squamish,Apron Strings,5.10b,,,3.6,,,sport
+2025-06-19,attempt,Squamish,Rock On,5.10a,,,3.7,Once as I was not leading I slipped at the corner ,,sport
+2025-06-18,attempt,Squamish,The Squamish Buttress,5.10c,,,3.1,Fell at the Crux Pitch twice. Once I got stuck with the rope and I could make it over the edge.,,sport
+2025-06-16,onsight,Squamish,The Spirit of Squamish,5.8,,,3.5,Nice one. Slaps are tricky but we’ll bolted! ,,sport
+2025-06-16,flash,Squamish,More Than Just A Pretty Face,5.10c,,,3.2,,,sport
+2025-06-16,flash,Squamish,"Hungry, Hungry Hippos",5.10a,,,2.5,,,sport
+2025-06-16,onsight,Squamish,Ancient Squamish Secret,5.9,,,2.6,,,sport
+2025-06-16,onsight,Squamish,The Total StinkEye,5.7,,,2.3,,,sport
+2025-06-16,onsight,Squamish,"""Otto Mattock""",5.6,,,2.5,,,sport
