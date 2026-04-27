@@ -28,8 +28,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. Node descriptions are noticeably shorter and more technical than the current prose
 **Plans:** 2 plans
 Plans:
-- [ ] 01-01-PLAN.md — Create Hugo `mermaid` shortcode with Flexoki theme variables (Wave 1)
-- [ ] 01-02-PLAN.md — Rewrite article with Mermaid diagram, per-node Parameter/Range/Tip tables, tighten prose, delete Node tree.png (Wave 2, depends on 01-01)
+- [x] 01-01-PLAN.md — Create Hugo `mermaid` shortcode with Flexoki theme variables (Wave 1)
+- [x] 01-02-PLAN.md — Rewrite article with Mermaid diagram, per-node Parameter/Range/Tip tables, tighten prose, delete Node tree.png (Wave 2, depends on 01-01)
 
 ### Phase 2: Footer Instagram Link
 **Goal**: Every page on the site shows an Instagram link in the footer that fits the existing design

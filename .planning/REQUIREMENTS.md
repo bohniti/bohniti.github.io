@@ -7,11 +7,11 @@
 
 ### Article Refinement
 
-- [ ] **ART-01**: Node tree screenshot replaced with inline Mermaid diagram showing the 5-node DaVinci Resolve color grading chain
-- [ ] **ART-02**: Each node description includes precise parameter value ranges (e.g., Lift -0.02 to 0.00, Gamma 0.98-1.02)
-- [ ] **ART-03**: Each node includes practical tips -- what should happen visually and what to avoid
-- [ ] **ART-04**: Node descriptions are concise and technical (shorter than current prose)
-- [ ] **ART-05**: Mermaid diagram renders correctly in the Hugo site (shortcode or JS include)
+- [x] **ART-01**: Node tree screenshot replaced with inline Mermaid diagram showing the 5-node DaVinci Resolve color grading chain
+- [x] **ART-02**: Each node description includes precise parameter value ranges (e.g., Lift -0.02 to 0.00, Gamma 0.98-1.02)
+- [x] **ART-03**: Each node includes practical tips -- what should happen visually and what to avoid
+- [x] **ART-04**: Node descriptions are concise and technical (shorter than current prose)
+- [x] **ART-05**: Mermaid diagram renders correctly in the Hugo site (shortcode or JS include)
 
 ### Social Link
 
@@ -36,11 +36,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ART-01 | Phase 1 | Pending |
-| ART-02 | Phase 1 | Pending |
-| ART-03 | Phase 1 | Pending |
-| ART-04 | Phase 1 | Pending |
-| ART-05 | Phase 1 | Pending |
+| ART-01 | Phase 1 | Validated |
+| ART-02 | Phase 1 | Validated |
+| ART-03 | Phase 1 | Validated |
+| ART-04 | Phase 1 | Validated |
+| ART-05 | Phase 1 | Validated |
 | SOC-01 | Phase 2 | Pending |
 | SOC-02 | Phase 2 | Pending |
 | SOC-03 | Phase 2 | Pending |
