@@ -26,7 +26,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Each node description includes specific parameter value ranges (e.g., Lift, Gamma, Gain values)
   3. Each node includes at least one practical do/don't tip about what the image should look like
   4. Node descriptions are noticeably shorter and more technical than the current prose
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Create Hugo `mermaid` shortcode with Flexoki theme variables (Wave 1)
+- [ ] 01-02-PLAN.md — Rewrite article with Mermaid diagram, per-node Parameter/Range/Tip tables, tighten prose, delete Node tree.png (Wave 2, depends on 01-01)
 
 ### Phase 2: Footer Instagram Link
 **Goal**: Every page on the site shows an Instagram link in the footer that fits the existing design
@@ -46,5 +49,5 @@ Phases execute in numeric order: 1 -> 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Article Refinement | 0/? | Not started | - |
+| 1. Article Refinement | 0/2 | Not started | - |
 | 2. Footer Instagram Link | 0/? | Not started | - |
