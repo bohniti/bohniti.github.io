@@ -244,9 +244,21 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* === Responsive === */
 @media (max-width: 600px) {
   html { font-size: 16px; }
   .site-header { flex-direction: column; gap: 0.5rem; }
   .site-wrapper { padding: 2rem 0 4rem; }
+  .footer-links { gap: 1rem; }
 }
