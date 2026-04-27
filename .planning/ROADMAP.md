@@ -12,8 +12,8 @@ Two focused refinements to the personal site: first, upgrade the video editing b
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Article Refinement** - Replace node tree screenshot with Mermaid diagram and sharpen node descriptions with values and tips
-- [ ] **Phase 2: Footer Instagram Link** - Add Instagram icon to site footer matching minimal aesthetic
+- [x] **Phase 1: Article Refinement** - Replace node tree screenshot with Mermaid diagram and sharpen node descriptions with values and tips
+- [x] **Phase 2: Footer Instagram Link** - Add Instagram icon to site footer matching minimal aesthetic
 
 ## Phase Details
 
@@ -41,7 +41,7 @@ Plans:
   3. The icon's style is consistent with the site's minimal Flexoki-inspired aesthetic
 **Plans:** 1 plan
 Plans:
-- [ ] 02-01-PLAN.md - Add Instagram icon + convert GitHub link to icon in footer.html, add .social-icons cluster CSS (Wave 1)
+- [x] 02-01-PLAN.md - Add Instagram icon + convert GitHub link to icon in footer.html, add .social-icons cluster CSS (Wave 1)
 **UI hint**: yes
 
 ## Progress
@@ -51,5 +51,5 @@ Phases execute in numeric order: 1 -> 2
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Article Refinement | 0/2 | Not started | - |
-| 2. Footer Instagram Link | 0/1 | Not started | - |
+| 1. Article Refinement | 2/2 | Complete | 2026-04-27 |
+| 2. Footer Instagram Link | 1/1 | Complete | 2026-04-27 |
