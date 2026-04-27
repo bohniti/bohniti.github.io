@@ -66,61 +66,80 @@ After sitting with it and rethinking the structure, I came up with an order I ac
 
 ## Step 5: Color Grading in DaVinci Resolve
 
-This turned into its own rabbit hole. I started with a basic color correction tutorial, then went deeper into Resolve's node-based grading system. Here are the resources that helped me most:
+Color grading became its own rabbit hole. After working through the resources below and a lot of trial and error, I converged on a fixed five-node chain that I now reuse for every project. The structure stays the same shot to shot — only the values change.
+
+Resources that mattered most:
 
 - [Basic Color Correction in DaVinci Resolve](https://youtu.be/QB_GKc6LqIM?si=gWgKliSivFnGr8NS) — solid starting point for beginners
 - [DaVinci Resolve Color Grading Playlist](https://www.youtube.com/watch?v=J1aU-zZ6ACs&list=PLanQgfsci7riIwjUdJ2UxqDBZAsaHT18d) — in-depth series on nodes, scopes, and grading workflows
-- [Color Transform & LUT Workflow](https://youtu.be/g8cdK8pci40?si=M5RpnE6oN8k42aII) — helped me understand how to properly chain transforms
-
-After a lot of trial and error, I landed on a node structure that consistently gave me the best results. Here's what worked:
+- [Color Transform & LUT Workflow](https://youtu.be/g8cdK8pci40?si=M5RpnE6oN8k42aII) — how to chain transforms correctly
 
 ### My DaVinci Resolve Node Template
 
-```
-Node 1: Primary Correction
-├── Lift/Gamma/Gain adjustments
-├── White balance correction
-└── Exposure fix (if needed)
+The chain runs left to right. Each node has one job. The order matters — input transforms before creative grading, creative grading before output transforms.
 
-Node 2: Color Space Transform (Input)
-├── Input Color Space: Rec.709 (or match your camera profile)
-├── Input Gamma: Rec.709
-└── This normalizes your footage to a consistent starting point
+{{< mermaid >}}
+graph LR
+  N1["Node 1<br/>Primary Correction<br/>Lift / Gamma / Gain"] --> N2["Node 2<br/>Input CST<br/>Rec.709 input"]
+  N2 --> N3["Node 3<br/>Creative LUT<br/>Fuji emulation"]
+  N3 --> N4["Node 4<br/>Output CST<br/>Rec.709 output"]
+  N4 --> N5["Node 5<br/>Final Adjustments<br/>Saturation / Contrast / Vignette"]
+{{< /mermaid >}}
 
-Node 3: Creative LUT
-├── Apply your chosen LUT (I used Fuji film emulation)
-└── Adjust LUT intensity to taste (start at 0.5–0.7, rarely go to 1.0)
+#### Node 1: Primary Correction
 
-Node 4: Color Space Transform (Output)
-├── Output Color Space: Rec.709
-├── Output Gamma: Rec.709
-└── Ensures correct color for delivery
+Fix exposure and white balance before any creative move. This is where the footage becomes neutral.
 
-Node 5: Final Adjustments
-├── Saturation tweaks
-├── Contrast fine-tuning
-└── Vignette (subtle, if desired)
-```
+| Parameter | Range | Tip |
+|-----------|-------|-----|
+| Lift | -0.02 to 0.00 | Slightly crush blacks for a cinematic feel — don't push past -0.05 or shadows go muddy. |
+| Gamma | 0.98–1.02 | Small moves only; >1.05 flattens midtones into milky grey. |
+| Gain | 1.00–1.10 | Lift highlights gently; check the waveform stays under 100 to avoid clipping skies. |
+| White Balance | Match scene temp | Neutral whites should read close to (1.00, 1.00, 1.00) on the parade scope; a warm cast on snow means you've gone too far. |
 
-**Settings to start experimenting with:**
+#### Node 2: Color Space Transform (Input)
 
-| Parameter | Starting Value | Notes |
-|-----------|---------------|-------|
-| Lift | -0.02 to 0.00 | Slightly crush blacks for cinematic feel |
-| Gamma | 0.98–1.02 | Small moves make a big difference |
-| Gain | 1.00–1.10 | Boost highlights gently |
-| Saturation | 45–55 | Less is more, especially with a LUT |
-| LUT Intensity | 0.5–0.7 | Full strength LUTs usually look overdone |
-| Contrast | 1.00–1.15 | Add punch without clipping |
+Normalizes the camera's color space to a known starting point. Skip this and your LUT will look different on every clip.
 
-Here's what the difference looks like in practice — before and after applying the node chain:
+| Parameter | Range | Tip |
+|-----------|-------|-----|
+| Input Color Space | Match camera profile (Rec.709 for X4 Standard, LOG for Flat) | If the picture goes washed-out and grey-flat after this node, you set Input to Rec.709 on LOG footage — switch to the LOG profile. |
+| Input Gamma | Rec.709 (or matching LOG curve) | Should pair with the Color Space above; mismatched gamma produces unrealistic contrast. |
+
+#### Node 3: Creative LUT
+
+The look. Apply your LUT here — never on the raw footage and never after the output transform.
+
+| Parameter | Range | Tip |
+|-----------|-------|-----|
+| LUT | Fuji film emulation (or matching mood) | Pick a LUT that matches the scene mood, not just one you saw on YouTube — a warm LUT on overcast climbing footage looks fake. |
+| LUT Intensity | 0.5–0.7 | Full strength almost always looks overdone; if you can name the LUT just by looking, you went too far. |
+
+#### Node 4: Color Space Transform (Output)
+
+Converts back to the delivery color space. Required for correct color on the final export.
+
+| Parameter | Range | Tip |
+|-----------|-------|-----|
+| Output Color Space | Rec.709 (for web/Instagram delivery) | If skies look magenta or skin looks green in the export but fine in Resolve, this node is missing or misconfigured. |
+| Output Gamma | Rec.709 | Matches the output color space; avoid mixing 2.2 / 2.4 unless you know your delivery target needs it. |
+
+#### Node 5: Final Adjustments
+
+Last-mile polish. Use this for shot-specific tweaks without disturbing the chain above.
+
+| Parameter | Range | Tip |
+|-----------|-------|-----|
+| Saturation | 45–55 | Less is more, especially over a creative LUT — saturated reds in skin tones are the first sign you've over-pushed. |
+| Contrast | 1.00–1.15 | Add punch without clipping; check the waveform isn't slamming the top or bottom rails. |
+| Vignette | Subtle if at all | A heavy vignette on 9:16 reels reads as filter, not cinema — keep it under 0.3 strength or skip it. |
+
+Here's the chain applied — before, then after:
 
 ![Before color grading](images/before-color.png)
 ![After color grading](images/after-color.png)
 
-The key takeaway: you'll need to adjust these values for every single shot, but the *structure* of the node tree should stay the same. That consistency is what keeps your edit looking cohesive and your workflow efficient.
-
-![DaVinci Resolve node tree with 5-node structure](images/Node%20tree.png)
+The takeaway: values change every shot, structure never does. The fixed chain is what keeps an edit looking cohesive without re-deriving a workflow each time.
 
 ## Step 6: Getting the Camera Settings Right (for Next Time)
 
