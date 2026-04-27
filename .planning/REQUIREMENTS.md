@@ -15,9 +15,9 @@
 
 ### Social Link
 
-- [ ] **SOC-01**: Instagram icon displayed in site footer on every page
-- [ ] **SOC-02**: Icon links to https://instagram.com/bohniti
-- [ ] **SOC-03**: Icon style matches the minimal/Flexoki aesthetic of the site
+- [x] **SOC-01**: Instagram icon displayed in site footer on every page
+- [x] **SOC-02**: Icon links to https://instagram.com/bohniti
+- [x] **SOC-03**: Icon style matches the minimal/Flexoki aesthetic of the site
 
 ## v2 Requirements
 
@@ -41,9 +41,9 @@
 | ART-03 | Phase 1 | Validated |
 | ART-04 | Phase 1 | Validated |
 | ART-05 | Phase 1 | Validated |
-| SOC-01 | Phase 2 | Pending |
-| SOC-02 | Phase 2 | Pending |
-| SOC-03 | Phase 2 | Pending |
+| SOC-01 | Phase 2 | Validated |
+| SOC-02 | Phase 2 | Validated |
+| SOC-03 | Phase 2 | Validated |
 
 **Coverage:**
 - v1 requirements: 8 total
@@ -52,4 +52,4 @@
 
 ---
 *Requirements defined: 2026-03-27*
-*Last updated: 2026-03-27 after roadmap creation*
+*Last updated: 2026-04-27 after Phase 02 Plan 01 completion*
