@@ -1,0 +1,23 @@
+<div class="mermaid">
+{{ .Inner | safeHTML }}
+</div>
+{{ if not (.Page.Scratch.Get "mermaidLoaded") }}
+  {{ .Page.Scratch.Set "mermaidLoaded" true }}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        background: '#FFFCF0',
+        primaryColor: '#F2F0E5',
+        primaryTextColor: '#100F0F',
+        primaryBorderColor: '#E6E4D9',
+        lineColor: '#6F6E69',
+        secondaryColor: '#F2F0E5',
+        tertiaryColor: '#FFFCF0',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+      }
+    });
+  </script>
+{{ end }}
