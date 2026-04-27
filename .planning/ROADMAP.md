@@ -39,7 +39,9 @@ Plans:
   1. An Instagram icon is visible in the site footer on every page
   2. Clicking the icon navigates to https://instagram.com/bohniti
   3. The icon's style is consistent with the site's minimal Flexoki-inspired aesthetic
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 02-01-PLAN.md - Add Instagram icon + convert GitHub link to icon in footer.html, add .social-icons cluster CSS (Wave 1)
 **UI hint**: yes
 
 ## Progress
@@ -50,4 +52,4 @@ Phases execute in numeric order: 1 -> 2
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Article Refinement | 0/2 | Not started | - |
-| 2. Footer Instagram Link | 0/? | Not started | - |
+| 2. Footer Instagram Link | 0/1 | Not started | - |
