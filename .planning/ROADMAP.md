@@ -58,7 +58,9 @@ Plans:
   2. `scripts/slice_logos.py` is committed and re-runnable in a throwaway Pillow venv (not added to any runtime manifest), with a single-line module docstring matching project Python convention
   3. Each sliced wordmark variant (`logo-light.png`, `logo-dark.png`) is ≤ 30 KB after `pngquant`; if measured size exceeds that ceiling, the assets are re-optimized before Phase 5 begins
   4. `identify` (or equivalent) confirms all 8 outputs share consistent dimensions for their column (logo cells equal logo cells, favicon cells equal favicon cells) — no off-by-one crop drift
-**Plans:** TBD
+**Plans:** 1 plan
+Plans:
+- [x] 03-01-PLAN.md — Author scripts/slice_logos.py, run it in a throwaway Pillow venv to produce 8 sliced PNGs at themes/minimal/static/images/brand/, and verify the BRAND-03 ≤ 30 KB wordmark gate (Wave 1)
 
 ### Phase 4: Theming Foundation
 **Goal**: A user can toggle between light and dark mode from the header, the choice survives reload, the first paint never flashes the wrong palette, and the toggle is keyboard- and screen-reader-accessible
@@ -119,7 +121,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 |-------|----------------|--------|-----------|
 | 1. Article Refinement | 2/2 | Complete | 2026-04-27 |
 | 2. Footer Instagram Link | 1/1 | Complete | 2026-04-27 |
-| 3. Brand Asset Slicing | 0/0 | Not started | - |
+| 3. Brand Asset Slicing | 0/1 | Not started | - |
 | 4. Theming Foundation | 0/0 | Not started | - |
 | 5. Wordmark + Favicon Wiring | 0/0 | Not started | - |
 | 6. Gallery | 0/0 | Not started | - |
