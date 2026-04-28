@@ -34,11 +34,11 @@ The blog should be a polished, technical reference that's useful for future-me �
 - ✓ Mermaid shortcode renders Flexoki-themed diagrams in posts — Phase 1 (v1.0)
 - ✓ Per-node Parameter/Range/Tip tables in DaVinci color grading article — Phase 1 (v1.0)
 - ✓ Instagram icon in footer with `.social-icons` cluster CSS — Phase 2 (v1.0)
+- ✓ Eight brand asset PNGs at `themes/minimal/static/images/brand/` produced by reproducible Pillow + pngquant pipeline; aspect-pair matched per asset class for theme-toggle parity — Phase 3 (v2.0)
 
 ### Active (v2.0)
 
 - [ ] Light/dark theme toggle in header with persistence and OS-preference detection
-- [ ] Logo sprite (`images/logos.png`) sliced into 8 individual assets in `images/icon/`
 - [ ] Site header shows the script wordmark instead of plain "Timo Bohnstedt" text
 - [ ] Favicon set wired into Hugo `<head>` partial
 - [ ] `/gallery/` page reachable from main nav with optimized photo grid
@@ -103,4 +103,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-28 — milestone v2.0 Brand & Gallery started*
+*Last updated: 2026-04-28 — Phase 3 complete (brand asset pipeline producing 8 themed PNGs)*
