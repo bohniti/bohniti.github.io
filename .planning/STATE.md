@@ -1,40 +1,40 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: milestone_complete
-stopped_at: All planned phases complete
-last_updated: "2026-04-27T11:42:05.074Z"
-last_activity: 2026-04-27 -- Phase 02 Plan 01 completed
+milestone: v2.0
+milestone_name: Brand & Gallery
+status: defining_requirements
+stopped_at: Defining requirements
+last_updated: "2026-04-28T00:00:00.000Z"
+last_activity: 2026-04-28 -- Milestone v2.0 started
 progress:
-  total_phases: 2
-  completed_phases: 3
-  total_plans: 3
-  completed_plans: 3
-  percent: 150
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-27)
+See: .planning/PROJECT.md (updated 2026-04-28)
 
-**Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions.
-**Current focus:** Phase 02
+**Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
+**Current focus:** Defining v2.0 requirements
 
 ## Current Position
 
-Phase: 02
-Plan: Not started
-Status: Milestone complete
-Last activity: 2026-04-27
+Phase: Not started (defining requirements)
+Plan: --
+Status: Defining requirements
+Last activity: 2026-04-28 -- Milestone v2.0 Brand & Gallery started
 
-Progress: [██████████] 100%
+Progress: [          ] 0%
 
 ## Performance Metrics
 
-**Velocity:**
+**Velocity (lifetime, all milestones):**
 
 - Total plans completed: 4
 - Average duration: -
@@ -42,10 +42,10 @@ Progress: [██████████] 100%
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01 | 2 | - | - |
-| 02 | 1 | - | - |
+| Phase | Plans | Total | Avg/Plan | Milestone |
+|-------|-------|-------|----------|-----------|
+| 01 | 2 | - | - | v1.0 |
+| 02 | 1 | - | - | v1.0 |
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
@@ -63,9 +63,13 @@ Progress: [██████████] 100%
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
+
 Recent decisions affecting current work:
 
-- None yet.
+- v2.0: OS-preference + localStorage drives theme; no flash on load via inline `<head>` script
+- v2.0: Standalone `/gallery/` page (not embedded in About)
+- v2.0: Header wordmark replaces text site title
+- v2.0: Rename `images/galary/` -> `images/gallery/` to fix typo before it ships in URLs
 
 ### Pending Todos
 
@@ -73,12 +77,13 @@ None yet.
 
 ### Blockers/Concerns
 
-None yet.
+- Logo sprite must be sliced into 8 individual PNGs before header/favicon work can land
+- 18 source photos are 150 KB - 7.5 MB; Hugo image processing required to keep gallery page weight reasonable
 
 ## Session Continuity
 
-Last session: 2026-04-27T11:42:05.069Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-04-28
+Stopped at: Defining v2.0 requirements
 Resume file: None
 
-**Planned Phase:** 2 (Footer Instagram Link) — 1 plans — 2026-04-27T11:34:49.059Z
+**Planned Phase:** TBD -- v2.0 roadmap not yet generated
