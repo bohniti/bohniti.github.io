@@ -1,7 +1,7 @@
 # Requirements: Personal Website Refinements
 
 **Defined:** 2026-03-27
-**Last updated:** 2026-04-28 — added v2.0 Brand & Gallery requirements
+**Last updated:** 2026-04-28 — v2.0 phases mapped (Phase 3-7)
 **Core Value:** The blog should be a polished, technical reference — clear diagrams over screenshots, precise values over vague descriptions — and feel unmistakably like *Timo's site* in either light or dark mode.
 
 ## v1 Requirements
@@ -100,36 +100,37 @@
 | SOC-01 | Phase 2 | Validated |
 | SOC-02 | Phase 2 | Validated |
 | SOC-03 | Phase 2 | Validated |
-| BRAND-01 | TBD (Phase 3+) | Pending |
-| BRAND-02 | TBD (Phase 3+) | Pending |
-| BRAND-03 | TBD (Phase 3+) | Pending |
-| THEME-01 | TBD | Pending |
-| THEME-02 | TBD | Pending |
-| THEME-03 | TBD | Pending |
-| THEME-04 | TBD | Pending |
-| THEME-05 | TBD | Pending |
-| THEME-06 | TBD | Pending |
-| HEAD-01 | TBD | Pending |
-| HEAD-02 | TBD | Pending |
-| HEAD-03 | TBD | Pending |
-| HEAD-04 | TBD | Pending |
-| HEAD-05 | TBD | Pending |
-| GAL-01 | TBD | Pending |
-| GAL-02 | TBD | Pending |
-| GAL-03 | TBD | Pending |
-| GAL-04 | TBD | Pending |
-| GAL-05 | TBD | Pending |
-| GAL-06 | TBD | Pending |
-| GAL-07 | TBD | Pending |
-| ABOUT-01 | TBD | Pending |
-| ABOUT-02 | TBD | Pending |
-| ABOUT-03 | TBD | Pending |
+| BRAND-01 | Phase 3 | Pending |
+| BRAND-02 | Phase 3 | Pending |
+| BRAND-03 | Phase 3 | Pending |
+| THEME-01 | Phase 4 | Pending |
+| THEME-02 | Phase 4 | Pending |
+| THEME-03 | Phase 4 | Pending |
+| THEME-04 | Phase 4 | Pending |
+| THEME-05 | Phase 4 | Pending |
+| THEME-06 | Phase 4 | Pending |
+| HEAD-01 | Phase 5 | Pending |
+| HEAD-02 | Phase 5 | Pending |
+| HEAD-03 | Phase 5 | Pending |
+| HEAD-04 | Phase 5 | Pending |
+| HEAD-05 | Phase 5 | Pending |
+| GAL-01 | Phase 6 | Pending |
+| GAL-02 | Phase 6 | Pending |
+| GAL-03 | Phase 6 | Pending |
+| GAL-04 | Phase 6 | Pending |
+| GAL-05 | Phase 6 | Pending |
+| GAL-06 | Phase 6 | Pending |
+| GAL-07 | Phase 6 | Pending |
+| ABOUT-01 | Phase 7 | Pending |
+| ABOUT-02 | Phase 7 | Pending |
+| ABOUT-03 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 8 total (8 validated)
-- v2 requirements: 24 total (0 mapped — roadmapper will fill phase column)
-- Unmapped (v2): 24 (pending roadmap creation)
+- v2 requirements: 24 total (24 mapped to Phases 3-7)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-27*
 *v2.0 added: 2026-04-28*
+*v2.0 phase mapping: 2026-04-28*
