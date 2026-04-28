@@ -1,7 +1,8 @@
 # Requirements: Personal Website Refinements
 
 **Defined:** 2026-03-27
-**Core Value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions.
+**Last updated:** 2026-04-28 — added v2.0 Brand & Gallery requirements
+**Core Value:** The blog should be a polished, technical reference — clear diagrams over screenshots, precise values over vague descriptions — and feel unmistakably like *Timo's site* in either light or dark mode.
 
 ## v1 Requirements
 
@@ -9,7 +10,7 @@
 
 - [x] **ART-01**: Node tree screenshot replaced with inline Mermaid diagram showing the 5-node DaVinci Resolve color grading chain
 - [x] **ART-02**: Each node description includes precise parameter value ranges (e.g., Lift -0.02 to 0.00, Gamma 0.98-1.02)
-- [x] **ART-03**: Each node includes practical tips -- what should happen visually and what to avoid
+- [x] **ART-03**: Each node includes practical tips — what should happen visually and what to avoid
 - [x] **ART-04**: Node descriptions are concise and technical (shorter than current prose)
 - [x] **ART-05**: Mermaid diagram renders correctly in the Hugo site (shortcode or JS include)
 
@@ -19,18 +20,73 @@
 - [x] **SOC-02**: Icon links to https://instagram.com/bohniti
 - [x] **SOC-03**: Icon style matches the minimal/Flexoki aesthetic of the site
 
-## v2 Requirements
+## v2 Requirements (Brand & Gallery)
 
-(None -- this is a focused refinement milestone)
+### Brand Assets
+
+- [ ] **BRAND-01**: `images/logos.png` sliced into 8 individual PNGs (logo / icon / minimum / favicon × dark + light) at integer cell boundaries with alpha preserved, output to `themes/minimal/static/images/brand/`
+- [ ] **BRAND-02**: `scripts/slice_logos.py` committed for reproducibility (Pillow, throwaway venv, not a runtime dep)
+- [ ] **BRAND-03**: Each sliced wordmark variant ≤ 30 KB after `pngquant` (acceptance criterion before wiring)
+
+### Theming
+
+- [ ] **THEME-01**: User can toggle between light and dark mode via a button in the site header, and the choice persists across reloads
+- [ ] **THEME-02**: First paint matches user's last choice (or OS preference for first visit) — zero light-flash on dark-mode hard reload (verified via DevTools Slow-3G screen recording)
+- [ ] **THEME-03**: Theme toggle is keyboard-reachable, uses a real `<button>` with `aria-pressed`, and respects `prefers-reduced-motion` (no transition under reduced-motion)
+- [ ] **THEME-04**: Dark palette tokens added under `:root[data-theme="dark"]` using Flexoki dark values; light palette unchanged from current `:root` tokens
+- [ ] **THEME-05**: `<meta name="color-scheme" content="light dark">` set in `<head>`; `theme-color` meta updates to match active theme so iOS Safari chrome adapts
+- [ ] **THEME-06**: Existing inline scripts (Mermaid / Plotly / Leaflet) remain readable in dark mode using theme-agnostic Flexoki accents — verified by smoke-test of `/blog/2026-03-05-climbing-routes/`
+
+### Header & Favicon
+
+- [ ] **HEAD-01**: Site header shows the script "time BOHNSTEDT" wordmark image instead of plain text site title, on every page
+- [ ] **HEAD-02**: Wordmark swaps between dark and light variants automatically with the active theme, using a two-image CSS toggle (no FOUC, no JS)
+- [ ] **HEAD-03**: Wordmark `<img>` tags carry explicit `width`/`height` attributes and meaningful `alt` text
+- [ ] **HEAD-04**: Browser favicon visible in tabs/bookmarks via `favicon.ico` (multi-size) + `favicon.svg` (with embedded `prefers-color-scheme` dark-mode swap) + `apple-touch-icon.png` (180×180)
+- [ ] **HEAD-05**: Favicon `<link>` tags consolidated in a partial (`themes/minimal/layouts/partials/favicon.html`) and included from `baseof.html` `<head>`
+
+### Gallery
+
+- [ ] **GAL-01**: User can navigate to `/gallery/` from the main header navigation
+- [ ] **GAL-02**: `/gallery/` displays all 18 personal photos in a uniform CSS Grid layout (`repeat(auto-fill, minmax(220px, 1fr))`) with section `max-width` override
+- [ ] **GAL-03**: Photos served as Hugo-processed WebP thumbnails (`Process "fill 600x400 Smart webp q75"`) with native `loading="lazy"` except first row (eager); explicit `width`/`height` to prevent CLS
+- [ ] **GAL-04**: Clicking a thumbnail navigates to the full-size WebP rendition (`Process "fit 1600x1600 webp q82"`) — no JS lightbox in v2.0
+- [ ] **GAL-05**: `/gallery/` first-paint network transfer ≤ 2 MB; total `public/gallery/` output ≤ 3 MB
+- [ ] **GAL-06**: GPS coordinates and camera serial stripped from all gallery images (verified by `exiftool` — no `GPSLatitude`, `GPSLongitude`, `Make`, `Model`, `Serial` fields)
+- [ ] **GAL-07**: `images/galary/` renamed and moved to `content/gallery/photos/` as a Hugo page-bundle resource (no broken links — confirmed via grep)
+
+### About Page
+
+- [ ] **ABOUT-01**: `content/about.md` converted to `content/about/index.md` leaf bundle; URL `/about/` unchanged
+- [ ] **ABOUT-02**: About page displays multiple personal photos in a richer layout (not just inline single-column) — second column / photo grid / pull-quote rules added to `style.css`
+- [ ] **ABOUT-03**: All About page images carry explicit `width`/`height` to prevent CLS; images live in `content/about/images/` as page-bundle resources
+
+## Future Requirements (deferred to v2.x or later)
+
+- Native `<dialog>`-based lightbox for gallery
+- Per-photo captions in gallery
+- Inline SVG wordmark with `currentColor` (if SVG source becomes available)
+- View-transition cross-fade on theme toggle
+- PWA `site.webmanifest`
+- Cross-tab theme sync via `storage` event
+- Mermaid / Plotly / Leaflet reactivity to theme toggle
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Full site redesign | Targeted refinement only |
-| New blog posts | Focus on refining existing article |
-| Other social media links | Only Instagram requested |
-| Changes to other blog posts | Only video editing article |
+| Full site redesign | Targeted refinement only (v1.0) |
+| New blog posts | v2.0 is brand + gallery focused |
+| Other social media links | Only GitHub + Instagram (v1.0) |
+| Changes to other blog posts | Only video editing article (v1.0) |
+| Three-state toggle (light/dark/auto) | Two-state is canonical 2026 pattern; auto is implicit on first visit |
+| `<picture>` + `prefers-color-scheme` for wordmark | Silently overrides manual toggle — research-flagged anti-pattern |
+| AVIF gallery format | Hugo 0.157 image pipeline doesn't support AVIF |
+| JS lightbox library (PhotoSwipe, Lightbox2, etc.) | Conflicts with no-framework constraint |
+| Masonry / infinite-scroll / filters in gallery | Doesn't fit minimal aesthetic |
+| Custom `@font-face` for wordmark | Wordmark is a sliced PNG, not a webfont |
+| Cookie-based theme persistence | `localStorage` is sufficient; no server involved |
+| Server-side anything | GitHub Pages is static-only |
 
 ## Traceability
 
@@ -44,12 +100,36 @@
 | SOC-01 | Phase 2 | Validated |
 | SOC-02 | Phase 2 | Validated |
 | SOC-03 | Phase 2 | Validated |
+| BRAND-01 | TBD (Phase 3+) | Pending |
+| BRAND-02 | TBD (Phase 3+) | Pending |
+| BRAND-03 | TBD (Phase 3+) | Pending |
+| THEME-01 | TBD | Pending |
+| THEME-02 | TBD | Pending |
+| THEME-03 | TBD | Pending |
+| THEME-04 | TBD | Pending |
+| THEME-05 | TBD | Pending |
+| THEME-06 | TBD | Pending |
+| HEAD-01 | TBD | Pending |
+| HEAD-02 | TBD | Pending |
+| HEAD-03 | TBD | Pending |
+| HEAD-04 | TBD | Pending |
+| HEAD-05 | TBD | Pending |
+| GAL-01 | TBD | Pending |
+| GAL-02 | TBD | Pending |
+| GAL-03 | TBD | Pending |
+| GAL-04 | TBD | Pending |
+| GAL-05 | TBD | Pending |
+| GAL-06 | TBD | Pending |
+| GAL-07 | TBD | Pending |
+| ABOUT-01 | TBD | Pending |
+| ABOUT-02 | TBD | Pending |
+| ABOUT-03 | TBD | Pending |
 
 **Coverage:**
-- v1 requirements: 8 total
-- Mapped to phases: 8
-- Unmapped: 0
+- v1 requirements: 8 total (8 validated)
+- v2 requirements: 24 total (0 mapped — roadmapper will fill phase column)
+- Unmapped (v2): 24 (pending roadmap creation)
 
 ---
 *Requirements defined: 2026-03-27*
-*Last updated: 2026-04-27 after Phase 02 Plan 01 completion*
+*v2.0 added: 2026-04-28*
