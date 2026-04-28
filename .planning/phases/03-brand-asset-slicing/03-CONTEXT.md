@@ -126,5 +126,31 @@ None — no pending todos in STATE.md matched this phase's scope.
 
 ---
 
+## Mid-Execution Deviation (2026-04-28)
+
+The locked sprite assumption (D-01: 1536×1024 with rows split exactly at y=512) did not hold against the real `images/logos.png` — the actual dark→light row transition is at y≈570, so equal-grid slicing produced bottom-row variants with a ~58 px dark band stripe and broke the D-03 corner-pixel hex contract (both samples read near-black). Source was re-supplied as **8 individual PNG screenshots** dropped at `images/brand-source/{logo,icon,minimum,favicon}-{dark,light}.png` instead of a single sprite.
+
+The slicer was replaced with an asset-processing pipeline at `scripts/build_brand_assets.py` (renamed via `git mv` from `scripts/slice_logos.py`).
+
+**Decisions superseded:**
+- **D-01** (equal-grid 384×512 slicer) → **superseded.** New pipeline auto-trims each input to its content bbox, then aspect-matches each dark/light pair so a theme toggle produces no layout shift. Output dimensions per asset class: logo 800px max width, icon 512px max width, minimum 500px max width, favicon forced 512×512 square (browser-tab requirement).
+- **D-02** (RGB-only, opaque cell backgrounds) → **upheld.** Pipeline flattens RGBA inputs onto the variant's bg color (`(0,0,0)` dark, `(253,253,253)` light) before any further processing, output mode is RGB.
+- **D-03** (stdout hex contract for Phase 4) → **upheld.** Pipeline samples `(0,0)` of one finished dark output and one finished light output and prints them in the same labeled format. Phase 4 still pastes these into `--bg` / `--bg-dark`.
+- **D-04** (sprite-row → output mapping) → **superseded.** Mapping now comes from input filename (`{asset}-{variant}.png` in source → identical name in output).
+- **D-05** (raw 384×512 favicon cells) → **superseded.** Favicon is forced 512×512 square; tighter trim removes the surrounding canvas whitespace that was present in the source screenshot.
+- **D-06**, **D-07**, **D-08** (pngquant integration, PATH check, BRAND-03 30 KB gate) → **upheld** verbatim.
+- **D-09**, **D-10**, **D-11** (Python conventions, throwaway venv) → **upheld**.
+
+**ROADMAP success criterion #4** ("consistent column dimensions — logo cells equal logo cells, favicon cells equal favicon cells, no off-by-one drift") is reinterpreted as **"aspect-pair consistency within each pair"**: each `{asset}-dark.png` and `{asset}-light.png` share the same aspect ratio (within 0.001), so toggling the theme does not visibly shift the wordmark in CSS layouts. Verified by `Image.open(...).size`.
+
+**Recorded hex values for Phase 4 cross-phase contract (D-03):**
+```
+Top-row (dark) bg fill:    #000000
+Bottom-row (light) bg fill: #FEFEFE
+```
+
+---
+
 *Phase: 03-brand-asset-slicing*
 *Context gathered: 2026-04-28*
+*Mid-execution deviation recorded: 2026-04-28*
