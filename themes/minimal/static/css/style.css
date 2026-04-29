@@ -17,6 +17,21 @@
   --max-width: 640px;
 }
 
+:root[data-theme="dark"] {
+  /* Flexoki-inspired dark palette */
+  --bg: #100F0F;
+  --bg-secondary: #1C1B1A;
+  --text: #CECDC3;
+  --text-secondary: #878580;
+  --text-muted: #575653;
+  --accent: #D14D41;
+  --accent-hover: #DA7E76;
+  --link: #D14D41;
+  --link-hover: #DA7E76;
+  --border: #282726;
+  --code-bg: #1C1B1A;
+}
+
 html {
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
