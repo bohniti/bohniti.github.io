@@ -35,10 +35,10 @@ The blog should be a polished, technical reference that's useful for future-me �
 - ✓ Per-node Parameter/Range/Tip tables in DaVinci color grading article — Phase 1 (v1.0)
 - ✓ Instagram icon in footer with `.social-icons` cluster CSS — Phase 2 (v1.0)
 - ✓ Eight brand asset PNGs at `themes/minimal/static/images/brand/` produced by reproducible Pillow + pngquant pipeline; aspect-pair matched per asset class for theme-toggle parity — Phase 3 (v2.0)
+- ✓ Light/dark theme toggle in header with persistence, OS-preference detection, no-FOUC inline IIFE, and reduced-motion support — Phase 4 (v2.0)
 
 ### Active (v2.0)
 
-- [ ] Light/dark theme toggle in header with persistence and OS-preference detection
 - [ ] Site header shows the script wordmark instead of plain "Timo Bohnstedt" text
 - [ ] Favicon set wired into Hugo `<head>` partial
 - [ ] `/gallery/` page reachable from main nav with optimized photo grid
@@ -79,7 +79,7 @@ The blog should be a polished, technical reference that's useful for future-me �
 |----------|-----------|---------|
 | Mermaid for diagrams | User preference, renders inline, version-controllable as text | ✓ Validated (Phase 1, v1.0) |
 | Instagram icon in footer | Visible on every page, standard placement for social links | ✓ Validated (Phase 2, v1.0) |
-| OS preference + localStorage for theme | Respects user's system, preserves explicit choice | — Pending |
+| OS preference + localStorage for theme | Respects user's system, preserves explicit choice | ✓ Validated (Phase 4, v2.0) |
 | Standalone `/gallery/` page in nav | Gives photos a first-class home, keeps About lean | — Pending |
 | Header wordmark replaces text title | Stronger brand presence, swaps cleanly per theme | — Pending |
 | Rename `images/galary/` → `images/gallery/` | Fix typo before it ships in URLs | — Pending |
@@ -103,4 +103,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-28 — Phase 3 complete (brand asset pipeline producing 8 themed PNGs)*
+*Last updated: 2026-04-29 — Phase 4 complete (light/dark theme toggle with no-FOUC IIFE, persistence, OS-preference detection, reduced-motion support)*
