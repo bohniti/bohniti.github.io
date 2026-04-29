@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 4 UI-SPEC approved
-last_updated: "2026-04-29T07:05:51.862Z"
-last_activity: 2026-04-29 -- Phase 04 execution started
+stopped_at: Phase 4 plan 04-03 complete — ready for phase verification
+last_updated: "2026-04-29T09:20:00Z"
+last_activity: 2026-04-29 -- Phase 04 plan 03 completed (theming end-to-end wiring + THEME-06 smoke-test approved)
 progress:
   total_phases: 7
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 1
-  percent: 25
+  total_plans: 6
+  completed_plans: 3
+  percent: 50
 ---
 
 # Project State
@@ -25,20 +25,20 @@ See: .planning/PROJECT.md (updated 2026-04-28)
 
 ## Current Position
 
-Phase: 04 (theming-foundation) — EXECUTING
-Plan: 1 of 3
-Status: Executing Phase 04
-Last activity: 2026-04-29 -- Phase 04 execution started
+Phase: 04 (theming-foundation) — ALL PLANS COMPLETE, READY FOR PHASE VERIFICATION
+Plan: 3 of 3 (complete)
+Status: Phase 04 plans 01/02/03 all executed; awaiting phase verification + completion via orchestrator
+Last activity: 2026-04-29 -- Phase 04 plan 03 completed (theming end-to-end wiring + THEME-06 smoke-test approved by user)
 
-Progress: [          ] 0% (0/5 v2.0 phases complete)
+Progress: [##        ] 20% (1/5 v2.0 phases complete; Phase 04 ready for verification)
 
 ## Performance Metrics
 
 **Velocity (lifetime, all milestones):**
 
-- Total plans completed: 5
+- Total plans completed: 8
 - Average duration: -
-- Total execution time: 0 hours
+- Total execution time: -
 
 **By Phase:**
 
@@ -46,10 +46,14 @@ Progress: [          ] 0% (0/5 v2.0 phases complete)
 |-------|-------|-------|----------|-----------|
 | 01 | 2 | - | - | v1.0 |
 | 02 | 1 | - | - | v1.0 |
+| 04 | 3 | - | - | v2.0 |
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 02 P01 | 84s | 2 tasks | 2 files |
+| Phase 04 P01 | 97s | 3 tasks | 1 file |
+| Phase 04 P02 | 169s | 2 tasks | 1 file |
+| Phase 04 P03 | ~60s | 3 tasks | 2 files |
 
 **Recent Trend:**
 
@@ -66,6 +70,10 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 Recent decisions affecting current work:
 
+- Phase 04 P03: Co-located first-paint button-sync and click handler in one IIFE — single querySelector('.theme-toggle'), single closure, atomic-mutation contract locally readable
+- Phase 04 P03: Adopted dark-first conditional form (next === 'dark' ? '#100F0F' : '#FFFCF0') across all writes inside the click handler to mirror the head IIFE's pattern from Plan 02
+- Phase 04 P03: No DOMContentLoaded — script sits at end-of-body, parser has already reached the toggle button
+- Phase 04 P03: Did not factor the five mutations into helper functions — kept inline so the atomic-side-effect contract is locally readable
 - v2.0: OS-preference + localStorage drives theme; no flash on load via inline `<head>` script
 - v2.0: Standalone `/gallery/` page (not embedded in About)
 - v2.0: Header wordmark replaces text site title
@@ -89,8 +97,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: --stopped-at
-Stopped at: Phase 4 UI-SPEC approved
-Resume file: --resume-file
+Last session: 2026-04-29T09:20:00Z
+Stopped at: Phase 4 plan 04-03 complete — ready for phase verification
+Resume file: .planning/phases/04-theming-foundation/04-03-SUMMARY.md
 
-**Planned Phase:** 04 (theming-foundation) — 3 plans — 2026-04-29T07:03:19.858Z
+**Planned Phase:** 04 (theming-foundation) — 3 plans — 2026-04-29T07:03:19.858Z (all 3 plans complete; orchestrator owns phase verification + completion)
