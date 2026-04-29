@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: ready_to_plan
-stopped_at: Phase 5 context gathered
-last_updated: "2026-04-29T11:58:39.261Z"
-last_activity: 2026-04-29 -- Phase 05 execution started
+status: planning
+stopped_at: Phase 05.1 context gathered
+last_updated: "2026-04-29T17:32:48.628Z"
+last_activity: 2026-04-29
 progress:
-  total_phases: 7
+  total_phases: 8
   completed_phases: 3
   total_plans: 7
-  completed_plans: 4
-  percent: 43
+  completed_plans: 7
+  percent: 100
 ---
 
 # Project State
@@ -64,6 +64,10 @@ Progress: [##        ] 20% (1/5 v2.0 phases complete; Phase 04 ready for verific
 
 ## Accumulated Context
 
+### Roadmap Evolution
+
+- Phase 05.1 inserted after Phase 5: Swap wordmark + favicon to new SVG sources at `images/brand-source/{logo.svg, fav-icon.svg}` (URGENT)
+
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
@@ -98,7 +102,7 @@ None yet.
 ## Session Continuity
 
 Last session: --stopped-at
-Stopped at: Phase 5 context gathered
+Stopped at: Phase 05.1 context gathered
 Resume file: --resume-file
 
 **Planned Phase:** 5 (Wordmark + Favicon Wiring) — 3 plans — 2026-04-29T11:41:06.647Z
