@@ -46,6 +46,15 @@ body {
   padding: 0 1.5rem;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition:
+      background-color 150ms ease,
+      color            150ms ease,
+      border-color     150ms ease;
+  }
+}
+
 /* === Layout === */
 .site-wrapper {
   max-width: var(--max-width);
