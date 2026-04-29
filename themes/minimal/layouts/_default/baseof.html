@@ -30,5 +30,28 @@
     </main>
     {{ partial "footer.html" . }}
   </div>
+  <script>
+    // Theme toggle — single click handler performs five atomic mutations.
+    (function () {
+      const toggle = document.querySelector('.theme-toggle');
+      if (!toggle) return;
+      const meta = document.querySelector('meta[name="theme-color"]');
+
+      // First-paint sync: server-rendered HTML always says "Dark"/aria-pressed="false".
+      // If the head IIFE resolved dark, update the button to match.
+      const initial = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      toggle.setAttribute('aria-pressed', initial === 'dark' ? 'true' : 'false');
+      toggle.textContent = initial === 'dark' ? 'Light' : 'Dark';
+
+      toggle.addEventListener('click', function () {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        toggle.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+        toggle.textContent = next === 'dark' ? 'Light' : 'Dark';
+        try { localStorage.setItem('theme', next); } catch (_) { /* Safari private mode */ }
+        if (meta) meta.setAttribute('content', next === 'dark' ? '#100F0F' : '#FFFCF0');
+      });
+    })();
+  </script>
 </body>
 </html>
