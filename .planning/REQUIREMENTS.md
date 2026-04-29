@@ -39,11 +39,11 @@
 
 ### Header & Favicon
 
-- [ ] **HEAD-01**: Site header shows the script "time BOHNSTEDT" wordmark image instead of plain text site title, on every page
-- [ ] **HEAD-02**: Wordmark swaps between dark and light variants automatically with the active theme, using a two-image CSS toggle (no FOUC, no JS)
-- [ ] **HEAD-03**: Wordmark `<img>` tags carry explicit `width`/`height` attributes and meaningful `alt` text
-- [ ] **HEAD-04**: Browser favicon visible in tabs/bookmarks via `favicon.ico` (multi-size) + `favicon.svg` (with embedded `prefers-color-scheme` dark-mode swap) + `apple-touch-icon.png` (180×180)
-- [ ] **HEAD-05**: Favicon `<link>` tags consolidated in a partial (`themes/minimal/layouts/partials/favicon.html`) and included from `baseof.html` `<head>`
+- [x] **HEAD-01**: Site header shows the script "time BOHNSTEDT" wordmark image instead of plain text site title, on every page
+- [x] **HEAD-02**: Wordmark swaps between dark and light variants automatically with the active theme, using a two-image CSS toggle (no FOUC, no JS)
+- [x] **HEAD-03**: Wordmark `<img>` tags carry explicit `width`/`height` attributes and meaningful `alt` text
+- [x] **HEAD-04**: Browser favicon visible in tabs/bookmarks via `favicon.ico` (multi-size) + `favicon.svg` (with embedded `prefers-color-scheme` dark-mode swap) + `apple-touch-icon.png` (180×180)
+- [x] **HEAD-05**: Favicon `<link>` tags consolidated in a partial (`themes/minimal/layouts/partials/favicon.html`) and included from `baseof.html` `<head>`
 
 ### Gallery
 
@@ -109,11 +109,11 @@
 | THEME-04 | Phase 4 | Pending |
 | THEME-05 | Phase 4 | Pending |
 | THEME-06 | Phase 4 | Pending |
-| HEAD-01 | Phase 5 | Pending |
-| HEAD-02 | Phase 5 | Pending |
-| HEAD-03 | Phase 5 | Pending |
-| HEAD-04 | Phase 5 | Pending |
-| HEAD-05 | Phase 5 | Pending |
+| HEAD-01 | Phase 5 | Complete |
+| HEAD-02 | Phase 5 | Complete |
+| HEAD-03 | Phase 5 | Complete |
+| HEAD-04 | Phase 5 | Complete |
+| HEAD-05 | Phase 5 | Complete |
 | GAL-01 | Phase 6 | Pending |
 | GAL-02 | Phase 6 | Pending |
 | GAL-03 | Phase 6 | Pending |
