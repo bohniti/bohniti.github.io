@@ -95,6 +95,19 @@ Plans:
 - [x] 05-03-PLAN.md — Create partials/favicon.html with 3 <link> tags and include it from baseof.html <head> immediately after <title> (Wave 2, depends on 05-01)
 **UI hint**: yes
 
+### Phase 05.1: Swap wordmark + favicon to new SVG sources (INSERTED)
+
+**Goal:** Retire the PNG-driven wordmark + favicon implementation from Phase 5 and migrate to native SVG sources at images/brand-source/{logo.svg, fav-icon.svg}. Wordmark inlined via Hugo readFile + safeHTML with currentColor recolor. Favicon rewritten as native path-based SVG with embedded prefers-color-scheme @media. Build script rewritten to rasterize via cairosvg into 16/32/48 favicon.ico + 180 apple-touch-icon.png.
+**Requirements**: HEAD-01, HEAD-02, HEAD-03, HEAD-04, HEAD-05
+**Depends on:** Phase 5
+**Plans:** 4 plans
+
+Plans:
+- [ ] 05.1-01-PLAN.md — Inline SVG wordmark in header.html via readFile + safeHTML; delete .wordmark* CSS family; add .site-title svg rule with var(--text); install logo.svg with currentColor + a11y attributes (Wave 1)
+- [ ] 05.1-02-PLAN.md — Edit fav-icon.svg in place (drop bloat attributes, add embedded <style> + @media prefers-color-scheme); copy to themes/minimal/static/favicon.svg as deploy artifact (Wave 1, parallel to 05.1-01)
+- [ ] 05.1-03-PLAN.md — Rewrite scripts/build_brand_assets.py with cairosvg + Pillow ICO writer; run in throwaway venv to regenerate favicon.ico (multi-frame 16/32/48) and apple-touch-icon.png (180x180) (Wave 2, depends on 05.1-02)
+- [ ] 05.1-04-PLAN.md — Verify zero remaining references; delete 8 sliced PNGs at themes/minimal/static/images/brand/ and images/logos.png; final phase-level smoke verification (Wave 3, depends on 05.1-01, 05.1-02, 05.1-03)
+
 ### Phase 6: Gallery
 **Goal**: A standalone `/gallery/` page reachable from main nav displays the 18 personal photos in a uniform, web-optimized grid that loads under 2 MB on first paint, ships zero GPS metadata, and stays CLS-clean
 **Depends on**: Nothing architecturally (independent of Phases 3/4/5); recommended sequenced after Phase 5 to verify the build-and-deploy loop with the new theme/header wired
