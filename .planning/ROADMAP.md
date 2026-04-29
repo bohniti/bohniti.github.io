@@ -74,9 +74,9 @@ Plans:
   5. Loading `/blog/2026-03-05-climbing-routes/` in dark mode shows Mermaid / Plotly / Leaflet content readable against the dark background using theme-agnostic Flexoki accents (smoke-test eyeball check, no per-library reactivity)
 **Plans:** 3 plans
 Plans:
-- [ ] 04-01-PLAN.md — Add :root[data-theme="dark"] palette block, prefers-reduced-motion body transition, and .theme-toggle styling to style.css (Wave 1)
-- [ ] 04-02-PLAN.md — Add color-scheme + theme-color meta tags and the inline head IIFE bootstrap to baseof.html (Wave 1, parallel to 04-01)
-- [ ] 04-03-PLAN.md — Append theme-toggle button to header.html, add end-of-body click handler IIFE to baseof.html, and run the THEME-06 dark-mode smoke-test on /blog/2026-03-05-climbing-routes/ (Wave 2, depends on 04-01 + 04-02)
+- [x] 04-01-PLAN.md — Add :root[data-theme="dark"] palette block, prefers-reduced-motion body transition, and .theme-toggle styling to style.css (Wave 1)
+- [x] 04-02-PLAN.md — Add color-scheme + theme-color meta tags and the inline head IIFE bootstrap to baseof.html (Wave 1, parallel to 04-01)
+- [x] 04-03-PLAN.md — Append theme-toggle button to header.html, add end-of-body click handler IIFE to baseof.html, and run the THEME-06 dark-mode smoke-test on /blog/2026-03-05-climbing-routes/ (Wave 2, depends on 04-01 + 04-02)
 **UI hint**: yes
 
 ### Phase 5: Wordmark + Favicon Wiring
