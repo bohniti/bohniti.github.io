@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 05.1 context gathered
-last_updated: "2026-04-29T17:32:48.628Z"
-last_activity: 2026-04-29
+status: executing
+stopped_at: Phase 05.1 UI-SPEC approved
+last_updated: "2026-04-29T19:06:41.222Z"
+last_activity: 2026-04-29 -- Phase 05.1 execution started
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 7
+  total_plans: 11
   completed_plans: 7
-  percent: 100
+  percent: 64
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-28)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 05 — wordmark-favicon-wiring
+**Current focus:** Phase 05.1 — swap-wordmark-favicon-to-new-svg-sources
 
 ## Current Position
 
-Phase: 6
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-04-29
+Phase: 05.1 (swap-wordmark-favicon-to-new-svg-sources) — EXECUTING
+Plan: 1 of 4
+Status: Executing Phase 05.1
+Last activity: 2026-04-29 -- Phase 05.1 execution started
 
 Progress: [##        ] 20% (1/5 v2.0 phases complete; Phase 04 ready for verification)
 
@@ -102,7 +102,7 @@ None yet.
 ## Session Continuity
 
 Last session: --stopped-at
-Stopped at: Phase 05.1 context gathered
+Stopped at: Phase 05.1 UI-SPEC approved
 Resume file: --resume-file
 
-**Planned Phase:** 5 (Wordmark + Favicon Wiring) — 3 plans — 2026-04-29T11:41:06.647Z
+**Planned Phase:** 05.1 (Swap wordmark + favicon to new SVG sources) — 4 plans — 2026-04-29T19:04:47.383Z
