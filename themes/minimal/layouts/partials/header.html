@@ -1,8 +1,7 @@
 <header class="site-header">
   <div class="site-title">
     <a href="{{ .Site.BaseURL }}">
-      <img class="wordmark wordmark-light" src="{{ "images/brand/logo-light.png" | absURL }}" alt="Timo Bohnstedt" width="200" height="117">
-      <img class="wordmark wordmark-dark"  src="{{ "images/brand/logo-dark.png"  | absURL }}" alt="Timo Bohnstedt" width="200" height="117">
+      {{ readFile "themes/minimal/static/images/brand/logo.svg" | safeHTML }}
     </a>
   </div>
   <nav class="site-nav">
