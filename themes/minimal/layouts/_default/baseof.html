@@ -7,6 +7,19 @@
   <meta name="theme-color" content="#FFFCF0">
   <title>{{ if not .IsHome }}{{ .Title }} — {{ end }}{{ .Site.Title }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <script>
+    // Theme bootstrap — reads localStorage key 'theme', falls back to OS prefers-color-scheme.
+    (function () {
+      let theme;
+      try { theme = localStorage.getItem('theme'); } catch (_) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#100F0F' : '#FFFCF0');
+    })();
+  </script>
   <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
 </head>
 <body>
