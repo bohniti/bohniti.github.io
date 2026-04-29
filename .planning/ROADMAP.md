@@ -90,8 +90,8 @@ Plans:
   4. After deploy, the browser tab favicon, bookmark icon, and iOS home-screen icon all render the TB mark sourced from the sliced brand assets (no generic Hugo / browser default visible)
 **Plans:** 3 plans
 Plans:
-- [ ] 05-01-PLAN.md — Extend scripts/build_brand_assets.py with 3 favicon stages (ico/svg/apple-touch) and run it to materialize the favicon files at theme static root (Wave 1)
-- [ ] 05-02-PLAN.md — Replace site-title text with two wordmark <img> tags in partials/header.html and add .wordmark CSS family (display swap + per-variant seam-mask bg + mobile size override) to style.css (Wave 1, parallel to 05-01)
+- [x] 05-01-PLAN.md — Extend scripts/build_brand_assets.py with 3 favicon stages (ico/svg/apple-touch) and run it to materialize the favicon files at theme static root (Wave 1)
+- [x] 05-02-PLAN.md — Replace site-title text with two wordmark <img> tags in partials/header.html and add .wordmark CSS family (display swap + per-variant seam-mask bg + mobile size override) to style.css (Wave 1, parallel to 05-01)
 - [ ] 05-03-PLAN.md — Create partials/favicon.html with 3 <link> tags and include it from baseof.html <head> immediately after <title> (Wave 2, depends on 05-01)
 **UI hint**: yes
 
