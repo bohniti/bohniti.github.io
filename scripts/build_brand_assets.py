@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Process 8 brand source PNGs into themed light/dark output variants with matched aspects."""
+"""Process brand source PNGs into themed light/dark variants and the 3-file favicon set."""
 
+import base64
 import shutil
 import subprocess
 import sys
@@ -27,6 +28,10 @@ LIGHT_BG = (253, 253, 253)
 
 WORDMARK_MAX_BYTES = 30 * 1024  # BRAND-03: logo wordmarks <= 30 KB after pngquant
 WORDMARK_FILES = ("logo-dark.png", "logo-light.png")
+
+THEME_STATIC_DIR = ROOT / "themes" / "minimal" / "static"
+APPLE_TOUCH_SIZE = 180
+ICO_SIZES = [(16, 16), (32, 32), (48, 48)]
 
 PNGQUANT_CMD = ["pngquant", "--quality=65-90", "--strip", "--force", "--output"]
 
@@ -78,6 +83,38 @@ def resize_max(img, max_w):
 
 def run_pngquant(path):
     subprocess.run(PNGQUANT_CMD + [str(path), str(path)], check=True)
+
+
+def build_favicon_ico(source_png_path, out_path):
+    """Multi-size .ico (16/32/48) from favicon-light.png (D-10)."""
+    img = Image.open(source_png_path).convert("RGB")
+    img.save(out_path, format="ICO", sizes=ICO_SIZES)
+
+
+def build_apple_touch(source_png_path, out_path):
+    """180x180 apple-touch-icon.png from favicon-light.png (D-11)."""
+    img = Image.open(source_png_path).convert("RGB")
+    img = img.resize((APPLE_TOUCH_SIZE, APPLE_TOUCH_SIZE), Image.LANCZOS)
+    img.save(out_path, format="PNG")
+    run_pngquant(out_path)
+
+
+def build_favicon_svg(light_png_path, dark_png_path, out_path):
+    """PNG-wrapped SVG with embedded prefers-color-scheme dark @media (D-07, D-08)."""
+    with open(light_png_path, "rb") as f:
+        light_b64 = base64.b64encode(f.read()).decode("ascii")
+    with open(dark_png_path, "rb") as f:
+        dark_b64 = base64.b64encode(f.read()).decode("ascii")
+    svg = (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" '
+        'width="512" height="512">'
+        '<style>@media (prefers-color-scheme: dark){{.l{{display:none}}.d{{display:inline}}}}'
+        '.d{{display:none}}</style>'
+        '<image class="l" href="data:image/png;base64,{light}" width="512" height="512"/>'
+        '<image class="d" href="data:image/png;base64,{dark}" width="512" height="512"/>'
+        '</svg>'
+    ).format(light=light_b64, dark=dark_b64)
+    out_path.write_text(svg, encoding="ascii")
 
 
 def rgb_hex(pixel):
@@ -132,6 +169,21 @@ def main():
 
             if variant not in bg_samples:
                 bg_samples[variant] = rgb_hex(Image.open(out_path).convert("RGB").getpixel((0, 0)))
+
+    favicon_light = OUTPUT_DIR / "favicon-light.png"
+    favicon_dark = OUTPUT_DIR / "favicon-dark.png"
+
+    ico_path = THEME_STATIC_DIR / "favicon.ico"
+    apple_path = THEME_STATIC_DIR / "apple-touch-icon.png"
+    svg_path = THEME_STATIC_DIR / "favicon.svg"
+
+    build_favicon_ico(favicon_light, ico_path)
+    build_apple_touch(favicon_light, apple_path)
+    build_favicon_svg(favicon_light, favicon_dark, svg_path)
+
+    sizes.append((ico_path.name, ico_path.stat().st_size))
+    sizes.append((apple_path.name, apple_path.stat().st_size))
+    sizes.append((svg_path.name, svg_path.stat().st_size))
 
     print("Top-row (dark) bg fill:    {}".format(bg_samples.get("dark", "?")))
     print("Bottom-row (light) bg fill: {}".format(bg_samples.get("light", "?")))
