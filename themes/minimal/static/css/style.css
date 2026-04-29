@@ -121,20 +121,13 @@ body {
   border-radius: 2px;
 }
 
-/* Wordmark — two <img> tags swapped by [data-theme] (D-01); display:none removes hidden variant from layout flow + a11y tree (D-02). */
-.wordmark {
+/* Wordmark — single inlined SVG, currentColor recolors via Phase 4 var(--text) (05.1 D-01, D-02). */
+.site-title svg {
   display: block;
+  color: var(--text);
   width: 200px;
-  height: 117px;
+  height: 122px;
 }
-
-html[data-theme="light"] .wordmark-dark { display: none; }
-html[data-theme="dark"]  .wordmark-light { display: none; }
-
-/* Per-variant seam-masking bg matching the PNG corner pixel (Phase 4 D-02 hard cross-phase contract).
-   Hardcoded — intentionally NOT theme tokens. -light PNG corner = #FEFEFE; -dark PNG corner = #000000. */
-.wordmark-light { background: #FEFEFE; }
-.wordmark-dark  { background: #000000; }
 
 /* === Post List (Home) === */
 .post-list {
@@ -323,5 +316,5 @@ html[data-theme="dark"]  .wordmark-light { display: none; }
   .site-header { flex-direction: column; gap: 0.5rem; }
   .site-wrapper { padding: 2rem 0 4rem; }
   .footer-links { gap: 1rem; }
-  .wordmark { width: 160px; height: 93px; }
+  .site-title svg { width: 160px; height: 98px; }
 }
