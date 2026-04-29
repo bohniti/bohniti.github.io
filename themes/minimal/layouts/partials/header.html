@@ -6,5 +6,6 @@
     {{ range .Site.Menus.main }}
       <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a>
     {{ end }}
+    <button type="button" class="theme-toggle" aria-pressed="false">Dark</button>
   </nav>
 </header>
