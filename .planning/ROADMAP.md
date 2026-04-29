@@ -72,7 +72,11 @@ Plans:
   3. The toggle is a real `<button type="button">` with `aria-pressed` mutating on click, reachable via Tab key, and respects `prefers-reduced-motion: reduce` (no transition fires under reduced-motion)
   4. `:root[data-theme="dark"]` block in `style.css` defines the full Flexoki dark palette; light palette under `:root` is unchanged from current values; `<meta name="color-scheme" content="light dark">` and a JS-managed `<meta name="theme-color">` keep iOS Safari chrome in sync
   5. Loading `/blog/2026-03-05-climbing-routes/` in dark mode shows Mermaid / Plotly / Leaflet content readable against the dark background using theme-agnostic Flexoki accents (smoke-test eyeball check, no per-library reactivity)
-**Plans:** TBD
+**Plans:** 3 plans
+Plans:
+- [ ] 04-01-PLAN.md — Add :root[data-theme="dark"] palette block, prefers-reduced-motion body transition, and .theme-toggle styling to style.css (Wave 1)
+- [ ] 04-02-PLAN.md — Add color-scheme + theme-color meta tags and the inline head IIFE bootstrap to baseof.html (Wave 1, parallel to 04-01)
+- [ ] 04-03-PLAN.md — Append theme-toggle button to header.html, add end-of-body click handler IIFE to baseof.html, and run the THEME-06 dark-mode smoke-test on /blog/2026-03-05-climbing-routes/ (Wave 2, depends on 04-01 + 04-02)
 **UI hint**: yes
 
 ### Phase 5: Wordmark + Favicon Wiring
