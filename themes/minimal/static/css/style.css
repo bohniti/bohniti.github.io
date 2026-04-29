@@ -98,6 +98,29 @@ body {
   color: var(--accent);
 }
 
+.theme-toggle {
+  /* match .site-nav a typography (D-08) */
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  /* button reset */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+}
+
+.site-nav a:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* === Post List (Home) === */
 .post-list {
   list-style: none;
