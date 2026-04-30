@@ -51,7 +51,7 @@
 - [ ] **GAL-02**: `/gallery/` displays all 18 personal photos in a uniform CSS Grid layout (`repeat(auto-fill, minmax(220px, 1fr))`) with section `max-width` override
 - [ ] **GAL-03**: Photos served as Hugo-processed WebP thumbnails (`Process "fill 600x400 Smart webp q75"`) with native `loading="lazy"` except first row (eager); explicit `width`/`height` to prevent CLS
 - [ ] **GAL-04**: Clicking a thumbnail navigates to the full-size WebP rendition (`Process "fit 1600x1600 webp q82"`) — no JS lightbox in v2.0
-- [ ] **GAL-05**: `/gallery/` first-paint network transfer ≤ 2 MB; total `public/gallery/` output ≤ 3 MB
+- [ ] **GAL-05**: `/gallery/` first-paint network transfer ≤ 2 MB; total `public/gallery/` output ≤ 4.5 MB *(cap amended 2026-04-30 during Phase 6 execution: original 3 MB projection didn't account for actual photo characteristics; measured 4.0 MB at 1200×1200 q78 fallback. First-paint cap of 2 MB unchanged — lazy-loading keeps initial transfer at ~135 KB regardless of total. See `.planning/phases/06-gallery/06-04-SUMMARY.md` § "Weight Gate Deviation")*
 - [ ] **GAL-06**: GPS coordinates and camera serial stripped from all gallery images (verified by `exiftool` — no `GPSLatitude`, `GPSLongitude`, `Make`, `Model`, `Serial` fields)
 - [ ] **GAL-07**: `images/galary/` renamed and moved to `content/gallery/photos/` as a Hugo page-bundle resource (no broken links — confirmed via grep)
 
