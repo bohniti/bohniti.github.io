@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 3: Brand Asset Slicing** - Slice `images/logos.png` sprite into 8 individual PNGs via reproducible Pillow script *(v2.0)*
 - [ ] **Phase 4: Theming Foundation** - CSS-variable refactor + dark palette + no-flash inline `<head>` toggle bootstrap with accessibility *(v2.0)*
 - [ ] **Phase 5: Wordmark + Favicon Wiring** - Header wordmark images swap by `[data-theme]`; 3-file favicon set wired into `<head>` *(v2.0)*
-- [ ] **Phase 6: Gallery** - `/gallery/` page bundle with Hugo-processed WebP, EXIF-stripped, CLS-clean grid *(v2.0)*
+- [x] **Phase 6: Gallery** - `/gallery/` page bundle with Hugo-processed WebP, EXIF-stripped, CLS-clean grid *(v2.0)*
 - [ ] **Phase 7: About Enrichment** - Convert About to leaf bundle with inline personal photos *(v2.0)*
 
 ## Phase Details
@@ -120,10 +120,10 @@ Plans:
   5. `images/galary/` no longer exists in the repo; the photos live as page-bundle resources at `content/gallery/photos/`; `grep -r galary` over the repo returns zero hits in `content/`, `themes/`, and `hugo.toml`
 **Plans:** 4 plans
 Plans:
-- [ ] 06-01-PLAN.md — Move 18 photos to content/gallery/photos via git mv, exiftool source-side scrub, retire images/galary/ (Wave 1; checkpoint for brew install hugo+exiftool)
-- [ ] 06-02-PLAN.md — Site infrastructure: hugo.toml Gallery menu + [imaging.exif] disableLatLong; baseof.html body-class hook; style.css /* === Gallery === */ section (Wave 1, parallel to 06-01)
-- [ ] 06-03-PLAN.md — Gallery leaf bundle: content/gallery/index.md + themes/minimal/layouts/gallery/single.html with image.Process pipeline + locked attribute mix (Wave 2, depends on 06-02)
-- [ ] 06-04-PLAN.md — Cold-build smoke test, EXIF + weight + render gates, measure-then-adjust authority, write 06-HUMAN-UAT.md (Wave 3, depends on 06-01 + 06-02 + 06-03)
+- [x] 06-01-PLAN.md — Move 18 photos to content/gallery/photos via git mv, exiftool source-side scrub, retire images/galary/ (Wave 1; checkpoint for brew install hugo+exiftool)
+- [x] 06-02-PLAN.md — Site infrastructure: hugo.toml Gallery menu + [imaging.exif] disableLatLong; baseof.html body-class hook; style.css /* === Gallery === */ section (Wave 1, parallel to 06-01)
+- [x] 06-03-PLAN.md — Gallery leaf bundle: content/gallery/index.md + themes/minimal/layouts/gallery/single.html with image.Process pipeline + locked attribute mix (Wave 2, depends on 06-02)
+- [x] 06-04-PLAN.md — Cold-build smoke test, EXIF + weight + render gates, measure-then-adjust authority, write 06-HUMAN-UAT.md (Wave 3, depends on 06-01 + 06-02 + 06-03)
 **UI hint**: yes
 **Research flag**: Recommend `/gsd-research-phase` during planning — empirical thumbnail-dimension / WebP-quality / srcset-breakpoint tuning against the actual 18 photos benefits from pre-flight measurement (largest source is 7.5 MB, smallest 150 KB).
 
@@ -150,5 +150,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. Brand Asset Slicing | 0/1 | Not started | - |
 | 4. Theming Foundation | 0/0 | Not started | - |
 | 5. Wordmark + Favicon Wiring | 0/0 | Not started | - |
-| 6. Gallery | 0/4 | Not started | - |
+| 6. Gallery | 4/4 | Complete | 2026-04-30 |
 | 7. About Enrichment | 0/0 | Not started | - |
