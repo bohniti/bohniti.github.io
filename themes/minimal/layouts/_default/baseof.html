@@ -23,7 +23,7 @@
   </script>
   <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
 </head>
-<body>
+<body class="page-{{ .Type | default "default" }}">
   <div class="site-wrapper">
     {{ partial "header.html" . }}
     <main>
