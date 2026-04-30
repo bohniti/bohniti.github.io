@@ -118,7 +118,12 @@ Plans:
   3. `exiftool public/gallery/**/*.{webp,jpg}` after `hugo --minify` shows zero `GPSLatitude`, `GPSLongitude`, `Make`, `Model`, or `Serial*` fields on every output; `[imaging.exif] disableLatLong = true` is set in `hugo.toml` belt-and-suspenders
   4. `/gallery/` first-paint network transfer (DevTools Network tab) is ≤ 2 MB; total `du -sh public/gallery/` ≤ 3 MB; Lighthouse Mobile CLS < 0.1 on the page
   5. `images/galary/` no longer exists in the repo; the photos live as page-bundle resources at `content/gallery/photos/`; `grep -r galary` over the repo returns zero hits in `content/`, `themes/`, and `hugo.toml`
-**Plans:** TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 06-01-PLAN.md — Move 18 photos to content/gallery/photos via git mv, exiftool source-side scrub, retire images/galary/ (Wave 1; checkpoint for brew install hugo+exiftool)
+- [ ] 06-02-PLAN.md — Site infrastructure: hugo.toml Gallery menu + [imaging.exif] disableLatLong; baseof.html body-class hook; style.css /* === Gallery === */ section (Wave 1, parallel to 06-01)
+- [ ] 06-03-PLAN.md — Gallery leaf bundle: content/gallery/index.md + themes/minimal/layouts/gallery/single.html with image.Process pipeline + locked attribute mix (Wave 2, depends on 06-02)
+- [ ] 06-04-PLAN.md — Cold-build smoke test, EXIF + weight + render gates, measure-then-adjust authority, write 06-HUMAN-UAT.md (Wave 3, depends on 06-01 + 06-02 + 06-03)
 **UI hint**: yes
 **Research flag**: Recommend `/gsd-research-phase` during planning — empirical thumbnail-dimension / WebP-quality / srcset-breakpoint tuning against the actual 18 photos benefits from pre-flight measurement (largest source is 7.5 MB, smallest 150 KB).
 
@@ -145,5 +150,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 3. Brand Asset Slicing | 0/1 | Not started | - |
 | 4. Theming Foundation | 0/0 | Not started | - |
 | 5. Wordmark + Favicon Wiring | 0/0 | Not started | - |
-| 6. Gallery | 0/0 | Not started | - |
+| 6. Gallery | 0/4 | Not started | - |
 | 7. About Enrichment | 0/0 | Not started | - |
