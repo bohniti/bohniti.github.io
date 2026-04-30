@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Brand & Gallery
-status: verifying
+status: executing
 stopped_at: Phase 7 planned (4 plans, HUMAN-UAT blocker for photos in 07-03)
-last_updated: "2026-04-30T14:10:31.245Z"
-last_activity: 2026-04-30 -- Phase 6 (gallery) complete
+last_updated: "2026-04-30T14:35:17.890Z"
+last_activity: 2026-04-30
 progress:
   total_phases: 8
   completed_phases: 5
   total_plans: 19
-  completed_plans: 15
-  percent: 79
+  completed_plans: 16
+  percent: 84
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-28)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 7 — About Enrichment (next; not yet planned)
+**Current focus:** Phase 07 — about-enrichment
 
 ## Current Position
 
-Phase: 6 (gallery) — COMPLETE
-Plan: 4 of 4
-Status: Phase 6 complete; Phase 6 HUMAN-UAT items pending post-deploy verification
-Last activity: 2026-04-30 -- Phase 6 (gallery) complete
+Phase: 07 (about-enrichment) — EXECUTING
+Plan: 2 of 4
+Status: Ready to execute
+Last activity: 2026-04-30
 
-Progress: [########  ] 86% (6/7 phases complete; Phase 7 — About Enrichment — not yet planned)
+Progress: [████████░░] 84%
 
 ## Performance Metrics
 
@@ -61,6 +61,7 @@ Progress: [########  ] 86% (6/7 phases complete; Phase 7 — About Enrichment �
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 07 P01 | 6m | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,8 @@ Recent decisions affecting current work:
 - v2.0: Two-image CSS toggle for wordmark (not `<picture>` + `prefers-color-scheme`); each variant must be ≤ 30 KB
 - v2.0: Hugo `image.Process` page-bundle pipeline for gallery (WebP only, no AVIF — Hugo 0.157 doesn't support it)
 - v2.0: Phase 6 (Gallery) recommended for `/gsd-research-phase` during planning; other v2.0 phases use locked-in patterns
+- [Phase ?]: Phase 07 P01: Hugo render-image hook with three-arm title-keyword switch (hero 480x600 q80, grid 400x300 q75, default 800x600 q78) plus defensive passthrough fallback — deferred Phase 6 follow-up now codebase-validated infrastructure
+- [Phase ?]: Phase 07 P01: Used cooking.JPG (uppercase) in markdown image ref to match filesystem case — Hugo GetMatch is case-sensitive; lowercase would force defensive fallback and lose CLS-clean width/height
 
 ### Pending Todos
 
@@ -101,8 +104,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-30T14:10:31.230Z
+Last session: 2026-04-30T14:34:08.522Z
 Stopped at: Phase 7 planned (4 plans, HUMAN-UAT blocker for photos in 07-03)
-Resume file: .planning/phases/07-about-enrichment/07-01-PLAN.md
+Resume file: None
 
 **Next Phase:** 07 (About Enrichment) — not yet planned; recommended entry point `/gsd-discuss-phase 7` or `/gsd-ui-phase 7`
