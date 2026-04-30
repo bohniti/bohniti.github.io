@@ -14,9 +14,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Article Refinement** - Replace node tree screenshot with Mermaid diagram and sharpen node descriptions with values and tips *(v1.0)*
 - [x] **Phase 2: Footer Instagram Link** - Add Instagram icon to site footer matching minimal aesthetic *(v1.0)*
-- [ ] **Phase 3: Brand Asset Slicing** - Slice `images/logos.png` sprite into 8 individual PNGs via reproducible Pillow script *(v2.0)*
-- [ ] **Phase 4: Theming Foundation** - CSS-variable refactor + dark palette + no-flash inline `<head>` toggle bootstrap with accessibility *(v2.0)*
-- [ ] **Phase 5: Wordmark + Favicon Wiring** - Header wordmark images swap by `[data-theme]`; 3-file favicon set wired into `<head>` *(v2.0)*
+- [x] **Phase 3: Brand Asset Slicing** - Slice `images/logos.png` sprite into 8 individual PNGs via reproducible Pillow script *(v2.0)* *(superseded by Phase 05.1 — sliced PNGs retired in favor of native SVG sources)*
+- [x] **Phase 4: Theming Foundation** - CSS-variable refactor + dark palette + no-flash inline `<head>` toggle bootstrap with accessibility *(v2.0)*
+- [x] **Phase 5: Wordmark + Favicon Wiring** - Header wordmark images swap by `[data-theme]`; 3-file favicon set wired into `<head>` *(v2.0)*
+- [x] **Phase 05.1: Swap wordmark + favicon to new SVG sources (INSERTED)** - Migrate from PNG sprite to native SVG sources via Hugo `readFile` inline + cairosvg favicon pipeline *(v2.0)*
 - [x] **Phase 6: Gallery** - `/gallery/` page bundle with Hugo-processed WebP, EXIF-stripped, CLS-clean grid *(v2.0)*
 - [ ] **Phase 7: About Enrichment** - Convert About to leaf bundle with inline personal photos *(v2.0)*
 
@@ -147,8 +148,9 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 |-------|----------------|--------|-----------|
 | 1. Article Refinement | 2/2 | Complete | 2026-04-27 |
 | 2. Footer Instagram Link | 1/1 | Complete | 2026-04-27 |
-| 3. Brand Asset Slicing | 0/1 | Not started | - |
-| 4. Theming Foundation | 0/0 | Not started | - |
-| 5. Wordmark + Favicon Wiring | 0/0 | Not started | - |
-| 6. Gallery | 4/4 | Complete | 2026-04-30 |
+| 3. Brand Asset Slicing | 1/1 | Complete (superseded by 05.1) | 2026-04-28 |
+| 4. Theming Foundation | 3/3 | Complete | 2026-04-28 |
+| 5. Wordmark + Favicon Wiring | 3/3 | Complete | 2026-04-29 |
+| 05.1. Swap wordmark + favicon to SVG | 4/4 | Complete | 2026-04-29 |
+| 6. Gallery | 4/4 | Complete (HUMAN-UAT pending) | 2026-04-30 |
 | 7. About Enrichment | 0/0 | Not started | - |

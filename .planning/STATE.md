@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: (current)
-status: executing
-stopped_at: Phase 6 execution complete
+milestone: v2.0
+milestone_name: Brand & Gallery
+status: phase_complete
+stopped_at: Phase 6 complete; Phase 7 not yet planned
 last_updated: "2026-04-30T09:02:36.525Z"
-last_activity: 2026-04-30 -- Phase 6 execution started
+last_activity: 2026-04-30 -- Phase 6 (gallery) complete
 progress:
-  total_phases: 8
-  completed_phases: 5
+  total_phases: 7
+  completed_phases: 6
   total_plans: 15
   completed_plans: 15
-  percent: 100
+  percent: 86
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-28)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 6 — gallery
+**Current focus:** Phase 7 — About Enrichment (next; not yet planned)
 
 ## Current Position
 
-Phase: 6 (gallery) — EXECUTING
-Plan: 1 of 4
-Status: Executing Phase 6
-Last activity: 2026-04-30 -- Phase 6 execution started
+Phase: 6 (gallery) — COMPLETE
+Plan: 4 of 4
+Status: Phase 6 complete; Phase 6 HUMAN-UAT items pending post-deploy verification
+Last activity: 2026-04-30 -- Phase 6 (gallery) complete
 
-Progress: [##        ] 20% (1/5 v2.0 phases complete; Phase 04 ready for verification)
+Progress: [########  ] 86% (6/7 phases complete; Phase 7 — About Enrichment — not yet planned)
 
 ## Performance Metrics
 
@@ -102,7 +102,7 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-04-30T09:02:36.510Z
-Stopped at: Phase 6 execution complete
+Stopped at: Phase 6 complete; ready to plan Phase 7
 Resume file: .planning/phases/06-gallery/06-04-SUMMARY.md
 
-**Planned Phase:** 05.1 (Swap wordmark + favicon to new SVG sources) — 4 plans — 2026-04-29T19:04:47.383Z
+**Next Phase:** 07 (About Enrichment) — not yet planned; recommended entry point `/gsd-discuss-phase 7` or `/gsd-ui-phase 7`
