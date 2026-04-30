@@ -136,7 +136,12 @@ Plans:
   1. `content/about.md` no longer exists; `content/about/index.md` (leaf bundle) is the new source; the rendered URL `/about/` is unchanged (verified by hitting the deployed URL)
   2. The About page renders multiple personal photos in a richer layout (second column / photo grid / pull-quote rules added to `style.css`) — not a single-column inline-only stream
   3. All About-page images live under `content/about/images/` as page-bundle resources, render with explicit `width`/`height` to prevent CLS, and read correctly in both light and dark themes
-**Plans:** TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 07-01-PLAN.md — Render-image hook + About leaf-bundle scaffold (Wave 1)
+- [ ] 07-02-PLAN.md — Append /* === About === */ CSS section (hero/pullquote/grid + mobile overrides) to style.css (Wave 1, parallel to 07-01)
+- [ ] 07-03-PLAN.md — Photo arrival HUMAN-UAT + dimension precheck + EXIF source-side scrub (Wave 2, depends on 07-01)
+- [ ] 07-04-PLAN.md — Cold build, run all 5 verification gates, delete legacy content/about.md, write 07-HUMAN-UAT.md (Wave 3, depends on 07-01 + 07-02 + 07-03)
 **UI hint**: yes
 
 ## Progress
