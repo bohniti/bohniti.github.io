@@ -1,0 +1,21 @@
+{{- $resource := .Page.Resources.GetMatch (printf "%s" .Destination) -}}
+{{- if $resource -}}
+  {{- $title := .Title | default "" -}}
+  {{- $isHero := eq $title "hero" -}}
+  {{- $isGrid := eq $title "grid" -}}
+  {{- $processed := "" -}}
+  {{- if $isHero -}}
+    {{- $processed = $resource.Process "fill 480x600 Smart webp q80" -}}
+  {{- else if $isGrid -}}
+    {{- $processed = $resource.Process "fill 400x300 Smart webp q75" -}}
+  {{- else -}}
+    {{- $processed = $resource.Process "fill 800x600 Smart webp q78" -}}
+  {{- end -}}
+  <img src="{{ $processed.RelPermalink }}"
+       width="{{ $processed.Width }}"
+       height="{{ $processed.Height }}"
+       alt="{{ .Text }}"
+       {{- if $isHero }} class="about-hero-img" loading="eager" fetchpriority="high"{{ else if $isGrid }} class="about-grid-item" loading="lazy" decoding="async"{{ else }} loading="lazy" decoding="async"{{ end -}}>
+{{- else -}}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
+{{- end -}}
