@@ -23,9 +23,17 @@ enableRobotsTXT = true
     url = "/blog/"
     weight = 1
   [[menu.main]]
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 2
+  [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 2
+    weight = 3
+
+[imaging]
+  [imaging.exif]
+    disableLatLong = true
 
 [privacy]
   [privacy.disqus]
