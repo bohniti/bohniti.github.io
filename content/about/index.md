@@ -1,5 +1,6 @@
 ---
 title: "About"
+type: "about"
 ---
 
 <div class="about-hero">
