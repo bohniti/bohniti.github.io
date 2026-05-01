@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Brand & Gallery
-status: executing
-stopped_at: Phase 7 plan 3 complete (photos committed; Plan 07-04 cutover next)
-last_updated: "2026-05-01T07:42:27.119Z"
+status: complete
+stopped_at: Phase 7 complete; milestone v2.0 100% (HUMAN-UAT pending after deploy)
+last_updated: "2026-05-01T07:49:30.000Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 8
-  completed_phases: 5
+  completed_phases: 8
   total_plans: 19
-  completed_plans: 18
-  percent: 95
+  completed_plans: 19
+  percent: 100
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-04-28)
 
 ## Current Position
 
-Phase: 07 (about-enrichment) — EXECUTING
-Plan: 4 of 4
-Status: Ready to execute
+Phase: 07 (about-enrichment) — COMPLETE
+Plan: 4 of 4 (all complete)
+Status: Milestone v2.0 100% — HUMAN-UAT pending after deploy
 Last activity: 2026-05-01
 
-Progress: [██████████] 95%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
@@ -64,6 +64,7 @@ Progress: [██████████] 95%
 | Phase 07 P01 | 6m | 2 tasks | 3 files |
 | Phase 07 P02 | 4m | 2 tasks | 2 files |
 | Phase 07 P03 | 1m | 2 tasks | 5 files |
+| Phase 07 P04 | 5m | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,9 @@ Recent decisions affecting current work:
 - [Phase ?]: Phase 07 P03: Preserved cooking.JPG uppercase extension on disk to match Plan 07-01 case-corrected markdown ref; renaming to lowercase would require touching the markdown which is out of scope for an asset-arrival plan
 - [Phase ?]: Phase 07 P03: exiftool reported '5 unchanged' on the D-17 scrub because targeted GPS/Make/Model/Serial fields were already absent from sources (likely AirDrop pre-stripped); D-27 verification gate is source-of-truth and passed with zero matching field rows
 - [Phase ?]: Phase 07 P03: Did NOT broaden EXIF scrub to LensMake/LensModel/CreatorTool — D-17 explicitly enumerates GPS/Make/Model/Serial scope; broadening is future privacy-hardening, not asset-arrival
+- [Phase ?]: Phase 07 P04: D-26 verify regex used quoted attribute values (`width="N"`) which Hugo --minify strips — verified the underlying invariant (5/5 About images have explicit width + height) directly via minify-aware grep instead of patching the historical plan file
+- [Phase ?]: Phase 07 P04: Auto-fixed 2 stale `content/about.md` refs in CLAUDE.md (Rule 2 — D-30 cleanup contract requires zero stale refs in tracked source files) and added `.claude/` to .gitignore (Rule 2 — agent runtime mirror copies should never be tracked)
+- [Phase ?]: Phase 07 P04: Phase 7 complete; milestone v2.0 reaches 100% with HUMAN-UAT deferred to post-deploy checklist at .planning/phases/07-about-enrichment/07-HUMAN-UAT.md
 
 ### Pending Todos
 
@@ -112,8 +116,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-01T07:42:27.106Z
-Stopped at: Phase 7 plan 3 complete (photos committed; Plan 07-04 cutover next)
+Last session: 2026-05-01T07:49:30.000Z
+Stopped at: Phase 7 complete; milestone v2.0 100% (HUMAN-UAT pending post-deploy)
 Resume file: None
 
-**Next Phase:** 07 (About Enrichment) — not yet planned; recommended entry point `/gsd-discuss-phase 7` or `/gsd-ui-phase 7`
+**Next Phase:** None — milestone v2.0 complete. User next action: push commits, watch GitHub Actions deploy, then run `.planning/phases/07-about-enrichment/07-HUMAN-UAT.md` checklist against deployed `https://tbohnstedt.cloud/about/` URL.

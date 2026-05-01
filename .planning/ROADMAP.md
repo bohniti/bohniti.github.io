@@ -19,7 +19,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 5: Wordmark + Favicon Wiring** - Header wordmark images swap by `[data-theme]`; 3-file favicon set wired into `<head>` *(v2.0)*
 - [x] **Phase 05.1: Swap wordmark + favicon to new SVG sources (INSERTED)** - Migrate from PNG sprite to native SVG sources via Hugo `readFile` inline + cairosvg favicon pipeline *(v2.0)*
 - [x] **Phase 6: Gallery** - `/gallery/` page bundle with Hugo-processed WebP, EXIF-stripped, CLS-clean grid *(v2.0)*
-- [ ] **Phase 7: About Enrichment** - Convert About to leaf bundle with inline personal photos *(v2.0)*
+- [x] **Phase 7: About Enrichment** - Convert About to leaf bundle with inline personal photos *(v2.0)*
 
 ## Phase Details
 
@@ -141,7 +141,7 @@ Plans:
 - [x] 07-01-PLAN.md — Render-image hook + About leaf-bundle scaffold (Wave 1)
 - [x] 07-02-PLAN.md — Append /* === About === */ CSS section (hero/pullquote/grid + mobile overrides) to style.css (Wave 1, parallel to 07-01)
 - [x] 07-03-PLAN.md — Photo arrival HUMAN-UAT + dimension precheck + EXIF source-side scrub (Wave 2, depends on 07-01)
-- [ ] 07-04-PLAN.md — Cold build, run all 5 verification gates, delete legacy content/about.md, write 07-HUMAN-UAT.md (Wave 3, depends on 07-01 + 07-02 + 07-03)
+- [x] 07-04-PLAN.md — Cold build, run all 5 verification gates, delete legacy content/about.md, write 07-HUMAN-UAT.md (Wave 3, depends on 07-01 + 07-02 + 07-03)
 **UI hint**: yes
 
 ## Progress
@@ -158,4 +158,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 | 5. Wordmark + Favicon Wiring | 3/3 | Complete | 2026-04-29 |
 | 05.1. Swap wordmark + favicon to SVG | 4/4 | Complete | 2026-04-29 |
 | 6. Gallery | 4/4 | Complete (HUMAN-UAT pending) | 2026-04-30 |
-| 7. About Enrichment | 0/0 | Not started | - |
+| 7. About Enrichment | 4/4 | Complete (HUMAN-UAT pending) | 2026-05-01 |
