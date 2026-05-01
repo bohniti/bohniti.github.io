@@ -13,9 +13,20 @@ The blog should be a polished, technical reference that's useful for future-me �
 - **v1.0 Targeted Refinement** (2026-04-27) — Mermaid-diagrammed video editing post + Instagram footer link.
 - **v2.0 Brand & Gallery** (2026-05-01) — coherent visual identity (logo + dark/light theming), `/gallery/` page, enriched About. The site looks unmistakably like *Timo's site* on every page in either theme.
 
-## Current Milestone
+## Current Milestone: v3.0 Design Update
 
-None active. Run `/gsd-new-milestone` to scope v3.0.
+**Goal:** Refine three rough edges in the v2.0 design — theme toggle, gallery, and about page — without changing the underlying Flexoki/Kindle/Obsidian-minimal aesthetic.
+
+**Target features:**
+- Replace text-button theme toggle with simple SVG sun/moon icon (GitHub-style, same header position, no emoji)
+- Gallery refactor: lightbox modal with blurred backdrop instead of standalone-image navigation; randomized layout that preserves each photo's original aspect ratio (masonry-style, not uniform grid); 1–2 sentence caption per image; easy authoring path for adding photos + captions
+- About page redesign: more dynamic and rounded layout (reference: tylerkarow.com/about) that balances climbing with professional background; same minimal aesthetic, less rigid
+
+**Key context:**
+- Aesthetic stays Flexoki — site should still feel "like a Kindle or Obsidian" in either theme
+- Reference for gallery feel: http://tylerkarow.com/gallery
+- About content must broaden beyond climbing to include professional background (currently climbing-heavy after Phase 7 enrichment)
+- All v2.0 invariants hold: no JS framework, vanilla JS only, no flash on load, accessible toggle, EXIF-scrubbed gallery, ≤ 2 MB first-paint
 
 ## Requirements
 
@@ -40,7 +51,7 @@ None active. Run `/gsd-new-milestone` to scope v3.0.
 
 ### Active
 
-(None — v2.0 shipped. New requirements arrive with the next milestone.)
+(v3.0 requirements arrive after research → see `.planning/REQUIREMENTS.md`.)
 
 ### Out of Scope
 
@@ -105,4 +116,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-01 — v2.0 Brand & Gallery shipped. All 24 v2 requirements complete; HUMAN-UAT for Phases 05/05.1/06/07 deferred to post-deploy verification at https://tbohnstedt.cloud/*
+*Last updated: 2026-05-01 — v3.0 Design Update started. Refining theme toggle, gallery, about page within Flexoki aesthetic.*
