@@ -1,235 +1,389 @@
-# Feature Research
+# Feature Research — v3.0 Design Update
 
-**Domain:** Personal Hugo blog — brand identity (logo, theming) + photo gallery + richer About page
-**Researched:** 2026-04-28
-**Confidence:** HIGH (all six target features map to well-established 2026 patterns on personal/static sites)
+**Domain:** Personal Hugo site polish — three rough edges (theme toggle icon, gallery lightbox + masonry + captions, About redesign) within Flexoki/Kindle/Obsidian-minimal aesthetic
+**Researched:** 2026-05-01
+**Confidence:** HIGH (existing codebase fully read; UX patterns verified against MDN, web.dev, CSS-Tricks; reference sites tylerkarow.com/{gallery,about} fetched directly)
 
-## Scope
+## Scope Note
 
-This file scopes the **NEW** v2.0 features only. Existing capabilities (Hugo blog, page bundles, footer social cluster, Mermaid shortcode, single-stylesheet Flexoki light palette, About page text scaffold) are taken as given. The site's aesthetic constraint — **minimal Flexoki, vanilla JS only, no frameworks** — drives every recommendation below: when a "personal blog" pattern and an "enterprise SaaS" pattern diverge, we recommend the personal-blog one.
+v3.0 refines three already-shipped features (v2.0). This research focuses **only** on the deltas:
 
-The six target features are:
-1. Light/dark theme toggle in header
-2. Logo sprite sliced into 8 individual assets
-3. Branded header wordmark (replaces text title, swaps with theme)
-4. Browser favicon set wired into `<head>`
-5. Standalone `/gallery/` page with 18 photos
-6. About page enriched with inline personal photos
+- (a) **Theme-toggle icon** — replace text "Dark"/"Light" button with SVG sun/moon
+- (b) **Gallery refactor** — replace standalone-page navigation with lightbox modal; replace uniform CSS Grid with masonry-like layout; add per-photo captions
+- (c) **About redesign** — replace current rigid 2-col hero + 2-col grid with asymmetric, more rounded, professionally-balanced layout
+
+Existing infrastructure to **reuse** (do not re-research):
+
+- `[data-theme]` attribute + Flexoki light/dark CSS variables (`themes/minimal/static/css/style.css:4-33`)
+- No-FOUC IIFE in `<head>` (`themes/minimal/layouts/_default/baseof.html:11-23`)
+- localStorage `'theme'` key + OS `prefers-color-scheme` fallback
+- `aria-pressed` semantics on toggle button (`partials/header.html:11`)
+- Hugo `image.Process` page-bundle WebP pipeline at q75/q78/q82 (`gallery/single.html:10-11`, `_markup/render-image.html:7-13`)
+- `.theme-toggle:focus-visible` outline pattern (`style.css:117-122`)
+- `prefers-reduced-motion` guard on body transitions (`style.css:49-56`)
+- About leaf-bundle render-image hook keyed off image title (`hero` / `grid` / default)
+
+---
 
 ## Feature Landscape
 
-### Table Stakes (Users Expect These)
+### Table Stakes (Must-Have for It to Feel "Right")
 
-If the site claims "dark mode" or "branded", users penalize the absence of these. They are the bar to clear.
+#### (a) Theme-Toggle Icon Button
 
 | Feature | Why Expected | Complexity | Notes |
 |---------|--------------|------------|-------|
-| **No-flash theme on first paint** | A theme that flickers on every page load looks broken. The 2026 canonical pattern is an inline `<head>` script that reads `localStorage` then falls back to `prefers-color-scheme`, sets a `data-theme` attribute on `<html>` *before* CSS parses. | M | Inline in `baseof.html` `<head>` *before* the stylesheet link. Set `<html data-theme="dark|light">` synchronously. Use a `class="dark"` or `data-theme` attribute swap rather than `<picture>` media queries — only attribute swap respects the manual toggle. |
-| **OS preference detection (default)** | Visitor with system dark mode expects the site to honor it on first visit, with no explicit interaction. | S | `window.matchMedia('(prefers-color-scheme: dark)')` inside the inline init script. Gate behind the localStorage check (manual choice wins). |
-| **Persistence across pages and sessions** | Once the user toggles, every page on every visit should remember. | S | `localStorage.setItem('theme', 'dark')`. Read on every page load. Wrap in `try/catch` for private-browsing failures. |
-| **CSS variables for theme tokens** | Industry standard in 2026 — single source of color truth, swappable by attribute selector. | S | `:root { --bg: ...; --fg: ...; }` and `[data-theme="dark"] { --bg: ...; }`. Every existing Flexoki color reference in `style.css` becomes a `var(--*)` lookup. |
-| **`color-scheme` CSS + meta tag** | Tells the browser to render native UI (form controls, scrollbars) in matching mode and prevents white scrollbar flash. | S | `<meta name="color-scheme" content="light dark">` in `<head>`, plus `:root { color-scheme: light; }` and `[data-theme="dark"] { color-scheme: dark; }` in CSS. |
-| **Toggle button in header (right side)** | Convention on every personal blog with theming — same place every time, next to nav. | S | Add to `partials/header.html` after `.site-nav` or as its last item. Single icon button, no labelled switch widget. |
-| **Sun/moon icon swap** | The universally-understood theme toggle iconography. Inline SVG, current-color stroke. | S | Two SVGs, one shown per state via CSS (`[data-theme="dark"] .icon-sun { display: none; }`). Inline so they inherit `currentColor` and theme correctly. |
-| **`aria-label` + keyboard reachable** | Accessibility floor for any icon-only button. | S | `<button type="button" aria-label="Switch to dark theme" aria-pressed="false">`. Update `aria-pressed` on toggle. Native `<button>` is keyboard-reachable for free. |
-| **`prefers-reduced-motion` honored** | Listed as a constraint in PROJECT.md and a 2026 a11y baseline. | S | Wrap any `transition` rules in `@media (prefers-reduced-motion: no-preference)`. |
-| **Logo asset slicing (8 files)** | The sprite is unusable as-is for `<img>` tags. Each variant (logo / icon / minimum / favicon × dark / light) needs its own file. | S | Manual slice to PNG once; export SVG if available. Place in `static/images/brand/` (or `themes/minimal/static/`). 8 files total per PROJECT.md. |
-| **Wordmark in header swaps per theme** | If the brand only renders correctly in one theme, theming is half-broken. | S | Two approaches — recommend **attribute-driven CSS swap** so it works with the manual toggle (see Pitfalls/Architecture). |
-| **Favicon — 16/32 PNG + 180 Apple touch + 192/512 manifest + ICO fallback** | The 2026 baseline matrix per evilmartians and faviconstudio. | S | Six files. `favicon.ico` (multi-size 16/32/48), `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`. Optionally an SVG with embedded `prefers-color-scheme` media query for dark-aware tab icon (Chrome/Firefox/Edge only). |
-| **Favicon `<link>` tags in `<head>`** | Without these, browsers fall back to `/favicon.ico` only and miss the high-DPI / mobile sizes. | S | Six `<link rel="...">` tags in `baseof.html` `<head>`. Add `<link rel="manifest" href="/site.webmanifest">` for PWA install on Android. |
-| **Gallery in main nav** | A page nobody can find isn't a feature. | XS | Add to `[[menu.main]]` in `hugo.toml`. |
-| **Uniform photo grid (CSS Grid)** | The minimal-aesthetic default. Personal photographers' sites in 2026 overwhelmingly use uniform grids over masonry; masonry implies a portfolio with curation, uniform implies a journal. Fits Flexoki. | S | `display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px;`. Square or 4:3 thumbnails via `aspect-ratio` + `object-fit: cover`. |
-| **Lazy-loaded thumbnails** | 18 photos × ~1 MB raw = 18 MB. Native `loading="lazy"` ships in every major browser since 2020. | S | `<img loading="lazy" decoding="async" width="..." height="...">`. **Always** set width/height to prevent CLS. |
-| **Web-optimized photos (resize + compress)** | 7.5 MB source images on a personal blog kill mobile data and Lighthouse. Hugo Extended has built-in image processing. | M | Hugo: `{{ $thumb := $img.Resize "640x webp q82" }}` + a larger `1280x` version for `srcset`. Generates responsive sizes at build. |
-| **`srcset` + `sizes` for responsive thumbnails** | Same image at 320/640/1280 served per-viewport. Standard 2026 pattern. | M | `<img srcset="thumb-320.webp 320w, thumb-640.webp 640w, thumb-1280.webp 1280w" sizes="(max-width: 600px) 100vw, 33vw">`. Hugo loop builds this. |
-| **Inline photos in About page** | Without photos, "richer About" is just text. | XS | Goldmark `unsafe = true` is already on. Use plain Markdown image syntax with relative paths — convert About to a page bundle so images co-locate. |
-| **About page becomes a page bundle** | Required to co-locate inline photos with content (matches existing blog post convention). | S | Move `content/about.md` → `content/about/index.md`, add `images/` folder beside it. Hugo URL stays `/about/`. |
+| **Icon shows current state, not target** | Industry convention (web.dev, MDN, GitHub): sun-when-light, moon-when-dark. Inverting confuses users — they read the icon as "where I am" not "where I'll go". | LOW | Toggle JS already swaps state — just swap which `<svg>` is visible (or use one SVG with CSS) instead of swapping `textContent`. |
+| **`aria-label` describes the action (target state)** | Screen-reader convention: "Switch to dark mode" / "Switch to light mode" — the button **does** something, the label says what. Distinct from the visual icon (which shows current state). | LOW | Current button has no `aria-label` — relies on text content. Removing text means adding label. Update label in same JS branch that toggles `aria-pressed`. |
+| **`aria-pressed` retained** | Already present — communicates "this is a toggle, currently on/off". Removing it is a regression. | LOW | Keep `aria-pressed="true"` when dark, `"false"` when light. |
+| **Keyboard activation works** | `<button>` already gives Enter + Space for free. Don't lose this by switching to `<a>` or `<div>`. | LOW | Keep `<button type="button">`. |
+| **`focus-visible` outline preserved** | Existing `.theme-toggle:focus-visible` rule works for any focusable element — keep it. | LOW | No change needed; outline targets the button regardless of inner content. |
+| **Same header position + size budget** | Stated milestone constraint. Replacing text "Dark" (≈30px wide) with a 16–20px icon means the header layout shifts unless the button reserves comparable hit area. | LOW | Set explicit button size (e.g., 24×24 or 32×32) so flex gap stays balanced. |
+| **No FOUC of icon state** | Same problem as theme FOUC: server HTML can't know which icon to render. Solution: render both, hide the wrong one via CSS keyed on `[data-theme]`, OR have the head IIFE set the icon. | LOW | Cleanest: render both `<svg>` inside button, CSS hides one based on `:root[data-theme="dark"] .icon-sun { display: none }` — works at first paint with the existing IIFE. |
+| **Icon respects `currentColor`** | Existing wordmark already uses this pattern (Phase 05.1 D-01). Sun/moon must recolor with `var(--text)` so they read correctly in both themes. | LOW | Use `fill="currentColor"` or `stroke="currentColor"` on inline SVG. Same pattern as wordmark. |
+| **Icon visible at 16px** | Must be legible at small sizes — header is compact. Avoid finicky details that vanish. | LOW | Use a 24×24 viewBox with thick strokes (1.5–2px) or solid fills. GitHub Octicons-style works. |
+| **Tap target ≥ 24×24 on mobile** | WCAG 2.5.5 (AAA) recommends 44×44, AA recommends 24×24. Current text button is fine; an icon-only button is at risk if styled too tight. | LOW | Pad the button so its hit box is ≥ 24×24 even if the visual SVG is 18×18. |
 
-### Differentiators (Nice-to-have, Aligned with Core Value)
+#### (b) Lightbox Gallery
 
-These add polish without bloating the build. Every one of them stays inside the "minimal Flexoki, vanilla JS only" rails.
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Click thumbnail → fullscreen modal opens** | Universal lightbox UX since Lightbox2 (2008). Users assume click = enlarge, not navigate-away. | MEDIUM | Replace current `<a href="full.webp">` pattern with `<button data-lightbox-src="...">`. Hugo template change + new JS handler. |
+| **Backdrop dim + (optional) blur** | Focuses attention; signals modal-ness. Current behavior (full-page replace) loses gallery context. | LOW | `position: fixed; inset: 0; background: rgba(0,0,0,0.85);` + optional `backdrop-filter: blur(8px)`. Backdrop-filter has near-universal support in 2026 (Chromium, Firefox 103+, Safari 9+); rgba alone is fine fallback via `@supports`. |
+| **Esc key closes** | WAI-ARIA dialog pattern. Users press Esc reflexively. | LOW | Single `keydown` listener while modal is open. |
+| **Click outside image (on backdrop) closes** | Standard modal pattern. Click *on* image must NOT close (so users can click image to advance, or to inspect). | LOW | Distinguish backdrop click via `event.target === backdropEl`. |
+| **Arrow keys navigate prev/next** | Standard image-gallery pattern (Apple Photos, macOS Preview, every lightbox library). | LOW | `keydown` switch on ArrowLeft/ArrowRight. |
+| **Visible prev/next buttons** | Mobile users have no arrow keys; tap targets needed. Caret-left/caret-right SVGs in left/right edges of modal. | LOW | Hidden when only 1 photo (n/a here — 18 photos). |
+| **Visible close (X) button** | Discoverability — Esc is for keyboard users; visual close is for everyone else. Top-right corner. | LOW | 24×24 X icon, `aria-label="Close gallery"`. |
+| **Focus trapped inside modal** | WAI-ARIA dialog pattern. Tab cycles through modal controls (prev / image / next / close), doesn't leak to header nav. | MEDIUM | Listen for Tab; if focus would leave modal, redirect to first/last focusable element. ~15 LOC vanilla. |
+| **Focus restored to triggering thumbnail on close** | WAI-ARIA dialog pattern. User pressed Esc — focus must return where they came from, not jump to top. | LOW | Save `document.activeElement` on open; `.focus()` on close. |
+| **`role="dialog" aria-modal="true"`** | Screen readers announce modal vs page. Without this, blind users don't know they're in a modal. | LOW | Static attributes on the modal container. |
+| **`aria-labelledby` or `aria-label` on dialog** | Screen readers need a name for the dialog ("Photo viewer", "Gallery photo 3 of 18"). | LOW | `aria-label="Gallery photo {n} of {total}"`, updated as user navigates. |
+| **Body scroll locked while open** | If page scrolls under modal, users get disoriented. | LOW | `document.body.style.overflow = 'hidden'` on open, restore on close. (Save previous value.) |
+| **Caption visible inside lightbox** | The whole point of adding captions is for them to be **readable** in context — at thumbnail size, captions are too small or visually noisy. Lightbox is where captions tell the 1–2-sentence story. | LOW | Caption rendered below image in modal; styled to match site typography. |
+| **Aspect ratio preserved per photo** | Portraits and landscapes both look "right" — no awkward letterboxing or cropping. | LOW | Image's intrinsic dimensions drive rendered size; cap with `max-height: calc(100vh - 8rem)` + `max-width: 100%` + `object-fit: contain`. |
+| **Keyboard activation of thumbnails** | Thumbnails must be `<button>` (or `<a>` with click handler) so Tab+Enter opens lightbox. | LOW | Already true with current `<a>` pattern; preserve when refactoring. |
+
+##### Masonry Layout (Part of Gallery Refactor)
+
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Aspect ratio preserved per thumbnail** | Reference site (tylerkarow.com/gallery) preserves originals — that's the "feel". Current Hugo template crops to 600×400 via `fill Smart`. Must change to `fit` (no crop) or keep small crops but display at native ratio. | MEDIUM | Change Hugo `image.Process` from `fill 600x400 Smart` to `fit 600x600` (caps longest edge, preserves ratio). Width/height come from processed image. |
+| **Multi-column with vertical stacking (no row alignment)** | Defining feature of masonry — items stack as gaps fill, not aligned to rows. CSS Grid Level 1 forces row alignment; CSS Columns gives true masonry behavior. | MEDIUM | Use `column-count: 3; column-gap: 1rem;` + `break-inside: avoid` on each item. Pure CSS, no JS, no library. |
+| **Mobile reflow to 1–2 columns** | 3-col masonry on a 375px screen = 100px-wide photos. Unreadable. | LOW | Media queries: `column-count: 1` < 600px; `column-count: 2` 600–900px; `column-count: 3` > 900px. |
+| **No layout shift / CLS < 0.1** | Existing v2.0 invariant. CSS Columns + `aspect-ratio` on `<img>` (driven by intrinsic w/h attributes from Hugo) prevents shift. | LOW | Keep `width=` and `height=` attributes from Hugo `$thumb.Width/Height`. Preserves CLS guarantee. |
+| **No external masonry library** | Stack constraint: vanilla JS only, no JS frameworks, no npm deps. Masonry.js, Isotope, etc. are out. | N/A | CSS Columns is the answer. (Native CSS Grid `masonry` is in Working Draft as of 2026 but Safari support is partial — not yet safe to rely on without Columns fallback.) |
+
+##### Caption Authoring (Part of Gallery Refactor)
+
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Caption stored next to photo, not in template** | Author-friendly: dropping a new photo + writing 1 sentence shouldn't require touching HTML/JSON outside content/. | LOW | Hugo's native pattern: `resources` array in `content/gallery/index.md` frontmatter, with `params.caption` per photo. **Recommended.** |
+| **Photo discovery without explicit listing** | Currently `Resources.Match "photos/*"` auto-discovers all photos in `photos/` — adding a JPG = it appears. Don't break this. | MEDIUM | Frontmatter `resources` entries can use **glob `src` patterns** to assign params to many resources at once, OR be listed individually. For per-photo captions, individual entries are needed (no other way to match caption to file). |
+| **Sensible default when caption missing** | If author drops a photo and forgets the caption, gallery shouldn't break. | LOW | Template `{{ with $photo.Params.caption }}…{{ end }}` — caption is optional. Lightbox shows photo without caption section if absent. |
+| **1–2 sentences, plain text** | Stated requirement — short story, not a paragraph. | LOW | No markdown processing needed. Plain string. |
+
+#### (c) About Redesign
+
+| Feature | Why Expected | Complexity | Notes |
+|---------|--------------|------------|-------|
+| **Single-column primary axis** | Reference site (tylerkarow.com/about) uses single column with alternating image/text — feels narrative, not dashboard-like. Matches Flexoki/Obsidian/Kindle "long-form reading" aesthetic. | LOW | Current About already vertically structured; keep core flow, just lighten section breaks and rebalance widths. |
+| **Professional content present, not buried** | Stated requirement: balance climbing with professional background. Currently, professional content **is** present (Erste Group, Accenture, Siemens, education) but may feel rigid in tabular layout. | LOW | Restructure into prose-style sections with role highlights as soft callouts, not dense bullet lists. |
+| **Climbing/personal content present, not dominant** | Stated requirement: post-Phase 7 enrichment is "climbing-heavy". Reduce climbing surface area or weave it into a single "Outside Work" section instead of competing for hero space. | LOW | Move climbing/cycling/running/cooking grid to a smaller, latter section. Keep portrait at top. |
+| **Photo-text interleaving** | Reference pattern — photos punctuate prose at narrative breaks, not in a separate "gallery" block. | MEDIUM | Use existing render-image hook (already keys off title); add a 3rd variant ("inline") for photos that sit between text sections. Or use an in-between size that doesn't look like the hero or grid. |
+| **Hero portrait + intro retained** | Already shipped, works, on-brand. Don't redo what's working. | LOW | Keep `about-hero` 2-col grid for top section. |
+| **CV link visible** | Already present (`Download full CV (PDF)`). Critical professional element — don't lose during redesign. | LOW | Keep prominent in hero or near professional section. |
+| **Responsive mobile reflow** | All multi-column/asymmetric layouts must collapse to single column < 600px. Existing pattern is the precedent. | LOW | Existing `@media (max-width: 600px)` rules for `.about-hero` and `.about-grid` already do this. New sections follow same pattern. |
+| **No FOUC, no theme break** | Layout changes must preserve dark-mode contrast and Flexoki vars. Pullquote already has a documented contrast quirk (`style.css:335-337`); don't regress. | LOW | All new colors from existing CSS vars. Test both themes. |
+
+---
+
+### Differentiators (Nice-to-Have Signature Touches)
+
+#### (a) Theme-Toggle Icon Button
 
 | Feature | Value Proposition | Complexity | Notes |
 |---------|-------------------|------------|-------|
-| **Theme toggle CSS view-transition / cross-fade** | A 150 ms color cross-fade on toggle feels deliberate, not jarring. Native `view-transition-name` is supported in Chrome/Edge/Safari 18+ in 2026. Falls back gracefully (no transition) elsewhere. | S | `@view-transition { navigation: none; }` + a JS-triggered transition on `<html>`. Gate behind `prefers-reduced-motion: no-preference`. |
-| **Theme-aware inline SVG wordmark** | Instead of swapping two PNGs, ship one SVG wordmark with `fill="currentColor"` and let CSS color it. One asset, infinite themes, perfect on retina. | S | Requires SVG export of wordmark. If only PNG is available, fall back to the two-PNG attribute swap. Recommend asking the designer/keeping the SVG if it exists. |
-| **`<link rel="icon" type="image/svg+xml">` with embedded dark-mode media query** | One SVG favicon that adapts to the OS theme in Chrome/Firefox/Edge tabs. Fallback PNGs cover Safari and legacy. | S | SVG must contain `<style>@media (prefers-color-scheme: dark) { .fg { fill: #ECE2D0; } }</style>`. List SVG first, then PNG fallback for Safari. |
-| **Gallery captions on hover/focus** | Optional one-line caption per photo (location, date) adds context without cluttering the grid. | S | `<figure><img><figcaption>` with caption visible on hover/focus + always visible on touch. Pure CSS. Skip for the v2.0 launch — add later if photos justify it. |
-| **Gallery click-to-zoom (lightbox)** | Lets visitors actually see a photo at full size. **Native HTML `<dialog>` element + a few lines of vanilla JS** delivers a lightbox without any library — no PhotoSwipe, no Lightbox2, no jQuery. Aligns with "no JS framework" constraint. | M | `<dialog>` + JS `dialog.showModal()` on thumbnail click; ESC closes it natively. Skip prev/next arrows in v2 (defer to v3 if requested). |
-| **Photo metadata hidden (no EXIF leak)** | EXIF can include GPS coordinates and camera serials. Strip on export to protect privacy. | S | `exiftool -all= image.jpg` once during the optimization step. Document in PITFALLS. |
-| **Gallery ordering: chronological reverse or curated** | Defines what the gallery *says*. Reverse-chronological reads as a journal; curated reads as a portfolio. Recommend chronological-reverse using EXIF date or filename prefix. | S | Hugo can read `Lastmod`/`Date` from front matter or sort by name. Frontmatter on each photo bundle = simplest. |
-| **About page side-by-side photo + text on desktop** | A small portrait next to the opening paragraph adds personality without dominating. Stacks vertically on mobile. | S | CSS Grid 2-column at `>= 700px`, single column below. One photo only — keep About lean. Inline photos elsewhere are full-width breaks. |
-| **Theme toggle remembers across tabs (storage event)** | Toggle in one tab updates open tabs. Tiny touch, low cost. | XS | `window.addEventListener('storage', e => { if (e.key === 'theme') applyTheme(e.newValue); })`. |
-| **Manifest file for installable PWA-lite** | If the favicons exist anyway, a 10-line `site.webmanifest` makes the site installable on Android home screens. Aligns with "personal site" identity. | S | `{ "name": "Timo Bohnstedt", "icons": [{src:..., sizes:"192x192"}, ...], "theme_color": "#...", "background_color": "#..." }`. |
+| **Subtle rotate or fade transition between sun ↔ moon** | Tiny delight; signals "something happened". 150ms — same duration as existing body color transition (`style.css:49-56`). | LOW | Wrap in `@media (prefers-reduced-motion: no-preference)`. CSS `transform: rotate(45deg) scale(0)` for outgoing icon, reverse for incoming. ~10 LOC CSS. |
+| **`title` attribute as desktop tooltip** | Free hover affordance for desktop users. Mirrors `aria-label`. | LOW | One attribute per state. `title="Switch to dark mode"`. |
+| **Single SVG that morphs (mask trick)** | Web.dev pattern: one SVG with sun, animate a circle mask in/out to reveal moon. More elegant than two SVGs. | MEDIUM | Higher complexity for marginal visual gain. Two-SVG-with-CSS-toggle is simpler and equally good. **Recommend deferring.** |
 
-### Anti-Features (Tempting, Skip Them)
+#### (b) Lightbox Gallery
 
-These get suggested constantly for sites like this — but each one breaks the minimal Flexoki / no-framework / no-flash invariants.
+| Feature | Value Proposition | Complexity | Notes |
+|---------|-------------------|------------|-------|
+| **Photo counter "3 / 18"** | Orientation aid in long galleries. Small text in corner of modal. | LOW | Single `<span>` updated on navigate. Doubles as `aria-label` source. |
+| **Preload neighbor images** | Smoother arrow-key navigation; no flash of loading. Set next + prev `<link rel="preload" as="image">` when modal opens. | LOW | ~5 LOC. Note: `image.Process` has already produced files at build time, so this is a network-priority hint. |
+| **Touch swipe (left/right) on mobile** | Native mobile gesture; arrow buttons feel desktop-y. | MEDIUM | `touchstart` + `touchend` deltaX, threshold ~50px. ~20 LOC vanilla JS. **Recommend including** — gallery is photo-centric and mobile is a real use case. |
+| **Caption fades in slightly after image** | Tiny stagger (50ms delay) so the photo lands first, then the story arrives. Cinematic feel without being precious. | LOW | CSS `transition-delay`. Reduced-motion guarded. |
+| **Pinterest-style randomized order** | Stated requirement: "randomized masonry-like layout". Visual variety vs. deterministic-feels-curated tradeoff. | LOW | Two options: (1) Hugo-side: shuffle resources at build (`shuffle` template func) — different on every build, may confuse repeat visitors. (2) Author-side: explicit `weight` per photo in frontmatter `resources` — deterministic, author-controlled. **Recommend (2):** matches the caption authoring path (same frontmatter), gives Timo control. |
 
-| Feature | Why Requested | Why Problematic | Alternative |
-|---------|---------------|-----------------|-------------|
-| **Three-state toggle (light / dark / auto)** | "Respects user choice better." | Triples the UI state, adds a third icon, makes the toggle ambiguous. The two-state + OS-preference-as-default pattern already covers "auto" semantically. | Two-state toggle. Provide a small "Reset to system" link in settings/footer **only if** users actually request it later. v2 ships two-state. |
-| **`<picture>` + `prefers-color-scheme` for the wordmark** | Native, no JS. | **Breaks the manual toggle.** `<picture>` only listens to OS preference, not the `data-theme` attribute. A user who manually picked dark on a light-OS system would still see the dark-on-light wordmark. | Class/attribute-driven CSS swap with two `<img>` tags (or one inline SVG with `currentColor`). Documented in Pitfalls. |
-| **PhotoSwipe / Lightbox2 / Fancybox / GLightbox** | "Industry-standard galleries use them." | Each ships 30–80 KB of JS + CSS for a feature that native `<dialog>` does in 30 lines. Conflicts with "no JS framework, keep it minimal." | Native `<dialog>`-based lightbox if zoom is wanted, otherwise plain `<a href="full.jpg">` links that open the full image. |
-| **Masonry / Pinterest-style gallery** | Visually impressive. | Requires JS layout (or fragile CSS-only hacks), CLS issues, and reads as "portfolio" rather than "journal." Doesn't fit minimal Flexoki. | Uniform CSS Grid with consistent aspect ratio (`aspect-ratio: 4/3` + `object-fit: cover`). |
-| **Infinite scroll on the gallery** | "Modern feel." | 18 photos. There's no scroll problem to solve. Infinite scroll breaks the footer, breaks deep-linking, breaks back-button. | Single page, 18 thumbnails, done. If the count grows past ~60, add pagination — not infinite scroll. |
-| **Gallery filter/tags/categories** | "Organize photos." | 18 photos doesn't need taxonomy. Filtering UI is more interface than content. | Single chronological grid. Add tags if/when count exceeds 50. |
-| **A custom dark-mode-only `theme-color` meta dance** | "Match address bar to the theme." | Browsers honor `<meta name="theme-color" media="(prefers-color-scheme: dark)" content="...">` only against OS preference, not the manual toggle — same trap as `<picture>`. With a manual toggle, the address bar can't be made authoritative without JS swapping the meta tag. | Either ship two static `theme-color` meta tags (OS-bound) and accept the address bar lags the manual toggle, or skip `theme-color` entirely. Recommend skip — keeps the head clean. |
-| **Animated theme transition on every element (background, color, border)** | Looks slick on demo videos. | `transition: all 0.3s` causes janky paint storms on every theme toggle and complicates `prefers-reduced-motion` handling. | Transition `background-color` and `color` only on `body`, `0.15s`. Or no transition at all — instant swap is also valid. |
-| **Auto-detect dark mode in the toggle button icon (show sun in light mode meaning "switch to dark")** | Common, but ambiguous. | Half of users think the icon represents the *current* state, half think it represents the *target* state. Both interpretations exist in the wild. | Pick one convention (recommend: icon shows the **target** state — a moon when in light mode means "click to go dark") and document with `aria-label="Switch to dark mode"`. |
-| **Lazy-loading the LCP image** | "Lazy everything!" | The largest contentful paint image must load eagerly or it hurts Core Web Vitals. On the gallery, the *first row* of thumbnails is in the viewport on most screens. | `loading="lazy"` only on images below the fold. First 3–6 thumbnails: `loading="eager" fetchpriority="high"` for the very first one. |
-| **Custom font for the wordmark via `@font-face`** | "Match the script logo elsewhere on the site." | Loading a script font for one wordmark = +50–150 KB and a FOIT/FOUT problem. The wordmark is already a designed image asset. | Render the wordmark as an SVG/PNG (it already exists). Don't re-render the script font in HTML. |
+#### (c) About Redesign
+
+| Feature | Value Proposition | Complexity | Notes |
+|---------|-------------------|------------|-------|
+| **Soft rounded corners on photos (8–12px)** | Stated requirement: "more rounded feel". Current is 4–6px. Modest bump = warmer feel without breaking minimal aesthetic. | LOW | CSS `border-radius` change. ~3 lines. |
+| **Soft pill-shaped role cards** | Replace dense bullet lists in Experience section with role "cards" — rounded background tint, subtle border, role title + dates + 1-line summary. Single column, full-width, stacked. | MEDIUM | Pure CSS. Tint = `var(--bg-secondary)`, border = `var(--border)`, `border-radius: 12px`. ~15 LOC CSS, content restructure in markdown. |
+| **Asymmetric photo widths** | Some photos at full-content-width, some at 60–70% with text wrap or alignment offset. Breaks tabular-grid feel. | MEDIUM | Render-image hook already keys off title. Add `wide`/`narrow` title variants. ~10 LOC template, 5 LOC CSS. |
+| **Hover micro-interaction on role cards** | Subtle `transform: translateY(-1px)` + slight border color shift on hover. Signals interactivity even when card itself isn't a link. (Note: if cards aren't links, hover effect may be misleading — only add if cards link to something, e.g. external company page.) | LOW | `@media (prefers-reduced-motion: no-preference)`. Conditional on whether cards link out. |
+| **Visible "Outside Work" section break** | A soft heading or callout that frames climbing/cycling/cooking as personal context, not a parallel "second portfolio". Helps balance professional + personal. | LOW | Pure markdown + CSS heading style. |
+| **Pullquote retained** | Existing pullquote is on-brand and surfaces a strong stat (40%→95%). Keep. Maybe relocate or restyle. | LOW | No code change needed; possibly wrap in role card. |
+
+---
+
+### Anti-Features (Do NOT Add — Keep It Minimal)
+
+#### Cross-Cutting Anti-Features (All Three)
+
+| Feature | Why Tempting | Why Problematic | Alternative |
+|---------|--------------|-----------------|-------------|
+| **A JS library/framework (Alpine, Stimulus, lit, React)** | "Easy" reactive state for modal open/close, theme, etc. | Violates stack constraint; first-paint weight; build complexity; doesn't fit Hugo flow. | Vanilla JS — every behavior here is < 50 LOC. |
+| **An npm-installed lightbox (Lightbox2, GLightbox, PhotoSwipe, baguetteBox)** | Saves writing modal code; battle-tested. | Adds runtime dep; bloats first-paint (PhotoSwipe core ≈ 30 KB gz); breaks "no JS framework" stack rule; styling fights Flexoki. | Hand-rolled vanilla modal: ~80 LOC JS + ~40 LOC CSS, fully Flexoki-styled, no deps. |
+| **A masonry library (Masonry.js, Isotope, Bricks.js, packery)** | Pinterest-style "true" masonry without CSS-Columns column-direction quirk. | Runtime layout JS; CLS risk before init; another runtime dep. | CSS `column-count` + `break-inside: avoid` — pure CSS, zero JS, perfect CLS. |
+| **A captions/markdown library** | "Rich captions" with bold/italic/links. | Runtime markdown parsing; XSS surface; overkill for 1–2 sentences. | Plain-text caption in frontmatter; rendered as text. |
+| **An animation library (anime.js, GSAP, framer-motion)** | Smooth entrance/exit transitions. | Heavy; fights minimalism. | CSS transitions + `prefers-reduced-motion`. ~5 lines per transition. |
+| **An icon library (Lucide, Feather, Heroicons via CDN)** | Saves drawing SVGs. | Runtime CDN; 100 KB+ for two icons; brand inconsistency with hand-drawn wordmark. | Two hand-coded inline SVGs (sun, moon) at ~200 bytes each. Reference Octicons or Heroicons designs but **inline only the two needed paths**. |
+| **A web font for the redesigned About** | More "designed" feel. | Network request; FOUT/FOIT; fights `-apple-system` system stack. | Stay on system font stack (already in `style.css:42`). Use weight + size + spacing for hierarchy. |
+
+#### (a) Theme-Toggle Specific
+
+| Feature | Why Tempting | Why Problematic | Alternative |
+|---------|--------------|-----------------|-------------|
+| **Emoji 🌞 / 🌙** | Free icons, no SVG drawing. | Stated milestone constraint forbids it. Emoji rendering varies by OS — looks unprofessional, may be color (clashes Flexoki). | Inline monochrome SVG with `currentColor`. |
+| **A 3rd state ("auto" / "system")** | Respects OS preference more granularly. | Adds UX complexity (3-state toggle, 3 icons); current 2-state already falls back to OS preference when no localStorage value (per head IIFE). User benefit ≈ 0. | Keep 2-state. OS preference is the implicit default until first toggle. |
+| **Animated full-circle rotation on toggle** | Looks fancy. | Distracting on every page load if not careful; fights minimalism. | Subtle 90° or 180° rotate, 150ms, reduced-motion guarded. |
+| **Toggle as a styled `<input type="checkbox">` "switch"** | Trendy iOS-style toggle. | Fights minimal aesthetic; harder to make accessible than a `<button aria-pressed>`. Existing button pattern is correct. | Keep `<button aria-pressed>`. |
+
+#### (b) Lightbox Gallery Specific
+
+| Feature | Why Tempting | Why Problematic | Alternative |
+|---------|--------------|-----------------|-------------|
+| **Pinch-to-zoom inside lightbox** | Native iOS Photos behavior. | Significant code; competes with native browser pinch-zoom on the page; rarely used; mobile users can hold + "Add to Photos" if they want detail. | Don't implement. Native browser zoom on the modal image is sufficient. |
+| **Slideshow auto-play** | "Cool". | Removes user agency; hostile UX; nobody asked. | Don't implement. |
+| **Image rotate / download / share buttons** | "More features". | Overkill for personal gallery; download is browser native (right-click); rotate makes no sense for finished photos. | Don't implement. |
+| **Random-on-every-pageload shuffle** | "Fresh feel". | Confuses repeat visitors; breaks deep links; non-deterministic gallery ordering can interact poorly with caching. | Author-controlled `weight` in frontmatter (deterministic). Author can intentionally re-order to feel "random". |
+| **Caption overlaid on thumbnail (always visible)** | Quick reference. | Hides photo; adds visual noise to the masonry; competes with photo. Reference site shows captions only on detail. | Caption visible only in lightbox. Optional: alt-text only on thumbnail (already there for a11y). |
+| **Caption with HTML/markdown** | Author flexibility. | Trivializes — 1–2 sentences don't need formatting. Adds parser surface. | Plain text. |
+| **Per-photo individual content files** | "More structured". | Explosion of files (18+); over-architected for what's effectively a list with metadata. | Single `content/gallery/index.md` with `resources` array. |
+
+#### (c) About Specific
+
+| Feature | Why Tempting | Why Problematic | Alternative |
+|---------|--------------|-----------------|-------------|
+| **Resume timeline component (vertical line + dots)** | Looks "professional". | Cliché; fights minimal; CSS-heavy; doesn't add real info. | Section heading + role cards with dates. Same info, less furniture. |
+| **Skill tags / pill cloud / progress bars** | Shows expertise visually. | Trite; subjective ("Python: 87%"); overcrowds page. Reference site doesn't have it. | Prose mention of skills in role descriptions; user judges from outcomes (e.g. "40%→95% routing accuracy"). |
+| **Testimonials section** | Social proof. | Not asked for; not present in reference; feels like a sales page. | Don't add. |
+| **Social media cluster on About** | "Connect" affordance. | Already in footer (Phase 2 social-icons). Duplicating creates link rot risk and visual repetition. | Footer is the single source of truth. |
+| **Two-column "personal vs professional" split** | Visual representation of the balance request. | Reads as two unconnected lives stitched together — opposite of "balance". Reference site explicitly avoids this. | Single column with interleaved sections; let prose carry the integration. |
+| **Heavy card shadows / gradients / glassmorphism** | "Modern" feel. | Fights Flexoki/Kindle/Obsidian — those aesthetics use border + tint, not depth/glow. | Subtle border + `bg-secondary` tint for cards. No shadow. |
+| **Hero photo full-bleed (edge-to-edge)** | Magazine-feel. | Breaks `--max-width: 640px` reading column; introduces full-width layout exception that doesn't fit anywhere else. | Keep within content column. |
+
+---
 
 ## Feature Dependencies
 
 ```
-[CSS variables refactor]
-    └──required by──> [Theme toggle]
-                          ├──required by──> [Wordmark per-theme swap]
-                          └──required by──> [Theme-aware code blocks/Mermaid]
+(a) Theme-Toggle Icon
+    └──depends on──> [data-theme] attribute (existing, v2.0 Phase 4)
+    └──depends on──> No-FOUC IIFE in <head> (existing, v2.0 Phase 4)
+    └──depends on──> currentColor SVG pattern (existing, v2.0 Phase 05.1 — wordmark)
 
-[Logo sprite slice → 8 assets]
-    ├──required by──> [Wordmark in header]
-    └──required by──> [Favicon set]
+(b) Gallery Lightbox + Masonry + Captions
+    ├──depends on──> Hugo image.Process pipeline (existing, v2.0 Phase 6)
+    ├──change required──> "fill 600x400 Smart" → "fit 600x600" (preserve aspect)
+    ├──depends on──> Hugo resources frontmatter pattern (Hugo native, not yet used)
+    ├──depends on──> CSS Columns (built-in, no dependency)
+    ├──depends on──> backdrop-filter (CSS, with rgba fallback)
+    └──depends on──> Vanilla JS DOM APIs (already used for theme toggle)
 
-[Favicon set assets exist]
-    └──required by──> [Favicon <link> tags in <head>]
-                          └──enhances──> [Optional webmanifest]
+(c) About Redesign
+    ├──depends on──> render-image hook (existing, v2.0 Phase 7)
+    ├──may extend──> render-image hook with new image-title variants (e.g., "wide", "narrow", "inline")
+    ├──depends on──> CSS variables (existing Flexoki palette)
+    └──depends on──> max-width: 640px content column (existing, baseof.html)
 
-[Hugo image processing pipeline]
-    └──required by──> [Optimized gallery thumbnails]
-                          └──required by──> [Gallery page]
-
-[About page → page bundle]
-    └──required by──> [About inline photos]
-
-[Renamed images/galary/ → images/gallery/]
-    └──required by──> [Gallery page]
+Cross-Feature:
+- (a) Theme-Toggle and (b) Lightbox both use vanilla JS in <body> end script.
+  Both must coexist in the existing baseof.html script block (or new partial).
+- (b) Lightbox modal must respect [data-theme] colors — backdrop, caption text, controls.
+  Reuses (a)'s theme infrastructure; no new theming work needed.
+- (c) About may add new image-title variants in the SAME render-image hook used by gallery.
+  No conflict — gallery uses Resources.Match, About uses markdown image rendering.
 ```
 
 ### Dependency Notes
 
-- **CSS-variables refactor unblocks every theming feature.** The current `style.css` uses literal Flexoki hex values. Every one becomes a `var(--*)` lookup before the toggle can do anything useful. This is the single largest piece of work in the milestone.
-- **Logo slicing unblocks both wordmark and favicons.** Both consume the same source sprite. Slicing is cheap (one-time manual or scripted ImageMagick), but everything downstream waits on it.
-- **The toggle and the wordmark swap share an attribute.** Both react to `<html data-theme="...">`. Implementing the toggle first means the wordmark swap is "free" (just two CSS rules).
-- **Hugo image processing is independent** of the theming work. Gallery and theme can ship in parallel phases.
-- **About-page-as-bundle is a 30-second migration** but every inline image depends on it. Do this first if the About work is touched at all.
-- **No conflicts** between the six features — they compose cleanly.
+- **Theme-toggle requires no-FOUC IIFE:** The IIFE runs *before* CSS loads and sets `:root[data-theme]`. Icon CSS keys off this attribute → no flash of wrong icon. Without the IIFE, the icon would briefly show wrong state.
+- **Lightbox + masonry are technically separable but milestone-bundled:** The lightbox could be added to the current uniform-grid gallery. The masonry could be added without lightbox (each thumbnail still links to a standalone page). They're co-shipped because the milestone requirement bundles them, not because of technical dependency. Keep this in mind for phase splitting if needed.
+- **Captions require lightbox:** Caption text is too small/noisy to display under masonry thumbnails (would also break the column flow). Captions are read in the lightbox. → Lightbox phase must precede or co-deliver with captions phase.
+- **Aspect-ratio change in masonry breaks current `fill 600x400 Smart` template:** Switching to `fit 600x600` preserves aspect but **changes thumbnail dimensions** Hugo emits. CLS budget (< 0.1) re-validation needed.
+- **About redesign does NOT depend on theme-toggle or gallery:** Pure CSS + markdown work. Can ship independently in any phase order.
+
+---
 
 ## MVP Definition
 
-### Launch With (v2.0)
+### Launch With (v3.0 — Required Scope)
 
-These six are the milestone scope per PROJECT.md. All are P1.
+All three feature areas, table-stakes only:
 
-- [ ] **CSS variables theme tokens** — non-negotiable foundation for everything theming.
-- [ ] **Theme toggle (no-flash, OS-default, persistent, `aria-label`, keyboard, reduced-motion)** — the headline feature.
-- [ ] **Logo sprite sliced into 8 assets** — unblocks brand and favicon work.
-- [ ] **Header wordmark with attribute-driven theme swap** — replaces text title.
-- [ ] **Favicon set: ICO + 16/32 PNG + 180 Apple + 192/512 PWA + `<link>` tags** — table-stakes browser identity.
-- [ ] **`/gallery/` page with renamed `images/gallery/` folder, Hugo-optimized thumbnails, uniform grid, native lazy-load, srcset** — the gallery itself.
-- [ ] **About page → page bundle, 1–3 inline photos** — minimum to claim "richer About."
+#### (a) Theme-Toggle Icon (Required)
 
-### Add After Validation (v2.x)
+- [ ] Two inline SVGs (sun + moon, ~24×24 viewBox, `currentColor`) inside the existing `.theme-toggle` button — *button stays a `<button aria-pressed>`*
+- [ ] CSS shows correct icon based on `[data-theme]` (no FOUC) — *sun in light, moon in dark*
+- [ ] `aria-label` set/updated to describe target action ("Switch to dark mode" / "Switch to light mode")
+- [ ] `title` attribute mirrors aria-label (desktop tooltip)
+- [ ] `focus-visible` outline preserved
+- [ ] Optional 150ms rotate/fade transition, reduced-motion guarded
+- [ ] Tap target ≥ 24×24 (button padding)
+- [ ] Header layout unchanged on desktop and mobile (no shift from text → icon)
 
-Differentiators worth picking up only after v2.0 ships and renders well in real use.
+#### (b) Gallery: Lightbox + Masonry + Captions (Required)
 
-- [ ] **Theme view-transition cross-fade** — adds polish; trigger if the abrupt swap feels harsh in practice.
-- [ ] **Inline SVG wordmark with `currentColor`** — only if SVG source becomes available (collapses two PNGs to one asset).
-- [ ] **SVG favicon with embedded dark-mode media query** — adds one more file but improves OS-tab fidelity.
-- [ ] **Gallery click-to-zoom via `<dialog>`** — add when first user asks "can I see this bigger?"
-- [ ] **Gallery captions** — only if photos start needing context (location, date).
-- [ ] **PWA `site.webmanifest`** — mostly free given the favicon work; ship in v2.1.
-- [ ] **Cross-tab theme sync via storage event** — add the day a user mentions it; otherwise skip.
+- [ ] Hugo template change: thumbnails become `<button>` (or `<a>` with JS handler) opening lightbox
+- [ ] Hugo `image.Process` change: `fill 600x400 Smart` → `fit 600x600` (aspect preserved)
+- [ ] CSS Columns masonry (1/2/3 cols at < 600px / 600–900px / > 900px)
+- [ ] Frontmatter `resources` array in `content/gallery/index.md` with per-photo `params.caption` (and optional `params.weight` for ordering)
+- [ ] Vanilla JS modal: open on thumbnail click, close on Esc / X / backdrop-click
+- [ ] Arrow keys + on-screen prev/next buttons navigate
+- [ ] Backdrop dim (rgba 0,0,0,0.85) + `backdrop-filter: blur(8px)` (with `@supports` check)
+- [ ] Caption rendered below image in modal (graceful empty state if missing)
+- [ ] Photo aspect ratio preserved in modal (no crop)
+- [ ] Focus trapped + restored on close
+- [ ] `role="dialog" aria-modal="true" aria-label="…"` on modal
+- [ ] Body scroll locked while open
+- [ ] Mobile touch swipe prev/next (50px deltaX threshold)
 
-### Future Consideration (v3+)
+#### (c) About Redesign (Required)
 
-- [ ] **Per-photo metadata pages** — only if the gallery exceeds ~50 photos and individual photos start mattering.
-- [ ] **Tags/filters in gallery** — same threshold.
-- [ ] **Lightbox prev/next navigation** — same.
-- [ ] **Three-state theme toggle (light/dark/auto)** — defer indefinitely; the two-state pattern with OS-preference default is sufficient.
+- [ ] Restructure markdown: hero retained, role "cards" (soft border + tint, rounded), narrative tone for prose
+- [ ] CSS: increase border-radius on photos to 8–12px
+- [ ] CSS: role-card pattern (`var(--bg-secondary)` tint, `var(--border)`, `border-radius: 12px`)
+- [ ] Personal/climbing content moved to single "Outside Work" section; not dominant
+- [ ] At least one photo placed asymmetrically (off-center or non-grid) to break tabular feel
+- [ ] All existing content preserved: hero photo, CV link, pullquote, education, certifications, all 5 photos
+- [ ] Mobile reflow: all multi-element rows collapse to single column < 600px
+- [ ] Both light + dark themes verified (Flexoki vars only)
+
+### Add After Validation (v3.x — Defer)
+
+- [ ] Single-SVG morph for theme toggle (sun-with-moon-mask trick) — *trigger: if two-SVG approach feels visually clunky*
+- [ ] Photo counter ("3 / 18") in lightbox header — *trigger: user feedback on disorientation in long galleries*
+- [ ] Preload next/prev image — *trigger: noticeable delay on arrow navigation in production*
+- [ ] Hover micro-interactions on About role cards — *trigger: cards become links to external company pages*
+
+### Future Consideration (v4+)
+
+- [ ] Photo collections / tagged sub-galleries (e.g. "Climbing", "Cycling") — *defer: 18 photos doesn't need it; reassess at 50+*
+- [ ] EXIF re-display in lightbox (camera, lens, location) — *defer: photos are EXIF-scrubbed by design (Phase 6), would require re-introducing metadata in a controlled way*
+- [ ] Additional About variants for distinct audiences (recruiter / collaborator / friend) — *defer: scope creep; one good page > three mediocre ones*
+
+---
 
 ## Feature Prioritization Matrix
 
 | Feature | User Value | Implementation Cost | Priority |
 |---------|------------|---------------------|----------|
-| CSS variables refactor | HIGH (unblocks everything) | M | P1 |
-| Theme toggle (no-flash, persistent, OS-default) | HIGH | M | P1 |
-| Logo sprite slicing | HIGH (unblocks brand) | S | P1 |
-| Header wordmark swap | HIGH | S | P1 |
-| Favicon set + `<link>` tags | HIGH | S | P1 |
-| `/gallery/` page with grid + lazy-load + srcset | HIGH | M | P1 |
-| About page bundle + inline photos | MEDIUM | S | P1 |
-| Theme view-transition cross-fade | LOW (polish) | S | P2 |
-| Inline SVG wordmark | MEDIUM (asset hygiene) | S | P2 |
-| SVG favicon with dark-mode media query | LOW | S | P2 |
-| Gallery `<dialog>` lightbox | MEDIUM | M | P2 |
-| Gallery captions | LOW | S | P3 |
-| PWA `site.webmanifest` | LOW | S | P3 |
-| Cross-tab theme sync | LOW | XS | P3 |
+| Theme toggle: 2-SVG icon swap | MEDIUM (visual polish, brand consistency with wordmark) | LOW (~30 LOC HTML/CSS, 5 LOC JS update) | P1 |
+| Theme toggle: aria-label + title | HIGH (accessibility — only label after losing text) | LOW (~3 LOC) | P1 |
+| Theme toggle: rotate transition | LOW (delight only) | LOW (~10 LOC CSS) | P2 |
+| Gallery: lightbox modal core | HIGH (primary UX shift; reference-site feel) | MEDIUM (~80 LOC JS, ~40 LOC CSS) | P1 |
+| Gallery: focus trap + a11y | HIGH (modal correctness; inclusive UX) | MEDIUM (~15 LOC JS) | P1 |
+| Gallery: masonry via CSS columns | HIGH (defining visual change from grid) | LOW (~10 LOC CSS + 1-line Hugo template change) | P1 |
+| Gallery: per-photo captions in frontmatter | HIGH (stated requirement, story-telling layer) | LOW (~5 LOC template + content edits to add captions) | P1 |
+| Gallery: touch swipe | HIGH on mobile | LOW (~20 LOC JS) | P1 |
+| Gallery: photo counter | MEDIUM | LOW | P2 |
+| Gallery: preload neighbors | LOW (UX feels same with WebP at q75) | LOW | P3 |
+| About: role cards + rounded photos | HIGH (delivers "more rounded, dynamic" requirement) | MEDIUM (~15 LOC CSS, content restructure) | P1 |
+| About: balance climbing/professional | HIGH (stated requirement) | LOW (content rewrite, no code) | P1 |
+| About: asymmetric photo widths | MEDIUM (delivers "dynamic" feel) | MEDIUM (render-image hook variant + CSS) | P2 |
+| About: hover micro-interaction | LOW (cards likely not links) | LOW | P3 |
 
-**Priority key:**
-- P1: Must have for v2.0 launch
-- P2: Add in v2.x if/when there's pull
-- P3: Defer to v3+ unless user-driven need emerges
+**Priority key:** P1 = required for v3.0 launch; P2 = should have, ship if time; P3 = defer to v3.x or later.
 
-## Convention Reference (Personal-Blog Patterns Used in 2026)
+---
 
-What real personal Hugo/Eleventy/Astro blogs (the bench we're aiming at — not enterprise SaaS) actually do today:
+## Caption Authoring Path — Recommended
 
-- **Theme toggle:** Single icon button at the right edge of the header, sun↔moon, attribute-driven CSS. Inline `<head>` script for no-flash. CSS variables. `localStorage` + `prefers-color-scheme` fallback.
-- **Logo per theme:** Two image assets, attribute-selector CSS swap (or one SVG with `currentColor`). `<picture>` + `prefers-color-scheme` is *not* used when there's a manual toggle.
-- **Favicons:** Six-file matrix is the de-facto standard (`favicon.ico` + 16/32/180/192/512 PNG). SVG favicon as optional progressive enhancement.
-- **Gallery:** Uniform CSS Grid, `aspect-ratio` + `object-fit: cover`, native `loading="lazy"`, Hugo-generated `srcset`. Lightbox is optional and now done with native `<dialog>` rather than libraries.
-- **About:** Page bundle, mostly text, one or two inline photos. Side-by-side portrait next to intro paragraph is the most common above-the-fold layout.
+**Recommendation:** Hugo's native `resources` frontmatter array in `content/gallery/index.md`, with `params.caption` (and optional `params.weight` for deterministic ordering).
+
+**Why this over alternatives:**
+
+| Path | Pros | Cons | Verdict |
+|------|------|------|---------|
+| **`resources` in `index.md` frontmatter** (recommended) | Hugo native; one file to edit; works with existing page-bundle resource model; supports glob `src` patterns; per-photo `params` extensible (caption today, alt-text tomorrow) | Manual entry per photo (no auto-discovery for params) | ✓ Recommended |
+| Per-photo individual `.md` files (one per photo) | Strong file-locality; fits leaf-bundle model | 18+ tiny files; over-architected; resources auto-discovery still requires glue | ✗ Over-engineered |
+| Sidecar YAML/JSON file (`captions.yml`) | Decoupled from Hugo content model; could be edited as plain data | Two-source-of-truth (file location + caption file); not a Hugo idiom; template needs custom data load | ✗ Non-idiomatic |
+| EXIF / IPTC caption embedded in image | Travels with the file | Photos are EXIF-scrubbed (Phase 6 invariant) — adding metadata back contradicts that decision | ✗ Conflicts with v2.0 invariant |
+| Caption as filename suffix (e.g. `IMG_1234--my-caption.jpg`) | Single source of truth | Filenames become unwieldy; URL-encoded paths; no support for multi-sentence | ✗ Hostile authoring |
+
+**Authoring flow for a new photo (one-step + one-edit, recommended path):**
+
+1. Drop new image at `content/gallery/photos/<filename>.jpg`
+2. Open `content/gallery/index.md`, add to `resources:` array:
+   ```yaml
+   - src: 'photos/<filename>.jpg'
+     params:
+       caption: 'One or two sentences telling the story of this photo.'
+       weight: 19  # optional; controls position in gallery
+   ```
+3. Commit. Hugo build picks it up. No template edits.
+
+Photos without `resources` entries still appear (via `Resources.Match "photos/*"` in template), just without captions. Author can add resources entries lazily when ready to caption — gallery never breaks.
+
+---
+
+## Comparison: Reference Site (tylerkarow.com) vs This Site
+
+| Feature | Tyler Karow | This Site (recommended v3.0) |
+|---------|-------------|------------------------------|
+| Gallery layout | Masonry, aspect-preserved | Same (CSS Columns) |
+| Caption position | Below thumbnail AND in lightbox | Lightbox only (less visual noise in grid; matches Flexoki minimalism) |
+| Lightbox | Yes, with prev/next/close | Same |
+| Backdrop | Dim, no obvious blur | Dim + subtle blur (small differentiator; modern feel) |
+| About layout | Single column, interleaved photos, minimal | Same direction; slightly more structure via role cards (we have specific professional roles to surface) |
+| About styling | Unornamented | Soft tint cards + rounded corners (slightly warmer; matches "more dynamic and rounded" requirement) |
+| Theme toggle | (Tyler's site has no toggle) | Sun/moon icon (this is unique to us) |
+
+---
 
 ## Sources
 
-Theme toggle / no-flash:
-- [Switching off the Lights — Adding Dark Mode to Hugo (Yonkov)](https://yonkov.github.io/post/add-dark-mode-toggle-to-hugo/)
-- [Implementing dark mode for static websites (Phelipe Teles)](https://phelipetls.github.io/posts/implementing-dark-mode-for-static-websites/)
-- [Adding dark mode to a Hugo static website without learning CSS (Radu Matei)](https://radu-matei.com/blog/dark-mode/)
-- [How to Support Dark Mode on Your Hugo Static Website (tiredsg.dev)](https://www.tiredsg.dev/blog/support-dark-mode-hugo-static-website/)
-- [The Complete Guide to the Dark Mode Toggle (Ryan Feigenbaum)](https://ryanfeigenbaum.com/dark-mode/)
-- [Six levels of dark mode (CSSence)](https://cssence.com/2024/six-levels-of-dark-mode/)
-- [Dark Mode in CSS Guide (CSS-Tricks)](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
+### Reference Sites (Direct Fetch)
 
-Color-scheme / theme-color meta:
-- [Improve dark mode default with color-scheme and a meta tag (web.dev)](https://web.dev/articles/color-scheme)
-- [`<meta name="color-scheme">` (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/color-scheme)
-- [`<meta name="theme-color">` (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/theme-color)
-- [`prefers-color-scheme` (MDN)](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme)
+- [tylerkarow.com/gallery — masonry + lightbox reference](http://tylerkarow.com/gallery) — confirmed: aspect-ratio preserved, captions visible in both grid and lightbox, dimmed backdrop, prev/next/close controls
+- [tylerkarow.com/about — single-column interleaved layout reference](https://www.tylerkarow.com/about) — confirmed: single column, alternating image/text, no pill cards or shadows, professional+personal woven not separated
 
-Logo / image swap per theme:
-- [How to have Dark & Light Mode Images that also work with User Choice (Chip Cullen)](https://chipcullen.com/how-to-have-dark-mode-image-that-works-with-user-choice-yo/)
-- [How to make images react to light and dark mode (Lars Magnus)](https://larsmagnus.co/blog/how-to-make-images-react-to-light-and-dark-mode)
-- [Switch to a darker image when on dark mode! (DEV)](https://dev.to/ziratsu/switch-to-a-darker-image-when-on-dark-mode-2lkh)
-- [Dark Mode Favicons: How to Make Your Icon Adapt (Premium Favicon)](https://www.premiumfavicon.com/blog/dark-mode-favicon-guide)
+### Theme-Toggle UX (HIGH confidence)
 
-Favicon matrix:
-- [How to Favicon in 2026 (Evil Martians)](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
-- [Favicon Sizes 2026 (FaviconStudio)](https://faviconstudio.com/blog/favicon-sizes-complete-guide)
-- [Favicon Sizes — Complete Guide (Faviconator)](https://www.faviconator.com/blog/favicon-sizes)
-- [Favicon Sizes 2026 (favicon.io)](https://favicon.io/tutorials/favicon-sizes/)
+- [web.dev — Building a theme switch component (Adam Argyle)](https://web.dev/articles/building/a-theme-switch-component) — sun-as-current-state, moon-as-current-state convention; SVG mask morph technique
+- [web.dev — Theme switch pattern](https://web.dev/patterns/theming/theme-switch) — accessibility patterns
+- [DEV — An Accessible Dark Mode Toggle](https://dev.to/abbeyperini/an-accessible-dark-mode-toggle-in-react-aop) — aria-label describes target action, not current state
+- [whitep4nth3r — Best light/dark mode toggle in JavaScript](https://dev.to/whitep4nth3r/the-best-lightdark-mode-theme-toggle-in-javascript-368f) — `aria-pressed` + sun/moon pattern
 
-Gallery / lightbox / lazy-load:
-- [Hugo image processing (Hugo docs)](https://gohugo.io/content-management/image-processing/)
-- [Responsive and optimized images with Hugo (BryceWray)](https://www.brycewray.com/posts/2022/06/responsive-optimized-images-hugo/)
-- [Lazy Loading Images in Hugo (Henrik Sommerfeld)](https://www.henriksommerfeld.se/lazy-loading-images-in-hugo/)
-- [Browser-level image lazy loading (web.dev)](https://web.dev/articles/browser-level-image-lazy-loading)
-- [Native Lazy Loading — Can I Use](https://caniuse.com/loading-lazy-attr)
-- [Lazy Loading Images and Videos: The Complete Native Guide 2026 (VitalsFixer)](https://vitalsfixer.com/blog/lazy-loading-guide)
-- [Hugo Easy Gallery (GitHub) — context for what NOT to use](https://github.com/liwenyip/hugo-easy-gallery)
+### Lightbox / Modal Accessibility (HIGH confidence)
 
-Accessibility for toggle:
-- [Complete Guide to Accessible Toggle Buttons (TestParty)](https://testparty.ai/blog/accessible-toggle-buttons-modern-web-apps-complete-guide)
-- [ARIA: button role (MDN)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/button_role)
-- [W3C Button Pattern (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+- [The A11Y Collective — Mastering Accessible Modals with ARIA and Keyboard Navigation](https://www.a11y-collective.com/blog/modal-accessibility/) — `role="dialog"`, `aria-modal="true"`, focus management
+- [UXPin — Building Accessible Modals with Focus Traps](https://www.uxpin.com/studio/blog/how-to-build-accessible-modals-with-focus-traps/) — focus-trap pattern, restore-on-close
+- [adropincalm — Modal focus trap in vanilla JavaScript](https://adropincalm.com/blog/modal-focus-trap-in-javascript-and-react/) — vanilla JS reference implementation
 
-About page conventions:
-- [Modern Personal Site 2026 Guide (ME-Page)](https://me-page.com/blog/industry-use-cases-and-templates/personal-websites-in-2026-what-to-include-and-what-to-skip)
-- [40+ Inspiring About Me Page Examples 2026 (SiteBuilderReport)](https://www.sitebuilderreport.com/inspiration/about-me-pages)
+### Masonry Layout (HIGH confidence)
+
+- [CSS-Tricks — CSS Masonry & CSS Grid](https://css-tricks.com/css-masonry-css-grid/) — column-count vs grid-rows comparison
+- [MDN — Masonry layout (CSS Grid Level 3 — Working Draft)](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout) — native CSS masonry support is partial as of 2026, Columns is the safe path
+- [Piccalilli — A simple masonry-like composable layout](https://piccalil.li/blog/a-simple-masonry-like-composable-layout/) — CSS Columns approach with `break-inside: avoid`
+
+### Backdrop Filter (HIGH confidence)
+
+- [MDN — backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) — wide browser support in 2026 (Chromium, Firefox 103+, Safari 9+)
+- [CSS-Tricks — backdrop-filter](https://css-tricks.com/almanac/properties/b/backdrop-filter/) — `@supports` fallback pattern
+
+### Hugo Patterns (HIGH confidence)
+
+- [Hugo docs — Page resources](https://gohugo.io/content-management/page-resources/) — `resources` frontmatter array, `params`, glob `src`
+- [Regis Philibert — Hugo Page Resources](https://www.regisphilibert.com/blog/2018/01/hugo-page-resources-and-how-to-use-them/) — patterns for accessing `Params.caption`
+- [Hugo discourse — Page resource metadata](https://discourse.gohugo.io/t/page-resource-metadata/51610) — caption pattern via `resources` array
 
 ---
-*Feature research for: Hugo personal blog brand identity + gallery + about*
-*Researched: 2026-04-28*
+*Feature research for: v3.0 Design Update (theme-toggle icon, gallery lightbox + masonry + captions, About redesign)*
+*Researched: 2026-05-01*

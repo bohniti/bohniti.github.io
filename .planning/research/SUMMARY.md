@@ -1,217 +1,298 @@
-# Project Research Summary
+# Research Summary — v3.0 Design Update
 
-**Project:** Personal Website Refinements — milestone v2.0 Brand & Gallery
-**Domain:** Hugo static site (personal blog) — theme/branding integration + photo gallery
-**Researched:** 2026-04-28
+**Project:** Personal Website — v3.0 Design Update
+**Domain:** Hugo static site polish (theme-toggle icon, gallery lightbox + masonry, About redesign)
+**Researched:** 2026-05-01
 **Confidence:** HIGH
+
+---
 
 ## Executive Summary
 
-This is an **integration milestone**, not a greenfield build. The site already has a clean, small custom Hugo theme (`themes/minimal/`, ~265 lines of CSS, 19-line `baseof.html`) with a Flexoki-inspired light palette already declared as CSS custom properties on `:root`. Every v2.0 feature lands in known files; the architecture work is *not* "design a theme system," it is "swap palettes via `[data-theme="dark"]`, slice an existing sprite into 8 PNGs, run 18 photos through Hugo's built-in image pipeline, and convert one page to a leaf bundle." All four research files independently converge on the same solution shape.
+v3.0 is a focused refinement of three rough edges in the v2.0 design — none requiring new dependencies, new build tools, or framework decisions. Every recommendation from the four research streams lands on platform-native primitives that already have codebase precedent: inline SVG icons (following the exact footer pattern), native `<dialog>` for the lightbox (universal browser support since 2024), CSS `column-count` for masonry (universal since IE10), and Hugo `[[resources]]` frontmatter for caption authoring. The total estimated change is ~150 LOC added, ~40 LOC removed — comparable to a single v2.0 phase.
 
-The recommended approach is uniformly **vanilla web platform** — Hugo built-ins for image processing, CSS custom properties driven by a `data-theme` attribute on `<html>`, an inline `<head>` IIFE for no-flash theme bootstrap, native `<img loading="lazy">`, and a 3-file favicon set (`.ico` + `.svg` + `apple-touch-icon.png`). **Zero new runtime dependencies are needed.** Pillow is used once, locally, to slice the sprite; the 8 PNG outputs are committed and the venv is thrown away. There is no Node, no npm, no Tailwind, no theme-toggle library, no lightbox library, no external image CDN, no PWA tooling.
+The highest-stakes decision in the milestone is the gallery ordering model. Three of the four research agents weighed in on this and reached different conclusions: STACK recommends Hugo `shuffle` at build time, ARCHITECTURE recommends client-side shuffle for build determinism, and PITFALLS recommends author-controlled deterministic order frozen at authoring time. This conflict is surfaced explicitly below with a recommended resolution. All other technical decisions have full four-agent convergence and should be treated as locked.
 
-The two highest-value risks are (1) **Flash of Unstyled Theme** — if the theme bootstrap is anywhere except inline-and-synchronous in `<head>` before the stylesheet, every visitor sees a light-flash on dark-mode hard reloads, the milestone's explicit launch-blocker — and (2) **gallery weight + EXIF leak** — if the 18 photos (totaling ~50 MB raw, with smartphone GPS metadata) ship through `static/` instead of through Hugo's resource pipeline, the site loses its Lighthouse score AND publishes Timo's home/crag GPS coordinates. Both risks have clean preventions: inline IIFE for FOUC; page-bundle + `.Resources.Match` + `.Process "... webp qN"` for gallery (which strips EXIF on re-encode by default).
+The principal risks are accessibility regressions (icon FOUC, missing focus trap, hit-target shrinkage, reduced-motion violations) and a CLS spike if masonry aspect-ratio handling is done incorrectly. Both are well-understood and have concrete prevention patterns documented below. No pitfall requires a structural architecture change — they are all implementation correctness issues addressable within the recommended approach.
+
+---
 
 ## Key Findings
 
-### Recommended Stack
+### Stack Additions (STACK.md)
 
-The four researchers agree to the byte on stack choices: nothing new is added at runtime. Hugo Extended 0.157.0 (already pinned) has every needed primitive — `image.Process` / `Resize` / `Fill` / `Fit` with anchors including `Smart`, WebP output, page-resource cascade, `srcset` generation, build caching in `resources/_gen/`. CSS custom properties + a `[data-theme]` attribute selector cover all theming. A ~30-line vanilla JS toggle (inline bootstrap + click handler) covers all interaction. Pillow is the recommended one-off slicer because Hugo's `Crop` uses anchor enums (`TopLeft`, `Smart`, etc.), not pixel offsets, so it is the *wrong* tool for grid extraction from a 2×4 sprite.
+Zero new runtime dependencies. Zero npm packages. Zero build tools. All three features ship with primitives already present in the codebase or available natively in the 2026 browser platform.
 
-**Core technologies:**
-- **Hugo Extended 0.157.0** (already pinned) — site generator + image pipeline. No upgrade needed.
-- **CSS custom properties + `[data-theme="dark"]` selector** — single source of color truth; existing `:root` palette already speaks in tokens, so dark mode is a palette-swap block, not a rewrite.
-- **Inline `<head>` IIFE for theme bootstrap** — ~15 lines vanilla JS, runs synchronously before stylesheet parses, sets `data-theme` on `<html>`. Required by no-flash constraint.
-- **Hugo `image.Process "... webp qN"`** — generates responsive thumbnails for 18 gallery photos; cached in `resources/_gen/`. WebP is right format in 2026; AVIF is *not* yet supported by Hugo.
-- **Pillow 12.2.0** — one-off local sprite slicer (not a runtime dep, not added to any manifest).
-- **3-file favicon set** — `favicon.ico` (32-multi), `favicon.svg` (with embedded `@media (prefers-color-scheme: dark)`), `apple-touch-icon.png` (180). Skip the legacy multi-PNG / `browserconfig.xml` / `mstile-*` matrix.
+**New patterns, not new packages:**
 
-### Expected Features
+| Pattern | New dep? | Rationale |
+|---------|----------|-----------|
+| Inline SVG sun/moon (Lucide visual language, hand-authored) | No | Footer icons already use Lucide-style 24x24, 2px stroke, `currentColor`. Two paths (~200 bytes each). |
+| Native `<dialog>` + `showModal()` + `::backdrop` blur | No | Chrome 37+, Firefox 98+, Safari 15.4+. Browser handles focus trap, ESC, top-layer, `aria-modal` automatically. |
+| CSS `column-count` + `break-inside: avoid` | No | Universal since IE10. `grid-template-rows: masonry` is Safari-only in 2026 — blocked. |
+| Hugo `[[resources]]` frontmatter `params.caption` | No | Hugo-native since 0.31. Single source of truth for per-photo metadata in `content/gallery/index.md`. |
+| Render-image hook extended with `card`/`split`/`feature` arms | No | Additive to the existing three-arm switch validated in v2.0 Phase 7. |
 
-The milestone has 6 declared target features. Research confirms each maps to a well-established 2026 personal-blog pattern.
+**Stack additions summary: none.** All work happens in existing files (`header.html`, `baseof.html`, `gallery/single.html`, `render-image.html`, `style.css`) plus new content (`content/gallery/index.md` frontmatter, `content/about/index.md` rewrite) and one new layout file (`layouts/about/single.html`).
 
-**Must have (table stakes — v2.0 launch):**
-- CSS-variables refactor + dark palette — single foundation that unblocks every other theming feature.
-- Theme toggle with no-flash inline bootstrap, OS-preference default, `localStorage` persistence, `aria-pressed` on real `<button>`, `prefers-reduced-motion` respected, keyboard reachable.
-- Logo sprite sliced into 8 PNGs — deterministic Pillow crop on integer cell boundaries, alpha preserved.
-- Header wordmark that swaps via `[data-theme]` CSS — replaces text site title, keeps accessible `alt`.
-- Favicon set wired into `<head>` (3 files + 3 `<link>` tags).
-- `/gallery/` page — page bundle at `content/gallery/`, photos as resources, Hugo-processed WebP, uniform CSS Grid, native lazy-load with eager-load on first row, `width`/`height` from `.Width`/`.Height` to prevent CLS, EXIF stripped on re-encode.
-- About page → leaf bundle + 1–3 inline photos.
+---
 
-**Should have (defer to v2.x):**
-- View-transition cross-fade on theme toggle (gated behind `prefers-reduced-motion`).
-- Inline SVG wordmark with `currentColor` — *if* SVG source becomes available.
-- Native `<dialog>`-based lightbox — only when a real user asks "can I see this bigger?"
-- Gallery captions on hover/focus.
-- PWA `site.webmanifest` — mostly free given favicon work; ship later.
-- Cross-tab theme sync via `storage` event.
+### Feature Table Stakes (FEATURES.md)
 
-**Defer indefinitely (anti-features for this site):**
-- Three-state theme toggle (light/dark/auto), `<picture>` + `prefers-color-scheme` for wordmark (breaks manual toggle), JS lightbox libraries (PhotoSwipe et al.), masonry/infinite-scroll/filters, custom `@font-face` for wordmark, AVIF.
+#### ICON — Theme Toggle
 
-### Architecture Approach
+Must have for v3.0 launch:
+- Sun SVG shown in light mode, moon SVG shown in dark mode (icon = current state, not target action)
+- `aria-label` on button describes target action ("Switch to dark mode / Switch to light mode")
+- `aria-pressed` retained — communicates toggle state to screen readers
+- Both SVGs inline in `header.html`, CSS-driven swap via `[data-theme]` — zero FOUC
+- `currentColor` on all `fill`/`stroke` attributes — recolors with `var(--text)`
+- Tap target >= 44x44 CSS-px (explicit button width/height, not icon intrinsic size)
+- `focus-visible` outline preserved on the button element
+- Optional 150ms rotate/fade transition, wrapped in `@media (prefers-reduced-motion: no-preference)`
 
-The integration component map is small and entirely local: **4 files modified** (`baseof.html`, `header.html`, `style.css`, `hugo.toml`), **4 new files added** (`partials/favicon.html`, `partials/theme-toggle.html` or inline, `layouts/gallery/list.html`, `content/gallery/_index.md`), **1 page conversion** (`content/about.md` → `content/about/index.md`), **1 folder rename + move** (`images/galary/` → `content/gallery/photos/`), and ~14 new asset files in `themes/minimal/static/images/brand/` + `themes/minimal/static/`. The footer needs zero changes — the existing `.social-icons` cluster already uses `currentColor`, so it dark-adapts for free.
+Defer to v3.x:
+- Single-SVG morph (sun-with-moon-mask trick) — marginal visual gain over two-SVG approach
 
-**Major components:**
-1. **Theme bootstrap** (inline `<head>` IIFE in `baseof.html`) — only thing that runs synchronously before paint.
-2. **Palette CSS** (`:root` + `:root[data-theme="dark"]` blocks) — single source of truth; no `@media (prefers-color-scheme)` block.
-3. **Theme toggle button** (in `header.html`, click handler small JS) — real `<button>` with `aria-pressed`, sun/moon icon swap inside fixed-dimension container.
-4. **Wordmark `<img>` pair** — two `<img>` tags toggled by CSS `[data-theme]` selectors, explicit `width`/`height`.
-5. **Favicon partial** — 3 `<link>` tags.
-6. **Gallery section** — page-bundle pattern; `.Resources.Match "photos/*"`; `.Process "fill 600x400 Smart webp q75"` thumbs, `.Process "fit 1600x1600 webp q82"` full.
-7. **About leaf bundle** — same page-bundle convention as blog posts.
+#### GALLERY — Lightbox + Masonry + Captions
 
-### Critical Pitfalls
+Must have for v3.0 launch:
+- Thumbnail click opens native `<dialog>` modal (not a new page)
+- Blurred backdrop via `dialog::backdrop { backdrop-filter: blur(12px) }` with `rgba` fallback
+- ESC / backdrop-click / X-button all close modal (ESC is native via `<dialog>`)
+- Arrow keys + on-screen prev/next buttons navigate the gallery
+- Mobile touch swipe left/right (50px deltaX threshold, ~20 LOC)
+- Caption rendered below image in modal; graceful empty state if absent
+- Aspect ratio preserved per photo: Hugo `Resize "600x webp q75"` (not `fill 600x400`)
+- CSS `column-count: 3` masonry (2 at 600-900px, 1 at <600px)
+- `width` + `height` attributes from Hugo emitted on every `<img>` — preserves CLS < 0.1
+- Hugo `[[resources]]` frontmatter with `params.caption` (and `params.weight` for ordering)
+- `role="dialog" aria-modal="true"`, `aria-label` updated on navigation
+- Body scroll locked while modal open; focus restored to trigger on close
+- EXIF scrub check carried forward as a CI gate
 
-1. **FOUC on dark-mode hard reload (Pitfall 1).** Theme bootstrap MUST be inline and synchronous in `<head>` before the stylesheet `<link>`. Verify by screen-recording hard reload under DevTools Slow 3G in dark mode; expect zero light frames.
-2. **Gallery weight + EXIF leak (Pitfalls 2 & 3, paired).** Photos must flow through Hugo's resource pipeline (page bundle), not `static/`. Re-encoding to WebP via Hugo strips most EXIF (incl. GPS) by default; add `[imaging.exif] disableLatLong = true` belt-and-suspenders. Verify with `exiftool public/gallery/**/*.{webp,jpg}` post-build expecting empty GPS fields. `/gallery/` first-paint transfer must stay under ~2 MB.
-3. **Mixing `prefers-color-scheme` CSS with `[data-theme]` JS.** Pick one. Recommendation: `[data-theme="dark"]` only. A `@media` block in CSS as a "fallback" silently overrides user's manual choice during the brief pre-script paint and creates a perception that the toggle is broken.
-4. **CLS from unsized images (Pitfall 5).** Every `<img>` (wordmark, gallery thumbnails, about photos) needs explicit `width`/`height` attributes.
-5. **Existing inline scripts (Mermaid, Plotly, Leaflet) won't react to theme toggle (Pitfall 11).** Documented limitation for v2.0. Either ship Mermaid/Plotly with theme-neutral Flexoki accent colors that read on both backgrounds (recommended), or fire a `theme-change` custom event and re-init each library (defer). Smoke-test: load `/blog/2026-03-05-climbing-routes/` in dark mode and eyeball it.
+Defer to v3.x:
+- Photo counter "3 / 18" overlay
+- Preload next/prev image `<link rel="preload">`
 
-(Full pitfall catalog in `.planning/research/PITFALLS.md` — 20 numbered pitfalls + integration gotchas + recovery strategies.)
+#### ABOUT — Redesign
+
+Must have for v3.0 launch:
+- Asymmetric CSS Grid sections (alternating text/image ratios)
+- `--radius-soft: 12px` token applied to photos and content cards (up from 4-6px)
+- Role cards: `var(--bg-secondary)` tint + `var(--border)` + `border-radius: 12px` — no shadows
+- Hero portrait + intro + CV link retained in full
+- Professional content balanced with climbing — "Outside Work" section consolidates personal content
+- All new CSS scoped under `body.page-about` — no global rule pollution
+- Pullquote contrast invariant preserved (`.about-pullquote strong` must remain >= 1.4rem, weight >= 700 in dark mode)
+- Mobile reflow: all multi-column layouts collapse to single column at <600px
+
+Defer to v3.x:
+- Hover micro-interactions on role cards (only if cards become external links)
+- Audience-specific About variants (recruiter / collaborator / friend)
+
+---
+
+### Architecture Approach (ARCHITECTURE.md)
+
+All three features integrate cleanly into the existing layered architecture. No new files need to be created except one optional JS file for the gallery lightbox (`themes/minimal/static/js/lightbox.js`) and one new layout (`themes/minimal/layouts/about/single.html`). The single stylesheet convention holds — `style.css` grows by ~60 lines with section-commented additions.
+
+**Modified components per feature:**
+
+| Component | ICON | GALLERY | ABOUT |
+|-----------|------|---------|-------|
+| `themes/minimal/layouts/partials/header.html` | Replace text with 2 inline SVGs | — | — |
+| `themes/minimal/layouts/_default/baseof.html` | Remove `textContent` mutation | — | — |
+| `themes/minimal/layouts/gallery/single.html` | — | Add caption lookup + dialog triggers | — |
+| `themes/minimal/layouts/_default/_markup/render-image.html` | — | — | Add `card`/`split`/`feature` arms |
+| `themes/minimal/layouts/about/single.html` | — | — | NEW: dedicated about layout |
+| `themes/minimal/static/css/style.css` | Icon show/hide rules | Column-count + lightbox rules | `--radius-soft` + section rules |
+| `content/gallery/index.md` | — | `[[resources]]` with captions | — |
+| `content/about/index.md` | — | — | Markdown rewrite |
+
+**Key patterns to follow:**
+1. Inline SVG with `currentColor` — established by footer icons and wordmark. Sun/moon follow the same convention.
+2. `body.page-{type}` CSS scoping — `body.page-about` for About rules, `body.page-gallery` for gallery rules. No global rule additions.
+3. Page-scoped JS — `lightbox.js` loaded only from `gallery/single.html`, not from `baseof.html`. Keeps all other pages free of unused JS.
+4. One source of truth: `dataset.theme` — JS writes only to `documentElement.dataset.theme`; CSS reads it. No imperative icon-class manipulation in JS.
+
+---
+
+### Critical Pitfalls (PITFALLS.md)
+
+The full PITFALLS.md documents 22 pitfalls. The top 8 with the highest consequence for this milestone:
+
+1. **Icon FOUC (Pitfall 1)** — Render both SVGs in HTML; CSS hides the wrong one via `[data-theme]`. The IIFE runs before `<link rel="stylesheet">` so `data-theme` is set before first paint. Do NOT update icons imperatively in JS.
+
+2. **CLS spike from masonry without explicit `width`/`height` (Pitfall 4)** — Hugo `Resize "600x webp q75"` emits `width` and `height` from the processed image. Keep both attributes on every `<img>`. This is the difference between CLS < 0.1 and a broken layout score.
+
+3. **Gallery ordering nondeterminism (Pitfall 5)** — See the conflict resolution section below. Whatever approach is chosen must be decided before any gallery layout work begins.
+
+4. **Lightbox focus trap / ESC / scroll lock (Pitfall 8)** — Use native `<dialog>` with `showModal()`. All three behaviors (focus trap, ESC, scroll lock) are browser-native. No manual implementation needed.
+
+5. **`prefers-reduced-motion` on icon rotation + lightbox transition (Pitfall 9)** — Every new CSS `transition` or `animation` must be wrapped in `@media (prefers-reduced-motion: no-preference)`. Same pattern as `style.css:49-56`.
+
+6. **Render-image hook breakage for new About image shapes (Pitfall 14)** — Enumerate the new layout's image shapes before writing any About markdown. Update the hook first, then write content.
+
+7. **Pullquote contrast regression in dark mode (Pitfall 15)** — `.about-pullquote strong` is currently at 3.97:1 (passes AA as large bold text only). Any change to font-size below 1.4rem or weight below 700 creates a WCAG fail. Re-check contrast on any About CSS change.
+
+8. **Generic CSS class names leaking across pages (Pitfall 17)** — All About-specific CSS must be prefixed `body.page-about`. Use `.about-card`, `.about-hero-circle` — never `.card`, `.hero`.
+
+---
+
+## Conflict Resolution: Gallery Ordering
+
+**The conflict:** Three research streams reached different conclusions on how to randomize gallery order.
+
+| Agent | Recommendation | Reasoning |
+|-------|---------------|-----------|
+| STACK | Hugo `shuffle` template function at build time | Stable per deploy, no JS needed |
+| ARCHITECTURE | Client-side shuffle in `lightbox.js` on `DOMContentLoaded` | Hugo `collections.Shuffle` is non-deterministic across builds (verified: gohugo.io + Hugo issue #5641) |
+| PITFALLS | Author-controlled order frozen at authoring time | Non-deterministic = broken deep-links, diff churn, confusion for repeat visitors |
+| FEATURES | Author-controlled `weight` in frontmatter | Deterministic; pairs naturally with the caption authoring path |
+
+**Recommended resolution: author-controlled deterministic order via `params.weight` in `[[resources]]` frontmatter.**
+
+Rationale:
+- ARCHITECTURE correctly identifies that Hugo `shuffle` is non-deterministic across builds — STACK's recommendation is wrong on this point (the Hugo docs confirm there is no stable seeding primitive).
+- Client-side shuffle is technically viable but produces layout reorder after paint (reflow on every visit) and breaks the stable gallery expectation for a personal portfolio.
+- Author-controlled `weight` achieves "feels random" by having the author deliberately vary positions when adding photos. The order is intentional, deterministic, and never regresses on deploy.
+- The `params.weight` field is already part of the FEATURES.md recommended frontmatter schema.
+
+**Decision to surface to user:** Should the gallery feel "freshly random on each visit" (client-side shuffle, minor reflow) or "deliberately curated and stable" (author-controlled weight)? The research recommends the latter, but this is an aesthetic preference call.
+
+---
 
 ## Implications for Roadmap
 
-All four research docs converge on **the same dependency graph**, which dictates phase order. Deviating forces backtracking — e.g., wiring the wordmark before the theme toggle works leaves the swap untested; building the gallery layout before the image pipeline gives a fake "it works" signal that hides 50 MB transfers.
+All four research agents converge on the same build order: ICON then ABOUT then GALLERY (or ICON then GALLERY then ABOUT). Gallery has the most moving parts and the only new JS file; it belongs last. ICON is the smallest and lowest-risk change; it belongs first.
 
-### Phase 1: Brand Asset Slicing (foundation)
+### Phase 1: ICON — SVG Theme Toggle
 
-**Rationale:** Both the wordmark (Phase 3) and the favicon (Phase 3) consume the 8 sliced PNGs. Slicing is a one-shot deterministic operation that should not block downstream work.
-**Delivers:** 8 PNGs in `themes/minimal/static/images/brand/` (`wordmark-{light,dark}.png`, `icon-{light,dark}.png`, `mark-{light,dark}.png`, `favicon-{light,dark}.png`); committed `scripts/slice_logos.py` for reproducibility; `images/logos.png` source untouched.
-**Addresses:** Feature #2 (sprite slicing).
-**Avoids:** Pitfall 8 (inconsistent dimensions / lossy re-encoding).
-**Uses:** Pillow 12.2.0 in throwaway venv.
+**Rationale:** Smallest blast radius. Three-file change. Builds confidence in v3.0 before larger surgery. Zero content changes. Zero JS additions.
+**Delivers:** Sun/moon SVG icon in header, correct in both themes, no FOUC, accessible.
+**Implements:** Inline SVG pattern (Lucide visual language), CSS-driven swap via `[data-theme]`, `aria-label` update in JS click handler.
+**Must avoid:** Icon FOUC (P01), hit-target shrinkage (P02), hard-coded fill colors (P03), `prefers-reduced-motion` violation (P09), `theme-color` meta desync (P22).
+**Research flag:** No deeper research needed. Pattern is a direct extension of the footer SVG icon convention. HIGH confidence.
 
-### Phase 2: Theming Foundation (highest-risk phase, blocks everything visual)
+REQ categories: `ICON-01` (SVG markup in header.html), `ICON-02` (CSS swap rules), `ICON-03` (aria-label JS update), `ICON-04` (tap target CSS), `ICON-05` (transition guard).
 
-**Rationale:** 10 of 20 documented pitfalls cluster here (FOUC, accessibility, mobile-header layout, theme-color meta sync, localStorage failures, prefers-color-scheme misreads). Architecture, Stack, and Pitfalls all independently mark this as the load-bearing first step.
-**Delivers:** CSS-variable refactor of `style.css`; dark-palette block under `:root[data-theme="dark"]`; inline `<head>` IIFE in `baseof.html`; theme-toggle button in `header.html` with sun/moon SVGs, `aria-pressed`, keyboard reachability, `prefers-reduced-motion` respected; localStorage persistence with try/catch; `<meta name="color-scheme" content="light dark">`; manual + scripted update of `<meta name="theme-color">`.
-**Addresses:** Feature #1 (theme toggle).
-**Avoids:** Pitfalls 1, 6, 7, 11 (decision recorded), 12, 14, 19, 20.
-**Implements:** Components 1, 2, 3 from Architecture.
+### Phase 2: ABOUT — Dynamic Rounded Redesign
 
-### Phase 3: Wordmark + Favicon Wiring (single coupled phase)
+**Rationale:** Template + CSS work with no new JS. Can be scaffolded and visually validated with existing photos before any content rewrite. Independent of gallery — no shared file conflicts.
+**Delivers:** Asymmetric CSS Grid layout, `--radius-soft` token, role cards, balanced climbing/professional content, custom `layouts/about/single.html`.
+**Implements:** `body.page-about` scoping, render-image hook extension (new arms), shortcodes (split/pullquote/feature).
+**Must avoid:** Pullquote contrast regression (P15), CSS leaking across pages (P17), "dynamic" misread as JS widgets (P21), hero cropping on mobile (P19), asymmetric sections collapsing poorly (P20), Kindle/Obsidian aesthetic violated by shadows/gradients (P16), stale professional content (P18).
+**Research flag:** Shortcode count (ARCHITECTURE says 3, could be 2 or 4) is a judgment call to validate during planning. Recommend visual comparison against `tylerkarow.com/about` before locking the design.
 
-**Rationale:** Both consume same brand-asset inputs from Phase 1, both edit the same `<head>` / `header.html` files. Pitfalls research explicitly recommends not splitting them. Depends on Phase 2 because the wordmark CSS swap reacts to the `[data-theme]` attribute set by toggle bootstrap.
-**Delivers:** Header `<a class="site-title">` body replaced with two `<img>` tags toggled by CSS `[data-theme]` selectors; explicit `width`/`height`; meaningful `alt`; `partials/favicon.html` with 3 `<link>` tags; `favicon.ico` + `favicon.svg` (with embedded `@media (prefers-color-scheme: dark)`) + `apple-touch-icon.png`.
-**Addresses:** Features #3 (wordmark), #4 (favicon).
-**Avoids:** Pitfalls 9, 10 (accepted tradeoff), 15, 18.
-**Implements:** Components 4, 5 from Architecture.
+REQ categories: `ABOUT-01` (layout template), `ABOUT-02` (render-image hook extension), `ABOUT-03` (role cards CSS), `ABOUT-04` (radius token), `ABOUT-05` (content rewrite), `ABOUT-06` (contrast check gate), `ABOUT-07` (mobile reflow check).
 
-### Phase 4: Gallery (highest-bandwidth phase)
+### Phase 3: GALLERY — Lightbox + Masonry + Captions
 
-**Rationale:** Largest single-feature work (Pitfalls 2, 3, 4, 5, 16, 17 all live here). Independent of Phase 2/3 architecturally but recommended sequenced after Phase 2 to prove build-and-deploy loop with new templates. Folder rename is FIRST commit (in isolation, easy to revert), image-processing pipeline SECOND, layout last.
-**Delivers:** `images/galary/` renamed and moved to `content/gallery/photos/`; `content/gallery/_index.md`; `[[menu.main]]` entry in `hugo.toml`; `themes/minimal/layouts/gallery/list.html` using `.Resources.Match "photos/*"` + `.Process` for thumbs and full-size; eager-load first 1–3 thumbnails; `[imaging.exif] disableLatLong = true`; CSS Grid `repeat(auto-fill, minmax(220px, 1fr))` with section `max-width` override.
-**Addresses:** Features #5 (gallery), #6 (folder rename).
-**Avoids:** Pitfalls 2, 3, 4, 5, 16, 17.
-**Implements:** Component 6 from Architecture.
+**Rationale:** Most moving parts. Three internal sub-dependencies (caption data then template emits data attrs then JS reads them). First JS file added to the theme. Save for last so a regression does not block the simpler features.
+**Delivers:** Native `<dialog>` lightbox, CSS column-count masonry, per-photo captions in frontmatter, touch swipe, keyboard navigation, EXIF CI gate.
+**Implements:** `[[resources]]` frontmatter schema, `gallery/single.html` template changes, `lightbox.js` (~80 LOC IIFE loaded page-scoped), CSS masonry rules replacing current uniform grid.
+**Must avoid:** CLS spike (P04), nondeterministic ordering (P05), missing captions silently shipping (P06), lazy-load conflict in lightbox (P07), missing focus trap/ESC/scroll-lock (P08), backdrop-filter perf on low-end devices (P10), page weight blowout from preloading fulls (P11), alt text dropped from lightbox primary image (P12), EXIF reintroduced by new photos (P13).
+**Research flag:** Gallery ordering decision (author-weight vs. client-shuffle) must be resolved as the first task in this phase, before any layout work. Sub-order within phase: caption frontmatter first, then template, then JS.
 
-### Phase 5: About Enrichment (lowest risk)
-
-**Rationale:** Strictly last. Depends on leaf-bundle conversion pattern that Phase 4 has now exercised on a similar shape, and any Markdown render-image hook from Phase 4 covers About transitively.
-**Delivers:** `content/about.md` → `content/about/index.md` rename; 1–3 personal photos in `content/about/images/`; existing `.page-content img` CSS already handles rendering; URL `/about/` unchanged.
-**Addresses:** Feature #7 (richer About page).
-**Avoids:** Pitfalls 13, 5.
-**Implements:** Component 7 from Architecture.
+REQ categories: `GALLERY-01` (frontmatter schema: caption + weight + alt), `GALLERY-02` (Hugo image processing: Resize not fill), `GALLERY-03` (column-count masonry CSS), `GALLERY-04` (dialog lightbox template), `GALLERY-05` (lightbox JS: open/close/nav/focus), `GALLERY-06` (touch swipe), `GALLERY-07` (EXIF CI gate), `GALLERY-08` (CLS verification gate).
 
 ### Phase Ordering Rationale
 
-- **Phase 1 first** because slicing is deterministic, blocks both wordmark and favicon, and doesn't depend on theming.
-- **Phase 2 second** because it concentrates highest-risk work into a single phase that ships verified before Phase 3 builds on top of `[data-theme]`. No "we'll add ARIA / FOUC fix later" version is acceptable.
-- **Phase 3 third (single phase, both wordmark and favicon)** because Phase 2's `[data-theme]` is the swap mechanism, and the favicon set shares the same `<head>` partial edits.
-- **Phase 4 fourth** because gallery is independent of theming and can be deferred until brand identity ships.
-- **Phase 5 last** because it's a 30-minute migration that depends on no other phase architecturally.
+- ICON first: no content dependency, proves the v3.0 milestone is tracking before committing to larger changes.
+- ABOUT second: CSS + template work validates the Flexoki aesthetic extension before gallery adds JS complexity. Content rewrite is editorial and separable from template scaffolding.
+- GALLERY last: only feature that adds a new JS file, introduces a new authoring workflow (frontmatter captions), and requires sub-task ordering within the phase. A gallery regression does not block ICON or ABOUT delivery.
+- No shared-file conflicts between ICON and ABOUT, or ABOUT and GALLERY (except `style.css`, which section comments handle cleanly).
 
 ### Research Flags
 
-Phases likely needing deeper research during planning:
-- **Phase 4 (Gallery):** Recommended `/gsd:research-phase` — concrete decisions on thumbnail dimensions, WebP quality, eager-vs-lazy thresholds, srcset breakpoints, and CI cache strategy benefit from pre-flight measurement against the actual 18 photos.
+No deeper research needed for any phase — all three features have HIGH-confidence documented patterns. Outstanding judgment calls:
 
-Phases with standard patterns (skip research-phase):
-- **Phases 1, 2, 3, 5:** Patterns are locked in across all four research docs.
+- Phase 2 (ABOUT): How many shortcodes? ARCHITECTURE says 3 (split/pullquote/feature). May resolve to 2 if the About design stays simpler than tylerkarow.com. Validate during planning.
+- Phase 3 (GALLERY): Gallery ordering model (see Conflict Resolution above). Must be a named decision in REQUIREMENTS.md before Phase 3 planning begins.
+- Phase 3 (GALLERY): `backdrop-filter` blur radius. Recommend starting with flat semi-transparent overlay (`rgba(16,15,15,0.85)`) and only adding blur after HUMAN-UAT review explicitly requests it. Avoids GPU perf risk on low-end devices.
+
+---
+
+## Watch Out For (Top 5 Highest-Stakes Pitfalls)
+
+These pitfalls are promoted to milestone-level invariants — they are blocking on any phase that touches them, not soft checks.
+
+1. **FOUC on icon state (Pitfall 1):** Verify with CPU 6x throttle + hard reload in dark mode. If the wrong icon appears for even one frame, it is a FOUC regression. The fix (CSS-driven swap keyed off `[data-theme]`) must be implemented first before the icon phase can close.
+
+2. **CLS regression in masonry (Pitfall 4):** Hugo must emit `width` and `height` attributes from `Resize "600x webp q75"` on every gallery `<img>`. Switching from `fill 600x400` to width-only Resize is required. Measure CLS on the deployed gallery before Phase 3 closes — target < 0.1.
+
+3. **Lightbox accessibility completeness (Pitfall 8):** `<dialog>` with `showModal()` is the recommended implementation. Any deviation (DIV-based modal, class-toggle-only) must implement focus trap, ESC binding, scroll lock, and focus restoration manually. This is a hard verification gate, not a soft check.
+
+4. **Gallery ordering nondeterminism (Pitfall 5):** The ordering model decision must be committed to in writing before gallery layout work begins. Changing it mid-phase invalidates the template and data model. It is a data-model decision, not a CSS decision.
+
+5. **Pullquote contrast on dark theme (Pitfall 15):** The `.about-pullquote strong` CSS comment is load-bearing. Any About phase change that touches `font-size`, `font-weight`, or `color` in that rule must re-run WCAG contrast check with the dark-theme color pair. Encode the constraint in the verification gate.
+
+---
+
+## Stack Additions Summary
+
+Zero new dependencies. For the roadmapper's reference:
+
+| What ships new | How | File |
+|---------------|-----|------|
+| Sun SVG path | Hand-authored inline, Lucide visual language | `header.html` |
+| Moon SVG path | Hand-authored inline, Lucide visual language | `header.html` |
+| `<dialog>` lightbox element | Native HTML, no library | `gallery/single.html` |
+| Lightbox IIFE | ~80 LOC vanilla JS | `themes/minimal/static/js/lightbox.js` |
+| CSS masonry rules | ~10 LOC, `column-count` | `style.css` |
+| CSS lightbox rules | ~40 LOC, `dialog.lightbox` + `::backdrop` | `style.css` |
+| About layout template | New file, `type: "about"` routing | `layouts/about/single.html` |
+| 3 shortcodes | `split`, `pullquote`, `feature` | `layouts/shortcodes/` |
+| `--radius-soft` CSS token | Single line in `:root` | `style.css` |
+
+No CDN additions. No npm. No new build pipeline steps.
+
+---
 
 ## Confidence Assessment
 
 | Area | Confidence | Notes |
 |------|------------|-------|
-| Stack | HIGH | All recommendations verified against official Hugo docs, Pillow notes, MDN, direct repo read. Zero new runtime deps means no version-compat guesswork. |
-| Features | HIGH | All 6 target features map to well-established 2026 personal-blog patterns; each backed by 5+ practitioner sources. |
-| Architecture | HIGH | Researcher read every theme file directly; existing CSS already speaks in custom-property tokens; integration component map is concrete. |
-| Pitfalls | HIGH | 20 pitfalls grounded in this repo's actual structure (verified file sizes, exact CSS line numbers, real grep audit for `galary`). |
+| Stack | HIGH | Zero new dependencies; all patterns verified via MDN, Hugo docs (Context7), and existing codebase precedent. |
+| Features | HIGH | Table stakes verified against MDN accessibility docs, reference site fetch (tylerkarow.com), and v2.0 codebase audit. |
+| Architecture | HIGH | All touchpoints verified by reading current files. Hugo `shuffle` non-determinism confirmed via gohugo.io + Hugo issue #5641. |
+| Pitfalls | HIGH | Grounded in actual code paths in this codebase (specific line numbers in `baseof.html`, `style.css`, `gallery/single.html`). Not generic advice. |
 
-**Overall confidence:** HIGH. The four docs converge on same architecture, stack, and phase-ordering recommendations without contradiction.
+**Overall confidence: HIGH**
 
-### Convergent Recommendations (all 4 docs agree — encode as roadmap success criteria)
+### Gaps to Address During Planning
 
-- `data-theme` attribute on `<html>`, no `@media (prefers-color-scheme)` in CSS.
-- Inline `<head>` IIFE for theme bootstrap, before stylesheet link.
-- Hugo page bundle for gallery (NOT `static/`, NOT project-root `images/`).
-- WebP via `image.Process`, no AVIF, no external image CDN.
-- 3-file favicon set (`.ico`, `.svg`, `apple-touch-icon.png`).
-- Pillow one-off slicer; not Hugo `Crop`; not in `requirements.txt`.
-- Two-image CSS toggle for wordmark, not `<picture>` + `prefers-color-scheme`.
-- Real `<button type="button">` with `aria-pressed`, `prefers-reduced-motion` honored.
-- Native `loading="lazy"` + `decoding="async"`, eager on first row, no JS lightbox library.
-- About page → leaf bundle.
-- Folder rename `images/galary/` → `content/gallery/photos/` (move into Hugo content tree, not just rename in place).
-- Footer needs zero changes.
+- Gallery ordering model: surfaced as a conflict between STACK, ARCHITECTURE, and PITFALLS research. Recommended resolution is author-controlled `params.weight`. Needs user confirmation before Phase 3 REQUIREMENTS are written.
+- About shortcode count: ARCHITECTURE says 3 (split/pullquote/feature). Validate against the final About design before Phase 2 REQUIREMENTS are written. Could be 2 or 4.
+- About asymmetric section count: How many alternating image/text rows does Timo want? Content-strategy decision, not architecture.
+- Backdrop blur radius: `blur(12px)` or flat rgba? Performance vs. aesthetic. Recommend starting flat and adding blur only if HUMAN-UAT requests it.
+- Hugo Smart crop behavior for circular hero: Hugo 0.157.0 Smart cropping is entropy-based (not face-detection). Any circular About hero image must be tested in the build output before the phase closes.
 
-### Tensions / Adjudications
-
-1. **Favicon matrix size.** Features lists 6-file matrix as table stakes; Stack and Pitfalls recommend 3-file minimum. **Adjudication: 3-file set in Phase 3, defer manifest + 192/512 PNGs to v2.x.**
-2. **Wordmark double-fetch.** Architecture endorses two-image CSS toggle; Pitfalls #10 flags as bandwidth waste. **Adjudication: two-image CSS toggle in Phase 3, with acceptance criterion that each variant is <30 KB after `pngquant`.** If measured size exceeds 50 KB per variant, fall back to single-`<img>` JS pattern.
-3. **Lightbox in v2.0 vs deferred.** Features lists in "Should Have"; Stack and Architecture defer. **Adjudication: defer to v2.x.** Open question for requirements: does Timo want lightbox in v2.0?
-4. **Existing diagrams (Mermaid/Plotly/Leaflet) under theme toggle.** Only Pitfalls #11 surfaces this. **Adjudication: roadmap Phase 2 must include smoke-test acceptance criterion (load `/blog/2026-03-05-climbing-routes/` in dark mode); no code change to existing posts in v2.0.**
-5. **Resources cache committed to git vs `actions/cache`.** **Adjudication: defer until measured. If CI gallery-build exceeds ~60s, add `actions/cache` step.**
-
-### Gaps to Address (Open Questions for Requirements Step)
-
-- **Is an SVG source available for the wordmark?** If yes, Phase 3 changes from two-image CSS toggle to single inline SVG.
-- **Lightbox in v2.0?** See adjudication #3.
-- **Per-photo captions in v2.0?**
-- **EXIF strip strategy.** Recommend belt-and-suspenders (Hugo re-encode + explicit `[imaging.exif]` config + `exiftool` smoke test).
-- **Theme-color meta strategy on iOS Safari.** Hybrid pattern (two media-queried meta tags + one JS-managed). **Resolve in Phase 2 planning.**
-- **Mobile-header layout when toggle button added.** Verify in Phase 2 at 320 / 375 / 414 / 600px viewports.
-- **Exact Flexoki dark palette values.** Source from https://stephango.com/flexoki. Resolve in Phase 2 planning.
-- **Thumbnail aspect ratio.** Default to `Fill 600x400 Smart` (4:3 uniform crop). Defer to Phase 4 planning, possibly preceded by `/gsd:research-phase`.
-
-### Watch Out For (Top 5 Highest-Priority Pitfalls — Roadmapper Must Encode as Phase Success Criteria)
-
-1. **FOUC on dark-mode hard reload (Phase 2).** Inline IIFE in `<head>` *before* stylesheet link. Verify by screen-recording hard reload under DevTools Slow 3G in dark mode; expect zero light frames.
-2. **EXIF/GPS leak from gallery photos (Phase 4).** `exiftool public/gallery/**/*.{webp,jpg}` shows no `GPSLatitude` / `GPSLongitude` / `Make` / `Model` / `Serial` fields. Privacy harm cannot be undone after deploy.
-3. **Gallery page weight blowup (Phase 4).** `du -sh public/gallery/` < 3 MB; first-paint network transfer < 2 MB.
-4. **CLS on header wordmark, gallery, about photos (Phases 3 + 4 + 5).** Every `<img>` needs explicit `width`/`height`. Lighthouse Mobile CLS < 0.1 across `/`, `/gallery/`, `/about/`.
-5. **Theme toggle accessibility (Phase 2).** Real `<button>` with `aria-pressed` mutating on click; keyboard reachable; `prefers-reduced-motion` respected. Verify with VoiceOver / NVDA + `prefers-reduced-motion: reduce` test.
+---
 
 ## Sources
 
-### Primary (HIGH confidence)
-- Hugo official docs — image-processing, methods/resource/process, page-bundles, configuration/imaging
-- Hugo releases — 0.157.0 pinned has every needed feature
-- MDN — `aria-pressed`, `meta theme-color`, `meta color-scheme`, `prefers-color-scheme`, `prefers-reduced-motion`, `loading="lazy"`
-- W3C ARIA APG — Switch Pattern, Button Pattern
-- web.dev (Google official) — color-scheme, optimize-cls, browser-level-image-lazy-loading
-- Flexoki spec — https://stephango.com/flexoki
-- Pillow 12.2.0 release notes
-- Direct repo read — `themes/minimal/static/css/style.css`, `baseof.html`, `header.html`, `footer.html`, `hugo.toml`, `content/about.md`, `images/galary/` (verified file sizes 152 KB → 7.5 MB)
+### Primary — Verified via Context7 / Hugo docs (HIGH confidence)
+- `/gohugoio/hugo` — `[[resources]]` frontmatter, `Resize` width-only aspect-ratio behavior, `Fit` method, render-image hooks, `collections.Shuffle` non-determinism
+- `/lucide-icons/lucide` (v0.547.0) — sun/moon path data, Lucide conventions (24x24, 2px stroke, round caps, `currentColor`)
+- MDN: `<dialog>` element — `showModal()`, focus trap, ESC, `aria-modal`
+- MDN: `backdrop-filter` — browser support, `-webkit-` prefix requirement for Safari <17
+- Hugo docs: page resources — `[[resources]]` frontmatter + wildcard `src`
+- Hugo issue #5641 — confirms no stable seeding primitive for `collections.Shuffle`
+- Existing codebase files (read directly): `baseof.html`, `header.html`, `footer.html`, `gallery/single.html`, `render-image.html`, `style.css`, `content/gallery/index.md`, `content/about/index.md`, `hugo.toml`
 
-### Secondary (MEDIUM confidence — multiple independent sources agree)
-- Evil Martians — How to Favicon in 2026
-- No-flash dark mode pattern — whitep4nth3r, bram.us, vbesse.com
-- Hugo dark-mode community — Yonkov, Phelipe Teles, Radu Matei, Ken Muse, tiredsg.dev, Ryan Feigenbaum, CSSence, CSS-Tricks
-- Hugo image-processing practitioner guides — Bryce Wray, Henrik Sommerfeld, Sander ten Brinke, Jack Henschel
-- Hugo discourse — EXIF stripping, page-bundle paths, `resources/_gen/` caching
-- Lighthouse / GitHub community — Safari 15.4 manifest icons, GitHub Pages favicon caching
+### Secondary — Verified via authoritative third-party (MEDIUM-HIGH confidence)
+- CSS-Tricks: There is No Need to Trap Focus on a Dialog Element — W3C APA position on `<dialog>` native focus trap
+- CSS-Tricks: Masonry Layout is Now grid-lanes — confirms CSS Grid masonry is Safari-only in 2026
+- Sara Soueidan: Accessible Icon Buttons — `aria-label` on button, `aria-hidden` on inner SVG
+- caniuse: backdrop-filter — 92%+ global support; Safari 9-16 needs `-webkit-` prefix
 
-### Tertiary (LOW confidence / single-source — flag for validation)
-- CI build-time projections for first gallery build (resolve via Phase 4 measurement)
-- Exact Flexoki dark palette values (taste calls, resolve in Phase 2 planning)
-- Whether two-image wordmark double-fetch is acceptable in practice (resolve in Phase 3 with measured asset sizes)
+### Tertiary — Visual reference only (LOW confidence — design inspiration, not implementation)
+- tylerkarow.com/gallery — masonry + lightbox reference (Squarespace proprietary; visual pattern only)
+- tylerkarow.com/about — asymmetric single-column about-page reference
 
 ---
-*Research completed: 2026-04-28*
+
+*Research completed: 2026-05-01*
 *Ready for roadmap: yes*

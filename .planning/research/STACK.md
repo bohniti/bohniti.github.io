@@ -1,311 +1,370 @@
-# Stack Research — v2.0 Brand & Gallery
+# Stack Research — v3.0 Design Update
 
-**Domain:** Static-site brand identity, theming, and image-heavy gallery for Hugo
-**Researched:** 2026-04-28
+**Domain:** Hugo personal site refinement (icon-button theme toggle, lightbox/masonry gallery, About redesign)
+**Researched:** 2026-05-01
 **Confidence:** HIGH
 
-## Scope Note
+> **Scope guardrail.** Only stack additions or changes for the three v3.0 features. The validated v2.0 stack (Hugo Extended 0.157.0, vanilla JS, single CSS file with Flexoki tokens, `image.Process` WebP pipeline, render-image hook, page-bundle layout) is LOCKED — this document does not re-research it.
 
-This document covers **only stack additions/changes for v2.0 features**. Hugo, the minimal theme, GitHub Actions deploy, and Goldmark `unsafe = true` are already validated (see `.planning/codebase/STACK.md`) and are NOT re-researched. The recommended approach for every v2.0 feature uses **Hugo built-ins, vanilla JS, and CSS custom properties** — zero new runtime dependencies.
+## Headline Recommendation
+
+**Add zero new runtime dependencies, zero npm packages, zero build tools.** Every feature ships with platform-native primitives that are already used elsewhere in the codebase or that fall inside the existing Hugo + vanilla CSS/JS budget.
+
+| Feature | Recommended primitive | New dependency? |
+|---------|----------------------|-----------------|
+| (a) SVG icon theme toggle | Inline SVG (Lucide-style, hand-authored) inside existing `<button class="theme-toggle">` | No |
+| (b) Lightbox + masonry gallery | Native `<dialog>` + `showModal()` + `::backdrop` blur; CSS `column-count` + `break-inside: avoid` | No |
+| (c) About redesign | Existing render-image hook extended; CSS `border-radius` + asymmetric grid + asymmetric column tracks | No |
+
+Rationale: every additive third-party library would dent the Flexoki/Kindle/Obsidian-minimal aesthetic and the "no JS framework, vanilla only" v2.0 invariant. The 2026 web platform has primitives for all three needs.
+
+---
 
 ## Recommended Stack
 
-### Core Technologies (Already Pinned — No Change)
+### Core Technologies (existing, LOCKED — listed for context)
 
-| Technology | Version | Purpose | Why It Already Fits v2.0 |
-|------------|---------|---------|--------------------------|
-| Hugo Extended | 0.157.0 (pinned in `.github/workflows/deploy.yml`) | Static site generator | Includes the `image.Process` / `Resize` / `Fill` / `Crop` / `Fit` pipeline used for the gallery and sprite slicing — no upgrade required for v2.0. Latest is 0.160.1 (2026-04-08) but features needed have existed since 0.83. Defer upgrade to a separate housekeeping task. |
-| CSS (vanilla) | n/a | Theming via CSS custom properties already declared on `:root` in `themes/minimal/static/css/style.css` (lines 4–18) | The Flexoki light palette is already variable-driven; adding a dark palette is a `[data-theme="dark"]` selector override — no preprocessor or framework needed. |
-| Vanilla JS (ES6+) | n/a | Theme-toggle button + no-flash inline `<head>` script | Repository convention is "no JS frameworks" (CLAUDE.md). The toggle is < 30 lines; any library would be larger than the feature itself. |
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| Hugo Extended | 0.157.0 | Static site generator + image processing | Already pinned in `.github/workflows/deploy.yml`. Built-in `image.Process` covers all gallery/About image needs. |
+| Goldmark with `unsafe = true` | (Hugo bundled) | Markdown renderer that allows raw HTML | Already enabled in `hugo.toml`; needed for `<dialog>` markup if authored inline, but for v3.0 the dialog is wired in the layout template, not in markdown. |
+| Vanilla CSS | — | Single stylesheet at `themes/minimal/static/css/style.css` | All v2.0 styling lives here under `:root` / `:root[data-theme="dark"]` token blocks; v3.0 extends this file, does not add a second stylesheet. |
+| Vanilla JS | ES6+ | Inline `<head>` IIFE + end-of-body IIFE in `baseof.html` | Same pattern reused for the dialog open/close handler; no module bundler, no transpiler. |
 
-### New Stack Additions
+### v3.0 Additions (new patterns, no new packages)
 
-| Addition | Version | Purpose | Why Recommended |
-|----------|---------|---------|-----------------|
-| **Hugo `image.Process` pipeline** | bundled with Hugo 0.157.0 | Generate responsive `srcset` thumbnails + full-size variants for the 18 gallery photos | Built-in, cached in `resources/_gen/`, supports `resize`, `fill`, `fit`, `crop`, `qN` quality, anchor (incl. `Smart`), and `webp` output. Eliminates need for an external image pipeline. (Source: gohugo.io image-processing docs) |
-| **WebP output format** | via Hugo `image.Process "... webp qN"` | Smaller gallery payloads than JPEG at equivalent quality | Universally supported in 2026 (Safari 14+, all evergreen browsers). Hugo emits WebP natively; no Node/sharp/imagemin dependency. AVIF is NOT yet supported by Hugo's image pipeline — skip it. |
-| **CSS custom properties + `[data-theme]` attribute selector** | CSS Level 4 (universal browser support) | Light/dark palette switch with zero runtime cost | Single source of truth for color tokens. Toggling `<html data-theme="dark">` re-cascades all variables instantly. No CSS-in-JS, no theme provider. |
-| **Inline `<head>` theme bootstrap script** | ~15 lines of vanilla JS | Apply theme **before first paint** to prevent FOUC ("flash of unstyled content") | Industry-standard pattern (used by MUI, Next.js `next-themes`, every well-built static site). Reads `localStorage.theme` then falls back to `window.matchMedia('(prefers-color-scheme: dark)')`. Must be **inline and synchronous** in `<head>` — external scripts defer past first paint. |
-| **`<link rel="icon" type="image/svg+xml">` favicon (preferred)** | HTML5 standard | Single scalable favicon with a CSS `@media (prefers-color-scheme: dark)` clause inside the SVG | Modern browsers (Chrome 80+, Firefox 41+, Safari 16+) support SVG favicons that adapt to OS theme automatically. Falls back to PNG/ICO for older clients. (Source: realfavicongenerator, evilmartians) |
-| **Pillow (Python) — one-off only** | 12.2.0 (latest stable, 2026-04-01) | Slice `images/logos.png` (1536×1024 sprite, 2 rows × 4 cols) into 8 individual PNGs | Run once locally, commit the 8 outputs to `images/icon/`, then delete the script (or keep in `scripts/` as documentation). NOT a runtime dependency — never executed during Hugo build or CI. |
+| Pattern | Spec / browser support | Purpose | Why this fits Flexoki + no-framework |
+|---------|------------------------|---------|---------------------------------------|
+| Native `<dialog>` element with `showModal()` | Chrome 37+, Edge 79+, Firefox 98+, Safari 15.4+ — full support across modern browsers in 2026 ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)) | Lightbox container for full-size gallery photo | Browser handles focus trap, ESC-to-close, backdrop, top-layer rendering, `aria-modal` automatically. The W3C APA explicitly states focus-trap utility code is no longer needed when using `<dialog>` ([CSS-Tricks](https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/)). |
+| `::backdrop` pseudo-element + `backdrop-filter: blur(...)` | 92–95% global support; full Chrome 76+, Edge 79+, Firefox 103+, Safari 17+ (Safari 9–16 needs `-webkit-` prefix) ([caniuse](https://caniuse.com/css-backdrop-filter)) | Blurred backdrop behind the lightbox, matching the v3.0 brief | Pure CSS, two declarations (`backdrop-filter` + `-webkit-backdrop-filter`); no JS, no extra DOM nodes. |
+| CSS multi-column layout — `column-count` + `column-gap` + `break-inside: avoid` | Stable in every browser since IE10; zero risk in 2026 | Masonry-style gallery preserving each photo's natural aspect ratio | Pure CSS; pairs perfectly with Hugo `Resize "Wx webp q75"` (width-only) which preserves aspect ratio in the rendered `<img>`. CSS Grid `masonry` is too new (Safari 26 only as of 2026 — [CSS-Tricks](https://css-tricks.com/masonry-layout-is-now-grid-lanes/)). |
+| Hugo page-resource frontmatter `params` for captions | Hugo 0.157 — stable since 0.31 ([Hugo docs](https://gohugo.io/content-management/page-resources/)) | Author 1–2 sentence caption per photo via `[[resources]]` array in `content/gallery/index.md` frontmatter | One source of truth (frontmatter, not a sidecar JSON), wildcard support (`src = "photos/*.jpg"`), accessed in template as `$photo.Params.caption`. |
+| Hand-authored inline SVG icons (Lucide visual language) | — | Sun/moon icons for the theme toggle; matches existing footer GitHub + Instagram icons | The v2.0 footer **already** uses Lucide-style inline SVG (`viewBox="0 0 24 24"`, `stroke-width="2"`, `stroke-linecap="round"`, `currentColor`). Stay consistent — copy the same conventions, do not introduce a different icon family. |
 
-### Supporting Libraries
+---
 
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| **None — explicitly** | — | — | The v2.0 milestone introduces **zero new runtime dependencies**. Pillow is a build-time, one-shot tool; everything else is Hugo built-in or vanilla web platform. |
+## Supporting Libraries
 
-### Development Tools
+**None recommended.** All three features ship with platform-native primitives.
 
-| Tool | Purpose | Notes |
-|------|---------|-------|
-| Pillow 12.2.0 | One-off sprite slicer (`scripts/slice_logos.py`) | Install in a throwaway venv: `python3 -m venv .venv && .venv/bin/pip install Pillow==12.2.0`. Do NOT add to a `requirements.txt` — there is no project-level Python dependency manifest, and adding one would create false long-term commitments. |
-| Hugo CLI | Local preview of gallery image processing | Image processing is build-time; you must `hugo server` (or `hugo`) to see processed assets in `resources/_gen/`. CI uses `hugo --minify` already. |
-| `git mv` | Rename `images/galary/` → `images/gallery/` | Single command preserves history. Do not `rm -rf` and re-add. |
+The following npm/CDN libraries were considered and rejected for the reasons in the "What NOT to Use" section: PhotoSwipe, GLightbox, Tobii, Slightbox, Macy.js, Masonry.js, focus-trap, Lucide-as-package, Heroicons-as-package.
+
+---
+
+## Feature-Specific Recommendations
+
+### (a) SVG Icon Theme Toggle
+
+**Recommendation: hand-authored inline SVG inside the existing `<button class="theme-toggle">`.**
+
+**Why inline SVG (over `<symbol>` sprite, over Hugo asset pipeline, over a `<picture>`/`<img>` swap):**
+
+| Approach | Verdict | Reason |
+|----------|---------|--------|
+| **Inline SVG** | ✅ Use | Already the codebase pattern (footer GitHub + Instagram icons). `currentColor` recolors via `var(--text)`, exactly like the wordmark. Two icons × ~24 lines = ~48 lines added to `partials/header.html`. No HTTP request. No FOUC. No build step. |
+| `<symbol>` sprite + `<use href="#sun">` | ❌ Skip | Adds a sprite file, requires `<use>` indirection, extra Hugo include. Wins only when you have many icons reused on many pages — Timo's site has two icons (sun + moon) on one button. |
+| Hugo `resources.Get "icon.svg" \| readFile \| safeHTML` | ❌ Skip | Same effective result as inline, but spreads the icon source across two files instead of one. Use `readFile` only when the SVG is large (the wordmark is 814 LOC — that's the bar). |
+| `<img src="sun.svg">` swap via `[data-theme]` | ❌ Skip | Already superseded by Phase 05.1 decision: inline SVG with `currentColor` is the project's chosen pattern. |
+
+**Icon source:** copy the visual language of [Lucide](https://lucide.dev/icons/) (`sun`, `moon` — both 24×24, 2px stroke, round caps, `currentColor`). Do **not** install `lucide` as a package — copy the two SVG path strings directly into the header partial, the same way the GitHub and Instagram paths sit inline in `partials/footer.html` today.
+
+**Why Lucide visual language (not Heroicons / Phosphor / Feather):**
+- Existing footer icons already match Lucide conventions — visual consistency demands sun/moon match.
+- Lucide is a maintained fork of Feather Icons (1500+ icons, MIT licensed) ([Lucide docs](https://lucide.dev/)).
+- Heroicons would need 1.5px stroke (mismatched against existing 2px footer icons).
+- Phosphor is heavier (multi-weight) and stylistically inconsistent with the rest.
+
+**Toggle swap pattern (single button, two SVGs, CSS-driven):**
+
+```html
+<button type="button" class="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+  <svg class="theme-toggle-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+  <svg class="theme-toggle-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+  </svg>
+</button>
+```
+
+CSS hides the inactive icon based on `[data-theme]`:
+
+```css
+:root[data-theme="light"] .theme-toggle-moon { display: none; }
+:root[data-theme="dark"]  .theme-toggle-sun  { display: none; }
+```
+
+JS already in `baseof.html` toggles `data-theme`; only change the click handler's `toggle.textContent = next === 'dark' ? 'Light' : 'Dark'` line to `toggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')`.
+
+**Accessibility (verified):** for icon-only buttons, `aria-label` belongs on the button, `aria-hidden="true"` on the inner `<svg>` ([Sara Soueidan: Accessible Icon Buttons](https://www.sarasoueidan.com/blog/accessible-icon-buttons/)).
+
+---
+
+### (b) Lightbox + Masonry Gallery
+
+**Recommendation: native `<dialog>` modal + CSS `column-count` masonry + Hugo frontmatter captions.**
+
+#### Lightbox: native `<dialog>` element
+
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| Modal mechanism | `<dialog>` + `dialog.showModal()` | Browser-native focus trap, ESC-to-close, top-layer rendering, `aria-modal="true"` applied automatically. No JS library needed. Browser support: Chrome 37+, Firefox 98+, Safari 15.4+, Edge 79+ ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog)). |
+| Backdrop | `dialog::backdrop { backdrop-filter: blur(12px); background: rgba(16,15,15,0.6); }` (light) / `rgba(255,252,240,0.4)` (dark, via `:root[data-theme="dark"] dialog::backdrop`) | Pure CSS. No extra DOM. `backdrop-filter` 92% supported in 2026 ([caniuse](https://caniuse.com/css-backdrop-filter)); fallback to opaque-ish `background` when unsupported (already implicit). |
+| Backdrop click closes | `dialog.addEventListener("click", e => { if (e.target === dialog) dialog.close(); })` ([Aleksandr Hovhannisyan](https://www.aleksandrhovhannisyan.com/blog/how-to-open-and-close-html-dialogs/)) | One-line handler. The `closedby="any"` attribute is also available in newer Chrome but support is uneven — stick with the click handler. |
+| Keyboard navigation | ESC = browser-native via `<dialog>`. Arrow keys = ~10 lines of vanilla JS reading `data-index` on `<dialog>` and updating `<img src>` in place. Tab = browser-native focus trap. | All zero-dependency. |
+| Focus return on close | Browser-native — `<dialog>` returns focus to the trigger button. | Zero JS needed. |
+| Number of `<dialog>` elements in DOM | **One**, mutated in place per click (single `<img>` and `<figcaption>` swapped) | Keeps DOM weight constant regardless of gallery size. 18 photos = 1 dialog, not 18. |
+
+**Why not a JS lightbox library?**
+- PhotoSwipe is 40+ KB minified gzipped — exceeds the entire current first-paint CSS budget.
+- GLightbox / Tobii / Slightbox are smaller (5–15 KB) but still violate "no third-party libs unless essential", and `<dialog>` covers everything they do.
+- The W3C APA confirms `<dialog>` makes focus-trap utilities obsolete ([CSS-Tricks](https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/)) — the historical reason to reach for a library is gone.
+
+#### Masonry: CSS `column-count`
+
+**Recommendation: `column-count: 3` + `column-gap: 1rem` + `break-inside: avoid` on `.gallery-item`.**
+
+| Layout option | Verdict | Reason |
+|---------------|---------|--------|
+| **CSS `column-count`** | ✅ Use | Stable everywhere since IE10. Items flow into columns top-to-bottom (matches v3.0 "vertical-staggered" Tyler Karow reference). `break-inside: avoid` prevents splitting an `<a>` across columns. |
+| CSS Grid `grid-template-rows: masonry` (a.k.a. `display: grid-lanes`) | ❌ Skip | Behind a flag in Chrome and Firefox as of early 2026; only Safari 26 ships stable ([CSS-Tricks](https://css-tricks.com/masonry-layout-is-now-grid-lanes/)). Production-blocking. |
+| Flexbox column-direction | ❌ Skip | Requires fixed container height to wrap; doesn't degrade gracefully on responsive resize. |
+| JS Masonry library (Macy.js, Masonry.js, Isotope) | ❌ Skip | Pixel-perfect but expensive: layout re-flow on resize, requires JS executing before paint (FOUC risk), 5–20 KB extra payload. CSS columns "good enough" for an 18-photo gallery and free from FOUC. |
+
+**Important DOM-order caveat:** `column-count` flows top-to-bottom, **then** left-to-right (column 1 fills first, column 2 fills second, …). For a deterministic gallery this is fine. For Tyler-Karow-style "randomized" placement, randomize the **DOM order** at build time (Hugo `shuffle` template func) — not at runtime — so each deploy has a stable layout but a fresh shuffle. No JS needed.
+
+**Responsive breakpoints:**
+
+```css
+.gallery-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+@media (max-width: 900px) { .gallery-grid { column-count: 2; } }
+@media (max-width: 600px) { .gallery-grid { column-count: 1; } }
+
+.gallery-item {
+  display: block;
+  break-inside: avoid;            /* don't split a card across columns */
+  margin-bottom: 1rem;            /* simulate row gap inside columns */
+  border-radius: 4px;
+  overflow: hidden;               /* clip rounded corners on the inner img */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;                   /* preserve aspect ratio from Hugo */
+  display: block;
+}
+```
+
+#### Captions: Hugo page-resource frontmatter
+
+**Recommendation: `[[resources]]` array in `content/gallery/index.md` frontmatter with `params.caption`.**
+
+```toml
+title = "Gallery"
+type  = "gallery"
+
+[[resources]]
+src = "photos/IMG_0256.jpeg"
+title = "Sunset over the Hohe Tauern"
+[resources.params]
+caption = "Late summer evening on the descent — golden hour, no filter."
+
+[[resources]]
+src = "photos/*.jpg"        # wildcard fallback
+[resources.params]
+caption = ""                # empty caption is valid; template hides empty <figcaption>
+```
+
+Template access:
+
+```go-html-template
+{{ range .Resources.Match "photos/*" }}
+  {{ $caption := .Params.caption }}
+  ... <img ...> ...
+  {{ with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+{{ end }}
+```
+
+**Why frontmatter (not a sidecar JSON, not per-photo `.md` files):**
+- Single source of truth — one file to edit when adding a photo.
+- Hugo-native — no JSON parsing, no `getJSON` round-trip.
+- Wildcard `src = "photos/*"` lets you backfill defaults for un-captioned photos.
+- Verified via Context7 / Hugo docs ([gohugo.io/methods/resource/Params](https://gohugo.io/methods/resource/Params/)) — confidence HIGH.
+
+**Authoring path:** add a photo file to `content/gallery/photos/`, add a `[[resources]]` block in `index.md` with caption, commit. Done.
+
+#### Image processing for masonry
+
+Replace the current `fill 600x400 Smart` (forces uniform aspect ratio) with `Resize "600x webp q75"` (width-only, **preserves aspect ratio**) for thumbnails. Hugo emits the correct `width` and `height` attributes from the actual processed image, so CLS stays at 0.
+
+```go-html-template
+{{ $thumb := $photo.Resize "600x webp q75" }}
+{{ $full  := $photo.Fit    "1600x1600 webp q82" }}
+<img src="{{ $thumb.RelPermalink }}"
+     width="{{ $thumb.Width }}"
+     height="{{ $thumb.Height }}"
+     loading="lazy" decoding="async" alt="{{ $caption }}">
+```
+
+Verified pattern via Hugo docs ([Resize method](https://gohugo.io/methods/resource/resize/), [Fit method](https://gohugo.io/methods/resource/fit/)).
+
+---
+
+### (c) About Redesign — "Dynamic, Rounded" within Flexoki
+
+**Recommendation: extend the existing render-image hook (do not replace it) + asymmetric CSS Grid + softened `border-radius` tokens.**
+
+What stays:
+- Leaf-bundle pattern at `content/about/index.md` ✅
+- `type: "about"` frontmatter → `body.page-about` class ✅
+- Render-image hook keyed off image title (`hero` / `grid` / default) ✅
+- Existing 5 EXIF-scrubbed photos ✅
+
+What changes (CSS + content only — no template rewrites needed for hooks):
+
+1. **Soften `border-radius`** site-wide via a token. Add `--radius-soft: 12px` (was 4–6px) to `:root` and apply to `.about-hero-img`, `.about-grid-item`, and the new content cards. This is the single biggest visual lever for "dynamic, rounded" without breaking Flexoki.
+
+2. **Asymmetric section grid** — replace today's two-column `2fr 1fr` hero with a multi-section pattern: alternating wide-text/narrow-image and narrow-text/wide-image rows using `grid-template-columns: 3fr 2fr` and `grid-template-columns: 2fr 3fr` ([Tyler Karow's about page uses this exact magazine pattern](https://www.tylerkarow.com/about)).
+
+3. **Add new render-image hook keyword `card`** (in addition to `hero` / `grid` / default) for medium-format inline portraits inside professional-section blocks. Process spec: `fill 600x450 Smart webp q78`. Append to existing three-arm switch — additive, not breaking.
+
+4. **Content broadening** — markdown structure shifts from "climbing-heavy → professional + climbing balanced". This is a content edit in `content/about/index.md`, not a stack change.
+
+5. **Optional decorative element** — a thin 1px `border` in `var(--border)` with `border-radius: var(--radius-soft)` around content cards adds the "rounded" feel without breaking minimalism. Card backgrounds stay `var(--bg)` (no shadow, no gradient — Kindle/Obsidian aesthetic must hold).
+
+**Why no new template architecture:**
+- The render-image hook is already three-armed; adding a fourth arm (`card`) is a 3-line change.
+- Leaf bundle + `type: "about"` already gives a unique CSS scope (`body.page-about`).
+- All visual changes happen in `themes/minimal/static/css/style.css` under the existing `body.page-about` block — same file, same scope, additive.
+
+**Important constraint:** the dark-theme contrast warning on `.about-pullquote strong` (`#D14D41` on `#1C1B1A` = 3.97:1, passes WCAG AA only because of large bold text) is a load-bearing CSS comment. Any color change in v3.0 must re-check contrast with the WCAG calculator before merging.
+
+---
 
 ## Installation
 
-```bash
-# === ONE-OFF: Sprite slicing tooling (build-time only) ===
-python3 -m venv .venv
-.venv/bin/pip install Pillow==12.2.0
-.venv/bin/python scripts/slice_logos.py   # writes 8 PNGs to images/icon/
-deactivate
-# Optional: rm -rf .venv  (no runtime need for it)
+**No installs.** Zero new packages. All work happens in:
 
-# === RUNTIME: Nothing to install ===
-# Hugo image processing, CSS variables, and vanilla JS need zero installs.
-```
+| File | Change |
+|------|--------|
+| `themes/minimal/layouts/partials/header.html` | Replace text "Dark"/"Light" inside `<button>` with two inline `<svg>` blocks. |
+| `themes/minimal/layouts/_default/baseof.html` | Update click handler — swap `textContent` mutation for `aria-label` mutation. |
+| `themes/minimal/layouts/gallery/single.html` | Add `<dialog>` element with `<img>` + `<figcaption>` + close `<button>`. Replace per-photo `<a href={{ $full.RelPermalink }}>` with `<button data-full="..." data-caption="...">` triggers. |
+| `themes/minimal/layouts/_default/_markup/render-image.html` | Add fourth arm: `else if eq $title "card"` → `fill 600x450 Smart webp q78`. |
+| `themes/minimal/static/css/style.css` | Add `.theme-toggle-sun/.theme-toggle-moon` rules; replace `.gallery-grid { display: grid }` with column-count rules; add `dialog.lightbox` + `dialog.lightbox::backdrop` rules; add `--radius-soft` token + body.page-about asymmetric section rules. |
+| `content/gallery/index.md` | Add `[[resources]]` frontmatter with per-photo captions. |
+| `content/about/index.md` | Broaden content beyond climbing; add new `card`-tagged image references. |
+| `themes/minimal/layouts/gallery/single.html` | Inline ~30-line vanilla-JS IIFE at end-of-template (or move to baseof.html as a `{{ if eq .Section "gallery" }}` block). Handles dialog open/close, arrow-key navigation, image+caption swap. |
 
-## Integration Points (Where Each Choice Lands)
+Total estimated LOC delta: **~150 lines added, ~40 lines removed** — comparable to a single v2.0 phase.
 
-| Concern | File | What Changes |
-|---------|------|--------------|
-| No-flash theme bootstrap | `themes/minimal/layouts/_default/baseof.html` | Add `<script>` block immediately after `<meta charset>` and before `<link rel="stylesheet">` — must be inline, synchronous, in `<head>`. |
-| Dark palette tokens | `themes/minimal/static/css/style.css` | Add `[data-theme="dark"] { --bg: ...; --text: ...; ... }` block right after the existing `:root { ... }` block (lines 4–18). |
-| Theme toggle button | `themes/minimal/layouts/partials/header.html` | Add `<button class="theme-toggle" aria-label="Toggle color theme">…</button>` between `.site-title` and `.site-nav` (or at the end of the nav). Wire to a small JS file in `themes/minimal/static/js/theme-toggle.js` loaded with `defer`. |
-| Wordmark | `themes/minimal/layouts/partials/header.html` | Replace `{{ .Site.Title }}` text in `.site-title a` with two `<img>` tags (light + dark variants), one shown via CSS per `[data-theme]`. Or use a single `<picture>` with `<source media="(prefers-color-scheme: ...)">` — but theme toggle overrides OS preference, so the `[data-theme]` CSS approach is more correct. |
-| Favicon set | `themes/minimal/layouts/_default/baseof.html` | Add `<link rel="icon">` tags inside `<head>` after the `<title>` element. |
-| Gallery page | `content/gallery/_index.md` (branch bundle) + `themes/minimal/layouts/gallery/list.html` (new) | Branch bundle so photos can be co-located as page resources accessed via `.Resources.Match "*.jpg"`. New layout file uses `range` over `.Resources.ByType "image"` + `image.Process`. |
-| Gallery photos | `content/gallery/photos/*.jpg` (moved from `images/galary/`) | Hugo page bundles want resources adjacent to `_index.md` for `.Resources` access. Top-level `images/` is `static/`-style and bypasses the resource pipeline. **Move them into the bundle.** |
-| About page photos | `content/about.md` → convert to leaf bundle `content/about/index.md` with adjacent photos | Same rationale: resource pipeline access. |
-
-## Detailed Recommendations
-
-### 1. No-Flash Theme Toggle (Vanilla JS + CSS Custom Properties)
-
-**Pattern (verified — see whitep4nth3r, bram.us, MUI):**
-
-1. **Inline `<head>` bootstrap** in `baseof.html` (BEFORE the stylesheet link):
-   ```html
-   <script>
-     (function() {
-       try {
-         var saved = localStorage.getItem('theme');
-         var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-         var theme = saved || (prefersDark ? 'dark' : 'light');
-         document.documentElement.setAttribute('data-theme', theme);
-       } catch (e) {
-         document.documentElement.setAttribute('data-theme', 'light');
-       }
-     })();
-   </script>
-   ```
-   - Must be inline (external scripts don't run before first paint reliably).
-   - Wrapped in IIFE + try/catch (private browsing can throw on `localStorage`).
-   - Sets `data-theme` on `<html>`, not `<body>` — matches CSS variable cascade root.
-
-2. **CSS** in `style.css`:
-   ```css
-   :root, [data-theme="light"] { --bg: #FFFCF0; /* … */ }
-   [data-theme="dark"] {
-     --bg: #100F0F;
-     --bg-secondary: #1C1B1A;
-     --text: #FFFCF0;
-     /* Flexoki dark palette */
-   }
-   ```
-
-3. **Toggle button** loaded with `defer` (or at end of body) — only handles user click; OS preference + persistence are already done by the bootstrap.
-
-**Why not `prefers-color-scheme` alone:** Spec ties the site to the OS. Users want override. The bootstrap script gives both.
-
-**Why not a CSS-only toggle (`<input type="checkbox">` + `:has()`):** Doesn't persist, doesn't read OS preference, fails on first paint after preference change.
-
-### 2. Hugo Image Processing for Gallery
-
-**Recommended pipeline (verified — gohugo.io):**
-
-```go-html-template
-{{/* themes/minimal/layouts/gallery/list.html */}}
-{{ $photos := .Resources.Match "photos/*.{jpg,jpeg,png}" }}
-<ul class="gallery-grid">
-  {{ range $photos }}
-    {{ $thumb := .Process "fill 600x400 Smart webp q75" }}
-    {{ $full  := .Process "fit 1600x1600 webp q82" }}
-    <li>
-      <a href="{{ $full.RelPermalink }}">
-        <img
-          src="{{ $thumb.RelPermalink }}"
-          width="{{ $thumb.Width }}"
-          height="{{ $thumb.Height }}"
-          loading="lazy"
-          decoding="async"
-          alt="{{ .Name }}">
-      </a>
-    </li>
-  {{ end }}
-</ul>
-```
-
-**Key choices:**
-- `fill 600x400 Smart` — Hugo's `Smart` anchor uses entropy detection to pick the most interesting crop region. Avoids decapitated portraits.
-- `webp q75` for thumbs, `q82` for full-size — verified Hugo syntax. WebP cuts ~30% off JPEG at matched perceptual quality.
-- `loading="lazy" decoding="async"` — native browser lazy-loading, supported everywhere since 2022. No IntersectionObserver shim needed.
-- Explicit `width`/`height` attributes from `$thumb.Width/Height` — prevents CLS (Cumulative Layout Shift).
-
-**Source images:** 18 photos, 150 KB → 7.2 MB. Total raw = ~50 MB; processed thumbs will be ~50 KB × 18 = ~900 KB. Hugo caches in `resources/_gen/` so build only re-processes on source change.
-
-**Why not Hugo Pipes / `resources.Get`:** `Get` is for `assets/` directory single files (e.g., a global CSS file). Page bundles use `.Resources.Match` which is correct for per-page galleries.
-
-**Why not a JS lightbox library (PhotoSwipe, glightbox):** Adds 30+ KB JS. Native `<a href="$full">` opening in a new tab is sufficient for this milestone. If a lightbox is wanted later, **defer to a separate phase** with explicit cost/benefit.
-
-### 3. Favicon + Brand Asset Wiring
-
-**Recommended HTML (in `<head>` of `baseof.html`):**
-
-```html
-<link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="32x32">
-<link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
-```
-
-**File set in `static/`** (served as-is, root URLs):
-- `favicon.ico` — 32×32 multi-res ICO (compatibility fallback for older browsers / pinned-tab scenarios)
-- `favicon.svg` — single SVG with embedded `@media (prefers-color-scheme: dark)` to swap colors automatically (browser-level, independent of site toggle)
-- `apple-touch-icon.png` — 180×180 PNG (iOS home-screen)
-
-**Skip:** Multi-size PNG fleet (16/48/96/144/...), `manifest.json`, MS tile config. Not needed for a personal site without PWA install requirements. The 3-file set above covers > 99% of real-world contexts in 2026 (verified — evilmartians, realfavicongenerator).
-
-**Source:** Generate `favicon.ico` and `favicon.svg` from the Favicon column of the sliced sprite (the "TB in circle" variants). The light variant becomes the visible glyph; dark-mode swap can either be handled in-SVG via CSS or by serving a separate URL — in-SVG is simpler.
-
-### 4. Sprite Slicing — Recommended: Pillow One-Off Script
-
-**The `images/logos.png` source is 1536×1024 = 384×256 per cell** (2 rows × 4 cols).
-
-**Two viable options — pick one. Recommendation: Pillow.**
-
-#### Option A (RECOMMENDED): Python + Pillow one-off script
-
-```python
-# scripts/slice_logos.py
-from PIL import Image
-from pathlib import Path
-
-SRC = Path("images/logos.png")
-OUT = Path("images/icon")
-OUT.mkdir(parents=True, exist_ok=True)
-
-cols = ["logo", "icon", "minimum", "favicon"]
-rows = ["dark", "light"]  # row 0 = dark variants, row 1 = light variants
-
-img = Image.open(SRC)
-cell_w, cell_h = img.width // 4, img.height // 2  # 384 × 256
-
-for r, row_name in enumerate(rows):
-    for c, col_name in enumerate(cols):
-        box = (c * cell_w, r * cell_h, (c + 1) * cell_w, (r + 1) * cell_h)
-        crop = img.crop(box)
-        crop.save(OUT / f"{col_name}-{row_name}.png", optimize=True)
-        print(f"wrote {OUT}/{col_name}-{row_name}.png")
-```
-
-**Pros:**
-- Runs once, commit the 8 PNGs, done. No build-time cost on every Hugo run.
-- Trivial to inspect outputs visually before committing.
-- Pillow's `optimize=True` produces smaller PNGs than Hugo's pipeline for this case.
-- Pillow already used elsewhere in Python community; matches existing Python convention (PEP 8, `pathlib.Path`, `if __name__ == "__main__"` from CLAUDE.md).
-- Straight crop on a known grid — Pillow is a 2-line API for this.
-
-**Cons:**
-- Requires a one-time `pip install Pillow` in a venv.
-- The slicing logic isn't in version control as part of the build.
-
-#### Option B: Hugo `image.Crop` from a global resource
-
-```go-html-template
-{{ $sprite := resources.Get "images/logos.png" }}
-{{ $logoLight := $sprite.Process "crop 384x256 r0 c0" }}  {{/* approximate — see caveat */}}
-```
-
-**Pros:**
-- Pure Hugo, no Python.
-- Slicing logic is version-controlled in the template.
-
-**Cons (CRITICAL):**
-- **Hugo's `Process` syntax is "ACTION DIMENSIONSxDIMENSIONS ANCHOR FORMAT qQUALITY".** The anchor is an enum (`TopLeft`, `Top`, `TopRight`, `Center`, ..., `Smart`) — **NOT pixel offsets**. Cropping a specific (col, row) cell from a sprite requires either offset coordinates (which Hugo's Process action does NOT accept) or 8 separate "anchor"-based crops with manually-tuned target sizes — fragile and unintuitive.
-- For an asymmetric sprite, you'd need either pre-resize tricks or a custom approach. The Hugo image API is designed for "give me the interesting region of one image" not "give me the (2,3) cell of a grid."
-- Adds runtime build cost on every Hugo build (cached, but still part of the resource graph).
-- 8 separate logo files are referenced from many places (header, favicon, manifest); having them as static files at known paths is simpler than pulling them through resource pipelines every time.
-
-**Verdict:** Pillow one-off wins. Sprite slicing is an artifact-creation step, not a per-request transformation. Run it once, commit the 8 PNGs, treat them as static assets. The Hugo image pipeline is the right tool for the gallery (where source images change and we want responsive variants); it is the wrong tool for chopping a fixed grid into 8 named files.
+---
 
 ## Alternatives Considered
 
 | Recommended | Alternative | When to Use Alternative |
 |-------------|-------------|-------------------------|
-| Vanilla JS theme toggle | `next-themes`, `theme-change` (npm), Alpine.js | Never — they bring a build step + dependency manifest the project explicitly avoids. |
-| CSS custom properties + `[data-theme]` | Tailwind `dark:` classes, SCSS theme maps | Never for this project — Tailwind is a framework rebuild; SCSS isn't currently used despite Hugo Extended being available. |
-| Hugo `image.Process` | Cloudinary, imgix, Vercel Image Optimization | Never — adds a network dependency and external account; Hugo's pipeline is sufficient for 18 photos. |
-| Hugo `image.Process "... webp"` | sharp/imagemin via Hugo Pipes / Node script | Never — would add Node.js to the project for no measurable benefit. |
-| WebP | AVIF | When Hugo gains AVIF encoder support (not yet — confirmed via Hugo image-processing docs). Revisit in 2027+. |
-| SVG favicon (in-SVG dark-mode `@media`) | Two separate favicon URLs swapped by JS | If targeting iOS Safari < 16 specifically. The SVG approach is now baseline-supported. |
-| Native lazy-loading + `<a>` to full-size | PhotoSwipe / glightbox JS lightbox | When users explicitly request swipe gestures, captions, or zoom. Defer to later milestone with concrete cost. |
-| Pillow one-off slicer | Hugo `image.Crop` | Never for this sprite — Hugo's anchor-based cropping isn't designed for grid extraction. |
-| Pillow one-off slicer | ImageMagick CLI | Pillow is more readable Python and matches existing repo Python convention. ImageMagick is fine if a dev doesn't want Python — but project already has Python scripts. |
+| Native `<dialog>` lightbox | PhotoSwipe / GLightbox / Tobii | If you need video lightboxing, pinch-zoom on mobile, or programmatic pre-loading. None applies to this site. |
+| CSS `column-count` masonry | CSS Grid Lanes (`display: grid-lanes`) | If targeting Safari 26+ only. Re-evaluate end of 2026 when Chrome/Firefox ship stable support. |
+| CSS `column-count` masonry | JS Masonry / Macy.js | If photos must be reordered to fill gaps optimally and DOM-order randomization at build time isn't enough. Not the case here. |
+| Hand-authored Lucide-style inline SVG | `lucide` npm package + Hugo SCSS pipeline | If the icon count grows past ~10 across the site. With 4 icons total (GitHub, Instagram, Sun, Moon) inline is simpler. |
+| Frontmatter `[[resources]]` for captions | Sidecar JSON / one `.md` per photo | If caption text exceeds ~200 chars or needs Markdown-rendered links. v3.0 brief says "1–2 sentences" — frontmatter is fine. |
+| Render-image hook (extended) | New shortcode `{{< photo title="…" caption="…" >}}` | If About content needed runtime caption editing in Markdown body. Hook already covers width/height + class assignment cleanly. |
 
-## What NOT to Add
+---
+
+## What NOT to Use
 
 | Avoid | Why | Use Instead |
 |-------|-----|-------------|
-| **`next-themes`, `theme-change`, or any npm theme library** | Requires Node.js, `package.json`, build step. The project has none of these by design (CLAUDE.md: "no JS frameworks"). | Inline `<head>` script + CSS variables (~30 lines total). |
-| **Tailwind CSS** | Full framework rebuild. Project uses a single hand-written `style.css`. | Extend the existing `:root` variables with a `[data-theme="dark"]` block. |
-| **SCSS/Sass** | Hugo Extended supports it, but the existing stylesheet is plain CSS. Introducing SCSS for this milestone would be churn without benefit. | CSS custom properties already do everything needed. |
-| **Cloudinary / imgix / external image CDN** | Hugo's built-in pipeline handles 18 photos trivially; external services add account dependency, latency, cost, and a runtime third party. | `.Resources.Match` + `.Process "fill 600x400 Smart webp q75"`. |
-| **AVIF output** | Hugo image pipeline does not yet emit AVIF (verified — only `bmp/gif/jpeg/png/tiff/webp` listed). | WebP (universal browser support, ~30% smaller than JPEG). |
-| **`<picture>` with `<source>` for theme switching** | OS preference is only one input; user's manual toggle must override. `<picture media="(prefers-color-scheme: dark)">` cannot be overridden by JS without DOM surgery. | Two `<img>` tags toggled by `[data-theme]` CSS, OR a single `<img>` whose `src` is set by JS after toggle. |
-| **PhotoSwipe / glightbox / any JS lightbox** | 30+ KB JS for a personal gallery is gold-plating. | `<a href="$full" target="_blank">` — opens full-size in new tab. Defer lightbox to a later phase if user feedback demands it. |
-| **`manifest.json`, `browserconfig.xml`, full multi-size PNG fleet (16/48/96/144/192/512)** | Personal blog without PWA install or pinned-tile requirements doesn't need them. They balloon the file count for negligible coverage gain. | 3-file set: `favicon.ico` (32) + `favicon.svg` + `apple-touch-icon.png` (180). |
-| **Adding Pillow to a `requirements.txt`** | Project has no `requirements.txt`; creating one implies a runtime Python dependency. The slicer is one-off — run, commit outputs, optionally delete the venv. | Document install in the slicer script's docstring. Keep Pillow off the build path. |
-| **Hugo `image.Crop` for the sprite** | Hugo's crop anchors are enums, not coordinates — wrong tool for grid extraction. | Pillow one-off `crop((x1, y1, x2, y2))`. |
-| **Mixing the Pillow slicer into CI/Hugo build** | Adds Python to the deploy environment for a one-shot task already done. | Run locally, commit outputs to `images/icon/`, never run again. |
-| **External fonts for the wordmark** | The wordmark is a bitmap glyph (sliced from `logos.png`), not live text. Loading a custom font would be redundant and add a network request. | Use the sliced PNG/SVG as an `<img>`. |
+| `lucide` / `lucide-static` npm packages | Adds Node toolchain to a pure-Hugo project. Two SVG path strings don't justify it. | Hand-author the two paths inline, matching existing footer icon conventions. |
+| `@heroicons/*` packages | Same toolchain problem; also 1.5px stroke is inconsistent with existing 2px footer icons. | Lucide-style path strings inline. |
+| PhotoSwipe / GLightbox / Tobii / Slightbox / lightbox2 | 5–40 KB JS payload to replicate what `<dialog>` does natively in 2026. | Native `<dialog>` + 30 lines of vanilla JS. |
+| `focus-trap` / `focus-trap-react` | W3C APA explicitly stated focus-trap is no longer needed inside `<dialog>` ([CSS-Tricks](https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/)). | Native `<dialog>` focus management. |
+| Macy.js / Masonry.js / Isotope | Layout in JS = FOUC + reflow on resize + 5–20 KB. Not needed for an 18-photo gallery. | CSS `column-count` + `break-inside: avoid`. |
+| CSS Grid `display: grid-lanes` (a.k.a. masonry) | Only Safari 26 ships stable as of early 2026; Chrome/Firefox flagged ([CSS-Tricks](https://css-tricks.com/masonry-layout-is-now-grid-lanes/)). | CSS multi-column. Re-evaluate end of 2026. |
+| Tailwind / SCSS / PostCSS pipeline | The site has one CSS file; introducing a build step violates the "keep it minimal" constraint and would require updating GitHub Actions. | Hugo's built-in CSS handling (already configured). |
+| Sidecar JSON for captions | Forces `getJSON` template calls, syncs harder, no IDE autocomplete. | Hugo `[[resources]] params.caption` (Hugo-native). |
+| Big shadow / gradient / animation libraries for "dynamic" feel | Breaks Kindle/Obsidian-minimal constraint. | Soften `border-radius` token; asymmetric grid; thin 1px border in `var(--border)`. |
+
+---
 
 ## Stack Patterns by Variant
 
-**If the wordmark sprite cells turn out to have transparency issues after slicing:**
-- Re-export `favicon-light.png` / `favicon-dark.png` as PNG-32 (Pillow `optimize=True` preserves alpha by default for RGBA mode)
-- Or trace into SVG (Inkscape `Trace Bitmap`) — only if the bitmap looks soft at favicon sizes
+**If gallery grows past 50 photos:**
+- Re-evaluate column-count masonry — DOM-order limitation may produce visible top-to-bottom-then-left-right "first column tall, last column short" imbalance.
+- Mitigation: Hugo `shuffle` template function over `.Resources.Match` at build time so each deploy reshuffles.
+- Escalation: only then consider Macy.js (4 KB minified gzipped).
 
-**If Hugo build time grows uncomfortable when processing all 18 photos:**
-- Hugo caches in `resources/_gen/images` — first build is slow, incrementals are fast
-- Already in CI: `HUGO_CACHEDIR` is set to runner temp, but caching across CI runs would require GitHub Actions cache step
-- If this becomes a real problem, add an `actions/cache@v4` step keyed on `images/gallery/**` hash. **Defer until measured.**
+**If About page needs interactive elements (carousel, animated transitions):**
+- Stay vanilla JS, follow the same end-of-body IIFE pattern as `baseof.html`.
+- Do not introduce a JS framework for animations — `prefers-reduced-motion` already constrains animation budget to "minimal theme-toggle transition".
 
-**If the user wants the gallery photos to load progressively (LQIP / blur-up):**
-- Hugo can emit a tiny base64 JPEG via `images.Filter` + base64 encoding in a `style="background-image:..."` attribute
-- Adds template complexity. **Defer to a later milestone** unless 7 MB photos cause actual perceived-load complaints.
+**If browser-support telemetry shows >5% Safari < 17:**
+- Add `-webkit-backdrop-filter` prefix alongside `backdrop-filter`. Trivial 1-line CSS addition.
+- Fallback: opaque `background: rgba(16,15,15,0.85)` already provides a usable backdrop on browsers without `backdrop-filter`.
+
+---
 
 ## Version Compatibility
 
-| Component | Requires | Notes |
-|-----------|----------|-------|
-| Hugo `image.Process "... webp ..."` | Hugo 0.83+ | Pinned 0.157.0 is far past this; safe. |
-| Hugo `Smart` crop anchor | Hugo 0.83+ | Same; safe. |
-| Native `loading="lazy"` on `<img>` | All evergreen browsers since 2022 | Safe baseline. |
-| `prefers-color-scheme` media query | All evergreen browsers since 2019 | Safe baseline. |
-| SVG favicon (`type="image/svg+xml"`) | Chrome 80+ (2020), Firefox 41+ (2015), Safari 16+ (2022) | Safari 14/15 falls back to `favicon.ico`. Acceptable. |
-| CSS custom properties | All evergreen browsers since 2017 | Safe baseline. |
-| Pillow 12.2.0 | Python 3.10+ | macOS dev box has Python 3.x; verify with `python3 --version` before running slicer. |
-| WebP `<img>` | All evergreen browsers since 2020 (incl. Safari 14+) | Safe baseline; no JPEG fallback `<picture>` needed. |
+| Pattern | Compatible With | Notes |
+|---------|-----------------|-------|
+| Native `<dialog>` | Hugo Extended 0.157.0 | Hugo doesn't process `<dialog>` — it passes through unchanged. `unsafe = true` is already set in `hugo.toml` so any inline JS handlers work. |
+| CSS `column-count` | All browsers since IE10 | No prefix needed in 2026. |
+| `backdrop-filter` | Safari 17+ unprefixed; Safari 9–16 needs `-webkit-` prefix | Include both for safety: `backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);` |
+| Hugo `Resize "Wx webp"` | Hugo Extended 0.157.0 | Verified via Hugo docs. WebP support requires Extended (already pinned in workflow). |
+| Hugo `[[resources]]` frontmatter | Hugo 0.31+ | Stable since 2017. Wildcard `src = "photos/*.jpg"` supported. |
+| Render-image hook (existing) | Hugo 0.62.0+ | Already validated in v2.0 Phase 7. Adding a fourth arm to the title-keyword switch is purely additive. |
 
-## CDN / External Asset Strategy
-
-**The v2.0 milestone adds NO new CDN scripts.** Existing CDN includes (Leaflet, Plotly, Mermaid, Instagram embed.js) live inline in specific blog posts and are out of scope. The brand+gallery feature set is fully self-hosted: sliced PNGs, Hugo-processed WebP variants, and inline JS/CSS.
-
-If a future feature requires a CDN script (e.g., a lightbox), use the existing convention: `<script src="https://cdn.example.com/lib@x.y.z/dist/lib.min.js" integrity="sha384-..." crossorigin="anonymous"></script>` with a pinned version + SRI hash, loaded only on the page that needs it (not globally).
+---
 
 ## Sources
 
-- **Hugo image processing** — https://gohugo.io/methods/resource/process/ (verified syntax: `ACTION DIMENSIONSxDIMENSIONS ANCHOR FORMAT qQUALITY`; anchors `TopLeft..BottomRight, Center, Smart`; formats `bmp, gif, jpeg, png, tiff, webp`; quality 1–100). HIGH confidence.
-- **Hugo image-processing overview** — https://gohugo.io/content-management/image-processing/ (Resize/Fill/Fit/Crop semantics, WebP support, build caching). HIGH confidence.
-- **Hugo page bundles** — https://gohugo.io/content-management/page-bundles/ (`.Resources.Match` proximity rules, leaf vs branch). HIGH confidence.
-- **Hugo releases** — https://github.com/gohugoio/hugo/releases (latest 0.160.1 on 2026-04-08; pinned 0.157.0 has every needed feature). HIGH confidence.
-- **Pillow 12.2.0 release notes** — https://pillow.readthedocs.io/en/stable/releasenotes/index.html (released 2026-04-01; quarterly cadence; basic `Image.crop / save` API stable across versions). HIGH confidence.
-- **Favicon best practice 2026** — https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs and https://faviconstudio.com/blog/favicon-sizes-complete-guide (3-file baseline: `favicon.ico` + `favicon.svg` + `apple-touch-icon.png`; SVG with embedded `@media (prefers-color-scheme: dark)` for OS-level theme adaptation). MEDIUM confidence (multiple credible secondary sources agree; no single canonical authority).
-- **No-flash dark mode pattern** — https://whitep4nth3r.com/blog/best-light-dark-mode-theme-toggle-javascript/ and https://www.bram.us/2020/04/26/the-quest-for-the-perfect-dark-mode-using-vanilla-javascript/ (inline `<head>` IIFE, `data-theme` attribute on `<html>`, localStorage + matchMedia cascade). MEDIUM confidence (well-established community pattern, multiple independent sources).
-- **Existing repo state** — `themes/minimal/static/css/style.css` lines 4–18 (Flexoki light palette already on `:root`); `hugo.toml` (Hugo 0.157.0 pinned, `unsafe = true`); `.planning/codebase/STACK.md` (existing stack baseline). HIGH confidence.
+### Verified via Context7 (HIGH confidence)
+- `/gohugoio/hugo` — page resources frontmatter `[[resources]]` + `params.caption`, `Resize` method aspect-ratio behavior, `Fit` method, render-image hooks
+- `/lucide-icons/lucide` (v0.547.0) — confirmed Lucide visual conventions (24×24 viewBox, 2px stroke, round caps, `currentColor`) match existing footer icons
+
+### Verified via official documentation (HIGH confidence)
+- [MDN: `<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog) — confirms `showModal()` provides built-in focus trap, ESC-to-close, top-layer rendering, `aria-modal="true"`
+- [MDN: `::backdrop` pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::backdrop) — confirms behavior with `<dialog>` showModal
+- [MDN: `backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter) — confirms 92%+ browser support
+- [caniuse: backdrop-filter](https://caniuse.com/css-backdrop-filter) — Safari 17+ unprefixed; 9–16 needs `-webkit-` prefix
+- [Hugo docs: page resources](https://gohugo.io/content-management/page-resources/) — confirms `[[resources]]` frontmatter + wildcard `src` patterns
+- [Hugo docs: Resize method](https://gohugo.io/methods/resource/resize/) — confirms width-only spec preserves aspect ratio
+- [Hugo docs: Fit method](https://gohugo.io/methods/resource/fit/) — confirms aspect-ratio preservation when fitting
+
+### Verified via authoritative third-party (MEDIUM-HIGH confidence)
+- [CSS-Tricks: There is No Need to Trap Focus on a Dialog Element](https://css-tricks.com/there-is-no-need-to-trap-focus-on-a-dialog-element/) — W3C APA position
+- [CSS-Tricks: Masonry Layout is Now grid-lanes](https://css-tricks.com/masonry-layout-is-now-grid-lanes/) — confirms Safari 26 only as of early 2026
+- [CSS-Tricks: Approaches for a CSS Masonry Layout](https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/) — `column-count` + `break-inside: avoid` pattern
+- [Sara Soueidan: Accessible Icon Buttons](https://www.sarasoueidan.com/blog/accessible-icon-buttons/) — `aria-label` on button + `aria-hidden` on inner SVG
+- [Aleksandr Hovhannisyan: How to Open and Close HTML Dialogs](https://www.aleksandrhovhannisyan.com/blog/how-to-open-and-close-html-dialogs/) — backdrop-click close pattern
+- [Lucide: Icons](https://lucide.dev/icons/) — sun and moon path data reference
+
+### Visual references (LOW confidence — design inspiration only)
+- [Tyler Karow: Gallery](http://tylerkarow.com/gallery) — masonry-with-captions reference (note: actual implementation is Squarespace's proprietary gallery widget; we reverse the visual pattern, not the code)
+- [Tyler Karow: About](https://www.tylerkarow.com/about) — asymmetric magazine-style about-page reference
 
 ---
-*Stack research for: v2.0 Brand & Gallery — additions only*
-*Researched: 2026-04-28*
+
+## Confidence Summary
+
+| Recommendation | Confidence | Why |
+|----------------|------------|-----|
+| Inline SVG sun/moon (Lucide visual language) | HIGH | Existing footer icons are Lucide-style; pattern is in-codebase precedent. |
+| Native `<dialog>` lightbox | HIGH | Browser support verified via MDN + caniuse; W3C APA position cited. |
+| CSS `column-count` masonry | HIGH | Universal browser support; verified via multiple CSS-Tricks references; CSS Grid Lanes alternative explicitly disqualified for 2026. |
+| Hugo `[[resources]] params.caption` | HIGH | Verified via Context7 (`/gohugoio/hugo`) + Hugo docs. |
+| Render-image hook extension (`card` arm) | HIGH | Pattern already validated in v2.0 Phase 7; additive change. |
+| `backdrop-filter` blur | HIGH | 92% support verified via caniuse; `-webkit-` prefix path documented. |
+| Soften `border-radius` token + asymmetric grid for About | MEDIUM | Stylistic decision; tested against Flexoki/Kindle constraint via reasoning, not measurement. Recommend visual review during phase planning. |
+| DOM-order shuffle at build time for "randomized" gallery | MEDIUM | Hugo `shuffle` is well-documented but the visual outcome depends on photo aspect-ratio mix; may need empirical tweaking during phase execution. |
+
+---
+
+*Stack research for: Hugo personal site v3.0 design refinement*
+*Researched: 2026-05-01*
