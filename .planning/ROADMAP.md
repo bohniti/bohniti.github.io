@@ -140,7 +140,7 @@ Plans:
 Plans:
 - [x] 07-01-PLAN.md — Render-image hook + About leaf-bundle scaffold (Wave 1)
 - [x] 07-02-PLAN.md — Append /* === About === */ CSS section (hero/pullquote/grid + mobile overrides) to style.css (Wave 1, parallel to 07-01)
-- [ ] 07-03-PLAN.md — Photo arrival HUMAN-UAT + dimension precheck + EXIF source-side scrub (Wave 2, depends on 07-01)
+- [x] 07-03-PLAN.md — Photo arrival HUMAN-UAT + dimension precheck + EXIF source-side scrub (Wave 2, depends on 07-01)
 - [ ] 07-04-PLAN.md — Cold build, run all 5 verification gates, delete legacy content/about.md, write 07-HUMAN-UAT.md (Wave 3, depends on 07-01 + 07-02 + 07-03)
 **UI hint**: yes
 
