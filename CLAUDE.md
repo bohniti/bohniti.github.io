@@ -86,7 +86,7 @@ Timo's personal website and blog, built with Hugo and a custom minimal theme, de
 - `images/Chaotic timeline.png`
 - `images/Clip catalog spreadsheet.png`
 ### Standalone Pages
-- `content/about.md` - minimal frontmatter (title only, no date)
+- `content/about/index.md` - leaf-bundle index with `title` + `type: "about"` front matter
 - `content/blog/_index.md` - section index, title-only frontmatter
 ### Archetype
 ## HTML Template Conventions
@@ -197,7 +197,7 @@ Timo's personal website and blog, built with Hugo and a custom minimal theme, de
 - Location: `content/blog/_index.md` + `themes/minimal/layouts/_default/list.html` (the `{{ eq .Section "blog" }}` branch)
 - Triggers: Visiting `/blog/`
 - Responsibilities: Lists all blog posts under the "Blog" heading
-- Location: `content/about.md`
+- Location: `content/about/index.md` (leaf bundle with `content/about/images/`)
 - Triggers: Visiting `/about/`
 - Responsibilities: Renders static about page content via `single.html`
 ## Error Handling
