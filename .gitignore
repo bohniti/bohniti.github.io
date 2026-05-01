@@ -2,6 +2,9 @@ public/
 resources/
 .hugo_build.lock
 
+# Claude Code agent runtime state (per-agent worktree mirrors, not source-controlled)
+.claude/
+
 # macOS
 .DS_Store
 .DS_Store?
