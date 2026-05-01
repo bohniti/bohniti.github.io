@@ -400,4 +400,11 @@ body.page-about .about-grid-item {
   .site-wrapper { padding: 2rem 0 4rem; }
   .footer-links { gap: 1rem; }
   .site-title svg { width: 160px; height: 98px; }
+  body.page-about .about-hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  body.page-about .about-grid {
+    grid-template-columns: 1fr;
+  }
 }
