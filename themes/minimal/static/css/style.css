@@ -303,6 +303,59 @@ body.page-gallery .site-wrapper {
   border-radius: 4px;
 }
 
+/* === About === */
+body.page-about .about-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+body.page-about .about-hero-photo img,
+body.page-about .about-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+body.page-about .about-pullquote {
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  border-left: 4px solid var(--accent);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  margin: 1.75rem 0;
+  background: var(--bg-secondary);
+  border-radius: 0 4px 4px 0;
+}
+
+/* Dark-mode #D14D41 on #1C1B1A measures 3.97:1 — passes WCAG AA only because the
+   inherited 1.4rem + font-weight:700 qualifies as "large text" (≥14pt bold).
+   Do not reduce font-size or font-weight here without re-checking contrast. */
+body.page-about .about-pullquote strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+body.page-about .about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+body.page-about .about-grid img,
+body.page-about .about-grid-item {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 0; /* override .page-content img { margin: 1.5rem 0 } cascade — RESEARCH amendment 1 */
+}
+
 /* === Footer === */
 .site-footer {
   margin-top: 4rem;
