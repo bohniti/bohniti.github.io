@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Brand & Gallery
 status: executing
-stopped_at: Phase 7 planned (4 plans, HUMAN-UAT blocker for photos in 07-03)
-last_updated: "2026-05-01T07:36:28.909Z"
+stopped_at: Phase 7 plan 3 complete (photos committed; Plan 07-04 cutover next)
+last_updated: "2026-05-01T07:42:27.119Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 8
   completed_phases: 5
   total_plans: 19
-  completed_plans: 17
-  percent: 89
+  completed_plans: 18
+  percent: 95
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-04-28)
 ## Current Position
 
 Phase: 07 (about-enrichment) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Last activity: 2026-05-01
 
-Progress: [█████████░] 89%
+Progress: [██████████] 95%
 
 ## Performance Metrics
 
@@ -63,6 +63,7 @@ Progress: [█████████░] 89%
 *Updated after each plan completion*
 | Phase 07 P01 | 6m | 2 tasks | 3 files |
 | Phase 07 P02 | 4m | 2 tasks | 2 files |
+| Phase 07 P03 | 1m | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,9 @@ Recent decisions affecting current work:
 - [Phase ?]: Phase 07 P02: Discovered Hugo 0.161 does NOT auto-derive Type from leaf-bundle directory name; added explicit type: about to content/about/index.md so body.page-about resolves at runtime (Rule 2 deviation fix)
 - [Phase ?]: Phase 07 P02: Adopted dual-selector pattern so the same CSS rules apply across both DOM rendering paths (wrapper-div+markdown OR render-image-hook-emitted class)
 - [Phase ?]: Phase 07 P02: Documented WCAG AA-large caveat on .about-pullquote strong as load-bearing CSS comment — dark-theme contrast is 3.97:1 which passes only because parent text is 1.4rem + 500-weight
+- [Phase ?]: Phase 07 P03: Preserved cooking.JPG uppercase extension on disk to match Plan 07-01 case-corrected markdown ref; renaming to lowercase would require touching the markdown which is out of scope for an asset-arrival plan
+- [Phase ?]: Phase 07 P03: exiftool reported '5 unchanged' on the D-17 scrub because targeted GPS/Make/Model/Serial fields were already absent from sources (likely AirDrop pre-stripped); D-27 verification gate is source-of-truth and passed with zero matching field rows
+- [Phase ?]: Phase 07 P03: Did NOT broaden EXIF scrub to LensMake/LensModel/CreatorTool — D-17 explicitly enumerates GPS/Make/Model/Serial scope; broadening is future privacy-hardening, not asset-arrival
 
 ### Pending Todos
 
@@ -108,8 +112,8 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-01T07:36:19.488Z
-Stopped at: Phase 7 planned (4 plans, HUMAN-UAT blocker for photos in 07-03)
+Last session: 2026-05-01T07:42:27.106Z
+Stopped at: Phase 7 plan 3 complete (photos committed; Plan 07-04 cutover next)
 Resume file: None
 
 **Next Phase:** 07 (About Enrichment) — not yet planned; recommended entry point `/gsd-discuss-phase 7` or `/gsd-ui-phase 7`

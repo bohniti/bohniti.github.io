@@ -59,7 +59,7 @@
 
 - [x] **ABOUT-01**: `content/about.md` converted to `content/about/index.md` leaf bundle; URL `/about/` unchanged
 - [x] **ABOUT-02**: About page displays multiple personal photos in a richer layout (not just inline single-column) — second column / photo grid / pull-quote rules added to `style.css`
-- [ ] **ABOUT-03**: All About page images carry explicit `width`/`height` to prevent CLS; images live in `content/about/images/` as page-bundle resources
+- [x] **ABOUT-03**: All About page images carry explicit `width`/`height` to prevent CLS; images live in `content/about/images/` as page-bundle resources
 
 ## Future Requirements (deferred to v2.x or later)
 
@@ -123,7 +123,7 @@
 | GAL-07 | Phase 6 | Pending |
 | ABOUT-01 | Phase 7 | Complete |
 | ABOUT-02 | Phase 7 | Complete |
-| ABOUT-03 | Phase 7 | Pending |
+| ABOUT-03 | Phase 7 | Complete |
 
 **Coverage:**
 - v1 requirements: 8 total (8 validated)
