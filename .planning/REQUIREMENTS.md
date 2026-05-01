@@ -1,7 +1,7 @@
 # Requirements: Personal Website Refinements
 
 **Defined:** 2026-03-27
-**Last updated:** 2026-04-28 — v2.0 phases mapped (Phase 3-7)
+**Last updated:** 2026-05-01 — v2.0 close reconciliation; all 24 v2 requirements marked Complete
 **Core Value:** The blog should be a polished, technical reference — clear diagrams over screenshots, precise values over vague descriptions — and feel unmistakably like *Timo's site* in either light or dark mode.
 
 ## v1 Requirements
@@ -24,18 +24,18 @@
 
 ### Brand Assets
 
-- [ ] **BRAND-01**: `images/logos.png` sliced into 8 individual PNGs (logo / icon / minimum / favicon × dark + light) at integer cell boundaries with alpha preserved, output to `themes/minimal/static/images/brand/`
-- [ ] **BRAND-02**: `scripts/slice_logos.py` committed for reproducibility (Pillow, throwaway venv, not a runtime dep)
-- [ ] **BRAND-03**: Each sliced wordmark variant ≤ 30 KB after `pngquant` (acceptance criterion before wiring)
+- [x] **BRAND-01**: `images/logos.png` sliced into 8 individual PNGs (logo / icon / minimum / favicon × dark + light) at integer cell boundaries with alpha preserved, output to `themes/minimal/static/images/brand/` *(Phase 3 — superseded by Phase 05.1 SVG path; sliced PNGs retired)*
+- [x] **BRAND-02**: `scripts/slice_logos.py` committed for reproducibility (Pillow, throwaway venv, not a runtime dep) *(Phase 3 — replaced by `scripts/build_brand_assets.py` in Phase 05.1)*
+- [x] **BRAND-03**: Each sliced wordmark variant ≤ 30 KB after `pngquant` (acceptance criterion before wiring) *(Phase 3 — gate passed; PNG path retired in Phase 05.1)*
 
 ### Theming
 
-- [ ] **THEME-01**: User can toggle between light and dark mode via a button in the site header, and the choice persists across reloads
-- [ ] **THEME-02**: First paint matches user's last choice (or OS preference for first visit) — zero light-flash on dark-mode hard reload (verified via DevTools Slow-3G screen recording)
-- [ ] **THEME-03**: Theme toggle is keyboard-reachable, uses a real `<button>` with `aria-pressed`, and respects `prefers-reduced-motion` (no transition under reduced-motion)
-- [ ] **THEME-04**: Dark palette tokens added under `:root[data-theme="dark"]` using Flexoki dark values; light palette unchanged from current `:root` tokens
-- [ ] **THEME-05**: `<meta name="color-scheme" content="light dark">` set in `<head>`; `theme-color` meta updates to match active theme so iOS Safari chrome adapts
-- [ ] **THEME-06**: Existing inline scripts (Mermaid / Plotly / Leaflet) remain readable in dark mode using theme-agnostic Flexoki accents — verified by smoke-test of `/blog/2026-03-05-climbing-routes/`
+- [x] **THEME-01**: User can toggle between light and dark mode via a button in the site header, and the choice persists across reloads
+- [x] **THEME-02**: First paint matches user's last choice (or OS preference for first visit) — zero light-flash on dark-mode hard reload (verified via DevTools Slow-3G screen recording)
+- [x] **THEME-03**: Theme toggle is keyboard-reachable, uses a real `<button>` with `aria-pressed`, and respects `prefers-reduced-motion` (no transition under reduced-motion)
+- [x] **THEME-04**: Dark palette tokens added under `:root[data-theme="dark"]` using Flexoki dark values; light palette unchanged from current `:root` tokens
+- [x] **THEME-05**: `<meta name="color-scheme" content="light dark">` set in `<head>`; `theme-color` meta updates to match active theme so iOS Safari chrome adapts
+- [x] **THEME-06**: Existing inline scripts (Mermaid / Plotly / Leaflet) remain readable in dark mode using theme-agnostic Flexoki accents — verified by smoke-test of `/blog/2026-03-05-climbing-routes/`
 
 ### Header & Favicon
 
@@ -47,13 +47,13 @@
 
 ### Gallery
 
-- [ ] **GAL-01**: User can navigate to `/gallery/` from the main header navigation
-- [ ] **GAL-02**: `/gallery/` displays all 18 personal photos in a uniform CSS Grid layout (`repeat(auto-fill, minmax(220px, 1fr))`) with section `max-width` override
-- [ ] **GAL-03**: Photos served as Hugo-processed WebP thumbnails (`Process "fill 600x400 Smart webp q75"`) with native `loading="lazy"` except first row (eager); explicit `width`/`height` to prevent CLS
-- [ ] **GAL-04**: Clicking a thumbnail navigates to the full-size WebP rendition (`Process "fit 1600x1600 webp q82"`) — no JS lightbox in v2.0
-- [ ] **GAL-05**: `/gallery/` first-paint network transfer ≤ 2 MB; total `public/gallery/` output ≤ 4.5 MB *(cap amended 2026-04-30 during Phase 6 execution: original 3 MB projection didn't account for actual photo characteristics; measured 4.0 MB at 1200×1200 q78 fallback. First-paint cap of 2 MB unchanged — lazy-loading keeps initial transfer at ~135 KB regardless of total. See `.planning/phases/06-gallery/06-04-SUMMARY.md` § "Weight Gate Deviation")*
-- [ ] **GAL-06**: GPS coordinates and camera serial stripped from all gallery images (verified by `exiftool` — no `GPSLatitude`, `GPSLongitude`, `Make`, `Model`, `Serial` fields)
-- [ ] **GAL-07**: `images/galary/` renamed and moved to `content/gallery/photos/` as a Hugo page-bundle resource (no broken links — confirmed via grep)
+- [x] **GAL-01**: User can navigate to `/gallery/` from the main header navigation
+- [x] **GAL-02**: `/gallery/` displays all 18 personal photos in a uniform CSS Grid layout (`repeat(auto-fill, minmax(220px, 1fr))`) with section `max-width` override
+- [x] **GAL-03**: Photos served as Hugo-processed WebP thumbnails (`Process "fill 600x400 Smart webp q75"`) with native `loading="lazy"` except first row (eager); explicit `width`/`height` to prevent CLS
+- [x] **GAL-04**: Clicking a thumbnail navigates to the full-size WebP rendition (`Process "fit 1600x1600 webp q82"`) — no JS lightbox in v2.0
+- [x] **GAL-05**: `/gallery/` first-paint network transfer ≤ 2 MB; total `public/gallery/` output ≤ 4.5 MB *(cap amended 2026-04-30 during Phase 6 execution: original 3 MB projection didn't account for actual photo characteristics; measured 4.0 MB at 1200×1200 q78 fallback. First-paint cap of 2 MB unchanged — lazy-loading keeps initial transfer at ~135 KB regardless of total. See `.planning/phases/06-gallery/06-04-SUMMARY.md` § "Weight Gate Deviation")*
+- [x] **GAL-06**: GPS coordinates and camera serial stripped from all gallery images (verified by `exiftool` — no `GPSLatitude`, `GPSLongitude`, `Make`, `Model`, `Serial` fields)
+- [x] **GAL-07**: `images/galary/` renamed and moved to `content/gallery/photos/` as a Hugo page-bundle resource (no broken links — confirmed via grep)
 
 ### About Page
 
@@ -100,37 +100,38 @@
 | SOC-01 | Phase 2 | Validated |
 | SOC-02 | Phase 2 | Validated |
 | SOC-03 | Phase 2 | Validated |
-| BRAND-01 | Phase 3 | Pending |
-| BRAND-02 | Phase 3 | Pending |
-| BRAND-03 | Phase 3 | Pending |
-| THEME-01 | Phase 4 | Pending |
-| THEME-02 | Phase 4 | Pending |
-| THEME-03 | Phase 4 | Pending |
-| THEME-04 | Phase 4 | Pending |
-| THEME-05 | Phase 4 | Pending |
-| THEME-06 | Phase 4 | Pending |
+| BRAND-01 | Phase 3 (superseded by 05.1) | Complete |
+| BRAND-02 | Phase 3 (superseded by 05.1) | Complete |
+| BRAND-03 | Phase 3 (superseded by 05.1) | Complete |
+| THEME-01 | Phase 4 | Complete |
+| THEME-02 | Phase 4 | Complete |
+| THEME-03 | Phase 4 | Complete |
+| THEME-04 | Phase 4 | Complete |
+| THEME-05 | Phase 4 | Complete |
+| THEME-06 | Phase 4 | Complete |
 | HEAD-01 | Phase 5 | Complete |
 | HEAD-02 | Phase 5 | Complete |
 | HEAD-03 | Phase 5 | Complete |
 | HEAD-04 | Phase 5 | Complete |
 | HEAD-05 | Phase 5 | Complete |
-| GAL-01 | Phase 6 | Pending |
-| GAL-02 | Phase 6 | Pending |
-| GAL-03 | Phase 6 | Pending |
-| GAL-04 | Phase 6 | Pending |
-| GAL-05 | Phase 6 | Pending |
-| GAL-06 | Phase 6 | Pending |
-| GAL-07 | Phase 6 | Pending |
+| GAL-01 | Phase 6 | Complete |
+| GAL-02 | Phase 6 | Complete |
+| GAL-03 | Phase 6 | Complete |
+| GAL-04 | Phase 6 | Complete |
+| GAL-05 | Phase 6 | Complete |
+| GAL-06 | Phase 6 | Complete |
+| GAL-07 | Phase 6 | Complete |
 | ABOUT-01 | Phase 7 | Complete |
 | ABOUT-02 | Phase 7 | Complete |
 | ABOUT-03 | Phase 7 | Complete |
 
 **Coverage:**
 - v1 requirements: 8 total (8 validated)
-- v2 requirements: 24 total (24 mapped to Phases 3-7)
+- v2 requirements: 24 total (24 complete; HUMAN-UAT for Phases 05/05.1/06/07 deferred to post-deploy verification)
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-27*
 *v2.0 added: 2026-04-28*
 *v2.0 phase mapping: 2026-04-28*
+*v2.0 close reconciliation: 2026-05-01 — all 24 v2 requirements marked Complete; sliced-PNG BRAND-01..03 superseded by Phase 05.1 SVG path*

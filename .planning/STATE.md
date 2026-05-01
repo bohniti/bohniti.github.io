@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Brand & Gallery
-status: complete
-stopped_at: Phase 7 complete; milestone v2.0 100% (HUMAN-UAT pending after deploy)
-last_updated: "2026-05-01T07:49:30.000Z"
+status: Milestone v2.0 100% — HUMAN-UAT pending after deploy
+stopped_at: Phase 7 complete; milestone v2.0 100% (HUMAN-UAT pending post-deploy)
+last_updated: "2026-05-01T08:47:28.299Z"
 last_activity: 2026-05-01
 progress:
   total_phases: 8
-  completed_phases: 8
+  completed_phases: 6
   total_plans: 19
   completed_plans: 19
   percent: 100
@@ -109,10 +109,22 @@ None yet.
 
 ### Blockers/Concerns
 
-- Phase 4 (Theming) concentrates 10 of 20 documented pitfalls — FOUC prevention, accessibility, mobile-header layout, theme-color sync, localStorage failures, prefers-color-scheme misreads must all land in the first toggle implementation, not as follow-ups
-- Phase 5 (Wordmark + Favicon) blocked by both Phase 3 (assets) and Phase 4 (`[data-theme]` attribute)
-- Phase 6 (Gallery) privacy-critical: `exiftool` verification of stripped GPS/Make/Model/Serial fields is a hard launch gate
-- Phase 6 weight ceiling: ≤ 2 MB first-paint, ≤ 3 MB total `public/gallery/`; sources span 150 KB → 7.5 MB so Hugo image processing is mandatory
+(v2.0 blockers cleared at milestone close 2026-05-01 — see `.planning/milestones/v2.0-ROADMAP.md` for historical context.)
+
+## Deferred Items
+
+Items acknowledged and deferred at v2.0 milestone close on 2026-05-01:
+
+| Category | Phase | Item | Status | Resolution Path |
+|----------|-------|------|--------|-----------------|
+| uat | 05 | 05-HUMAN-UAT.md (4 scenarios) | partial | Post-deploy browser walkthrough |
+| uat | 05.1 | 05.1-HUMAN-UAT.md (6 scenarios) | partial | Post-deploy browser walkthrough |
+| uat | 06 | 06-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough |
+| uat | 07 | 07-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough at https://tbohnstedt.cloud/about/ |
+| verification | 05 | 05-VERIFICATION.md | human_needed | Confirm favicon in tab/bookmark/iOS home-screen after deploy |
+| verification | 05.1 | 05.1-VERIFICATION.md | human_needed | Confirm SVG favicon prefers-color-scheme swap in real browsers |
+
+All items gated on the same trigger: push commits → GitHub Actions deploy → walk the `*-HUMAN-UAT.md` checklists in a browser. Implementation is shipped; automated gates are green; deferral was the planned exit pattern.
 
 ## Session Continuity
 
