@@ -80,7 +80,11 @@ Plans:
   4. Switch to dark theme and read the pullquote — the bolded `strong` text inside `.about-pullquote` remains legible at WCAG AA-large contrast (font-size ≥ 1.4 rem, weight ≥ 500, current 3.97:1 ratio held).
   5. Resize the browser to a < 600 px viewport (or open on mobile) and watch every asymmetric section collapse to a single column — no horizontal overflow, no broken image crops, hero portrait still readable.
   6. View the page source and confirm all About-specific CSS rules are scoped under `body.page-about` — visiting `/blog/` or `/gallery/` shows no leaked About styling.
-**Plans**: TBD (planning step decides)
+**Plans**: 3 plans
+Plans:
+- [ ] 09-01-PLAN.md — Foundation: render-image hook + 3 shortcodes (pullquote, split, feature) + --radius-soft token (ABOUT-02, ABOUT-03)
+- [ ] 09-02-PLAN.md — Application: new layouts/about/single.html + index.md rewrite + style.css About-block rewrite + mobile reflow (ABOUT-01, ABOUT-03, ABOUT-04, ABOUT-05, ABOUT-06, ABOUT-07)
+- [ ] 09-03-PLAN.md — Verification: 11 UI-SPEC gates + 09-HUMAN-UAT.md scaffolding for 5 visual-judgment gates (ABOUT-01..07)
 **UI hint**: yes
 
 ### Phase 10: GALLERY — Lightbox + Masonry + Captions
@@ -115,5 +119,5 @@ v3.0 phases execute in numeric order: 8 → 9 → 10 (decimal insertions appear 
 | 6. Gallery | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-04-30 |
 | 7. About Enrichment | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-05-01 |
 | 8. ICON — SVG Theme Toggle | v3.0 | 2/2 | Complete   | 2026-05-02 |
-| 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/TBD | Not started | - |
+| 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/3 | Planned | - |
 | 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/TBD | Not started | - |
