@@ -109,6 +109,7 @@ Items deferred from v2.0 close (carried forward; gated on post-deploy browser wa
 | uat | 05.1 | 05.1-HUMAN-UAT.md (6 scenarios) | partial | Post-deploy browser walkthrough |
 | uat | 06 | 06-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough |
 | uat | 07 | 07-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough at https://tbohnstedt.cloud/about/ |
+| uat | 09 | 09-HUMAN-UAT.md (5 gates) | partial | Post-deploy browser walkthrough at https://tbohnstedt.cloud/about/ |
 | verification | 05 | 05-VERIFICATION.md | human_needed | Confirm favicon in tab/bookmark/iOS home-screen after deploy |
 | verification | 05.1 | 05.1-VERIFICATION.md | human_needed | Confirm SVG favicon prefers-color-scheme swap in real browsers |
 
