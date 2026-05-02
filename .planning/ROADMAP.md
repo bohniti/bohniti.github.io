@@ -23,7 +23,7 @@ Historical milestones (v1.0, v2.0) are preserved in `.planning/milestones/v2.0-R
 
 ### v3.0 Active
 
-- [ ] **Phase 8: ICON — SVG Theme Toggle** — Replace text-button toggle with sun/moon SVG icon (header position unchanged, no FOUC, accessible)
+- [x] **Phase 8: ICON — SVG Theme Toggle** — Replace text-button toggle with sun/moon SVG icon (header position unchanged, no FOUC, accessible) (completed 2026-05-02)
 - [ ] **Phase 9: ABOUT — Dynamic Rounded Redesign** — Asymmetric rounded About layout balancing climbing + professional background, served from dedicated `layouts/about/single.html`
 - [ ] **Phase 10: GALLERY — Lightbox + Masonry + Captions** — Native `<dialog>` lightbox, CSS column-count masonry, frontmatter captions in author-controlled order
 
@@ -66,7 +66,7 @@ Full archive: [milestones/v2.0-ROADMAP.md](milestones/v2.0-ROADMAP.md)
 **Plans**: 2 plans
 Plans:
 - [x] 08-01-PLAN.md — Markup + CSS: replace text button with sun + moon SVG, add 44×44 hit target, [data-theme]-keyed visibility swap, reduced-motion-gated transition (ICON-01, ICON-04, ICON-05)
-- [ ] 08-02-PLAN.md — Rewrite end-of-body IIFE: remove textContent, add aria-label setter (action-oriented), preserve persistence + theme-color sync (ICON-02, ICON-03)
+- [x] 08-02-PLAN.md — Rewrite end-of-body IIFE: remove textContent, add aria-label setter (action-oriented), preserve persistence + theme-color sync (ICON-02, ICON-03)
 **UI hint**: yes
 
 ### Phase 9: ABOUT — Dynamic Rounded Redesign
@@ -114,6 +114,6 @@ v3.0 phases execute in numeric order: 8 → 9 → 10 (decimal insertions appear 
 | 05.1. Swap wordmark + favicon to SVG | v2.0 | 4/4 | Complete | 2026-04-29 |
 | 6. Gallery | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-04-30 |
 | 7. About Enrichment | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-05-01 |
-| 8. ICON — SVG Theme Toggle | v3.0 | 1/2 | In Progress|  |
+| 8. ICON — SVG Theme Toggle | v3.0 | 2/2 | Complete   | 2026-05-02 |
 | 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/TBD | Not started | - |
 | 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/TBD | Not started | - |
