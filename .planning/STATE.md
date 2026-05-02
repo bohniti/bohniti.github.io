@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Update
 status: executing
-stopped_at: Phase 8 UI-SPEC approved
-last_updated: "2026-05-02T08:21:53.131Z"
-last_activity: 2026-05-02 -- Phase 8 planning complete
+stopped_at: Phase 8 Plan 01 complete; ready for Plan 02 (toggle-handler-rewrite)
+last_updated: "2026-05-02T08:30:33.896Z"
+last_activity: 2026-05-02
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 2
-  completed_plans: 0
-  percent: 0
+  completed_plans: 1
+  percent: 50
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-01)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 8 — ICON SVG Theme Toggle (next-up; not yet started)
+**Current focus:** Phase 8 — icon-svg-theme-toggle
 
 ## Current Position
 
-Phase: 8 of 10 (ICON — SVG Theme Toggle) — next-up
-Plan: — (phase not yet planned)
+Phase: 8 (icon-svg-theme-toggle) — EXECUTING
+Plan: 2 of 2
 Status: Ready to execute
-Last activity: 2026-05-02 -- Phase 8 planning complete
+Last activity: 2026-05-02
 
-Progress: [░░░░░░░░░░] 0% (0/0 v3.0 plans complete; plan counts TBD until `/gsd-plan-phase 8` runs)
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0% (0/0 v3.0 plans complete; plan cou
 - Trend: Stable around 4-min plan execution
 
 *Updated after each plan completion*
+| Phase 08-icon-svg-theme-toggle P01 | 5min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - v3.0: Phase 10 NOT split into 10a/10b — coarse granularity favors fewer phases; lightbox JS depends on template depends on frontmatter (tight coupling, no clean half-shipped state with user value)
 - v2.0: OS-preference + localStorage drives theme; no flash on load via inline `<head>` script
 - v2.0: Hugo render-image hook with title-keyword switch (validated Phase 7) — extends naturally for v3.0 Phase 9 with new arms (`split`, `feature`, `card`)
+- [Phase ?]: Phase 8 Plan 01: Used inline-grid stacking + 150ms opacity transition for icon toggle (matches body 150ms transitions; cleaner than position: absolute)
+- [Phase ?]: Phase 8 Plan 01: 44×44 hit target via min-width/min-height + place-items: center on button shell — decouples 24px icon size from interactive hit area (WCAG 2.5.5)
+- [Phase ?]: Phase 8 Plan 01: CSS-only [data-theme] visibility swap with defensive :root:not([data-theme="dark"]) selector — zero JS in icon swap path
 
 ### Pending Todos
 
@@ -102,8 +106,8 @@ All items gated on the same trigger: push commits → GitHub Actions deploy → 
 
 ## Session Continuity
 
-Last session: 2026-05-02T08:09:58.124Z
-Stopped at: Phase 8 UI-SPEC approved
-Resume file: .planning/phases/08-icon-svg-theme-toggle/08-UI-SPEC.md
+Last session: 2026-05-02T08:30:33.884Z
+Stopped at: Phase 8 Plan 01 complete; ready for Plan 02 (toggle-handler-rewrite)
+Resume file: .planning/phases/08-icon-svg-theme-toggle/08-02-PLAN.md
 
 **Next user action:** Run `/gsd-plan-phase 8` to decompose Phase 8 (ICON — SVG Theme Toggle) into plans.
