@@ -1,13 +1,19 @@
 {{- $resource := .Page.Resources.GetMatch (printf "%s" .Destination) -}}
 {{- if $resource -}}
   {{- $title := .Title | default "" -}}
-  {{- $isHero := eq $title "hero" -}}
-  {{- $isGrid := eq $title "grid" -}}
+  {{- $isHero    := eq $title "hero" -}}
+  {{- $isGrid    := eq $title "grid" -}}
+  {{- $isSplit   := eq $title "split" -}}
+  {{- $isFeature := eq $title "feature" -}}
   {{- $processed := "" -}}
   {{- if $isHero -}}
     {{- $processed = $resource.Process "fill 480x600 Smart webp q80" -}}
   {{- else if $isGrid -}}
     {{- $processed = $resource.Process "fill 400x300 Smart webp q75" -}}
+  {{- else if $isSplit -}}
+    {{- $processed = $resource.Process "fit 600x450 webp q78" -}}
+  {{- else if $isFeature -}}
+    {{- $processed = $resource.Process "fill 1024x576 Smart webp q80" -}}
   {{- else -}}
     {{- $processed = $resource.Process "fill 800x600 Smart webp q78" -}}
   {{- end -}}
@@ -15,7 +21,12 @@
        width="{{ $processed.Width }}"
        height="{{ $processed.Height }}"
        alt="{{ .Text }}"
-       {{- if $isHero }} class="about-hero-img" loading="eager" fetchpriority="high"{{ else if $isGrid }} class="about-grid-item" loading="lazy" decoding="async"{{ else }} loading="lazy" decoding="async"{{ end -}}>
+       {{- if $isHero }} class="about-hero-img" loading="eager" fetchpriority="high"
+       {{- else if $isGrid }} class="about-grid-item" loading="lazy" decoding="async"
+       {{- else if $isSplit }} class="about-split-img" loading="lazy" decoding="async"
+       {{- else if $isFeature }} class="about-feature-img" loading="lazy" decoding="async"
+       {{- else }} loading="lazy" decoding="async"
+       {{- end -}}>
 {{- else -}}
   <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
 {{- end -}}
