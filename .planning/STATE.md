@@ -2,11 +2,11 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Update
-status: planning
-last_updated: "2026-05-01T09:02:10.619Z"
+status: ready_to_plan
+last_updated: "2026-05-01T11:30:00.000Z"
 last_activity: 2026-05-01
 progress:
-  total_phases: 0
+  total_phases: 3
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -17,17 +17,19 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-28)
+See: .planning/PROJECT.md (updated 2026-05-01)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 07 — about-enrichment
+**Current focus:** Phase 8 — ICON SVG Theme Toggle (next-up; not yet started)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-05-01 — Milestone v3.0 started
+Phase: 8 of 10 (ICON — SVG Theme Toggle) — next-up
+Plan: — (phase not yet planned)
+Status: Ready to plan
+Last activity: 2026-05-01 — v3.0 roadmap created (3 phases, 21 requirements mapped)
+
+Progress: [░░░░░░░░░░] 0% (0/0 v3.0 plans complete; plan counts TBD until `/gsd-plan-phase 8` runs)
 
 ## Performance Metrics
 
@@ -44,30 +46,21 @@ Last activity: 2026-05-01 — Milestone v3.0 started
 | 01 | 2 | - | - | v1.0 |
 | 02 | 1 | - | - | v1.0 |
 | 04 | 3 | - | - | v2.0 |
-
-| Plan | Duration | Tasks | Files |
-|------|----------|-------|-------|
-| Phase 02 P01 | 84s | 2 tasks | 2 files |
-| Phase 04 P01 | 97s | 3 tasks | 1 file |
-| Phase 04 P02 | 169s | 2 tasks | 1 file |
-| Phase 04 P03 | ~60s | 3 tasks | 2 files |
+| 07 | 4 | ~16m | ~4m | v2.0 |
 
 **Recent Trend:**
 
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: Phase 07 P01 (6m), P02 (4m), P03 (1m), P04 (5m)
+- Trend: Stable around 4-min plan execution
 
 *Updated after each plan completion*
-| Phase 07 P01 | 6m | 2 tasks | 3 files |
-| Phase 07 P02 | 4m | 2 tasks | 2 files |
-| Phase 07 P03 | 1m | 2 tasks | 5 files |
-| Phase 07 P04 | 5m | 3 tasks | 4 files |
 
 ## Accumulated Context
 
 ### Roadmap Evolution
 
-- Phase 05.1 inserted after Phase 5: Swap wordmark + favicon to new SVG sources at `images/brand-source/{logo.svg, fav-icon.svg}` (URGENT)
+- v3.0 roadmap committed 2026-05-01: 3 phases (8 ICON, 9 ABOUT, 10 GALLERY), 21 requirements, ordered by ascending blast radius
+- Locked decisions encoded in roadmap: gallery `params.weight` ordering (no shuffle), About layout+content ship together, lightbox keyboard nav day-one, zero new runtime deps
 
 ### Decisions
 
@@ -75,30 +68,13 @@ Decisions are logged in PROJECT.md Key Decisions table.
 
 Recent decisions affecting current work:
 
-- Phase 04 P03: Co-located first-paint button-sync and click handler in one IIFE — single querySelector('.theme-toggle'), single closure, atomic-mutation contract locally readable
-- Phase 04 P03: Adopted dark-first conditional form (next === 'dark' ? '#100F0F' : '#FFFCF0') across all writes inside the click handler to mirror the head IIFE's pattern from Plan 02
-- Phase 04 P03: No DOMContentLoaded — script sits at end-of-body, parser has already reached the toggle button
-- Phase 04 P03: Did not factor the five mutations into helper functions — kept inline so the atomic-side-effect contract is locally readable
+- v3.0: Gallery ordering = author-controlled `params.weight` deterministic frontmatter (resolves STACK/ARCHITECTURE/PITFALLS conflict surfaced in research/SUMMARY.md)
+- v3.0: About layout redesign + content rewrite ship in same milestone (no two-step rollout)
+- v3.0: Lightbox keyboard nav (Esc, ←/→, focus-trap, focus restoration) is day-one scope
+- v3.0: Phase ordering ICON → ABOUT → GALLERY justified by ascending blast radius (smallest/no-JS first; only-JS-adding phase last)
+- v3.0: Phase 10 NOT split into 10a/10b — coarse granularity favors fewer phases; lightbox JS depends on template depends on frontmatter (tight coupling, no clean half-shipped state with user value)
 - v2.0: OS-preference + localStorage drives theme; no flash on load via inline `<head>` script
-- v2.0: Standalone `/gallery/` page (not embedded in About)
-- v2.0: Header wordmark replaces text site title
-- v2.0: Rename `images/galary/` -> `content/gallery/photos/` (move into Hugo content tree, not just rename in place)
-- v2.0: Pillow one-off slicer (not Hugo `Crop`); 8 sliced PNGs committed to `themes/minimal/static/images/brand/`
-- v2.0: 3-file favicon set (`.ico` + `.svg` with embedded dark-mode @media + `apple-touch-icon.png`); skip legacy `mstile-*` / `browserconfig.xml`
-- v2.0: Two-image CSS toggle for wordmark (not `<picture>` + `prefers-color-scheme`); each variant must be ≤ 30 KB
-- v2.0: Hugo `image.Process` page-bundle pipeline for gallery (WebP only, no AVIF — Hugo 0.157 doesn't support it)
-- v2.0: Phase 6 (Gallery) recommended for `/gsd-research-phase` during planning; other v2.0 phases use locked-in patterns
-- [Phase ?]: Phase 07 P01: Hugo render-image hook with three-arm title-keyword switch (hero 480x600 q80, grid 400x300 q75, default 800x600 q78) plus defensive passthrough fallback — deferred Phase 6 follow-up now codebase-validated infrastructure
-- [Phase ?]: Phase 07 P01: Used cooking.JPG (uppercase) in markdown image ref to match filesystem case — Hugo GetMatch is case-sensitive; lowercase would force defensive fallback and lose CLS-clean width/height
-- [Phase ?]: Phase 07 P02: Discovered Hugo 0.161 does NOT auto-derive Type from leaf-bundle directory name; added explicit type: about to content/about/index.md so body.page-about resolves at runtime (Rule 2 deviation fix)
-- [Phase ?]: Phase 07 P02: Adopted dual-selector pattern so the same CSS rules apply across both DOM rendering paths (wrapper-div+markdown OR render-image-hook-emitted class)
-- [Phase ?]: Phase 07 P02: Documented WCAG AA-large caveat on .about-pullquote strong as load-bearing CSS comment — dark-theme contrast is 3.97:1 which passes only because parent text is 1.4rem + 500-weight
-- [Phase ?]: Phase 07 P03: Preserved cooking.JPG uppercase extension on disk to match Plan 07-01 case-corrected markdown ref; renaming to lowercase would require touching the markdown which is out of scope for an asset-arrival plan
-- [Phase ?]: Phase 07 P03: exiftool reported '5 unchanged' on the D-17 scrub because targeted GPS/Make/Model/Serial fields were already absent from sources (likely AirDrop pre-stripped); D-27 verification gate is source-of-truth and passed with zero matching field rows
-- [Phase ?]: Phase 07 P03: Did NOT broaden EXIF scrub to LensMake/LensModel/CreatorTool — D-17 explicitly enumerates GPS/Make/Model/Serial scope; broadening is future privacy-hardening, not asset-arrival
-- [Phase ?]: Phase 07 P04: D-26 verify regex used quoted attribute values (`width="N"`) which Hugo --minify strips — verified the underlying invariant (5/5 About images have explicit width + height) directly via minify-aware grep instead of patching the historical plan file
-- [Phase ?]: Phase 07 P04: Auto-fixed 2 stale `content/about.md` refs in CLAUDE.md (Rule 2 — D-30 cleanup contract requires zero stale refs in tracked source files) and added `.claude/` to .gitignore (Rule 2 — agent runtime mirror copies should never be tracked)
-- [Phase ?]: Phase 07 P04: Phase 7 complete; milestone v2.0 reaches 100% with HUMAN-UAT deferred to post-deploy checklist at .planning/phases/07-about-enrichment/07-HUMAN-UAT.md
+- v2.0: Hugo render-image hook with title-keyword switch (validated Phase 7) — extends naturally for v3.0 Phase 9 with new arms (`split`, `feature`, `card`)
 
 ### Pending Todos
 
@@ -106,11 +82,11 @@ None yet.
 
 ### Blockers/Concerns
 
-(v2.0 blockers cleared at milestone close 2026-05-01 — see `.planning/milestones/v2.0-ROADMAP.md` for historical context.)
+None yet for v3.0. (v2.0 blockers cleared at milestone close 2026-05-01 — see `.planning/milestones/v2.0-ROADMAP.md` for historical context.)
 
 ## Deferred Items
 
-Items acknowledged and deferred at v2.0 milestone close on 2026-05-01:
+Items deferred from v2.0 close (carried forward; gated on post-deploy browser walkthrough):
 
 | Category | Phase | Item | Status | Resolution Path |
 |----------|-------|------|--------|-----------------|
@@ -125,8 +101,8 @@ All items gated on the same trigger: push commits → GitHub Actions deploy → 
 
 ## Session Continuity
 
-Last session: 2026-05-01T07:49:30.000Z
-Stopped at: Phase 7 complete; milestone v2.0 100% (HUMAN-UAT pending post-deploy)
+Last session: 2026-05-01T11:30:00.000Z
+Stopped at: v3.0 roadmap created (3 phases, 21 requirements 100% mapped, success criteria written)
 Resume file: None
 
-**Next Phase:** None — milestone v2.0 complete. User next action: push commits, watch GitHub Actions deploy, then run `.planning/phases/07-about-enrichment/07-HUMAN-UAT.md` checklist against deployed `https://tbohnstedt.cloud/about/` URL.
+**Next user action:** Run `/gsd-plan-phase 8` to decompose Phase 8 (ICON — SVG Theme Toggle) into plans.

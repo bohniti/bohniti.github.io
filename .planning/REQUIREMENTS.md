@@ -82,11 +82,29 @@ Explicit exclusions for v3.0 and beyond:
 
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
-| ICON-01..05 | (TBD by roadmapper) | Pending |
-| ABOUT-01..07 | (TBD by roadmapper) | Pending |
-| GALLERY-01..09 | (TBD by roadmapper) | Pending |
+| ICON-01 | Phase 8 | Pending |
+| ICON-02 | Phase 8 | Pending |
+| ICON-03 | Phase 8 | Pending |
+| ICON-04 | Phase 8 | Pending |
+| ICON-05 | Phase 8 | Pending |
+| ABOUT-01 | Phase 9 | Pending |
+| ABOUT-02 | Phase 9 | Pending |
+| ABOUT-03 | Phase 9 | Pending |
+| ABOUT-04 | Phase 9 | Pending |
+| ABOUT-05 | Phase 9 | Pending |
+| ABOUT-06 | Phase 9 | Pending |
+| ABOUT-07 | Phase 9 | Pending |
+| GALLERY-01 | Phase 10 | Pending |
+| GALLERY-02 | Phase 10 | Pending |
+| GALLERY-03 | Phase 10 | Pending |
+| GALLERY-04 | Phase 10 | Pending |
+| GALLERY-05 | Phase 10 | Pending |
+| GALLERY-06 | Phase 10 | Pending |
+| GALLERY-07 | Phase 10 | Pending |
+| GALLERY-08 | Phase 10 | Pending |
+| GALLERY-09 | Phase 10 | Pending |
 
-*Phase column populated by `gsd-roadmapper` in next step.*
+**Coverage:** 21/21 v3.0 requirements mapped to exactly one phase. No orphans. No duplicates.
 
 ---
-*Last updated: 2026-05-01 — v3.0 milestone start; 21 requirements scoped (5 ICON / 7 ABOUT / 9 GALLERY).*
+*Last updated: 2026-05-01 — v3.0 milestone start; 21 requirements scoped (5 ICON / 7 ABOUT / 9 GALLERY); traceability filled by `gsd-roadmapper` 2026-05-01.*
