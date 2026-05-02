@@ -21,8 +21,8 @@ Refine three rough edges in the v2.0 design — theme toggle, gallery, and about
 Replace the existing text `<button class="theme-toggle">` with two inline SVG icons (sun + moon), keeping the current header position, persistence, and no-FOUC behavior.
 
 - [x] **ICON-01**: User sees an SVG sun icon in light mode and an SVG moon icon in dark mode in the header (icon shows current state).
-- [ ] **ICON-02**: User toggles theme by clicking the icon button — same persistence (`localStorage`) and OS-preference detection as the v2.0 text-button toggle, with no flash of wrong icon on first paint.
-- [ ] **ICON-03**: User using a screen reader hears a meaningful label that reflects the *target action* ("Switch to dark mode" / "Switch to light mode"), and `aria-pressed` reports the current toggle state.
+- [x] **ICON-02**: User toggles theme by clicking the icon button — same persistence (`localStorage`) and OS-preference detection as the v2.0 text-button toggle, with no flash of wrong icon on first paint.
+- [x] **ICON-03**: User using a screen reader hears a meaningful label that reflects the *target action* ("Switch to dark mode" / "Switch to light mode"), and `aria-pressed` reports the current toggle state.
 - [x] **ICON-04**: User on mobile or with a trackball hits a tap target ≥ 44×44 CSS-px regardless of the icon's intrinsic 24×24 viewBox.
 - [x] **ICON-05**: User with `prefers-reduced-motion` set sees no rotation/fade transition; user without reduced-motion sees a ≤ 150 ms transition wrapped in `@media (prefers-reduced-motion: no-preference)`.
 
@@ -83,8 +83,8 @@ Explicit exclusions for v3.0 and beyond:
 | REQ-ID | Phase | Status |
 |--------|-------|--------|
 | ICON-01 | Phase 8 | Complete |
-| ICON-02 | Phase 8 | Pending |
-| ICON-03 | Phase 8 | Pending |
+| ICON-02 | Phase 8 | Complete |
+| ICON-03 | Phase 8 | Complete |
 | ICON-04 | Phase 8 | Complete |
 | ICON-05 | Phase 8 | Complete |
 | ABOUT-01 | Phase 9 | Pending |
