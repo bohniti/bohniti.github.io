@@ -15,6 +15,7 @@
   --border: #E6E4D9;
   --code-bg: #F2F0E5;
   --max-width: 640px;
+  --radius-soft: 12px;             /* Phase 9 — soft rounded surfaces */
 }
 
 :root[data-theme="dark"] {
