@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Update
-status: verifying
+status: executing
 stopped_at: Phase 9 plans created (3 plans, 8 tasks)
-last_updated: "2026-05-02T13:07:34.375Z"
+last_updated: "2026-05-02T13:13:59.842Z"
 last_activity: 2026-05-02
 progress:
   total_phases: 3
   completed_phases: 1
   total_plans: 5
-  completed_plans: 2
-  percent: 40
+  completed_plans: 3
+  percent: 60
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-01)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 8 — icon-svg-theme-toggle
+**Current focus:** Phase 09 — about-dynamic-rounded-redesign
 
 ## Current Position
 
-Phase: 8 (icon-svg-theme-toggle) — EXECUTING
-Plan: 2 of 2
-Status: Phase complete — ready for verification
+Phase: 09 (about-dynamic-rounded-redesign) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
 Last activity: 2026-05-02
 
-Progress: [██████████] 100%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Progress: [██████████] 100%
 *Updated after each plan completion*
 | Phase 08-icon-svg-theme-toggle P01 | 5min | 2 tasks | 2 files |
 | Phase 08-icon-svg-theme-toggle P02 | 1min | 1 tasks | 1 files |
+| Phase 09-about-dynamic-rounded-redesign P01 | 2 min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,11 @@ Recent decisions affecting current work:
 - [Phase ?]: Phase 8 Plan 01: 44×44 hit target via min-width/min-height + place-items: center on button shell — decouples 24px icon size from interactive hit area (WCAG 2.5.5)
 - [Phase ?]: Phase 8 Plan 01: CSS-only [data-theme] visibility swap with defensive :root:not([data-theme="dark"]) selector — zero JS in icon swap path
 - [Phase 8]: Phase 8 Plan 02: Rewrote end-of-body IIFE — replaced toggle.textContent with toggle.setAttribute('aria-label', …) using action-oriented strings ('Switch to dark mode' / 'Switch to light mode'); preserved dataset.theme/aria-pressed/localStorage/meta theme-color sync verbatim; head IIFE byte-identical to v2.0 (Pitfall 1 contract preserved)
+- [Phase 09-about-dynamic-rounded-redesign]: Plan 09-01 ships feature shortcode + hook arm together with pullquote/split (never half-ship per RESEARCH risk-hotspots) — UI-SPEC FLAG recommendation + ~16 LOC slack preserved for HUMAN-UAT follow-ups
+- [Phase 09-about-dynamic-rounded-redesign]: render-image hook uses pre-bound boolean variables (isSplit, isFeature) per D-07 — Matches existing isHero/isGrid pattern; UI-SPEC Gate 2 needs adaptation in Plan 09-03 to grep boolean decls instead of inline eq title
+- [Phase 09-about-dynamic-rounded-redesign]: split arm uses fit not fill (fit 600x450 webp q78) per Pitfall 19 — Preserves portrait/landscape aspect without cropping faces
+- [Phase 09-about-dynamic-rounded-redesign]: All 3 new shortcodes use .Inner | markdownify (NOT safeHTML) per PATTERNS Shared Pattern 5 — Bodies contain markdown (bold, image syntax); mermaid stays on safeHTML because its body is mermaid DSL
+- [Phase 09-about-dynamic-rounded-redesign]: radius-soft token declared once in light root only; dark theme inherits via cascade (D-08) — Radius is theme-invariant; CSS custom-property cascade handles inheritance to dark theme without explicit duplication
 
 ### Pending Todos
 
@@ -108,8 +114,8 @@ All items gated on the same trigger: push commits → GitHub Actions deploy → 
 
 ## Session Continuity
 
-Last session: 2026-05-02T13:07:34.363Z
+Last session: 2026-05-02T13:13:22.909Z
 Stopped at: Phase 9 plans created (3 plans, 8 tasks)
-Resume file: .planning/phases/09-about-dynamic-rounded-redesign/09-01-PLAN.md
+Resume file: None
 
 **Next user action:** Run `/gsd-plan-phase 8` to decompose Phase 8 (ICON — SVG Theme Toggle) into plans.
