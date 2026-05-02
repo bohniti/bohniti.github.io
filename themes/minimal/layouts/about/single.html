@@ -1,0 +1,58 @@
+{{ define "main" }}
+<article class="about">
+
+  {{/* Hero: 2-col grid (preserves Phase 7 pattern). Hero text comes from a dedicated frontmatter param;
+       portrait is processed in-template from the leaf-bundle resource. */}}
+  <section class="about-hero">
+    <div class="about-hero-text">
+      {{ with .Params.heroIntro }}{{ . | markdownify }}{{ end }}
+    </div>
+    <div class="about-hero-photo">
+      {{ with .Resources.GetMatch "images/portrait.jpg" }}
+        {{ $portrait := .Process "fill 480x600 Smart webp q80" }}
+        <img class="about-hero-img"
+             src="{{ $portrait.RelPermalink }}"
+             width="{{ $portrait.Width }}"
+             height="{{ $portrait.Height }}"
+             alt="Portrait of Timo"
+             loading="eager"
+             fetchpriority="high">
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* Experience — role cards from frontmatter `roles:` array (Option A authoring convention).
+       Each role: title, meta, bullets[], optional pullquote rendered as <aside> after the card. */}}
+  {{ if .Params.roles }}
+  <section class="about-section" data-section="experience">
+    <h2>Experience</h2>
+    <ol class="about-role-list">
+      {{ range .Params.roles }}
+      <li class="about-role-card">
+        <h3 class="about-role-card-title">{{ .title }}</h3>
+        <p class="about-role-card-meta">{{ .meta }}</p>
+        <ul>
+          {{ range .bullets }}
+          <li>{{ . | markdownify }}</li>
+          {{ end }}
+        </ul>
+      </li>
+      {{ with .pullquote }}
+      <aside class="about-pullquote">
+      {{ . | markdownify }}
+      </aside>
+      {{ end }}
+      {{ end }}
+    </ol>
+  </section>
+  {{ end }}
+
+  {{/* Education + Certifications + Outside Work: rendered from markdown body (.Content).
+       Markdown owns: H2 + bullets/prose + 4-photo grid wrapper.
+       This keeps Education/Certifications/Outside Work editable as prose without layout edits. */}}
+  <div class="about-prose">
+    {{ .Content }}
+  </div>
+
+</article>
+{{ end }}
