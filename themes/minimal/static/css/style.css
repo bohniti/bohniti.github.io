@@ -98,16 +98,50 @@ body {
   color: var(--accent);
 }
 
+/* === Theme toggle (Phase 8 — sun/moon SVG icon button) === */
 .theme-toggle {
-  /* match .site-nav a typography (D-08) */
-  font: inherit;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  /* button reset */
+  /* Hit target ≥ 44×44 CSS-px (D-06, ICON-04 — WCAG 2.5.5 / iOS HIG) */
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  /* Button reset */
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
+  /* Icon color cascade — currentColor inside the SVGs reads from this (D-02) */
+  color: var(--text-secondary);
+}
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon {
+  /* Stack both SVGs in the same grid cell — no layout reflow on swap (D-05) */
+  grid-area: 1 / 1;
+  display: block;
+}
+
+/* Icon-as-current-state (D-03): sun visible in light, moon visible in dark.
+   Visibility keyed off [data-theme] on <html> set by the head IIFE in baseof.html
+   BEFORE the stylesheet loads — zero FOUC (D-04, Pitfall 1 mitigation). */
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  opacity: 0;
+  pointer-events: none;
+}
+:root[data-theme="light"] .theme-toggle .icon-moon,
+:root:not([data-theme="dark"]) .theme-toggle .icon-moon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cross-fade ≤ 150ms — opacity-only, no rotation (D-07, ICON-05).
+   Declared ONLY inside prefers-reduced-motion: no-preference (Pitfall 9 mitigation):
+   reduced-motion users get an instant swap, not a "tasteful 50ms" fallback. */
+@media (prefers-reduced-motion: no-preference) {
+  .theme-toggle .icon-sun,
+  .theme-toggle .icon-moon {
+    transition: opacity 150ms ease;
+  }
 }
 
 .theme-toggle:hover {
