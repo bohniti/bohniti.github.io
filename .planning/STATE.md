@@ -4,14 +4,14 @@ milestone: v3.0
 milestone_name: Design Update
 status: executing
 stopped_at: Phase 9 plans created (3 plans, 8 tasks)
-last_updated: "2026-05-02T13:13:59.842Z"
+last_updated: "2026-05-02T13:23:01.988Z"
 last_activity: 2026-05-02
 progress:
   total_phases: 3
   completed_phases: 1
   total_plans: 5
-  completed_plans: 3
-  percent: 60
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-05-01)
 ## Current Position
 
 Phase: 09 (about-dynamic-rounded-redesign) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-05-02
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [██████░░░░] 60%
 | Phase 08-icon-svg-theme-toggle P01 | 5min | 2 tasks | 2 files |
 | Phase 08-icon-svg-theme-toggle P02 | 1min | 1 tasks | 1 files |
 | Phase 09-about-dynamic-rounded-redesign P01 | 2 min | 3 tasks | 5 files |
+| Phase 09 P02 | 4 min | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,7 @@ Recent decisions affecting current work:
 - [Phase 09-about-dynamic-rounded-redesign]: split arm uses fit not fill (fit 600x450 webp q78) per Pitfall 19 — Preserves portrait/landscape aspect without cropping faces
 - [Phase 09-about-dynamic-rounded-redesign]: All 3 new shortcodes use .Inner | markdownify (NOT safeHTML) per PATTERNS Shared Pattern 5 — Bodies contain markdown (bold, image syntax); mermaid stays on safeHTML because its body is mermaid DSL
 - [Phase 09-about-dynamic-rounded-redesign]: radius-soft token declared once in light root only; dark theme inherits via cascade (D-08) — Radius is theme-invariant; CSS custom-property cascade handles inheritance to dark theme without explicit duplication
+- [Phase 09]: Layout uses range .Params.roles directly + omits .page-header chrome (intentional divergence from gallery analog per UI-SPEC); pullquote one-sided radius preserved (D-09) — UI-SPEC § Page-level skeleton requires no .page-header chrome on About; D-09 locks one-sided 0 4px 4px 0 as a deliberate visual signal
 
 ### Pending Todos
 
@@ -114,7 +116,7 @@ All items gated on the same trigger: push commits → GitHub Actions deploy → 
 
 ## Session Continuity
 
-Last session: 2026-05-02T13:13:22.909Z
+Last session: 2026-05-02T13:22:50.979Z
 Stopped at: Phase 9 plans created (3 plans, 8 tasks)
 Resume file: None
 

@@ -30,13 +30,13 @@ Replace the existing text `<button class="theme-toggle">` with two inline SVG ic
 
 Replace the existing flat About leaf bundle with an asymmetric, rounded layout that balances climbing with professional background, all within Flexoki/Kindle/Obsidian aesthetic constraints. Reference: https://www.tylerkarow.com/about.
 
-- [ ] **ABOUT-01**: User visits `/about/` and sees an asymmetric layout (alternating text/image grid ratios per section) instead of the v2.0 hero + grid-of-four pattern, served from a new `themes/minimal/layouts/about/single.html` template.
+- [x] **ABOUT-01**: User visits `/about/` and sees an asymmetric layout (alternating text/image grid ratios per section) instead of the v2.0 hero + grid-of-four pattern, served from a new `themes/minimal/layouts/about/single.html` template.
 - [x] **ABOUT-02**: User authoring About content can use new image-shape arms (`split`, `feature`, `card`) on the existing `_default/_markup/render-image.html` hook by setting the image title — no new per-image CSS classes required.
 - [x] **ABOUT-03**: User sees softer rounded corners on photos and cards via a new `--radius-soft: 12px` CSS variable applied site-wide (replacing per-element 4–6 px values where used).
-- [ ] **ABOUT-04**: User reads role/credential cards rendered with `var(--bg-secondary)` tint + `var(--border)` + 12 px radius — no shadows, no gradients, Flexoki-flat. All About-specific CSS scoped under `body.page-about` (no global rule pollution).
-- [ ] **ABOUT-05**: User reading the About page learns about both Timo's professional background AND personal interests (climbing, cycling, cooking) in proportionate measure — not climbing-dominant as in v2.0 Phase 7.
-- [ ] **ABOUT-06**: User on dark theme reads the pullquote with WCAG AA-large contrast preserved (`.about-pullquote strong` font-size ≥ 1.4 rem and weight ≥ 500 maintained — current 3.97:1 ratio held).
-- [ ] **ABOUT-07**: User on a mobile viewport (< 600 px) sees all asymmetric sections collapse to a single column gracefully — no horizontal overflow, no broken image crops.
+- [x] **ABOUT-04**: User reads role/credential cards rendered with `var(--bg-secondary)` tint + `var(--border)` + 12 px radius — no shadows, no gradients, Flexoki-flat. All About-specific CSS scoped under `body.page-about` (no global rule pollution).
+- [x] **ABOUT-05**: User reading the About page learns about both Timo's professional background AND personal interests (climbing, cycling, cooking) in proportionate measure — not climbing-dominant as in v2.0 Phase 7.
+- [x] **ABOUT-06**: User on dark theme reads the pullquote with WCAG AA-large contrast preserved (`.about-pullquote strong` font-size ≥ 1.4 rem and weight ≥ 500 maintained — current 3.97:1 ratio held).
+- [x] **ABOUT-07**: User on a mobile viewport (< 600 px) sees all asymmetric sections collapse to a single column gracefully — no horizontal overflow, no broken image crops.
 
 ### GALLERY — Lightbox + Masonry + Captions
 
@@ -87,13 +87,13 @@ Explicit exclusions for v3.0 and beyond:
 | ICON-03 | Phase 8 | Complete |
 | ICON-04 | Phase 8 | Complete |
 | ICON-05 | Phase 8 | Complete |
-| ABOUT-01 | Phase 9 | Pending |
+| ABOUT-01 | Phase 9 | Complete |
 | ABOUT-02 | Phase 9 | Complete |
 | ABOUT-03 | Phase 9 | Complete |
-| ABOUT-04 | Phase 9 | Pending |
-| ABOUT-05 | Phase 9 | Pending |
-| ABOUT-06 | Phase 9 | Pending |
-| ABOUT-07 | Phase 9 | Pending |
+| ABOUT-04 | Phase 9 | Complete |
+| ABOUT-05 | Phase 9 | Complete |
+| ABOUT-06 | Phase 9 | Complete |
+| ABOUT-07 | Phase 9 | Complete |
 | GALLERY-01 | Phase 10 | Pending |
 | GALLERY-02 | Phase 10 | Pending |
 | GALLERY-03 | Phase 10 | Pending |

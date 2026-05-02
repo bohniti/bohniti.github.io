@@ -83,7 +83,7 @@ Plans:
 **Plans**: 3 plans
 Plans:
 - [x] 09-01-PLAN.md — Foundation: render-image hook + 3 shortcodes (pullquote, split, feature) + --radius-soft token (ABOUT-02, ABOUT-03)
-- [ ] 09-02-PLAN.md — Application: new layouts/about/single.html + index.md rewrite + style.css About-block rewrite + mobile reflow (ABOUT-01, ABOUT-03, ABOUT-04, ABOUT-05, ABOUT-06, ABOUT-07)
+- [x] 09-02-PLAN.md — Application: new layouts/about/single.html + index.md rewrite + style.css About-block rewrite + mobile reflow (ABOUT-01, ABOUT-03, ABOUT-04, ABOUT-05, ABOUT-06, ABOUT-07)
 - [ ] 09-03-PLAN.md — Verification: 11 UI-SPEC gates + 09-HUMAN-UAT.md scaffolding for 5 visual-judgment gates (ABOUT-01..07)
 **UI hint**: yes
 
