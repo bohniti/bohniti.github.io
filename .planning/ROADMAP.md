@@ -65,7 +65,7 @@ Full archive: [milestones/v2.0-ROADMAP.md](milestones/v2.0-ROADMAP.md)
   5. Enable "Reduce motion" in OS settings, click the toggle, and observe an instant icon swap with no rotation or fade; disable reduce-motion and the swap eases over ≤ 150 ms.
 **Plans**: 2 plans
 Plans:
-- [ ] 08-01-PLAN.md — Markup + CSS: replace text button with sun + moon SVG, add 44×44 hit target, [data-theme]-keyed visibility swap, reduced-motion-gated transition (ICON-01, ICON-04, ICON-05)
+- [x] 08-01-PLAN.md — Markup + CSS: replace text button with sun + moon SVG, add 44×44 hit target, [data-theme]-keyed visibility swap, reduced-motion-gated transition (ICON-01, ICON-04, ICON-05)
 - [ ] 08-02-PLAN.md — Rewrite end-of-body IIFE: remove textContent, add aria-label setter (action-oriented), preserve persistence + theme-color sync (ICON-02, ICON-03)
 **UI hint**: yes
 
@@ -114,6 +114,6 @@ v3.0 phases execute in numeric order: 8 → 9 → 10 (decimal insertions appear 
 | 05.1. Swap wordmark + favicon to SVG | v2.0 | 4/4 | Complete | 2026-04-29 |
 | 6. Gallery | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-04-30 |
 | 7. About Enrichment | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-05-01 |
-| 8. ICON — SVG Theme Toggle | v3.0 | 0/2 | Planned | - |
+| 8. ICON — SVG Theme Toggle | v3.0 | 1/2 | In Progress|  |
 | 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/TBD | Not started | - |
 | 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/TBD | Not started | - |
