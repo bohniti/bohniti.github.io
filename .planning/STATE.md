@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Design Update
 status: planning
-stopped_at: Phase 8 context gathered
-last_updated: "2026-05-02T08:02:26.888Z"
+stopped_at: Phase 8 UI-SPEC approved
+last_updated: "2026-05-02T08:09:58.138Z"
 last_activity: 2026-05-01 — v3.0 roadmap created (3 phases, 21 requirements mapped)
 progress:
   total_phases: 3
@@ -102,8 +102,8 @@ All items gated on the same trigger: push commits → GitHub Actions deploy → 
 
 ## Session Continuity
 
-Last session: 2026-05-02T08:02:26.867Z
-Stopped at: Phase 8 context gathered
-Resume file: .planning/phases/08-icon-svg-theme-toggle/08-CONTEXT.md
+Last session: 2026-05-02T08:09:58.124Z
+Stopped at: Phase 8 UI-SPEC approved
+Resume file: .planning/phases/08-icon-svg-theme-toggle/08-UI-SPEC.md
 
 **Next user action:** Run `/gsd-plan-phase 8` to decompose Phase 8 (ICON — SVG Theme Toggle) into plans.
