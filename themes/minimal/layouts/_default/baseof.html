@@ -32,23 +32,26 @@
     {{ partial "footer.html" . }}
   </div>
   <script>
-    // Theme toggle — single click handler performs five atomic mutations.
+    // Theme toggle — single click handler. JS writes only documentElement.dataset.theme;
+    // CSS reads it (icon visibility, palette swap). aria-label is action-oriented:
+    // it describes the click target, not the current state (D-03, D-08, D-10).
+    // The icon SVGs are never touched by JS — visibility is 100% CSS (Pitfall 22 mitigation).
     (function () {
       const toggle = document.querySelector('.theme-toggle');
       if (!toggle) return;
       const meta = document.querySelector('meta[name="theme-color"]');
 
-      // First-paint sync: server-rendered HTML always says "Dark"/aria-pressed="false".
-      // If the head IIFE resolved dark, update the button to match.
+      // First-paint sync: server-rendered HTML always says aria-pressed="false" and
+      // aria-label="Switch to dark mode". If the head IIFE resolved dark, reconcile.
       const initial = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
       toggle.setAttribute('aria-pressed', initial === 'dark' ? 'true' : 'false');
-      toggle.textContent = initial === 'dark' ? 'Light' : 'Dark';
+      toggle.setAttribute('aria-label', initial === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
 
       toggle.addEventListener('click', function () {
         const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
         document.documentElement.dataset.theme = next;
         toggle.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
-        toggle.textContent = next === 'dark' ? 'Light' : 'Dark';
+        toggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
         try { localStorage.setItem('theme', next); } catch (_) { /* Safari private mode */ }
         if (meta) meta.setAttribute('content', next === 'dark' ? '#100F0F' : '#FFFCF0');
       });
