@@ -1,0 +1,6 @@
+{{- /* Args: (1) variant — "text-first" (default) | "image-first" */ -}}
+{{- $variant := .Get 0 | default "text-first" -}}
+{{- $class := printf "about-split about-split--%s" $variant -}}
+<div class="{{ $class }}">
+{{ .Inner | markdownify }}
+</div>
