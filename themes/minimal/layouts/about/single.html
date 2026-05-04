@@ -9,7 +9,8 @@
     </div>
     <div class="about-hero-photo">
       {{ with .Resources.GetMatch "images/portrait.jpg" }}
-        {{ $portrait := .Process "fill 480x600 Smart webp q80" }}
+        {{ $oriented := .Filter (images.AutoOrient) }}
+        {{ $portrait := $oriented.Process "fill 480x600 Smart webp q80" }}
         <img class="about-hero-img"
              src="{{ $portrait.RelPermalink }}"
              width="{{ $portrait.Width }}"
