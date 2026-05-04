@@ -313,29 +313,130 @@ body.page-gallery .site-wrapper {
   max-width: 1100px;
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+/* === Gallery — Masonry === */
+/* Phase 10 — column-count masonry replaces v2.0 uniform CSS-Grid (D-07).
+   Default ≥900px = 3 columns. Mid-breakpoint at @media (min-width:600px) below.
+   Mobile <600px = 1 column inside existing @media (max-width:600px). */
+body.page-gallery .gallery-grid {
+  column-count: 3;
+  column-gap: 1rem;
   margin: 0;
 }
 
-.gallery-item {
+body.page-gallery .gallery-item {
   display: block;
   line-height: 0;        /* kill baseline gap below <img> */
-  border-radius: 4px;
+  border-radius: var(--radius-soft);
+  break-inside: avoid;
+  margin-bottom: 1rem;
 }
 
-.gallery-item:focus-visible {
+body.page-gallery .gallery-item:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+  border-radius: var(--radius-soft);
 }
 
-.gallery-img {
+body.page-gallery .gallery-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px;
+  border-radius: var(--radius-soft);
+}
+
+/* === Gallery — Lightbox === */
+/* Phase 10 — native <dialog> lightbox (D-08, D-09, D-20). Single dialog mutated by lightbox.js. */
+
+/* Backdrop — fallback always shipped; @supports adds blur (D-12, D-13).
+   Theme-invariant rgba pair: matches --bg dark hex #100F0F. */
+body.page-gallery dialog#gallery-lightbox::backdrop {
+  background: rgba(16, 15, 15, 0.85);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  body.page-gallery dialog#gallery-lightbox::backdrop {
+    background: rgba(16, 15, 15, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Dialog itself — flat Flexoki shell, no shadows, soft radius. */
+body.page-gallery dialog#gallery-lightbox {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-soft);
+  padding: 1.5rem;
+  max-width: min(96vw, 1200px);
+  max-height: 96vh;
+  margin: auto;
+  position: relative;
+  overflow: visible;
+}
+
+/* Lightbox image — preserve aspect ratio, cap to viewport (D-25). */
+body.page-gallery .gallery-lightbox-img {
+  max-width: 100%;
+  max-height: calc(100vh - 8rem);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Caption — UI-SPEC Gate 5 (font-size 0.95rem, line-height 1.5, secondary color, 60ch measure). */
+body.page-gallery .gallery-lightbox-caption {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 60ch;
+  margin: 1rem auto 0;
+  text-align: center;
+}
+
+/* Lightbox buttons — Phase 8 .theme-toggle precedent.
+   44×44 hit target, button reset, color cascade for inner SVG via currentColor. */
+body.page-gallery .gallery-lightbox-close,
+body.page-gallery .gallery-lightbox-prev,
+body.page-gallery .gallery-lightbox-next {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text);
+  position: absolute;
+}
+
+body.page-gallery .gallery-lightbox-close { top: 0.5rem; right: 0.5rem; }
+body.page-gallery .gallery-lightbox-prev  { top: 50%; left: 0.5rem;  transform: translateY(-50%); }
+body.page-gallery .gallery-lightbox-next  { top: 50%; right: 0.5rem; transform: translateY(-50%); }
+
+body.page-gallery .gallery-lightbox-close:hover,
+body.page-gallery .gallery-lightbox-prev:hover,
+body.page-gallery .gallery-lightbox-next:hover {
+  color: var(--accent);
+}
+
+body.page-gallery .gallery-lightbox-close:focus-visible,
+body.page-gallery .gallery-lightbox-prev:focus-visible,
+body.page-gallery .gallery-lightbox-next:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-soft);
+}
+
+/* Reduced-motion-gated transitions (D-22, Pitfall 9).
+   Color hover transition wraps in no-preference; the :hover rule itself stays unwrapped. */
+@media (prefers-reduced-motion: no-preference) {
+  body.page-gallery .gallery-lightbox-close,
+  body.page-gallery .gallery-lightbox-prev,
+  body.page-gallery .gallery-lightbox-next {
+    transition: color 150ms ease;
+  }
 }
 
 /* === About === */
@@ -565,4 +666,11 @@ body.page-about .about-feature-img {
   body.page-about .about-feature {
     margin: 2rem 0;
   }
+  /* Phase 10 — mobile single-column gallery (REQ GALLERY-02, D-07) */
+  body.page-gallery .gallery-grid { column-count: 1; }
+}
+
+/* Phase 10 — tablet two-column masonry (REQ GALLERY-02, D-07) */
+@media (min-width: 600px) and (max-width: 899px) {
+  body.page-gallery .gallery-grid { column-count: 2; }
 }
