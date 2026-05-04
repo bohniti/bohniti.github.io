@@ -4,14 +4,14 @@ milestone: v3.0
 milestone_name: Design Update
 status: executing
 stopped_at: Phase 10 UI-SPEC approved
-last_updated: "2026-05-04T07:28:47.342Z"
-last_activity: 2026-05-04 -- Phase 10 execution started
+last_updated: "2026-05-04T13:14:15.562Z"
+last_activity: 2026-05-04
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 8
-  completed_plans: 5
-  percent: 63
+  completed_plans: 8
+  percent: 100
 ---
 
 # Project State
@@ -28,7 +28,7 @@ See: .planning/PROJECT.md (updated 2026-05-01)
 Phase: 10 (GALLERY — Lightbox + Masonry + Captions) — EXECUTING
 Plan: 1 of 3
 Status: Executing Phase 10
-Last activity: 2026-05-04 -- Phase 10 execution started
+Last activity: 2026-05-04
 
 Progress: [██████████] 100%
 
@@ -110,9 +110,15 @@ Items deferred from v2.0 close (carried forward; gated on post-deploy browser wa
 | uat | 05.1 | 05.1-HUMAN-UAT.md (6 scenarios) | partial | Post-deploy browser walkthrough |
 | uat | 06 | 06-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough |
 | uat | 07 | 07-HUMAN-UAT.md | unknown | Post-deploy browser walkthrough at https://tbohnstedt.cloud/about/ |
-| uat | 09 | 09-HUMAN-UAT.md (5 gates) | partial | Post-deploy browser walkthrough at https://tbohnstedt.cloud/about/ |
 | verification | 05 | 05-VERIFICATION.md | human_needed | Confirm favicon in tab/bookmark/iOS home-screen after deploy |
 | verification | 05.1 | 05.1-VERIFICATION.md | human_needed | Confirm SVG favicon prefers-color-scheme swap in real browsers |
+
+Items acknowledged at v3.0 close on 2026-05-04 (scaffold artifacts; real UAT closure happened in 10-UAT.md, 6/6 passed):
+
+| Category | Phase | Item | Status | Resolution Path |
+|----------|-------|------|--------|-----------------|
+| uat | 09 | 09-HUMAN-UAT.md (5 gates) | scaffold | Closed via Phase 10 live-site walkthrough; About page verified upright + correct rendering at https://tbohnstedt.cloud/about/ |
+| uat | 10 | 10-HUMAN-UAT.md (6 scenarios) | scaffold | Closed via 10-UAT.md, all 6 scenarios passed live 2026-05-04 (commit 5ddece6) |
 
 All items gated on the same trigger: push commits → GitHub Actions deploy → walk the `*-HUMAN-UAT.md` checklists in a browser. Implementation is shipped; automated gates are green; deferral was the planned exit pattern.
 

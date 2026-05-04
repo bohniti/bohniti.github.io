@@ -1,5 +1,37 @@
 # Milestones
 
+## v3.0 Design Update (Shipped: 2026-05-04)
+
+**Phases:** 3 (8, 9, 10) | **Plans:** 8 | **Tasks:** 13
+**Timeline:** 2026-05-01 → 2026-05-04 (4 days)
+**Live at:** https://tbohnstedt.cloud/
+
+### Delivered
+
+Three rough edges in the v2.0 design refined without changing the underlying Flexoki / Kindle / Obsidian-minimal aesthetic. Theme toggle becomes an SVG icon, the About page gets an asymmetric rounded layout balancing climbing + professional background, and the gallery gains a native `<dialog>` lightbox with masonry layout and author-controlled per-photo captions. Zero new runtime dependencies — every feature uses platform-native primitives (inline SVG, `<dialog>`, CSS `column-count`, Hugo `[[resources]]` frontmatter, render-image hooks).
+
+### Key Accomplishments
+
+- **ICON — SVG theme toggle (Phase 8)** — Replaced text "Dark" button with sun/moon Lucide v0.547.0 inline-SVG button. CSS-only `[data-theme]` visibility swap (zero JS in the swap path), 44×44 WCAG 2.5.5 hit target via `place-items: center` shell, reduced-motion-gated 150 ms opacity cross-fade. End-of-body IIFE rewritten to set `aria-label` action-oriented strings ("Switch to dark mode" / "Switch to light mode") while preserving v2.0 persistence, `aria-pressed`, `theme-color` meta sync verbatim. Head IIFE byte-identical to v2.0 (Pitfall 1 contract held).
+- **ABOUT — Dynamic rounded redesign (Phase 9)** — New `themes/minimal/layouts/about/single.html` template, 3 new Hugo shortcodes (`pullquote`, `split`, `feature`), 2 new render-image hook arms (`split`, `feature`), `--radius-soft: 12px` token applied site-wide. Asymmetric alternating text/image layout balancing professional background with climbing/cycling/cooking. WCAG AA-large pullquote contrast preserved in dark theme; mobile reflow to single column verified.
+- **GALLERY — Lightbox + masonry + captions (Phase 10)** — Native `<dialog>` lightbox (free focus-trap via `showModal()`) with 12 px `backdrop-filter: blur` and rgba fallback, CSS `column-count` masonry (3/2/1 columns at 900/600/<600 px), per-photo `params.weight`-driven deterministic order, optional frontmatter captions with graceful empty rendering, 50 px deltaX touch-swipe nav, scroll-locked body, page-scoped vanilla-JS IIFE in `lightbox.js` (D-14/D-15). EXIF scrub CI gate added to `deploy.yml` against `GPSLatitude|GPSLongitude|Make|Model|SerialNumber`.
+- **EXIF AutoOrient fix (post-execution patch)** — Discovered post-deploy that 4 gallery + 2 about photos with non-normal EXIF Orientation rendered upside-down or sideways because Hugo's `image.Process` strips EXIF without auto-rotating pixels first. Chained `images.AutoOrient` filter before every `.Process` call across 8 sites in 3 templates (`gallery/single.html`, `about/single.html`, `_default/_markup/render-image.html`). Documented in `.planning/debug/gallery-exif-rotation.md`.
+- **Gallery content authoring (post-execution)** — 5 author-written captions added (Hochfeiler approach, Hasenalarm 12-pitch top-out, ice climbing with Peter & Isabell, Leonidio New Year's sport climbing, Lofoten sunset with Janine); 1 new photo (`IMG_8985.jpg`) added with EXIF privacy fields stripped before commit per REQ GALLERY-09.
+
+### Known Deferred Items at Close
+
+2 items acknowledged and deferred at close (see STATE.md § Deferred Items):
+
+- **UAT (2 phases):** Phase 09 (5 gates) — closure happened indirectly via Phase 10 live-site walkthrough; Phase 10 (6 scenarios) — closure happened in `10-UAT.md`, all 6 passed live (commit `5ddece6`). Both `*-HUMAN-UAT.md` scaffold files retain `status: scaffolded` as the project pattern (frontmatter never gets ticked).
+
+These do not block close — implementation is shipped, all CI gates green, all 21 v3.0 requirements complete (5 ICON + 7 ABOUT + 9 GALLERY).
+
+### Requirements
+
+21/21 v3 requirements marked Complete (ICON-01..05, ABOUT-01..07, GALLERY-01..09).
+
+---
+
 ## v2.0 Brand & Gallery (Shipped: 2026-05-01)
 
 **Phases:** 6 (3, 4, 5, 05.1, 6, 7) | **Plans:** 19 | **Tasks:** 20
