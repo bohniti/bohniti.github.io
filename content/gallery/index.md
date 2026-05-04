@@ -17,6 +17,7 @@ src = "photos/IMG_8113.jpg"
 name = "photos/IMG_8113.jpg"
 [resources.params]
 alt = "A landscape photograph from Timo's travels."
+caption = "Peter shot this one while we were approaching Hochfeiler, a pretty nice peak at around 3k, without the need of passing any glacier."
 weight = 10
 
 [[resources]]
@@ -24,6 +25,7 @@ src = "photos/IMG_7828.jpeg"
 name = "photos/IMG_7828.jpeg"
 [resources.params]
 alt = "A scenic photograph captured during a walk."
+caption = "Selfie after a tour called Hasenalarm. After 12 pitches baking in the sun, happy for the top out."
 weight = 20
 
 [[resources]]
@@ -31,13 +33,15 @@ src = "photos/IMG_6546.jpeg"
 name = "photos/IMG_6546.jpeg"
 [resources.params]
 alt = "An outdoor photograph from a recent trip."
+caption = "Peter and Isabell taking us out for our first time ice climbing."
 weight = 30
 
 [[resources]]
 src = "photos/IMG_5685_Original.JPG"
 name = "photos/IMG_5685_Original.JPG"
 [resources.params]
-alt = "A candid photograph from the field."
+alt = "A photograph documenting a moment outdoors."
+caption = "Some sport climbing over New Year's Eve in Leonidio. A great group at probably the best spot for sport climbing right now."
 weight = 40
 
 [[resources]]
