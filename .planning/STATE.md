@@ -4,8 +4,8 @@ milestone: v3.0
 milestone_name: Design Update
 status: executing
 stopped_at: Phase 10 UI-SPEC approved
-last_updated: "2026-05-04T07:26:57.003Z"
-last_activity: 2026-05-04 -- Phase 10 planning complete
+last_updated: "2026-05-04T07:28:47.342Z"
+last_activity: 2026-05-04 -- Phase 10 execution started
 progress:
   total_phases: 3
   completed_phases: 2
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-05-01)
 
 **Core value:** The blog should be a polished, technical reference -- clear diagrams over screenshots, precise values over vague descriptions -- and feel unmistakably like *Timo's site* in either light or dark mode.
-**Current focus:** Phase 09 — about-dynamic-rounded-redesign
+**Current focus:** Phase 10 — GALLERY — Lightbox + Masonry + Captions
 
 ## Current Position
 
-Phase: 09 (about-dynamic-rounded-redesign) — EXECUTING
-Plan: 3 of 3
-Status: Ready to execute
-Last activity: 2026-05-04 -- Phase 10 planning complete
+Phase: 10 (GALLERY — Lightbox + Masonry + Captions) — EXECUTING
+Plan: 1 of 3
+Status: Executing Phase 10
+Last activity: 2026-05-04 -- Phase 10 execution started
 
 Progress: [██████████] 100%
 
