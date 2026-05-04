@@ -7,8 +7,9 @@
       <div class="gallery-grid">
         {{ $total := len . }}
         {{ range $idx, $photo := sort . "Params.weight" "asc" }}
-          {{ $thumb := $photo.Process "Resize 600x webp q75" }}
-          {{ $full  := $photo.Process "fit 1200x1200 webp q78" }}
+          {{ $oriented := $photo.Filter (images.AutoOrient) }}
+          {{ $thumb := $oriented.Process "Resize 600x webp q75" }}
+          {{ $full  := $oriented.Process "fit 1200x1200 webp q78" }}
           <a class="gallery-item"
              href="{{ $full.RelPermalink }}"
              data-caption="{{ $photo.Params.caption }}"

@@ -5,17 +5,18 @@
   {{- $isGrid    := eq $title "grid" -}}
   {{- $isSplit   := eq $title "split" -}}
   {{- $isFeature := eq $title "feature" -}}
+  {{- $oriented := $resource.Filter (images.AutoOrient) -}}
   {{- $processed := "" -}}
   {{- if $isHero -}}
-    {{- $processed = $resource.Process "fill 480x600 Smart webp q80" -}}
+    {{- $processed = $oriented.Process "fill 480x600 Smart webp q80" -}}
   {{- else if $isGrid -}}
-    {{- $processed = $resource.Process "fill 400x300 Smart webp q75" -}}
+    {{- $processed = $oriented.Process "fill 400x300 Smart webp q75" -}}
   {{- else if $isSplit -}}
-    {{- $processed = $resource.Process "fit 600x450 webp q78" -}}
+    {{- $processed = $oriented.Process "fit 600x450 webp q78" -}}
   {{- else if $isFeature -}}
-    {{- $processed = $resource.Process "fill 1024x576 Smart webp q80" -}}
+    {{- $processed = $oriented.Process "fill 1024x576 Smart webp q80" -}}
   {{- else -}}
-    {{- $processed = $resource.Process "fill 800x600 Smart webp q78" -}}
+    {{- $processed = $oriented.Process "fill 800x600 Smart webp q78" -}}
   {{- end -}}
   <img src="{{ $processed.RelPermalink }}"
        width="{{ $processed.Width }}"
