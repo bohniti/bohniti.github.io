@@ -141,4 +141,13 @@ name = "photos/f2e6acbb-7e38-4235-aade-b23a22622596.jpg"
 [resources.params]
 alt = "A photograph from a memorable trip."
 weight = 180
+
+
+[[resources]]
+src = "photos/IMG_8985.jpg"
+name = "photos/IMG_8985.jpg"
+[resources.params]
+alt = "Janine and Timo on the Lofoten Islands at sunset."
+caption = "Janine and myself on our Lofoten trip. Grateful for having such a woman by my side and sharing the most beautiful sunset of all time with me."
+weight = 190
 +++
