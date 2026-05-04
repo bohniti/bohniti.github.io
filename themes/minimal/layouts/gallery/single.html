@@ -6,11 +6,13 @@
     {{ with .Resources.Match "photos/*" }}
       <div class="gallery-grid">
         {{ $total := len . }}
-        {{ range $idx, $photo := . }}
-          {{ $thumb := $photo.Process "fill 600x400 Smart webp q75" }}
+        {{ range $idx, $photo := sort . "Params.weight" "asc" }}
+          {{ $thumb := $photo.Process "Resize 600x webp q75" }}
           {{ $full  := $photo.Process "fit 1200x1200 webp q78" }}
           <a class="gallery-item"
              href="{{ $full.RelPermalink }}"
+             data-caption="{{ $photo.Params.caption }}"
+             data-alt="{{ $photo.Params.alt }}"
              aria-label="Open photo {{ add $idx 1 }} of {{ $total }} at full size">
             <img class="gallery-img"
                  src="{{ $thumb.RelPermalink }}"
@@ -24,5 +26,30 @@
         {{ end }}
       </div>
     {{ end }}
+
+    {{/* Phase 10 — Lightbox dialog (D-09, D-20). One <dialog> mutated in place by lightbox.js. */}}
+    <dialog id="gallery-lightbox" aria-label="Photo viewer">
+      <button type="button" class="gallery-lightbox-close" aria-label="Close gallery">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <button type="button" class="gallery-lightbox-prev" aria-label="Previous photo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <img class="gallery-lightbox-img" src="" alt="" />
+      <figcaption class="gallery-lightbox-caption"></figcaption>
+      <button type="button" class="gallery-lightbox-next" aria-label="Next photo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </dialog>
+
+    {{/* Phase 10 — page-scoped lightbox JS (D-14). NOT loaded from baseof.html. */}}
+    <script src="{{ "js/lightbox.js" | absURL }}" defer></script>
   </article>
 {{ end }}
