@@ -102,9 +102,9 @@ Plans:
   8. Download any image served from `/gallery/` and inspect its EXIF — find zero GPS, Make, Model, or Serial fields (CI gate carried forward from v2.0 Phase 6 enforces this on every build).
 **Plans**: 3 plans
 Plans:
-- [ ] 10-01-PLAN.md — Data: 18 [[resources]] entries with caption/alt/weight in content/gallery/index.md (GALLERY-01, GALLERY-03, GALLERY-04)
-- [ ] 10-02-PLAN.md — Template + CSS + EXIF CI: gallery/single.html sort + Resize 600x + dialog markup, style.css column-count masonry + lightbox rules, deploy.yml exiftool gate (GALLERY-02, GALLERY-04, GALLERY-05, GALLERY-08, GALLERY-09)
-- [ ] 10-03-PLAN.md — Lightbox JS + Verification: themes/minimal/static/js/lightbox.js IIFE + 10-HUMAN-UAT.md scaffold (GALLERY-04, GALLERY-05, GALLERY-06, GALLERY-07, GALLERY-08, GALLERY-09)
+- [x] 10-01-PLAN.md — Data: 18 [[resources]] entries with caption/alt/weight in content/gallery/index.md (GALLERY-01, GALLERY-03, GALLERY-04)
+- [x] 10-02-PLAN.md — Template + CSS + EXIF CI: gallery/single.html sort + Resize 600x + dialog markup, style.css column-count masonry + lightbox rules, deploy.yml exiftool gate (GALLERY-02, GALLERY-04, GALLERY-05, GALLERY-08, GALLERY-09)
+- [x] 10-03-PLAN.md — Lightbox JS + Verification: themes/minimal/static/js/lightbox.js IIFE + 10-HUMAN-UAT.md scaffold (GALLERY-04, GALLERY-05, GALLERY-06, GALLERY-07, GALLERY-08, GALLERY-09)
 **UI hint**: yes
 
 ## Progress
@@ -124,4 +124,4 @@ v3.0 phases execute in numeric order: 8 → 9 → 10 (decimal insertions appear 
 | 7. About Enrichment | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-05-01 |
 | 8. ICON — SVG Theme Toggle | v3.0 | 2/2 | Complete   | 2026-05-02 |
 | 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/3 | Planned | - |
-| 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/3 | Planned | - |
+| 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 3/3 | Complete   | 2026-05-04 |
