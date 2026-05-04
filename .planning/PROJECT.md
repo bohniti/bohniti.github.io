@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Timo's personal website and blog, built with Hugo and a custom minimal theme, deployed to GitHub Pages at tbohnstedt.cloud. The site evolves milestone-by-milestone — first as a polished technical reference (v1.0), now into a branded space with a coherent visual identity, theming, and a photo gallery (v2.0).
+Timo's personal website and blog, built with Hugo and a custom minimal theme, deployed to GitHub Pages at tbohnstedt.cloud. The site evolves milestone-by-milestone — first as a polished technical reference (v1.0), then a branded space with coherent identity + theming + a photo gallery (v2.0), now refined with an SVG theme toggle, asymmetric About layout, and native `<dialog>` lightbox gallery (v3.0).
 
 ## Core Value
 
@@ -11,22 +11,12 @@ The blog should be a polished, technical reference that's useful for future-me �
 ## Shipped Milestones
 
 - **v1.0 Targeted Refinement** (2026-04-27) — Mermaid-diagrammed video editing post + Instagram footer link.
-- **v2.0 Brand & Gallery** (2026-05-01) — coherent visual identity (logo + dark/light theming), `/gallery/` page, enriched About. The site looks unmistakably like *Timo's site* on every page in either theme.
+- **v2.0 Brand & Gallery** (2026-05-01) — coherent visual identity (logo + dark/light theming), `/gallery/` page, enriched About.
+- **v3.0 Design Update** (2026-05-04) — SVG theme toggle, asymmetric rounded About layout, native `<dialog>` lightbox gallery with masonry + author-controlled captions. Zero new runtime dependencies.
 
-## Current Milestone: v3.0 Design Update
+## Current Milestone
 
-**Goal:** Refine three rough edges in the v2.0 design — theme toggle, gallery, and about page — without changing the underlying Flexoki/Kindle/Obsidian-minimal aesthetic.
-
-**Target features:**
-- Replace text-button theme toggle with simple SVG sun/moon icon (GitHub-style, same header position, no emoji)
-- Gallery refactor: lightbox modal with blurred backdrop instead of standalone-image navigation; randomized layout that preserves each photo's original aspect ratio (masonry-style, not uniform grid); 1–2 sentence caption per image; easy authoring path for adding photos + captions
-- About page redesign: more dynamic and rounded layout (reference: tylerkarow.com/about) that balances climbing with professional background; same minimal aesthetic, less rigid
-
-**Key context:**
-- Aesthetic stays Flexoki — site should still feel "like a Kindle or Obsidian" in either theme
-- Reference for gallery feel: http://tylerkarow.com/gallery
-- About content must broaden beyond climbing to include professional background (currently climbing-heavy after Phase 7 enrichment)
-- All v2.0 invariants hold: no JS framework, vanilla JS only, no flash on load, accessible toggle, EXIF-scrubbed gallery, ≤ 2 MB first-paint
+None active — ready to plan the next milestone via `/gsd-new-milestone`.
 
 ## Requirements
 
@@ -48,10 +38,13 @@ The blog should be a polished, technical reference that's useful for future-me �
 - ✓ Wordmark migrated to inline SVG (Hugo `readFile + safeHTML`) recoloring via `currentColor` + `var(--text)`; `favicon.svg` rewritten as native path-based SVG (4.8 KB, was 77 KB) with embedded `prefers-color-scheme` rule; `build_brand_assets.py` rewritten with cairosvg pipeline (69 LOC, was 205); 8 sliced PNGs + sprite source retired — Phase 05.1 (v2.0)
 - ✓ `/gallery/` page bundle reachable from main nav with 18 photos in CSS-Grid layout; Hugo `image.Process` WebP pipeline (q75 thumbs, q82 fulls); zero GPS/Make/Model/Serial in published output; ≤ 2 MB first-paint, CLS < 0.1; `images/galary/` retired in favor of `content/gallery/photos/` page bundle — Phase 6 (v2.0)
 - ✓ About page converted to `content/about/index.md` leaf bundle with hero/pullquote/grid render-image hook (480×600 q80 / 400×300 q75 / 800×600 q78), 5 EXIF-scrubbed personal photos, legacy `content/about.md` retired, `/about/` URL unchanged — Phase 7 (v2.0)
+- ✓ Theme toggle replaced by sun/moon SVG icon button (44×44 hit target, CSS-only `[data-theme]` swap, reduced-motion-gated 150 ms cross-fade); end-of-body IIFE rewritten to set `aria-label` action-oriented strings while preserving v2.0 persistence/`aria-pressed`/`theme-color` sync — Phase 8 (v3.0)
+- ✓ About page redesigned with asymmetric rounded layout served from new `themes/minimal/layouts/about/single.html` (3 new shortcodes: `pullquote`, `split`, `feature`; 2 new render-image arms; `--radius-soft: 12px` token); content rebalanced to cover professional background + climbing/cycling/cooking in proportion; mobile collapse to single column; WCAG AA-large pullquote contrast preserved in dark theme — Phase 9 (v3.0)
+- ✓ Gallery rebuilt with native `<dialog>` lightbox + 12 px backdrop-filter blur (rgba fallback), CSS `column-count` masonry (3/2/1 cols at 900/600/<600 px), per-photo `params.weight` deterministic order, optional frontmatter captions with graceful empty rendering, 50 px deltaX touch-swipe nav, scroll-locked body, page-scoped vanilla-JS IIFE in `lightbox.js`; deploy.yml gains EXIF scrub CI gate — Phase 10 (v3.0)
 
 ### Active
 
-(v3.0 requirements arrive after research → see `.planning/REQUIREMENTS.md`.)
+(None — ready for next milestone planning. Run `/gsd-new-milestone` to define v3.1+ scope.)
 
 ### Out of Scope
 
@@ -64,15 +57,16 @@ The blog should be a polished, technical reference that's useful for future-me �
 
 ## Context
 
-**Post-v2.0 state (2026-05-01):**
+**Post-v3.0 state (2026-05-04):**
 - Brand assets live as native SVG sources: `images/brand-source/{logo.svg, fav-icon.svg}`. Sliced PNG path retired in Phase 05.1. Wordmark inlined into header via Hugo `readFile + safeHTML`; favicon set generated from `scripts/build_brand_assets.py` (cairosvg, 69 LOC).
-- Gallery photos live as page-bundle resources at `content/gallery/photos/` (18 files, EXIF-scrubbed at source). Total `public/gallery/` ≈ 4 MB; first-paint ≤ 2 MB via lazy-loading.
-- About page is a leaf bundle at `content/about/index.md` with co-located images at `content/about/images/`. Render-image hook in `themes/minimal/layouts/_default/_markup/render-image.html` keys off image title for hero/grid/default sizing.
-- Stylesheet at `themes/minimal/static/css/style.css` carries Flexoki light + dark palettes under `:root` and `:root[data-theme="dark"]`. Theme toggle persists via localStorage with no-FOUC inline `<head>` IIFE.
-- Hugo Extended 0.157.0 is pinned. No JS framework — vanilla JS for theme toggle, inline in `<head>` and end-of-body.
-- Deploy: GitHub Actions on push to `main` → GitHub Pages → `https://tbohnstedt.cloud/`.
+- Theme toggle is a sun/moon SVG icon button (Lucide v0.547.0 inline-SVG paths) in the header; CSS-only `[data-theme]` visibility swap, 44×44 hit target, no JS in the swap path. End-of-body IIFE preserves v2.0 persistence/`aria-pressed`/`theme-color` sync, sets action-oriented `aria-label`.
+- About page is a leaf bundle at `content/about/index.md` rendered by a dedicated `themes/minimal/layouts/about/single.html` template with asymmetric alternating sections (hero portrait + intro, pullquote + roles grid, split layouts for climbing/cycling/cooking). 3 shortcodes (`pullquote`, `split`, `feature`) + 5 render-image hook arms (`hero`/`grid`/`split`/`feature`/default) — all keyed off image title.
+- Gallery is a page bundle at `content/gallery/index.md` with 19 photos (`content/gallery/photos/`), each declared in `[[resources]]` blocks with `params.alt`/`weight` (required) + optional `params.caption`. Native `<dialog>` lightbox (page-scoped IIFE in `themes/minimal/static/js/lightbox.js`), CSS `column-count` masonry, `images.AutoOrient` filter chained before every Hugo `.Process` call (8 sites across 3 templates) — EXIF Orientation honored. Total ≈ 4 MB; first-paint ≤ 2 MB via lazy-loading.
+- Stylesheet at `themes/minimal/static/css/style.css` carries Flexoki light + dark palettes under `:root` and `:root[data-theme="dark"]`, plus `--radius-soft: 12px` token applied site-wide. About-specific styling scoped under `body.page-about`.
+- Hugo Extended 0.157.0 is pinned. No JS framework — vanilla JS for theme toggle (inline in `<head>` and end-of-body) + page-scoped lightbox IIFE.
+- CI: GitHub Actions on push to `main` → EXIF scrub gate (`exiftool` against `GPSLatitude|GPSLongitude|Make|Model|SerialNumber`) → Hugo build → GitHub Pages → `https://tbohnstedt.cloud/`.
 
-**Outstanding HUMAN-UAT (deferred to post-deploy):** 4 phases (05, 05.1, 06, 07) and 2 verification gaps (05, 05.1) — see STATE.md § Deferred Items for the trigger checklist.
+**Outstanding HUMAN-UAT (carried forward, deferred to post-deploy):** 4 v2.0 phases (05, 05.1, 06, 07) + 2 verification gaps (05, 05.1). v3.0 UAT closed: Phase 10 walkthrough completed live (commit `5ddece6`); Phase 9 indirectly verified via the same browser session. See STATE.md § Deferred Items.
 
 ## Constraints
 
@@ -96,7 +90,12 @@ The blog should be a polished, technical reference that's useful for future-me �
 | Hugo `image.Process` page-bundle pipeline for gallery | Built-in, no external dependency, generates responsive WebP at q75/q82 | ✓ Validated (Phase 6, v2.0) |
 | Inline-SVG wordmark with `currentColor` (over PNG `<img>` swap) | Single source of truth, recolors via CSS, no FOUC, no two-image swap | ✓ Validated (Phase 05.1, v2.0) — sliced-PNG path superseded mid-milestone |
 | Hugo render-image hook for About images | Keyed off image title — hero/grid/default sizing inferred without per-image CSS | ✓ Validated (Phase 7, v2.0) |
-| EXIF scrub at source-side (not build-time) | Photos arrive in-repo already stripped of GPS/Make/Model/Serial; build can't leak what isn't there | ✓ Validated (Phases 6 + 7, v2.0) |
+| EXIF scrub at source-side (not build-time) | Photos arrive in-repo already stripped of GPS/Make/Model/Serial; build can't leak what isn't there | ✓ Validated (Phases 6 + 7, v2.0) — *reinforced v3.0 with CI gate in deploy.yml* |
+| Gallery ordering = author-controlled `params.weight` deterministic frontmatter | Hugo `collections.Shuffle` is non-deterministic (issue #5641); client-side random causes CLS + breaks deep-links | ✓ Validated (Phase 10, v3.0) |
+| Lightbox = native `<dialog>` + page-scoped vanilla-JS IIFE | Free focus-trap via `showModal()`, no NPM dependency, page-scoped to avoid global pollution (D-14/D-15) | ✓ Validated (Phase 10, v3.0) |
+| Sun/moon theme toggle uses Lucide v0.547.0 inline SVG (not custom-drawn) | Industry-standard icon set, instantly recognizable, no per-icon CSS tweaks needed | ✓ Validated (Phase 8, v3.0) |
+| About layout + content rewrite ship in same milestone | Two-step rollout would leave stale climbing-heavy copy under new layout for an interim deploy | ✓ Validated (Phase 9, v3.0) |
+| `images.AutoOrient` filter chained before every `.Process` call | Hugo strips EXIF without auto-rotating pixels; absent the filter, photos with non-normal Orientation render rotated | ✓ Validated (post-Phase 10 patch, commit `bb02e39`) — applies to gallery + about |
 
 ## Evolution
 
@@ -116,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-01 — v3.0 Design Update started. Refining theme toggle, gallery, about page within Flexoki aesthetic.*
+*Last updated: 2026-05-04 after v3.0 Design Update milestone close.*

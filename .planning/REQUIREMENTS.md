@@ -42,15 +42,15 @@ Replace the existing flat About leaf bundle with an asymmetric, rounded layout t
 
 Replace the v2.0 uniform CSS Grid + standalone-image-page navigation with a native `<dialog>` lightbox, CSS column-count masonry, and per-photo captions authored in frontmatter. Reference: http://tylerkarow.com/gallery.
 
-- [ ] **GALLERY-01**: User authoring a new gallery photo adds a single `[[resources]]` entry to `content/gallery/index.md` with `params.caption`, `params.alt`, and `params.weight` — no separate sidecar files, no build-step regeneration.
-- [ ] **GALLERY-02**: User browsing `/gallery/` sees photos arranged in a multi-column masonry layout (3 columns ≥ 900 px, 2 at 600–900 px, 1 < 600 px) with each photo's original aspect ratio preserved (Hugo `Resize "600x webp q75"`, not `fill 600x400`).
-- [ ] **GALLERY-03**: User browsing the gallery sees photos in a deterministic author-controlled order driven by `params.weight` — same order across deploys, no client-side reflow on load.
-- [ ] **GALLERY-04**: User sees a 1–2 sentence caption rendered below each photo's lightbox view (and gracefully empty if a photo has no caption).
-- [ ] **GALLERY-05**: User clicking a photo opens it in a centered native `<dialog>` lightbox modal with a blurred backdrop (`backdrop-filter: blur(12px)`, with `rgba` fallback for unsupported browsers), with body scroll locked while open.
-- [ ] **GALLERY-06**: User can navigate the lightbox with keyboard: Esc closes, ← / → move to prev/next photo, Tab traps focus inside the dialog (free via `<dialog>` `showModal()`), and focus returns to the originating thumbnail on close.
-- [ ] **GALLERY-07**: User on mobile can swipe left/right (50 px deltaX threshold) to navigate prev/next, and tap outside the image (or the X button) to close.
-- [ ] **GALLERY-08**: User loading the gallery page experiences CLS < 0.1 — every `<img>` ships with explicit `width` and `height` attributes from Hugo's processed image, and the masonry layout does not reflow as images load.
-- [ ] **GALLERY-09**: User downloading any published gallery image finds zero GPS / Make / Model / Serial EXIF fields (CI gate enforced as in v2.0 Phase 6).
+- [x] **GALLERY-01**: User authoring a new gallery photo adds a single `[[resources]]` entry to `content/gallery/index.md` with `params.caption`, `params.alt`, and `params.weight` — no separate sidecar files, no build-step regeneration.
+- [x] **GALLERY-02**: User browsing `/gallery/` sees photos arranged in a multi-column masonry layout (3 columns ≥ 900 px, 2 at 600–900 px, 1 < 600 px) with each photo's original aspect ratio preserved (Hugo `Resize "600x webp q75"`, not `fill 600x400`).
+- [x] **GALLERY-03**: User browsing the gallery sees photos in a deterministic author-controlled order driven by `params.weight` — same order across deploys, no client-side reflow on load.
+- [x] **GALLERY-04**: User sees a 1–2 sentence caption rendered below each photo's lightbox view (and gracefully empty if a photo has no caption).
+- [x] **GALLERY-05**: User clicking a photo opens it in a centered native `<dialog>` lightbox modal with a blurred backdrop (`backdrop-filter: blur(12px)`, with `rgba` fallback for unsupported browsers), with body scroll locked while open.
+- [x] **GALLERY-06**: User can navigate the lightbox with keyboard: Esc closes, ← / → move to prev/next photo, Tab traps focus inside the dialog (free via `<dialog>` `showModal()`), and focus returns to the originating thumbnail on close.
+- [x] **GALLERY-07**: User on mobile can swipe left/right (50 px deltaX threshold) to navigate prev/next, and tap outside the image (or the X button) to close.
+- [x] **GALLERY-08**: User loading the gallery page experiences CLS < 0.1 — every `<img>` ships with explicit `width` and `height` attributes from Hugo's processed image, and the masonry layout does not reflow as images load.
+- [x] **GALLERY-09**: User downloading any published gallery image finds zero GPS / Make / Model / Serial EXIF fields (CI gate enforced as in v2.0 Phase 6).
 
 ## Future Requirements (Deferred)
 
