@@ -23,7 +23,7 @@ Timo's personal website and blog, built with Hugo and a custom minimal theme, de
 - Markdown - All content in `content/` directory
 - CSS - Single stylesheet at `themes/minimal/static/css/style.css`
 - JavaScript (ES6+, vanilla) - Inline scripts in blog posts for data visualization (`content/blog/2026-03-05-climbing-routes/index.md`)
-- Python 3 - Utility scripts in `scripts/` and root directory (`scripts/transform_climbing_csv.py`, `convert_to_french_fixed.py`, `fix_data_properly.py`)
+- Python 3 - Utility scripts in `scripts/` (`transform_climbing_csv.py`, `convert_to_french_fixed.py`, `fix_data_properly.py`, `build_brand_assets.py`)
 ## Runtime
 - Hugo Extended 0.157.0 (pinned in `.github/workflows/deploy.yml`)
 - Hugo is NOT installed locally (not found in PATH); development may rely on another install method or Docker
