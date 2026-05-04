@@ -100,7 +100,11 @@ Plans:
   6. Run a Lighthouse / WebPageTest pass against `/gallery/` on a deployed build and observe CLS < 0.1 — every `<img>` ships with explicit `width` + `height` attributes from Hugo's `Resize "600x webp q75"` pipeline; the masonry does not reflow as images load.
   7. Add a new gallery photo by dropping the file into `content/gallery/` and adding a single `[[resources]]` block (`params.caption`, `params.alt`, `params.weight`) to `content/gallery/index.md` — no sidecar files, no build-step regeneration, photo appears at the authored position on next build.
   8. Download any image served from `/gallery/` and inspect its EXIF — find zero GPS, Make, Model, or Serial fields (CI gate carried forward from v2.0 Phase 6 enforces this on every build).
-**Plans**: TBD (planning step decides)
+**Plans**: 3 plans
+Plans:
+- [ ] 10-01-PLAN.md — Data: 18 [[resources]] entries with caption/alt/weight in content/gallery/index.md (GALLERY-01, GALLERY-03, GALLERY-04)
+- [ ] 10-02-PLAN.md — Template + CSS + EXIF CI: gallery/single.html sort + Resize 600x + dialog markup, style.css column-count masonry + lightbox rules, deploy.yml exiftool gate (GALLERY-02, GALLERY-04, GALLERY-05, GALLERY-08, GALLERY-09)
+- [ ] 10-03-PLAN.md — Lightbox JS + Verification: themes/minimal/static/js/lightbox.js IIFE + 10-HUMAN-UAT.md scaffold (GALLERY-04, GALLERY-05, GALLERY-06, GALLERY-07, GALLERY-08, GALLERY-09)
 **UI hint**: yes
 
 ## Progress
@@ -120,4 +124,4 @@ v3.0 phases execute in numeric order: 8 → 9 → 10 (decimal insertions appear 
 | 7. About Enrichment | v2.0 | 4/4 | Complete (HUMAN-UAT post-deploy) | 2026-05-01 |
 | 8. ICON — SVG Theme Toggle | v3.0 | 2/2 | Complete   | 2026-05-02 |
 | 9. ABOUT — Dynamic Rounded Redesign | v3.0 | 0/3 | Planned | - |
-| 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/TBD | Not started | - |
+| 10. GALLERY — Lightbox + Masonry + Captions | v3.0 | 0/3 | Planned | - |

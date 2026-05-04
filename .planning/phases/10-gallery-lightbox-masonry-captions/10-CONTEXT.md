@@ -139,7 +139,7 @@ Out of scope (deferred per REQUIREMENTS.md "Future Requirements"): photo counter
 - **D-25 [auto]:** **`.gallery-lightbox-img { max-width: 100%; max-height: calc(100vh - 8rem); object-fit: contain; }`** — preserves aspect ratio per photo, caps at viewport. Caption sits below image. Both dimensions constrained to keep modal within viewport on any device. No `width: 100%` (would distort).
 
 ### Phase Sub-Task Order (ARCHITECTURE risk callouts)
-- **D-26 [auto]:** **Three-step internal ordering, planner SHOULD respect:**
+- **D-26 [auto] [informational]:** **Three-step internal ordering, planner SHOULD respect:**
   1. **Wave 1 — Data:** Author all 18 `[[resources]]` entries in `content/gallery/index.md` with `caption` (where author-provided), `alt`, `weight`. Pure data; no UX impact. Single commit.
   2. **Wave 2 — Template + CSS:** Update `gallery/single.html` (sort by weight, switch to `Resize 600x`, emit `data-caption` / `data-alt` attrs, add `<dialog>` markup, defer-load `lightbox.js`); rewrite `style.css` `/* === Gallery === */` block (delete grid rules, add column-count masonry rules, add lightbox rules); update render-image hook ONLY if a new arm is needed (likely not — the gallery doesn't use markdown-driven images, photos come from `Resources.Match`).
   3. **Wave 3 — JS:** Author `themes/minimal/static/js/lightbox.js` (~80 LOC IIFE per D-15). After Wave 2 ships the data-attrs and dialog markup, the JS has something to read.
@@ -147,7 +147,7 @@ Out of scope (deferred per REQUIREMENTS.md "Future Requirements"): photo counter
   5. **Wave 5 — Verification:** Run automated gates (`hugo` build success, `exiftool` returns no fields, page renders, masonry breakpoints visible at 320/600/900/1200 px viewports), write `10-HUMAN-UAT.md` for post-deploy browser walkthrough (Lighthouse CLS, focus trap, touch swipe on real device, screen reader announce, dark/light theme dialog backdrop, EXIF check on deployed `.webp`).
 
 ### Plan Granularity Hint (Phase Boundary, Goal)
-- **D-27 [auto]:** **Suggested plan count: 3** — `10-01 Authoring + Frontmatter`, `10-02 Template + CSS + EXIF CI`, `10-03 Lightbox JS + Verification + HUMAN-UAT`. Final count is the planner's call, but coarse-grain favors 3 plans (Phase 9 used 3, similar size). 4 is acceptable if planner separates EXIF CI from Wave 2.
+- **D-27 [auto] [informational]:** **Suggested plan count: 3** — `10-01 Authoring + Frontmatter`, `10-02 Template + CSS + EXIF CI`, `10-03 Lightbox JS + Verification + HUMAN-UAT`. Final count is the planner's call, but coarse-grain favors 3 plans (Phase 9 used 3, similar size). 4 is acceptable if planner separates EXIF CI from Wave 2.
 
 ### Existing Markup to Preserve
 - **D-28 [auto]:** **Keep `<a class="gallery-item" href="{{ $full.RelPermalink }}" aria-label="Open photo {{ add $idx 1 }} of {{ $total }} at full size">`** wrapper from gallery/single.html:12-14 — ARIA label, position semantics, progressive enhancement all preserved (D-19). Add: `data-caption="{{ $photo.Params.caption }}"` and `data-alt="{{ $photo.Params.alt }}"` for the lightbox JS to read. Existing `loading` / `fetchpriority` / `decoding` attributes (lines 19-21) stay.
