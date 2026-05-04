@@ -30,6 +30,25 @@ jobs:
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Verify EXIF scrub (gallery)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libimage-exiftool-perl
+          # D-23 layer 2 — fail the build if any forbidden EXIF field appears
+          # in source photos. Layer 1 (Hugo [imaging.exif] disableLatLong) stays
+          # in hugo.toml. This step is the defensive CI gate.
+          shopt -s nullglob nocaseglob
+          photos=(content/gallery/photos/*.jpg content/gallery/photos/*.jpeg)
+          if [ ${#photos[@]} -eq 0 ]; then
+            echo "::error::No gallery photos found at content/gallery/photos/"
+            exit 1
+          fi
+          forbidden='GPSLatitude|GPSLongitude|Make|Model|SerialNumber'
+          if exiftool "${photos[@]}" 2>/dev/null | grep -E "^($forbidden)[[:space:]]*:"; then
+            echo "::error::EXIF scrub failed — forbidden fields present in content/gallery/photos/*."
+            exit 1
+          fi
+          echo "EXIF scrub verified: no GPS/Make/Model/Serial fields in ${#photos[@]} gallery photos."
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
