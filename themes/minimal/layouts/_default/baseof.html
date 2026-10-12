@@ -21,6 +21,7 @@
       if (meta) meta.setAttribute('content', theme === 'dark' ? '#100F0F' : '#FFFCF0');
     })();
   </script>
+  <link rel="preload" href="{{ "fonts/Libron-Regular.woff2" | absURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
 </head>
 <body class="page-{{ .Type | default "default" }}">
