@@ -1,57 +1,20 @@
 ---
 title: "About"
 type: "about"
-heroIntro: |
-  ## Hi, I'm Timo.
-
-  I'm a Senior Data Science Consultant at [Erste Group](https://www.erstegroup.com/) in Vienna, where I design AI platforms and deliver GenAI solutions across Central Europe.
-
-  Before that, I worked with Accenture on data engineering, and with Siemens on machine learning and data analytics. I hold a B.Sc. in Information Systems and have an (almost complete) M.Sc. in Computer Science from FAU Erlangen-Nuremberg.
-
-  [Download full CV (PDF)](/files/timo-bohnstedt-cv.pdf)
-roles:
-  - title: "Senior Data Science Consultant"
-    meta: "Erste Group · Vienna · since 09/2023"
-    bullets:
-      - "Built an AI platform on Azure & Databricks serving 7,000 daily users across five countries"
-      - "Delivered eight GenAI use cases including RAG chatbots and few-shot classification"
-      - "Leading the group-wide Agent DevOps working group (MCP, agent-to-agent communication)"
-    pullquote: "Improved message routing accuracy from **40% → 95%**"
-  - title: "Data Science Analyst"
-    meta: "Accenture · Vienna · 03/2022 – 08/2023"
-    bullets:
-      - "Built data lake business layers with Azure Synapse, PySpark, and Databricks"
-      - "2nd place at an international GenAI hackathon (300 participants)"
-  - title: "ML Engineer"
-    meta: "Siemens Healthineers · Erlangen · 02/2021 – 02/2022"
-    bullets:
-      - "Contributed to a ML framework for predictive maintenance"
 ---
 
-## Education
+I'm Timo, a data and AI engineer based in Vienna.
 
-- **M.Sc. Computer Science** — FAU Erlangen-Nuremberg *(105/120 ECTS, on hold)*
-- **B.Sc. Information Systems** — Nuremberg Institute of Technology
-- **Exchange semester** — City University of Hong Kong
+I currently work at [Erste Group](https://www.erstegroup.com/). I started there as a technical expert for Databricks and was hire number two on the team, which I then helped build and scale.
 
-## Certifications
+When ChatGPT came out, I built up the bank's AI capability. I was responsible end-to-end, from solution architecture through to deployment, for several use cases. Among them is a policy chatbot that is now used across the entire group.
 
-- Databricks Generative AI Engineer Associate *(2024)*
-- Azure Solution Architect *(2023)*
-- The Power MBA *(2021)*
+Before that, I was at Accenture, helping clients put their data to use with AI.
 
-## Outside Work
+I've been climbing for almost ten years, and lately I've been getting into alpine climbing and mountain running.
 
-Bouldering, cycling, running, cooking, and reading — both fiction and non-fiction. When I'm not at a keyboard, I'm usually on a trail, a wall, or a bike somewhere in the Alps.
+On the side, I like to read. Right now it's *Water Music* by T.C. Boyle.
 
-<div class="about-grid">
+On the more technical side, I like my Garmin, mostly because I can hook it up to [intervals.icu](https://intervals.icu/). As a hobby, I'm trying to [steer my training with AI](/blog/2026-03-15-intervals-copilot/) as well.
 
-![Bouldering at the climbing gym](images/climbing.jpg "grid")
-
-![Cycling in the Alps](images/cycling.jpg "grid")
-
-![Trail running](images/running.jpg "grid")
-
-![Cooking](images/cooking.JPG "grid")
-
-</div>
+**Contacting me:** You'll find me on [GitHub](https://github.com/bohniti) and [Instagram](https://instagram.com/bohniti).

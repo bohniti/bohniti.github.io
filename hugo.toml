@@ -23,13 +23,9 @@ enableRobotsTXT = true
     url = "/blog/"
     weight = 1
   [[menu.main]]
-    name = "Gallery"
-    url = "/gallery/"
-    weight = 2
-  [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 3
+    weight = 2
 
 [imaging]
   [imaging.exif]
